@@ -1,0 +1,43 @@
+#include "grayscale.h"
+#include <iostream>
+
+GrayscaleImage::~GrayscaleImage() {
+    free(image);
+    image = NULL;
+    this->type = 0;
+    this->height = 0;
+    this->width = 0;
+}
+
+void GrayscaleImage::read_image(const string filename) {
+    Mat img = imread(filename, 0); // force gray scale
+    this->width = img.cols;
+    this->height = img.rows;
+    this->type = img.type();
+    this->image = (unsigned char*)malloc(this->width*this->height*sizeof(unsigned char));
+    for (int i = 0; i < this->height; i++) {
+        for (int j = 0; j < this->width; j++) {
+            // this->image[j + i * this->width] = img.at<Vec3b>(i, j)[0] * 0.299 + img.at<Vec3b>(i, j)[1] * 0.587 + img.at<Vec3b>(i, j)[2] * 0.114;
+            this->image[j + i * this->width] = img.at<uchar>(i, j);
+        }
+    }
+}
+
+void GrayscaleImage::write_image(const string filename) {
+    Mat img(this->height, this->width, this->type);
+    for (int i = 0; i < this->height; i++) {
+        for (int j = 0; j < this->width; j++) {
+            img.at<uchar>(i, j) = this->image[j + i * this->width];
+        }
+    }
+    imwrite(filename, img);
+}
+
+void GrayscaleImage::reset_image(unsigned short height, unsigned short width, char type) {
+    this->height = height;
+    this->width = width;
+    this->type = type;
+    free(image);
+    this->image = NULL;
+    this->image = (unsigned char*)malloc(this->width*this->height*sizeof(unsigned char));
+}
