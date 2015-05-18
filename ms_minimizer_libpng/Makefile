@@ -1,29 +1,24 @@
 # ImageProcessing: main.cpp image.cpp edge_detection.cpp
 # 	g++ -L/usr/local/lib -I/usr/local/include -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm main.cpp image.cpp edge_detection.cpp -o ImageProcessing
 
-ImageProcessing: main.cpp image.cpp ms_minimizer.cpp
-	g++ -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -L/usr/local/lib -I/usr/local/include/libpng12 -lpng -fopenmp main.cpp image.cpp ms_minimizer.cpp -o ImageProcessing
+# ImageProcessing: main.cpp image.cpp util.cpp huber_rof_model.cpp
+# 	g++ -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -L/usr/local/lib -I/usr/local/include/libpng12 -lpng -fopenmp main.cpp image.cpp util.cpp huber_rof_model.cpp -o ImageProcessing
 
 
-# VERSION = 1.00
-# CXX = g++
-# CC = gcc
-# CFLAGS = -O2 -Wall -std=c99 -fopenmp
-# CPPFLAGS = -O2 -Wall
-# DEPS = image.h ms_minimizer.h
-# OBJ = main.o image.o ms_minimizer.o
-# LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
-# LDFLAGS = -L/usr/local/lib
-# IDFLAGS = -I/usr/local/include
+VERSION = 1.00
+CC = g++
+CFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -Wall
+DEPS = image.h util.h huber_rof_model.h tv_l1_model.h
+OBJ = main.o image.o util.o huber_rof_model.o tv_l1_model.o
+LDLIBS = -lpng -fopenmp
+LDFLAGS = -L/usr/local/lib
+IDFLAGS = -I/usr/local/include/libpng12
 
-# %.o: %.c $(DEPS)
-# 	$(CC) -c -o $@ $< $(CFLAGS)
+%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(IDFLAGS)
 
-# %.o: %.cpp $(DEPS)
-# 	$(CXX) -c -o $@ $< $(CPPFLAGS) $(IDFLAGS)
+ImageProcessing: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS) $(LDLIBS)
 
-# ImageProcessing: $(OBJ)
-# 	$(CC) -o $@ $^ $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
-
-# clean:
-# 	rm *.o
+clean:
+	rm *.o

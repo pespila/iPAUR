@@ -39,16 +39,14 @@ gray_img *read_image_data(const char* filename) {
 
     image->image_height = info_ptr->height;
     image->image_width = info_ptr->width;
-    image->approximation = (unsigned char*)malloc(info_ptr->height*info_ptr->width*sizeof(unsigned char));
-    image->iterative_data = (float*)malloc(info_ptr->height*info_ptr->width*sizeof(float));
+    image->approximation = (float*)malloc(info_ptr->height*info_ptr->width*sizeof(float));
     image->bit_depth = info_ptr->bit_depth;
     image->color_type = info_ptr->color_type;
 
     row_pointers = png_get_rows(png_ptr, info_ptr);
     for (int i = 0; i < image->image_height; i++) {
         for (int j = 0; j < image->image_width; j++) {
-            image->approximation[j + i * image->image_width] = *(row_pointers[i] + j*info_ptr->pixel_depth/8);
-            image->iterative_data[j + i * image->image_width] = (float)*(row_pointers[i] + j*info_ptr->pixel_depth/8);
+            image->approximation[j + i * image->image_width] = (float)*(row_pointers[i] + j*info_ptr->pixel_depth/8);
         }
     }
 
@@ -115,13 +113,11 @@ void write_image_data(gray_img* image, const char* filename) {
 gray_img *initalize_raw_image(int rows, int cols, char type) {
     gray_img *image = (gray_img*)malloc(sizeof(gray_img));
     assert(image);
-    image->iterative_data = (float*)malloc(rows*cols*sizeof(float));
-    image->approximation = (unsigned char*)malloc(rows*cols*sizeof(unsigned char));
+    image->approximation = (float*)malloc(rows*cols*sizeof(float));
     image->image_height = rows;
     image->image_width = cols;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            image->iterative_data[j + i * cols] = 0.0;
             image->approximation[j + i * cols] = 0;
         }
     }
@@ -130,6 +126,6 @@ gray_img *initalize_raw_image(int rows, int cols, char type) {
 
 void destroy_image(gray_img* image) {
     assert(image);
-    free(image->iterative_data);
+    free(image->approximation);
     free(image);
 }
