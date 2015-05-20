@@ -1,6 +1,27 @@
 ## iPAUR
 #### (image processing algorithms at University of Regensburg)
 ------------------------
+Here is a list of the implemented algorithms:
 
-In this masters thesis at University of Regensburg we present image processing algorithms, such as Gaussian Filter, Mean Filter, etc.
-As development goes on, this Readme and the algorithms are updated continously.
+* Advanced algorithms (for color and gray valued images):
+** (Huber-)ROF-Model
+** TV-L1-Model
+** Image Inpainting
+** ...
+* Basic algorithms:
+** mean value blur
+** gaussian blur
+** canny edge detection
+** dilatation
+** erosion
+** duto filter
+** gradient filter (Sobel, Prewitt, Robert's Cross)
+** color space conversions
+** inverse image
+** laplace filter (operator)
+** laplacian of gaussian (LoG) filter
+** median filter
+** top hat operator
+** ...
+
+How to install/use this algorithms, see benchmarks and read my master thesis you will find as soon as everything is set up...
