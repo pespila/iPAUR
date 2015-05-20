@@ -24,4 +24,8 @@ Here is a list of the implemented algorithms:
 ..* top hat operator
 ..* ...
 
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+
 How to install/use this algorithms, see benchmarks and read my master thesis you will find as soon as everything is set up...
