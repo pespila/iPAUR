@@ -1,4 +1,4 @@
-# iPAUR
+## iPAUR
 #### (image processing algorithms at University of Regensburg)
 ------------------------
 
