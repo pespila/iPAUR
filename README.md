@@ -3,12 +3,12 @@
 ------------------------
 Here is a list of the implemented algorithms:
 
-* Advanced algorithms (for color and gray valued images):
++ Advanced algorithms (for color and gray valued images):
 ..* (Huber-)ROF-Model
 ..* TV-L1-Model
 ..* Image Inpainting
 ..* ...
-* Basic algorithms:
++ Basic algorithms:
 ..* mean value blur
 ..* gaussian blur
 ..* canny edge detection
