@@ -5,7 +5,6 @@
 #include "grayscale.h"
 #include "type_conversion.h"
 #include "bluring.h"
-#include "gradient_filter.h"
 #include "robertscross.h"
 #include "prewitt.h"
 #include "sobel.h"
@@ -32,12 +31,20 @@
 #include "inpainting_color.h"
 
 void run(int, const char**);
+// void print_init();
+// int return_category();
+// int return_algorithm_choice(int);
 
 int main(int argc, const char* argv[]) {
-    if (argc < 2) {
-        printf("ERROR: Pass in file reading file, writing file, algorithm & filter size!\n");
+    if (argc < 3) {
+        printf("ERROR: Pass in filenames for reading and writing!\n");
         return 1;
     }
+    // int category = 0;
+    // int algorithm = 0;
+    // int colored_in = 0;
+    // int colored_out = 0;
+
 
     // GrayscaleImage in, out;
     // in.read_image(argv[1]);
@@ -46,6 +53,26 @@ int main(int argc, const char* argv[]) {
     // Op.primal_dual_algorithm(in, out);
 
     // out.write_image(argv[2]);
+
+    
+
+    // do {
+    //     print_init();
+    //     printf("Input Image:\n");
+    //     colored_in = check_color_channels();
+    //     printf("Output Image:\n");
+    //     colored_out = check_color_channels();
+    //     category = return_category();
+    //     if (return_algorithm_choice(category, colored_in, colored_out, argv[1], argv[2])) printf("Algorithm successfull.\n");
+
+    // }
+
+    // int doit = 1;
+
+    // do {
+    //     printf("Hallo\n");
+    //     scanf("%d", &doit);
+    // } while (doit == 1);
 
     run(argc, argv);
 
@@ -138,22 +165,146 @@ int main(int argc, const char* argv[]) {
     return 0;
 }
 
+// void print_init() {
+//     printf("\nWelcome to iPAUR! Choose your prefered (type of) category:\n\n");
+//     printf("[1] Bluring\n[2] Edge Detection\n[3] Dilatation\n[4] Erosion\n[5] Color conversion\n[6] Inverse Image\n\
+// [7] Filtering\n[8] Open-Close Operator\n[9] Top-Hat Operator\n[10] Advanced Techniques\n");
+// }
+
+// int check_color_channels() {
+//     int colored
+//     printf("Of which type is your image?\n\n [0] Gray valued or \n [1] Color valued\n");
+//     scanf("%d", &colored);
+//     return colored;
+// }
+
+// int return_category() {
+//     int category = 0;
+//     printf("Your choice: ");
+//     scanf("%d", &category);
+//     return category;
+// }
+
+// int return_algorithm_choice(int category, int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+//     switch category: {
+//         case 1:
+//             success = run_bluring(colored_in, colored_out, in_file, out_file); return;
+//         case 2:
+//             success = run_edge_detection(colored_in, colored_out, in_file, out_file); return;
+//         case 3:
+//             success = run_dilatation(colored_in, colored_out, in_file, out_file); return;
+//         case 4:
+//             success = run_erosion(colored_in, colored_out, in_file, out_file); return;
+//         case 5:
+//             success = run_color_conversion(colored_in, colored_out, in_file, out_file); return;
+//         case 6:
+//             success = run_inverse_image(colored_in, colored_out, in_file, out_file); return;
+//         case 7:
+//             success = run_filtering(colored_in, colored_out, in_file, out_file); return;
+//         case 8:
+//             success = run_open_close_operator(colored_in, colored_out, in_file, out_file); return;
+//         case 9:
+//             success = run_top_hat_operator(colored_in, colored_out, in_file, out_file); return;
+//         case 10:
+//             success = run_ms_minimizer(colored_in, colored_out, in_file, out_file); return;
+//         default:
+//             return;
+//     }
+//     return success;
+// }
+
+// int run_bluring(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+//     int blur_type = 0;
+//     int radius = 0;
+//     float sigma = 0.0;
+//     printf("Which blur do you choose? [1] Box blur, [2] Gaussian Blur\n");
+//     scanf("%d", &blur_type);
+//     printf("Which radius of your filter should be applied? Radius: ");
+//     scanf("%d\n", &radius);
+//     if (blur_type == 2) {
+//         printf("Choose the weighting sigma (floating point number) for the gaussian kernel: ");
+//         scanf("%d\n", &sigma);
+//     }
+//     switch blur_type: {
+//         case 1:
+
+//     }
+//     return success;
+// }
+
+// int run_edge_detection(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_dilatation(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_erosion(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_color_conversion(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_inverse_image(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_filtering(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_open_close_operator(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_top_hat_operator(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+// int run_ms_minimizer(int colored_in, int colored_out, const char* in_file, const char* out_file) {
+//     int success = 0;
+
+//     return success;
+// }
+
+
 void run(int argc, const char* argv[]) {
     printf("\nStarting algorithm. Just a few seconds please:\n");
     float start_watch = clock();
-    if (atoi(argv[4]) == 1) {
+    if (atoi(argv[3]) == 1) {
         gray_img* gray;
         gray = read_image_data(argv[1]);
-        if (atoi(argv[3]) == 1) {
+        if (atoi(argv[4]) == 1) {
             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
             tv_l1_model(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 2) {
+        } else if (atoi(argv[4]) == 2) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, gray->image_height * gray->image_width);
             huber_rof_model(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 3) {
+        } else if (atoi(argv[4]) == 3) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, gray->image_height * gray->image_width);
             huber_rof_model(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 4) {
+        } else if (atoi(argv[4]) == 4) {
             param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, gray->image_height * gray->image_width);
             image_inpainting(gray, parameter, argv[5], 1000);
         } else {
@@ -164,16 +315,16 @@ void run(int argc, const char* argv[]) {
     } else {
         color_img* color;
         color = read_image_data_color(argv[1]);
-        if (atoi(argv[3]) == 1) {
+        if (atoi(argv[4]) == 1) {
             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
             tv_l1_model_color(color, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 2) {
+        } else if (atoi(argv[4]) == 2) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, color->image_height * color->image_width);
             huber_rof_model_color(color, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 3) {
+        } else if (atoi(argv[4]) == 3) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, color->image_height * color->image_width);
             huber_rof_model_color(color, parameter, argv[5], 1000);
-        } else if (atoi(argv[3]) == 4) {
+        } else if (atoi(argv[4]) == 4) {
             param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, color->image_height * color->image_width);
             image_inpainting_color(color, parameter, argv[5], 1000);
         } else {

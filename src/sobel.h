@@ -5,6 +5,6 @@
 #define __SOBEL_H__
 
 void sobel(GrayscaleImage&, GrayscaleImage&);
-void sobelForCanny(GrayscaleImage&, GrayscaleImage&, GrayscaleImage&);
+void sobel_operator(GrayscaleImage&, GrayscaleImage&, GrayscaleImage&);
 
 #endif //__SOBEL_H__

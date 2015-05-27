@@ -1,11 +1,9 @@
 #include "image.h"
 #include "grayscale.h"
-#include "linear_filter.h"
-#include "laplace.h"
 
-#ifndef __LAPLACIANOFGAUSSIAN_H__
-#define __LAPLACIANOFGAUSSIAN_H__
+#ifndef __LAPLACIAN_OF_GAUSSIAN_H__
+#define __LAPLACIAN_OF_GAUSSIAN_H__
 
-void laplacianOfGaussian(GrayscaleImage&, GrayscaleImage&, float**, int);
+void laplacian_of_gaussian(GrayscaleImage&, GrayscaleImage&, float**, int);
 
-#endif //__LAPLACIANOFGAUSSIAN_H__
+#endif //__LAPLACIAN_OF_GAUSSIAN_H__

@@ -4,6 +4,6 @@
 #ifndef __ROBERTSCROSS_H__
 #define __ROBERTSCROSS_H__
 
-void robertsCross(GrayscaleImage&, GrayscaleImage&);
+void roberts_cross(GrayscaleImage&, GrayscaleImage&);
 
 #endif //__ROBERTSCROSS_H__

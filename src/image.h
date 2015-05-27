@@ -11,9 +11,11 @@ using namespace cv;
 class Image
 {
 public:
+	virtual unsigned short get_channels() = 0;
 	virtual unsigned short get_height() = 0;
 	virtual unsigned short get_width() = 0;
 	virtual unsigned short get_type() = 0;
+	virtual unsigned char get_pixel(int, int, int) = 0;
 	virtual unsigned char get_gray_pixel_at_position(int, int) {return 0;}
 	virtual unsigned char get_color_pixel_at_position(int, int, int) {return 0;}
 };
@@ -21,8 +23,11 @@ public:
 class WriteableImage : public Image
 {
 public:
+	virtual void set_pixel(int, int, unsigned char) {}
+	virtual void set_c_channel(int) {}
 	virtual void set_gray_pixel_at_position(int, int, unsigned char) {}
 	virtual void set_color_pixel_at_position(int, int, int, unsigned char) {}
+	virtual void reset_image(unsigned short, unsigned short, char) {};
 };
 
 struct grayscaled_image

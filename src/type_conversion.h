@@ -1,4 +1,4 @@
-#include <cmath>
+#include <math.h>
 #include "image.h"
 #include "rgb.h"
 #include "grayscale.h"
@@ -9,6 +9,7 @@
 #define __TYPECONVERSION_H__
 
 void rgb2gray(RGBImage&, GrayscaleImage&);
+void gray2rgb(GrayscaleImage&, RGBImage&);
 void rgb2ycrcb(RGBImage&, YCrCbImage&);
 void rgb2hsi(RGBImage&, HSIImage&);
 

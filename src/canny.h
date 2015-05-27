@@ -1,4 +1,4 @@
-#include "image.h"
+// #include "image.h"
 #include "grayscale.h"
 #include "create_filter.h"
 #include "linear_filter.h"
@@ -7,7 +7,7 @@
 #ifndef __CANNY_H__
 #define __CANNY_H__
 
-void nonMaximumSupression(GrayscaleImage&, GrayscaleImage&, GrayscaleImage&);
+void non_maximum_supression(GrayscaleImage&, GrayscaleImage&, GrayscaleImage&);
 void hystersis(GrayscaleImage&, GrayscaleImage&, int, int);
 void canny(GrayscaleImage&, GrayscaleImage&, int, int);
 

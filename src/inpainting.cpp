@@ -38,7 +38,7 @@ void image_inpainting(gray_img* src, param* parameter, const char* filename, int
 	const int M = src->image_height;
 	const int N = src->image_width;
 	const int size = M*N;
-	double stopping_criterion = 1e-4;
+	double stopping_criterion = 1e-5;
 	int i, k;
 
 	unsigned char* hash_table = (unsigned char*)malloc(size*sizeof(unsigned char));

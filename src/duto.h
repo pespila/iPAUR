@@ -4,7 +4,6 @@
 #ifndef __DUTO_H__
 #define __DUTO_H__
 
-void dutoGrayscaleImage(GrayscaleImage&, GrayscaleImage&, float*, int, float);
-void dutoColorImage(RGBImage&, RGBImage&, float*, int, float);
+void duto(Image&, WriteableImage&, float*, int, float);
 
 #endif //__DUTO_H__

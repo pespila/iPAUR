@@ -1,64 +1,44 @@
 #include "top_hats.h"
 
-void whiteTopHatGrayscaleImage(GrayscaleImage& src, GrayscaleImage& dst, int* filter, int radius) {
-    unsigned short height = src.get_height(), width = src.get_width(), value = 0;
+void white_top_hat(Image& src, WriteableImage& dst, int* filter, int radius) {
+    unsigned short height = src.get_height();
+    unsigned short width = src.get_width();
+    int channel = src.get_channels();
+    int value = 0;
+    int i, j, k;
 
-    openGrayscaleImage(src, dst, filter, radius);
+    open(src, dst, filter, radius);
 
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            value = src.get_gray_pixel_at_position(i, j) - dst.get_gray_pixel_at_position(i, j);
-            value = value > 255 ? 255 : value;
-            value = value < 0 ? 0 : value;
-            dst.set_gray_pixel_at_position(i, j, value);
-        }
-    }
-}
-
-void blackTopHatGrayscaleImage(GrayscaleImage& src, GrayscaleImage& dst, int* filter, int radius) {
-    unsigned short height = src.get_height(), width = src.get_width(), value = 0;
-
-    closeGrayscaleImage(src, dst, filter, radius);
-
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            value = dst.get_gray_pixel_at_position(i, j) - src.get_gray_pixel_at_position(i, j);
-            value = value > 255 ? 255 : value;
-            value = value < 0 ? 0 : value;
-            dst.set_gray_pixel_at_position(i, j, value);
-        }
-    }
-}
-
-void whiteTopHatColorImage(RGBImage& src, RGBImage& dst, int* filter, int radius) {
-    unsigned short height = src.get_height(), width = src.get_width(), value = 0;
-
-    openColorImage(src, dst, filter, radius);
-
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            for (int k = 0; k < 3; k++) {
-                value = src.get_color_pixel_at_position(i, j, k) - dst.get_color_pixel_at_position(i, j, k);
+    for (k = 0; k < channel; k++) {
+        dst.set_c_channel(k);
+        for (i = 0; i < height; i++) {
+            for (j = 0; j < width; j++) {
+                value = src.get_pixel(i, j, k) - dst.get_pixel(i, j, k);
                 value = value > 255 ? 255 : value;
                 value = value < 0 ? 0 : value;
-                dst.set_color_pixel_at_position(i, j, k, value);
+                dst.set_pixel(i, j, value);
             }
         }
     }
 }
 
-void blackTopHatColorImage(RGBImage& src, RGBImage& dst, int* filter, int radius) {
-    unsigned short height = src.get_height(), width = src.get_width(), value = 0;
+void black_top_hat(Image& src, WriteableImage& dst, int* filter, int radius) {
+    unsigned short height = src.get_height();
+    unsigned short width = src.get_width();
+    int channel = src.get_channels();
+    int value = 0;
+    int i, j, k;
 
-    closeColorImage(src, dst, filter, radius);
+    close(src, dst, filter, radius);
 
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            for (int k = 0; k < 3; k++) {
-                value = dst.get_color_pixel_at_position(i, j, k) - src.get_color_pixel_at_position(i, j, k);
+    for (k = 0; k < channel; k++) {
+        dst.set_c_channel(k);
+        for (i = 0; i < height; i++) {
+            for (j = 0; j < width; j++) {
+                value = dst.get_pixel(i, j, k) - src.get_pixel(i, j, k);
                 value = value > 255 ? 255 : value;
                 value = value < 0 ? 0 : value;
-                dst.set_color_pixel_at_position(i, j, k, value);
+                dst.set_pixel(i, j, value);
             }
         }
     }

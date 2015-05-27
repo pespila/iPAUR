@@ -20,7 +20,6 @@ DEPS = 	image.h \
 		openclose.h \
 		top_hats.h \
 		laplacian_of_gaussian.h \
-		gradient_filter.h \
 		laplace.h \
 		bluring.h \
 		canny.h \
@@ -55,7 +54,6 @@ OBJ = 	main.o \
 		openclose.o \
 		top_hats.o \
 		laplacian_of_gaussian.o \
-		gradient_filter.o \
 		laplace.o \
 		bluring.o \
 		canny.o \

@@ -143,7 +143,7 @@ void image_inpainting_color(color_img* src, param* parameter, const char* filena
 
 		gradient_of_image_value_color(grad_u1, grad_u2, x_bar, M, N);
 		energy[k] = computed_energy_of_huber_rof_functional_color(image, grad_u1, grad_u2, x_bar, size) / normalization_value;
-		if (k > 200) {
+		if (k > 300) {
 			if (energy[k - 1] - energy[k] < stopping_criterion) {
 				for (i = 0; i < size; i++) {
 					src->red[i] = (unsigned char)x_bar[i][0];
