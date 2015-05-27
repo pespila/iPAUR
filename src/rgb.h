@@ -14,10 +14,8 @@ public:
     unsigned short get_width() {return this->width;}
 	unsigned short get_type() {return this->type;}
 	unsigned char get_pixel(int i, int j, int k) {return this->image[j + i * this->width][k];}
-	unsigned char get_color_pixel_at_position(int i, int j, int k) {return this->image[j + i * this->width][k];}
 
 	void set_pixel(int i, int j, unsigned char value) {this->image[j + i * this->width][this->c_channel] = value;}
-	void set_color_pixel_at_position(int i, int j, int k, unsigned char value) {this->image[j + i * this->width][k] = value;}
 	void set_c_channel(int c) {this->c_channel = c;}
 
 	void read_image(const string);

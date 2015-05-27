@@ -1,4 +1,3 @@
-// #include "image.h"
 #include "grayscale.h"
 #include "create_filter.h"
 #include "linear_filter.h"
