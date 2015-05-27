@@ -48,10 +48,19 @@ int main(int argc, const char* argv[]) {
 
     // GrayscaleImage in, out;
     // in.read_image(argv[1]);
-    // Huber_ROF_Model Op(in.get_height(), in.get_width(), 0.01, 8.0, 1.0, 0.0); // tau, lambda, theta, alpha
-    
-    // Op.primal_dual_algorithm(in, out);
+    // roberts_cross(in, out);
+    // out.write_image(argv[2]);
 
+    // scanf("%d\n", &category);
+    // prewitt(in, out);
+    // out.write_image(argv[2]);
+
+    // scanf("%d\n", &category);
+    // sobel(in, out);
+    // out.write_image(argv[2]);
+    
+    // scanf("%d\n", &category);
+    // canny(in, out, 0, 9);
     // out.write_image(argv[2]);
 
     
