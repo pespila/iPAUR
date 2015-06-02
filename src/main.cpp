@@ -29,11 +29,9 @@
 #include "huber_rof_model_color.h"
 #include "tv_l1_model_color.h"
 #include "inpainting_color.h"
+#include "primal_dual.h"
 
-void run(int, const char**);
-// void print_init();
-// int return_category();
-// int return_algorithm_choice(int);
+void run(int, const char*[]);
 
 int main(int argc, const char* argv[]) {
     if (argc < 3) {
@@ -84,6 +82,10 @@ int main(int argc, const char* argv[]) {
     // } while (doit == 1);
 
     run(argc, argv);
+
+    // GrayscaleImage gray;
+    // synthimage(gray, 128, 128);
+    // gray.write_image("../../img/crack_tip.png");
 
     // GrayscaleImage gray, edge1, edge2, edge;
     // RGBImage rgb_original, rgb;
@@ -172,6 +174,30 @@ int main(int argc, const char* argv[]) {
     // blackTopHatColorImage(color, c_edge, morphologicalStandardFilter(1), 1);
     
     return 0;
+}
+
+void synthimage(WriteableImage& gray, int height, int width) {
+    gray.reset_image(height, width, CV_8UC1);
+    int center_x = width/2;
+    int center_y = height/2;
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int x = fabs(i - center_y);
+            int y = fabs(j - center_x);
+            float absval = sqrtf(x * x + y * y); // nothing...
+            float angle = atan((float)(j+1)/(float)(i+1));
+            // float absval = fabs(x * x + y * y); // crack_tip_cool.png
+            // float absval = x + y;
+            // printf("%f\n", sin(angle/2.0) * 180 / PI);
+            gray.set_pixel(i, j, (short)(sqrtf(absval) * sin(angle/2.0)  * 180 / PI));
+            // if (j % 10 == 0) {
+            //     gray.set_pixel(i, j, 255);
+            // }
+        }
+    }
 }
 
 // void print_init() {
@@ -316,6 +342,9 @@ void run(int argc, const char* argv[]) {
         } else if (atoi(argv[4]) == 4) {
             param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, gray->image_height * gray->image_width);
             image_inpainting(gray, parameter, argv[5], 1000);
+        } else if (atoi(argv[4]) == 5) {
+            param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.0, gray->image_height * gray->image_width);
+            primal_dual(gray, parameter, argv[5], 500);
         } else {
             printf("Too few arguments!\n");
         }

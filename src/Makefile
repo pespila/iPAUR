@@ -33,7 +33,8 @@ DEPS = 	image.h \
 		util_color.h \
 		huber_rof_model_color.h \
 		tv_l1_model_color.h \
-		inpainting_color.h
+		inpainting_color.h \
+		primal_dual.h
 
 OBJ = 	main.o \
 		image.o \
@@ -67,7 +68,8 @@ OBJ = 	main.o \
 		util_color.o \
 		huber_rof_model_color.o \
 		tv_l1_model_color.o \
-		inpainting_color.o
+		inpainting_color.o \
+		primal_dual.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 LDFLAGS = -L/opt/local/lib
