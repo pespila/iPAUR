@@ -332,7 +332,7 @@ void run(int argc, const char* argv[]) {
         gray = read_image_data(argv[1]);
         if (atoi(argv[4]) == 1) {
             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
-            tv_l1_model(gray, parameter, argv[5], 1000);
+            tv_l1_model(gray, parameter, argv[5], 200);
         } else if (atoi(argv[4]) == 2) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, gray->image_height * gray->image_width);
             huber_rof_model(gray, parameter, argv[5], 1000);
@@ -355,7 +355,7 @@ void run(int argc, const char* argv[]) {
         color = read_image_data_color(argv[1]);
         if (atoi(argv[4]) == 1) {
             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
-            tv_l1_model_color(color, parameter, argv[5], 1000);
+            tv_l1_model_color(color, parameter, argv[5], 200);
         } else if (atoi(argv[4]) == 2) {
             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, color->image_height * color->image_width);
             huber_rof_model_color(color, parameter, argv[5], 1000);
