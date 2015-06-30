@@ -30,36 +30,4 @@ public:
 	virtual void reset_image(unsigned short, unsigned short, char) {};
 };
 
-struct grayscaled_image
-{
-	float* approximation;
-	int image_height;
-	int image_width;
-	int image_type;
-};
-
-typedef struct grayscaled_image gray_img;
-
-struct colored_image
-{
-	float* red;
-	float* green;
-	float* blue;
-	int image_height;
-	int image_width;
-	int image_type;
-};
-
-typedef struct colored_image color_img;
-
-gray_img *read_image_data(const char*);
-gray_img *initalize_raw_image(int, int, char);
-void write_image_data(gray_img*, const char*);
-void destroy_image(gray_img*);
-
-color_img *read_image_data_color(const char*);
-color_img *initalize_raw_image_color(int, int, char);
-void write_image_data_color(color_img*, const char*);
-void destroy_image_color(color_img*);
-
 #endif //__IMAGE_H__

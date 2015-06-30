@@ -21,15 +21,6 @@
 #include "top_hats.h"
 #include "median.h"
 #include "arithmetic_functions.h"
-#include "util.h"
-#include "huber_rof_model.h"
-#include "tv_l1_model.h"
-#include "inpainting.h"
-#include "util_color.h"
-#include "huber_rof_model_color.h"
-#include "tv_l1_model_color.h"
-#include "inpainting_color.h"
-#include "primal_dual.h"
 
 void run(int, const char*[]);
 
@@ -44,10 +35,10 @@ int main(int argc, const char* argv[]) {
     // int colored_out = 0;
 
 
-    // GrayscaleImage in, out;
-    // in.read_image(argv[1]);
-    // roberts_cross(in, out);
-    // out.write_image(argv[2]);
+    GrayscaleImage in, out;
+    in.read_image(argv[1]);
+    roberts_cross(in, out);
+    out.write_image(argv[2]);
 
     // scanf("%d\n", &category);
     // prewitt(in, out);
@@ -81,7 +72,7 @@ int main(int argc, const char* argv[]) {
     //     scanf("%d", &doit);
     // } while (doit == 1);
 
-    run(argc, argv);
+    // run(argc, argv);
 
     // GrayscaleImage gray;
     // synthimage(gray, 128, 128);
@@ -176,29 +167,29 @@ int main(int argc, const char* argv[]) {
     return 0;
 }
 
-void synthimage(WriteableImage& gray, int height, int width) {
-    gray.reset_image(height, width, CV_8UC1);
-    int center_x = width/2;
-    int center_y = height/2;
+// void synthimage(WriteableImage& gray, int height, int width) {
+//     gray.reset_image(height, width, CV_8UC1);
+//     int center_x = width/2;
+//     int center_y = height/2;
 
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            int x = fabs(i - center_y);
-            int y = fabs(j - center_x);
-            float absval = sqrtf(x * x + y * y); // nothing...
-            float angle = atan((float)(j+1)/(float)(i+1));
-            // float absval = fabs(x * x + y * y); // crack_tip_cool.png
-            // float absval = x + y;
-            // printf("%f\n", sin(angle/2.0) * 180 / PI);
-            gray.set_pixel(i, j, (short)(sqrtf(absval) * sin(angle/2.0)  * 180 / PI));
-            // if (j % 10 == 0) {
-            //     gray.set_pixel(i, j, 255);
-            // }
-        }
-    }
-}
+//     for (int i = 0; i < height; i++)
+//     {
+//         for (int j = 0; j < width; j++)
+//         {
+//             int x = fabs(i - center_y);
+//             int y = fabs(j - center_x);
+//             float absval = sqrtf(x * x + y * y); // nothing...
+//             float angle = atan((float)(j+1)/(float)(i+1));
+//             // float absval = fabs(x * x + y * y); // crack_tip_cool.png
+//             // float absval = x + y;
+//             // printf("%f\n", sin(angle/2.0) * 180 / PI);
+//             gray.set_pixel(i, j, (short)(sqrtf(absval) * sin(angle/2.0)  * 180 / PI));
+//             // if (j % 10 == 0) {
+//             //     gray.set_pixel(i, j, 255);
+//             // }
+//         }
+//     }
+// }
 
 // void print_init() {
 //     printf("\nWelcome to iPAUR! Choose your prefered (type of) category:\n\n");
@@ -324,54 +315,54 @@ void synthimage(WriteableImage& gray, int height, int width) {
 // }
 
 
-void run(int argc, const char* argv[]) {
-    printf("\nStarting algorithm. Just a few seconds please:\n");
-    float start_watch = clock();
-    if (atoi(argv[3]) == 1) {
-        gray_img* gray;
-        gray = read_image_data(argv[1]);
-        if (atoi(argv[4]) == 1) {
-            param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
-            tv_l1_model(gray, parameter, argv[5], 200);
-        } else if (atoi(argv[4]) == 2) {
-            param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, gray->image_height * gray->image_width);
-            printf("%f\n", parameter->sigma);
-            huber_rof_model(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[4]) == 3) {
-            param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, gray->image_height * gray->image_width);
-            huber_rof_model(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[4]) == 4) {
-            param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, gray->image_height * gray->image_width);
-            image_inpainting(gray, parameter, argv[5], 1000);
-        } else if (atoi(argv[4]) == 5) {
-            param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.0, gray->image_height * gray->image_width);
-            primal_dual(gray, parameter, argv[5], 500);
-        } else {
-            printf("Too few arguments!\n");
-        }
-        write_image_data(gray, argv[2]);
-        destroy_image(gray);
-    } else {
-        color_img* color;
-        color = read_image_data_color(argv[1]);
-        if (atoi(argv[4]) == 1) {
-            param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
-            tv_l1_model_color(color, parameter, argv[5], 200);
-        } else if (atoi(argv[4]) == 2) {
-            param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, color->image_height * color->image_width);
-            huber_rof_model_color(color, parameter, argv[5], 1000);
-        } else if (atoi(argv[4]) == 3) {
-            param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, color->image_height * color->image_width);
-            huber_rof_model_color(color, parameter, argv[5], 1000);
-        } else if (atoi(argv[4]) == 4) {
-            param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, color->image_height * color->image_width);
-            image_inpainting_color(color, parameter, argv[5], 1000);
-        } else {
-            printf("Too few arguments!\n");
-        }
-        write_image_data_color(color, argv[2]);
-        destroy_image_color(color);
-    }
-    float stop_watch = clock();
-    printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);
-}
+// void run(int argc, const char* argv[]) {
+//     printf("\nStarting algorithm. Just a few seconds please:\n");
+//     float start_watch = clock();
+//     if (atoi(argv[3]) == 1) {
+//         gray_img* gray;
+//         gray = read_image_data(argv[1]);
+//         if (atoi(argv[4]) == 1) {
+//             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
+//             tv_l1_model(gray, parameter, argv[5], 200);
+//         } else if (atoi(argv[4]) == 2) {
+//             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, gray->image_height * gray->image_width);
+//             printf("%f\n", parameter->sigma);
+//             huber_rof_model(gray, parameter, argv[5], 1000);
+//         } else if (atoi(argv[4]) == 3) {
+//             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, gray->image_height * gray->image_width);
+//             huber_rof_model(gray, parameter, argv[5], 1000);
+//         } else if (atoi(argv[4]) == 4) {
+//             param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, gray->image_height * gray->image_width);
+//             image_inpainting(gray, parameter, argv[5], 1000);
+//         } else if (atoi(argv[4]) == 5) {
+//             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.0, gray->image_height * gray->image_width);
+//             primal_dual(gray, parameter, argv[5], 500);
+//         } else {
+//             printf("Too few arguments!\n");
+//         }
+//         write_image_data(gray, argv[2]);
+//         destroy_image(gray);
+//     } else {
+//         color_img* color;
+//         color = read_image_data_color(argv[1]);
+//         if (atoi(argv[4]) == 1) {
+//             param* parameter = set_input_parameter(0.35, 0.7, 1.0, 0.05, 1);
+//             tv_l1_model_color(color, parameter, argv[5], 200);
+//         } else if (atoi(argv[4]) == 2) {
+//             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.0, color->image_height * color->image_width);
+//             huber_rof_model_color(color, parameter, argv[5], 1000);
+//         } else if (atoi(argv[4]) == 3) {
+//             param* parameter = set_input_parameter(0.01, 8.0, 1.0, 0.05, color->image_height * color->image_width);
+//             huber_rof_model_color(color, parameter, argv[5], 1000);
+//         } else if (atoi(argv[4]) == 4) {
+//             param* parameter = set_input_parameter(0.01, 128.0, 1.0, 0.0, color->image_height * color->image_width);
+//             image_inpainting_color(color, parameter, argv[5], 1000);
+//         } else {
+//             printf("Too few arguments!\n");
+//         }
+//         write_image_data_color(color, argv[2]);
+//         destroy_image_color(color);
+//     }
+//     float stop_watch = clock();
+//     printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);
+// }

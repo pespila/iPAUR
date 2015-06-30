@@ -25,16 +25,7 @@ DEPS = 	image.h \
 		canny.h \
 		median.h \
 		arithmetic_functions.h \
-		rgba.h \
-		util.h \
-		huber_rof_model.h \
-		tv_l1_model.h \
-		inpainting.h \
-		util_color.h \
-		huber_rof_model_color.h \
-		tv_l1_model_color.h \
-		inpainting_color.h \
-		primal_dual.h
+		rgba.h
 
 OBJ = 	main.o \
 		image.o \
@@ -60,16 +51,7 @@ OBJ = 	main.o \
 		canny.o \
 		median.o \
 		arithmetic_functions.o \
-		rgba.o \
-		util.o \
-		huber_rof_model.o \
-		tv_l1_model.o \
-		inpainting.o \
-		util_color.o \
-		huber_rof_model_color.o \
-		tv_l1_model_color.o \
-		inpainting_color.o \
-		primal_dual.o
+		rgba.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 LDFLAGS = -L/opt/local/lib
