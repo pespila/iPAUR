@@ -1,7 +1,8 @@
 #include "image.h"
 #include "rgb.h"
 #include "grayscale.h"
-#include "fast_minimizer.h"
+#include "parameter.h"
+#include "huber_rof_model.h"
 
 int main(int argc, const char* argv[]) {
     if (argc < 3) {
@@ -12,9 +13,10 @@ int main(int argc, const char* argv[]) {
     printf("\nStarting algorithm. Just a few seconds please:\n");
     float start_watch = clock();
     RGBImage in, out;
-    Parameter par;
     in.read_image(argv[1]);
-    fast_minimizer(in, out, par, atoi(argv[3]));
+    Parameter par(0.05, 2.0, 0.01, 1.0, in.get_height() * in.get_width());
+    Huber_ROF_Minimizer primal_dual(in, atoi(argv[3]));
+    primal_dual.huber_rof_model(in, out, par);
     out.write_image(argv[2]);
     float stop_watch = clock();
     printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);

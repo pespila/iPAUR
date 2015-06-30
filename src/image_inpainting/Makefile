@@ -5,13 +5,15 @@ CPPFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math 
 DEPS = 	image.h \
 		rgb.h \
 		grayscale.h \
-		fast_minimizer.h
+		parameter.h \
+		inpainting.h
 
 OBJ = 	main.o \
 		image.o \
 		rgb.o \
 		grayscale.o \
-		fast_minimizer.o
+		parameter.o \
+		inpainting.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 LDFLAGS = -L/opt/local/lib

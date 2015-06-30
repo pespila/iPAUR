@@ -18,7 +18,7 @@ public:
 	void prox_r_star(float*, float*, float*, float*, float, float, float, int);
 	void nabla_transpose(float*, float*, float*);
 	void prox_d(float*, float*, float*, float);
-	void fast_minimizer(Image&, WriteableImage&, Parameter&);
+	void real_time_minimizer(Image&, WriteableImage&, Parameter&);
 
 private:
 	int steps;

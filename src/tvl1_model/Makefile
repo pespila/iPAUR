@@ -6,14 +6,14 @@ DEPS = 	image.h \
 		rgb.h \
 		grayscale.h \
 		parameter.h \
-		fast_minimizer.h
+		tvl1_model.h
 
 OBJ = 	main.o \
 		image.o \
 		rgb.o \
 		grayscale.o \
 		parameter.o \
-		fast_minimizer.o
+		tvl1_model.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 LDFLAGS = -L/opt/local/lib

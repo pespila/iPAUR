@@ -3,7 +3,7 @@
 #include <math.h>
 #include "image.h"
 #include "parameter.h"
-#include "fast_minimizer.h"
+#include "real_time_minimizer.h"
 
 MS_Minimizer::MS_Minimizer(Image& src, int steps) {
 	this->steps = steps;
@@ -113,7 +113,7 @@ void MS_Minimizer::prox_d(float* u, float* u_tilde, float* f, float tau) {
 		u[i] = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
 }
 
-void MS_Minimizer::fast_minimizer(Image& src, WriteableImage& dst, Parameter& par) {
+void MS_Minimizer::real_time_minimizer(Image& src, WriteableImage& dst, Parameter& par) {
 	int i;
 	dst.reset_image(height, width, src.get_type());
 	initialize(src);
