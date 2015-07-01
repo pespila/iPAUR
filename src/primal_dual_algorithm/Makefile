@@ -3,11 +3,17 @@ CC = clang++
 CPPFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -Wall
 
 DEPS = 	image.h \
-		primal_dual.h
+		rgb.h \
+		grayscale.h \
+		parameter.h \
+		primal_dual_algorithm.h
 
 OBJ = 	main.o \
 		image.o \
-		primal_dual.o
+		rgb.o \
+		grayscale.o \
+		parameter.o \
+		primal_dual_algorithm.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 LDFLAGS = -L/opt/local/lib
@@ -19,5 +25,5 @@ IDFLAGS = -I/opt/local/include
 ImageProcessing: $(OBJ)
 	$(CC) -o $@ $^ $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
 
-clean:
-	rm *.o
+# clean:
+# 	rm *.o
