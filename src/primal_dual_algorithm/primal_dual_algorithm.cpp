@@ -257,7 +257,6 @@ void Primal_Dual::primal_dual_algorithm(GrayscaleImage& src, GrayscaleImage& dst
 		for (i = 0; i < size; i++) {gradient_transpose[i] = u_n[i] - par.tau * gradient_transpose[i];}
 		truncation_operator(u, gradient_transpose);
 		for (i = 0; i < size; i++) {u_bar[i] = u[i] + par.theta * (u[i] - u_n[i]);}
-		printf("Step: %d\n", k);
 	}
 	set_solution(dst);
 }
