@@ -37,7 +37,9 @@ int main(int argc, const char* argv[]) {
 
     GrayscaleImage in, out;
     in.read_image(argv[1]);
-    roberts_cross(in, out);
+    laplace(in, out);
+    // prewitt(in, out);
+    // prewitt(in, out);
     out.write_image(argv[2]);
 
     // scanf("%d\n", &category);
