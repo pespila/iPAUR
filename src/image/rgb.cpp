@@ -11,7 +11,7 @@ RGBImage::~RGBImage() {
     this->channels = 0;
 }
 
-void RGBImage::read_image(const string filename) {
+void RGBImage::Read(const string filename) {
     Mat img = imread(filename);
     this->channels = 3;
     this->width = img.cols;
@@ -27,7 +27,7 @@ void RGBImage::read_image(const string filename) {
     }
 }
 
-void RGBImage::write_image(const string filename) {
+void RGBImage::Write(const string filename) {
     Mat img(this->height, this->width, this->type);
     for (int k = 0; k < this->channels; k++) {
         for (int i = 0; i < this->height; i++) {
@@ -39,7 +39,7 @@ void RGBImage::write_image(const string filename) {
     imwrite(filename, img);
 }
 
-void RGBImage::reset_image(unsigned short height, unsigned short width, char type) {
+void RGBImage::Reset(unsigned short height, unsigned short width, char type) {
     free(image);
     image = NULL;
     this->channels = 3;

@@ -11,7 +11,7 @@ RGBAImage::~RGBAImage() {
     this->channels = 0;
 }
 
-void RGBAImage::read_image(const string filename) {
+void RGBAImage::Read(const string filename) {
     Mat img = imread(filename);
     this->channels = 4;
     this->width = img.cols;
@@ -27,7 +27,7 @@ void RGBAImage::read_image(const string filename) {
     }
 }
 
-void RGBAImage::write_image(const string filename) {
+void RGBAImage::Write(const string filename) {
     Mat img(this->height, this->width, this->type);
     for (int k = 0; k < this->channels; k++) {
         for (int i = 0; i < this->height; i++) {
@@ -39,7 +39,7 @@ void RGBAImage::write_image(const string filename) {
     imwrite(filename, img);
 }
 
-void RGBAImage::reset_image(unsigned short height, unsigned short width, char type) {
+void RGBAImage::Reset(unsigned short height, unsigned short width, char type) {
     free(image);
     image = NULL;
     this->channels = 4;

@@ -7,9 +7,9 @@
 
 MS_Minimizer::MS_Minimizer(Image& src, int steps) {
 	this->steps = steps;
-	this->channel = src.get_channels();
-	this->height = src.get_height();
-	this->width = src.get_width();
+	this->channel = src.GetChannels();
+	this->height = src.GetHeight();
+	this->width = src.GetWidth();
 	this->size = height * width * channel;
 	this->f = (float*)malloc(size*sizeof(float));
 	this->u = (float*)malloc(size*sizeof(float));
@@ -38,9 +38,9 @@ void MS_Minimizer::initialize(Image& src) {
 	for (int k = 0; k < channel; k++) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				f[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k) / 255.0;
-				u[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k) / 255.0;
-				u_bar[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k) / 255.0;
+				f[j + i * width + k * height * width] = (float)src.Get(i, j, k) / 255.0;
+				u[j + i * width + k * height * width] = (float)src.Get(i, j, k) / 255.0;
+				u_bar[j + i * width + k * height * width] = (float)src.Get(i, j, k) / 255.0;
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
@@ -52,7 +52,7 @@ void MS_Minimizer::set_solution(WriteableImage& dst) {
 	for (int k = 0; k < channel; k++)
 		for (int i = 0; i < height; i++)
 			for (int j = 0; j < width; j++)
-				dst.set_pixel(i, j, k, (unsigned char)abs(u_bar[j + i * width + k * height * width] * 255.0));
+				dst.Set(i, j, k, (unsigned char)abs(u_bar[j + i * width + k * height * width] * 255.0));
 }
 
 void MS_Minimizer::nabla(float* gradient_x, float* gradient_y, float* u_bar) {
@@ -115,7 +115,7 @@ void MS_Minimizer::prox_d(float* u, float* u_tilde, float* f, float tau) {
 
 void MS_Minimizer::real_time_minimizer(Image& src, WriteableImage& dst, Parameter& par) {
 	int i;
-	dst.reset_image(height, width, src.get_type());
+	dst.Reset(height, width, src.GetType());
 	initialize(src);
 	for (int k = 0; k < steps; k++)
 	{

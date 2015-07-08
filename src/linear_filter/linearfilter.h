@@ -29,6 +29,7 @@ public:
 	void Gauss(Image&, WriteableImage&, int, float);
 	void Binomial(Image&, WriteableImage&, int);
 	void Box(Image&, WriteableImage&, int);
+	void Duto(Image&, WriteableImage&, int, float);
 };
 
 #endif //__LINEARFILTER_H__

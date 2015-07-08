@@ -9,10 +9,10 @@ LinearFilter::LinearFilter(int height, int width, int channel, char type) {
 }
 
 LinearFilter::LinearFilter(Image& src) {
-    this->height = src.get_height();
-    this->width = src.get_width();
-    this->channel = src.get_channels();
-    this->type = src.get_type();
+    this->height = src.GetHeight();
+    this->width = src.GetWidth();
+    this->channel = src.GetChannels();
+    this->type = src.GetType();
     this->filtered = new unsigned char[this->height*this->width*this->channel];
 }
 
@@ -64,11 +64,11 @@ void LinearFilter::FilterDx(Image& src, float* kernel, int radius) {
                 sum = 0;
                 for (l = -radius; l <= radius; l++) {
                     if (j + l < 0) {
-                        sum += kernel[l + radius] * src.get_pixel(i, 0, k);
+                        sum += kernel[l + radius] * src.Get(i, 0, k);
                     } else if (j + l >= width) {
-                        sum += kernel[l + radius] * src.get_pixel(i, width - 1, k);
+                        sum += kernel[l + radius] * src.Get(i, width - 1, k);
                     } else {
-                        sum += kernel[l + radius] * src.get_pixel(i, j + l, k);
+                        sum += kernel[l + radius] * src.Get(i, j + l, k);
                     }
                 }
                 filtered[j + i * width + k * height * width] = sum;
@@ -92,14 +92,14 @@ void LinearFilter::FilterDy(WriteableImage& dst, float* kernel, int radius) {
                         sum += kernel[l + radius] * filtered[j + (i + l) * width + k * height * width];
                     }
                 }
-                dst.set_pixel(i, j, k, sum);
+                dst.Set(i, j, k, sum);
             }
         }
     }
 }
 
 void LinearFilter::Gauss(Image& src, WriteableImage& dst, int radius, float sigma) {
-    dst.reset_image(height, width, type);
+    dst.Reset(height, width, type);
     int diameter = 2 * radius + 1;
     float* kernel = new float[diameter];
     CreateGaussFilter(kernel, sigma, radius, diameter);
@@ -109,7 +109,7 @@ void LinearFilter::Gauss(Image& src, WriteableImage& dst, int radius, float sigm
 }
 
 void LinearFilter::Binomial(Image& src, WriteableImage& dst, int radius) {
-    dst.reset_image(height, width, type);
+    dst.Reset(height, width, type);
     int diameter = 2 * radius + 1;
     float* kernel = new float[diameter];
     CreateBinomialFilter(kernel, radius, diameter);
@@ -119,11 +119,25 @@ void LinearFilter::Binomial(Image& src, WriteableImage& dst, int radius) {
 }
 
 void LinearFilter::Box(Image& src, WriteableImage& dst, int radius) {
-    dst.reset_image(height, width, type);
+    dst.Reset(height, width, type);
     int diameter = 2 * radius + 1;
     float* kernel = new float[diameter];
     CreateBoxFilter(kernel, radius, diameter);
     FilterDx(src, kernel, radius);
     FilterDy(dst, kernel, radius);
     delete[] kernel;
+}
+
+void LinearFilter::Duto(Image& src, WriteableImage& dst, int radius, float eta) {
+    dst.Reset(height, width, type);
+    for (int k = 0; k < channel; k++)
+        for (int i = 0; i < height; i++)
+            for (int j = 0; j < width; j++)
+                filtered[j + i * width + k * height * width] = eta * src.Get(i, j, k);
+
+    Binomial(src, dst, radius);
+    for (int k = 0; k < channel; k++)
+        for (int i = 0; i < height; i++)
+            for (int j = 0; j < width; j++)
+                dst.Set(i, j, k, eta * dst.Get(i, j, k) + filtered[j + i * width + k * height * width]);
 }

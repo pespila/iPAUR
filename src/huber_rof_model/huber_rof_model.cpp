@@ -7,9 +7,9 @@
 
 Huber_ROF_Minimizer::Huber_ROF_Minimizer(Image& src, int steps) {
 	this->steps = steps;
-	this->channel = src.get_channels();
-	this->height = src.get_height();
-	this->width = src.get_width();
+	this->channel = src.GetChannels();
+	this->height = src.GetHeight();
+	this->width = src.GetWidth();
 	this->size = height * width * channel;
 	this->f = (float*)malloc(size*sizeof(float));
 	this->u = (float*)malloc(size*sizeof(float));
@@ -38,9 +38,9 @@ void Huber_ROF_Minimizer::initialize(Image& src) {
 	for (int k = 0; k < channel; k++) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				f[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
-				u[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
-				u_bar[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
+				f[j + i * width + k * height * width] = (float)src.Get(i, j, k);
+				u[j + i * width + k * height * width] = (float)src.Get(i, j, k);
+				u_bar[j + i * width + k * height * width] = (float)src.Get(i, j, k);
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
@@ -52,7 +52,7 @@ void Huber_ROF_Minimizer::set_solution(WriteableImage& dst) {
 	for (int k = 0; k < channel; k++)
 		for (int i = 0; i < height; i++)
 			for (int j = 0; j < width; j++)
-				dst.set_pixel(i, j, k, (unsigned char)u_bar[j + i * width + k * height * width]);
+				dst.Set(i, j, k, (unsigned char)u_bar[j + i * width + k * height * width]);
 }
 
 void Huber_ROF_Minimizer::nabla(float* gradient_x, float* gradient_y, float* u_bar) {
@@ -104,7 +104,7 @@ void Huber_ROF_Minimizer::prox_d(float* u, float* u_tilde, float* f, float tau, 
 
 void Huber_ROF_Minimizer::huber_rof_model(Image& src, WriteableImage& dst, Parameter& par) {
 	int i;
-	dst.reset_image(height, width, src.get_type());
+	dst.Reset(height, width, src.GetType());
 	initialize(src);
 	for (int k = 0; k < steps; k++)
 	{

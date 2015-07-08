@@ -8,8 +8,8 @@
 Primal_Dual::Primal_Dual(GrayscaleImage& src, int steps, int level) {
 	this->steps = steps;
 	this->level = level;
-	this->height = src.get_height();
-	this->width = src.get_width();
+	this->height = src.GetHeight();
+	this->width = src.GetWidth();
 	this->size = height * width * level;
 	this->f = (float*)malloc(this->height*this->width*sizeof(float));
 	this->u = (float*)malloc(size*sizeof(float));
@@ -77,10 +77,10 @@ Primal_Dual::~Primal_Dual() {
 void Primal_Dual::initialize(GrayscaleImage& src) {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-				f[j + i * width] = (float)src.get_pixel(i, j, 0) / 255.0;
+				f[j + i * width] = (float)src.Get(i, j, 0) / 255.0;
 			for (int k = 0; k < level; k++) {
-				u[j + i * width + k * height * width] = ((float)src.get_pixel(i, j, 0) / 255.0) * ((float)(level-k) / (float)level);
-				u_bar[j + i * width + k * height * width] = ((float)src.get_pixel(i, j, 0) / 255.0) * ((float)(level-k) / (float)level);
+				u[j + i * width + k * height * width] = ((float)src.Get(i, j, 0) / 255.0) * ((float)(level-k) / (float)level);
+				u_bar[j + i * width + k * height * width] = ((float)src.Get(i, j, 0) / 255.0) * ((float)(level-k) / (float)level);
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 				p_z[j + i * width + k * height * width] = 0.0;
@@ -97,10 +97,10 @@ void Primal_Dual::set_solution(GrayscaleImage& dst) {
 		{
 			for (int j = 0; j < width; j++)
 			{
-				dst.set_pixel(i, j, 0, (unsigned char)abs(u_bar[j + i * width + k * height * width] * 255.0));
+				dst.Set(i, j, 0, (unsigned char)abs(u_bar[j + i * width + k * height * width] * 255.0));
 			}
 		}
-		dst.write_image(filename[k]);
+		dst.Write(filename[k]);
 	}
 }
 
@@ -243,7 +243,7 @@ void Primal_Dual::truncation_operator(float* u, float* u_tilde) {
 
 void Primal_Dual::primal_dual_algorithm(GrayscaleImage& src, GrayscaleImage& dst, Parameter& par) {
 	int i;
-	dst.reset_image(height, width, src.get_type());
+	dst.Reset(height, width, src.GetType());
 	initialize(src);
 	for (int k = 0; k < steps; k++)
 	{

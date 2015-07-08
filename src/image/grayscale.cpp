@@ -11,7 +11,7 @@ GrayscaleImage::~GrayscaleImage() {
     this->channels = 0;
 }
 
-void GrayscaleImage::read_image(const string filename) {
+void GrayscaleImage::Read(const string filename) {
     Mat img = imread(filename, 0); // force gray scale
     this->channels = 1;
     this->width = img.cols;
@@ -25,7 +25,7 @@ void GrayscaleImage::read_image(const string filename) {
     }
 }
 
-void GrayscaleImage::write_image(const string filename) {
+void GrayscaleImage::Write(const string filename) {
     Mat img(this->height, this->width, this->type);
     for (int i = 0; i < this->height; i++) {
         for (int j = 0; j < this->width; j++) {
@@ -35,7 +35,7 @@ void GrayscaleImage::write_image(const string filename) {
     imwrite(filename, img);
 }
 
-void GrayscaleImage::reset_image(unsigned short height, unsigned short width, char type) {
+void GrayscaleImage::Reset(unsigned short height, unsigned short width, char type) {
     free(image);
     this->image = NULL;
     this->channels = 1;

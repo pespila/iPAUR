@@ -9,9 +9,9 @@ EdgeDetector::EdgeDetector(int height, int width, char type) {
     this->gy = new short[height*width];
 }
 EdgeDetector::EdgeDetector(Image& src) {
-    this->height = src.get_height();
-    this->width = src.get_width();
-    this->type = src.get_type();
+    this->height = src.GetHeight();
+    this->width = src.GetWidth();
+    this->type = src.GetType();
     this->gx = new short[this->height*this->width];
     this->gy = new short[this->height*this->width];
 }
@@ -26,7 +26,7 @@ void EdgeDetector::NablaX(short* gx, Image& src, unsigned char normalizer) {
         for (j = 0; j < width; j++) {
             x = j + 1 >= width ? width - 1: j + 1;
             y = j - 1 < 0 ? 0 : j - 1;
-            gx[j + i * width] = (src.get_pixel(i, y, 0) - src.get_pixel(i, x, 0)) / 2;
+            gx[j + i * width] = (src.Get(i, y, 0) - src.Get(i, x, 0)) / 2;
         }
     }
     for (i = 0; i < height; i++) {
@@ -45,7 +45,7 @@ void EdgeDetector::NablaY(short* gy, Image& src, unsigned char normalizer) {
         x = i + 1 >= height ? height - 1 : i + 1;
         y = i - 1 < 0 ? 0 : i - 1;
         for (j = 0; j < width; j++) {
-            gy[j + i * width] = (src.get_pixel(y, j, 0) - src.get_pixel(x, j, 0)) / 2;
+            gy[j + i * width] = (src.Get(y, j, 0) - src.Get(x, j, 0)) / 2;
         }
     }
     for (i = 0; i < height; i++) {
@@ -116,16 +116,16 @@ void EdgeDetector::Hysteresis(WriteableImage& dst, short* nms, const int TL, con
     for (i = 0; i < height; i++) {
         for (j = 0; j < width; j++) {
             if (nms[j + i * width] > TH) {
-                dst.set_pixel(i, j, 0, 255);
+                dst.Set(i, j, 0, 255);
             } else {
                 for (k = -1; k <= 1; k++) {
                     for (l = -1; l <= 1; l++) {
                         x = i + k < 0 ? 0 : (i + k >= height ? height - 1 : i + k);
                         y = j + l < 0 ? 0 : (j + l >= width ? width - 1 : j + l);
                         if (nms[y + x * width] > TL) {
-                            dst.set_pixel(x, y, 0, 255);
+                            dst.Set(x, y, 0, 255);
                         } else {
-                            dst.set_pixel(x, y, 0, 0);
+                            dst.Set(x, y, 0, 0);
                         }
                     }
                 }
@@ -140,42 +140,42 @@ void EdgeDetector::SetEdges(WriteableImage& dst, short* gx, short* gy) {
         for (j = 0; j < width; j++) {
             sum = abs(gx[j + i * width]) + abs(gy[j + i * width]);
             // sum = sum > 100 ? 255 : 0;
-            dst.set_pixel(i, j, 0, sum);
+            dst.Set(i, j, 0, sum);
         }
     }
 }
 
 void EdgeDetector::Sobel(Image& src, WriteableImage& dst) {
-    dst.reset_image(this->height, this->width, this->type);
+    dst.Reset(this->height, this->width, this->type);
     NablaX(gx, src, 4);
     NablaY(gy, src, 4);
     SetEdges(dst, gx, gy);
 }
 
 void EdgeDetector::Prewitt(Image& src, WriteableImage& dst) {
-    dst.reset_image(this->height, this->width, this->type);
+    dst.Reset(this->height, this->width, this->type);
     NablaX(gx, src, 3);
     NablaY(gy, src, 3);
     SetEdges(dst, gx, gy);
 }
 
 void EdgeDetector::RobertsCross(Image& src, WriteableImage& dst) {
-    dst.reset_image(this->height, this->width, this->type);
+    dst.Reset(this->height, this->width, this->type);
     int i, j, x, y, dx, dy, sum;
     for (i = 0; i < height; i++) {
         y = i + 1 >= height ? height - 1 : i + 1;
         for (j = 0; j < width; j++) {
             x = j + 1 >= width ? width - 1 : j + 1;
-            dx = abs(src.get_pixel(i, j, 0) - src.get_pixel(y, x, 0));
-            dy = abs(src.get_pixel(y, j, 0) - src.get_pixel(i, x, 0));
+            dx = abs(src.Get(i, j, 0) - src.Get(y, x, 0));
+            dy = abs(src.Get(y, j, 0) - src.Get(i, x, 0));
             sum = dx + dy > 255 ? 255 : dx + dy;
-            dst.set_pixel(i, j, 0, sum);
+            dst.Set(i, j, 0, sum);
         }
     }
 }
 
 void EdgeDetector::Laplace(Image& src, WriteableImage& dst) {
-    dst.reset_image(this->height, this->width, this->type);
+    dst.Reset(this->height, this->width, this->type);
     int i, j, v, w, x, y, sum;
     for (i = 0; i < height; i++) {
         v = i + 1 >= height ? height - 1 : i + 1;
@@ -183,15 +183,15 @@ void EdgeDetector::Laplace(Image& src, WriteableImage& dst) {
         for (j = 0; j < width; j++) {
             x = j + 1 >= width ? width - 1 : j + 1;
             y = j - 1 < 0 ? 0 : j - 1;
-            sum = (src.get_pixel(w, j, 0) + src.get_pixel(v, j, 0) + src.get_pixel(i, x, 0) + src.get_pixel(i, y, 0) - 4 * src.get_pixel(i, j, 0)) / 8;
+            sum = (src.Get(w, j, 0) + src.Get(v, j, 0) + src.Get(i, x, 0) + src.Get(i, y, 0) - 4 * src.Get(i, j, 0)) / 8;
             sum = sum > 10 ? 255 : 0;
-            dst.set_pixel(i, j, 0, sum);
+            dst.Set(i, j, 0, sum);
         }
     }
 }
 
 void EdgeDetector::Canny(Image& src, WriteableImage& dst, const int TL, const int TH) {
-    dst.reset_image(this->height, this->width, this->type);
+    dst.Reset(this->height, this->width, this->type);
     int i;
     short* gradient_angle = new short[this->height*this->width];
     short* sobel = new short[this->height*this->width];

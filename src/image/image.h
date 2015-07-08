@@ -11,18 +11,18 @@ using namespace cv;
 class Image
 {
 public:
-	virtual unsigned short get_channels() = 0;
-	virtual unsigned short get_height() = 0;
-	virtual unsigned short get_width() = 0;
-	virtual unsigned short get_type() = 0;
-	virtual unsigned char get_pixel(int, int, int) = 0;
+	virtual unsigned short GetChannels() = 0;
+	virtual unsigned short GetHeight() = 0;
+	virtual unsigned short GetWidth() = 0;
+	virtual unsigned short GetType() = 0;
+	virtual unsigned char Get(int, int, int) = 0;
 };
 
 class WriteableImage : public Image
 {
 public:
-	virtual void set_pixel(int, int, int, unsigned char) {}
-	virtual void reset_image(unsigned short, unsigned short, char) {};
+	virtual void Set(int, int, int, unsigned char) {}
+	virtual void Reset(unsigned short, unsigned short, char) {};
 };
 
 #endif //__IMAGE_H__

@@ -7,9 +7,9 @@
 
 Image_Inpainting::Image_Inpainting(Image& src, int steps) {
 	this->steps = steps;
-	this->channel = src.get_channels();
-	this->height = src.get_height();
-	this->width = src.get_width();
+	this->channel = src.GetChannels();
+	this->height = src.GetHeight();
+	this->width = src.GetWidth();
 	this->size = height * width * channel;
 	this->hash_table = (unsigned char*)malloc(this->height*this->width*sizeof(unsigned char));
 	this->f = (float*)malloc(size*sizeof(float));
@@ -41,9 +41,9 @@ void Image_Inpainting::initialize(Image& src) {
 	for (int k = 0; k < channel; k++) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				f[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
-				u[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
-				u_bar[j + i * width + k * height * width] = (float)src.get_pixel(i, j, k);
+				f[j + i * width + k * height * width] = (float)src.Get(i, j, k);
+				u[j + i * width + k * height * width] = (float)src.Get(i, j, k);
+				u_bar[j + i * width + k * height * width] = (float)src.Get(i, j, k);
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
@@ -58,7 +58,7 @@ void Image_Inpainting::set_solution(WriteableImage& dst) {
 	for (int k = 0; k < channel; k++)
 		for (int i = 0; i < height; i++)
 			for (int j = 0; j < width; j++)
-				dst.set_pixel(i, j, k, (unsigned char)u_bar[j + i * width + k * height * width]);
+				dst.Set(i, j, k, (unsigned char)u_bar[j + i * width + k * height * width]);
 }
 
 void Image_Inpainting::nabla(float* gradient_x, float* gradient_y, float* u_bar) {
@@ -114,7 +114,7 @@ void Image_Inpainting::prox_d(float* u, float* u_tilde, float* f, unsigned char*
 
 void Image_Inpainting::inpainting(Image& src, WriteableImage& dst, Parameter& par) {
 	int i;
-	dst.reset_image(height, width, src.get_type());
+	dst.Reset(height, width, src.GetType());
 	initialize(src);
 	for (int k = 0; k < steps; k++)
 	{

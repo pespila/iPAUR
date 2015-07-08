@@ -13,11 +13,11 @@ int main(int argc, const char* argv[]) {
     printf("\nStarting algorithm. Just a few seconds please:\n");
     float start_watch = clock();
     RGBImage in, out;
-    in.read_image(argv[1]);
-    Parameter par(0.0, 64.0, 0.01, 1.0, in.get_height() * in.get_width());
+    in.Read(argv[1]);
+    Parameter par(0.0, 64.0, 0.01, 1.0, in.GetHeight() * in.GetWidth());
     Image_Inpainting primal_dual(in, atoi(argv[3]));
     primal_dual.inpainting(in, out, par);
-    out.write_image(argv[2]);
+    out.Write(argv[2]);
     float stop_watch = clock();
     printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);
     
