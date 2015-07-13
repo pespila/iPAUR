@@ -15,15 +15,15 @@ public:
 	Primal_Dual(GrayscaleImage&, int, int);
 	~Primal_Dual();
 
-	void initialize(GrayscaleImage&);
-	void set_solution(GrayscaleImage&);
-	void nabla(float*, float*, float*, float*);
+	void Initialize(GrayscaleImage&);
+	void SetSolution(GrayscaleImage&);
+	void Nabla(float*, float*, float*, float*);
 	void soft_shrinkage_operator(float*, float*, float*, float);
 	void newton_projection(float*, float*, float*, float*, float, float);
 	float constraint(float, float, float, float, float, int);
-	// void vector_of_inner_product(float*, float*, float*);
+	// void VectorOfInnerProduct(float*, float*, float*);
 	void dykstra_algorithm(float*, float*, float*, float*, float*, float*, float*, float, float, float);
-	void nabla_transpose(float*, float*, float*, float*);
+	void NablaTranspose(float*, float*, float*, float*);
 	void truncation_operator(float*, float*);
 	void primal_dual_algorithm(GrayscaleImage&, GrayscaleImage&, Parameter&);
 

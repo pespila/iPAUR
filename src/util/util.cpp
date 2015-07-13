@@ -1,4 +1,4 @@
-#include "util.h"
+#include "Util.h"
 
 Util::Util(int height, int width, int channel, char type) {
     this->height = height;
@@ -18,7 +18,7 @@ Util::~Util() {}
 
 void Util::MarkRed(RGBImage& src, GrayscaleImage& edges, RGBImage& dst) {
     dst.Reset(this->height, this->width, this->type);
-    if (src.GetHeight() != edges.GetHeight() || src.GetWidth() != edges.GetWidth() || src.GetChannels() != edges.GetChannels()) {
+    if (src.GetHeight() != edges.GetHeight() || src.GetWidth() != edges.GetWidth()) {
         printf("Height, width and number of channels do not match!\n");
     } else {
         for (int i = 0; i < height; i++) {
