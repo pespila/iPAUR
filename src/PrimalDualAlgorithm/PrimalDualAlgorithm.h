@@ -8,6 +8,13 @@
 #ifndef __PRIMALDUALALGORITHM_H__
 #define __PRIMALDUALALGORITHM_H__
 
+struct Vector3D
+{
+	float* x1;
+	float* x2;
+	float* x3;
+};
+
 class PrimalDualAlgorithm
 {
 private:
@@ -16,54 +23,49 @@ private:
 	int width;
 	int level;
 	int size;
+	float* solution;
 	float* f;
 	float* u;
 	float* u_n;
 	float* u_bar;
-	float* gradient_x;
-	float* gradient_y;
-	float* gradient_z;
+	// struct Vector3D gradient;
+	struct Vector3D p;
+	struct Vector3D x;
+	struct Vector3D y;
+	struct Vector3D q;
+	struct Vector3D gradient;
+	struct Vector3D p_dual;
 	float* gradient_transpose;
-	float* p_x;
-	float* p_y;
-	float* p_z;
-	float* x1;
-	float* x2;
-	float* x3;
-	float* y1;
-	float* y2;
-	float* y3;
-	float* p1;
-	float* p2;
-	float* p3;
-	float* q1;
-	float* q2;
-	float* q3;
-	float* z1;
-	float* z2;
-	float* g1;
-	float* g2;
-	float* delta1;
-	float* delta2;
+	
+	void ScaleArray(float*, float, float*);
+	void AddArray(float*, float, float*, float, float*);
+	void ScaleVector3D(struct Vector3D, float, struct Vector3D);
+	void AddVector3D(struct Vector3D, float, struct Vector3D, float, struct Vector3D);
+	void Nabla(struct Vector3D, float*);
+	void ProjectionOntoParabola(struct Vector3D, struct Vector3D);
+	void ProjectionOntoConvexCone(struct Vector3D, struct Vector3D, float);
+	void DykstraAlgorithm(struct Vector3D, struct Vector3D, float*, float, float, float, int);
+	void NablaTranspose(float*, struct Vector3D);
+	void ComputeIsosurface(float*);
+	void SetSolution(WriteableImage&);
 	
 	void Initialize(Image&);
 	float Newton(float, float, float);
-	void SetSolution(WriteableImage&);
 	void Nabla(float*, float*, float*, float*);
 	void VectorOfInnerProduct(float*, float*, float*, float*);
-	void DykstraAlgorithm(float*, float*, float*, float*, float*, float*, float*, float, float, float);
 	void SoftShrinkageScheme(float*, float*, float*, float);
+	void ProjectionOntoParabola(float*, float*, float*);
+	void ProjectionOntoConvexCone(float*, float*, float*, float);
 	void NewtonProjection(float*, float*, float*, float*, float, float);
-	void NablaTranspose(float*, float*, float*, float*);
 	void TruncationOperation(float*, float*);
 	float Constraint(float, float, float, float, float, int);
 
 public:
-	PrimalDualAlgorithm():steps(0), height(0), width(0), level(0), size(0), f(NULL), u(NULL), u_n(NULL), u_bar(NULL), gradient_x(NULL), gradient_y(NULL), gradient_z(NULL), gradient_transpose(NULL), p_x(NULL), p_y(NULL), p_z(NULL), x1(NULL), x2(NULL), x3(NULL), y1(NULL), y2(NULL), y3(NULL), p1(NULL), p2(NULL), p3(NULL), q1(NULL), q2(NULL), q3(NULL), z1(NULL), z2(NULL), g1(NULL), g2(NULL), delta1(NULL), delta2(NULL) {}
+	PrimalDualAlgorithm():steps(0), height(0), width(0), level(0), size(0), f(NULL), u(NULL), u_n(NULL), u_bar(NULL) {}
 	PrimalDualAlgorithm(Image&, int, int);
 	~PrimalDualAlgorithm();
 
-	void PrimalDual(Image&, WriteableImage&, Parameter&);
+	void PrimalDual(Image&, WriteableImage&, Parameter&, int);
 };
 
 #endif //__PRIMALDUALALGORITHM_H__

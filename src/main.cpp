@@ -18,11 +18,11 @@ int main(int argc, const char* argv[]) {
     GrayscaleImage in, out;
     in.Read(argv[1]);
     RealTimeMinimizer rtm(in, 50);
-    PrimalDualAlgorithm pd(in, 8, 100);
+    PrimalDualAlgorithm pd(in, 16, 100);
     // Parameter par;
     // rtm.RTMinimizer(in, out, par);
     Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);
-    pd.PrimalDual(in, out, par);
+    pd.PrimalDual(in, out, par, 10);
     out.Write(argv[2]);
     float stop_watch = clock();
     printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);
