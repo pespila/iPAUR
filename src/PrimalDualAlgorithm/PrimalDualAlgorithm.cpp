@@ -6,57 +6,33 @@ PrimalDualAlgorithm::PrimalDualAlgorithm(Image& src, int level, int steps) {
 	this->height = src.GetHeight();
 	this->width = src.GetWidth();
 	this->size = height * width * level;
-	this->solution = (float*)malloc(height*width*sizeof(float));
-	this->f = (float*)malloc(height*width*sizeof(float));
-	this->u = (float*)malloc(size*sizeof(float));
-	this->u_n = (float*)malloc(size*sizeof(float));
-	this->u_bar = (float*)malloc(size*sizeof(float));
-	this->gradient.x1 = (float*)malloc(size*sizeof(float));
-	this->gradient.x2 = (float*)malloc(size*sizeof(float));
-	this->gradient.x3 = (float*)malloc(size*sizeof(float));
-	this->gradient_transpose = (float*)malloc(size*sizeof(float));
-	this->p_dual.x1 = (float*)malloc(size*sizeof(float));
-	this->p_dual.x2 = (float*)malloc(size*sizeof(float));
-	this->p_dual.x3 = (float*)malloc(size*sizeof(float));
-	this->x.x1 = (float*)malloc(size*sizeof(float));
-	this->x.x2 = (float*)malloc(size*sizeof(float));
-	this->x.x3 = (float*)malloc(size*sizeof(float));
-	this->y.x1 = (float*)malloc(size*sizeof(float));
-	this->y.x2 = (float*)malloc(size*sizeof(float));
-	this->y.x3 = (float*)malloc(size*sizeof(float));
-	this->p.x1 = (float*)malloc(size*sizeof(float));
-	this->p.x2 = (float*)malloc(size*sizeof(float));
-	this->p.x3 = (float*)malloc(size*sizeof(float));
-	this->q.x1 = (float*)malloc(size*sizeof(float));
-	this->q.x2 = (float*)malloc(size*sizeof(float));
-	this->q.x3 = (float*)malloc(size*sizeof(float));
+	this->solution = new float[height*width];
+	this->f = new float[height*width];
+	this->u = new float[size];
+	this->u_n = new float[size];
+	this->u_bar = new float[size];
+	this->gradient_transpose = new float[size];
+	this->gradient = Vector3D(height, width, level);
+	this->p_dual = Vector3D(height, width, level);
+	this->x = Vector3D(height, width, level);
+	this->y = Vector3D(height, width, level);
+	this->p = Vector3D(height, width, level);
+	this->q = Vector3D(height, width, level);
 }
 
 PrimalDualAlgorithm::~PrimalDualAlgorithm() {
-	free(solution);
-	free(f);
-	free(u);
-	free(u_n);
-	free(u_bar);
-	free(gradient.x1);
-	free(gradient.x2);
-	free(gradient.x3);
-	free(gradient_transpose);
-	free(p_dual.x1);
-	free(p_dual.x2);
-	free(p_dual.x3);
-	free(x.x1);
-	free(x.x2);
-	free(x.x3);
-	free(y.x1);
-	free(y.x2);
-	free(y.x3);
-	free(p.x1);
-	free(p.x2);
-	free(p.x3);
-	free(q.x1);
-	free(q.x2);
-	free(q.x3);
+	delete[] solution;
+	delete[] f;
+	delete[] u;
+	delete[] u_n;
+	delete[] u_bar;
+	delete[] gradient_transpose;
+	gradient.Free();
+	p_dual.Free();
+	x.Free();
+	y.Free();
+	p.Free();
+	q.Free();
 }
 
 void PrimalDualAlgorithm::ScaleArray(float* out, float factor, float* in) {
@@ -66,101 +42,152 @@ void PrimalDualAlgorithm::ScaleArray(float* out, float factor, float* in) {
 
 void PrimalDualAlgorithm::AddArray(float* out, float factor1, float* in1, float factor2, float* in2) {
 	for (int i = 0; i < size; i++)
-		out[i] = factor1 * in1[i] - factor2 * in2[i];
+		out[i] = factor1 * in1[i] + factor2 * in2[i];
 }
 
-void PrimalDualAlgorithm::ScaleVector3D(struct Vector3D out, float factor, struct Vector3D in) {
-	for (int i = 0; i < size; i++) {
-		out.x1[i] = factor * in.x1[i];
-		out.x2[i] = factor * in.x2[i];
-		out.x3[i] = factor * in.x3[i];
-	}
+void PrimalDualAlgorithm::ScaleVector3D(Vector3D& out, float factor, Vector3D& in) {
+	for (int c = 0; c < 3; c++)
+		for (int k = 0; k < level; k++)
+			for (int i = 0; i < height; i++)
+				for (int j = 0; j < width; j++)
+					out.Set(i, j, k, c, factor * in.Get(i, j, k, c));
 }
 
-void PrimalDualAlgorithm::AddVector3D(struct Vector3D out, float factor1, struct Vector3D in1, float factor2, struct Vector3D in2) {
-	for (int i = 0; i < size; i++) {
-		out.x1[i] = factor1 * in1.x1[i] + factor2 * in2.x1[i];
-		out.x2[i] = factor1 * in1.x2[i] + factor2 * in2.x2[i];
-		out.x3[i] = factor1 * in1.x3[i] + factor2 * in2.x3[i];
-	}
+void PrimalDualAlgorithm::AddVector3D(Vector3D& out, float factor1, Vector3D& in1, float factor2, Vector3D& in2) {
+	for (int c = 0; c < 3; c++)
+		for (int k = 0; k < level; k++)
+			for (int i = 0; i < height; i++)
+				for (int j = 0; j < width; j++)
+					out.Set(i, j, k, c, factor1 * in1.Get(i, j, k, c) + factor2 * in2.Get(i, j, k, c));
 }
 
-void PrimalDualAlgorithm::Nabla(struct Vector3D gradient, float* u_bar) {
-	int index;
+void PrimalDualAlgorithm::Nabla(Vector3D& gradient, float* u_bar) {
+	float nabla_x = 0.0;
+	float nabla_y = 0.0;
+	float nabla_z = 0.0;
 	for (int k = 0; k < level; k++) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				index = j + i * width + k * height * width;
-				gradient.x1[index] = i + 1 < height ? (u_bar[j + (i+1) * width + k * height * width] - u_bar[index]) : 0.0;
-				gradient.x2[index] = j + 1 < width ? (u_bar[j + 1 + i * width + k * height * width] - u_bar[index]) : 0.0;
-				gradient.x3[index] = k + 1 < level ? (u_bar[j + i * width + (k+1) * height * width] - u_bar[index]) : 0.0;
-				// gradient.x3[index] = k + 1 < level ? (u_bar[j + i * width + (k+1) * height * width] - u_bar[index]) : - u_bar[index];
+				nabla_x = i + 1 < height ? (u_bar[j + (i+1) * width + k * height * width] - u_bar[j + i * width + k * height * width]) : 0.0;
+				nabla_y = j + 1 < width ? (u_bar[j + 1 + i * width + k * height * width] - u_bar[j + i * width + k * height * width]) : 0.0;
+				nabla_z = k + 1 < level ? (u_bar[j + i * width + (k+1) * height * width] - u_bar[j + i * width + k * height * width]) : 0.0;
+				gradient.Set(i, j, k, 0, nabla_x);
+				gradient.Set(i, j, k, 1, nabla_y);
+				gradient.Set(i, j, k, 2, nabla_z);
 			}
 		}
 	}
 }
 
-void PrimalDualAlgorithm::ProjectionOntoParabola(struct Vector3D y, struct Vector3D p) {
-	float l2norm, v, a, b, c, d, alpha = 0.25;
-	for (int i = 0; i < size; i++) {
-		l2norm = sqrt(pow(p.x1[i], 2) + pow(p.x2[i], 2));
-		if (alpha * pow(l2norm, 2) <= p.x3[i]) continue;
-		a = 2.0 * alpha * l2norm;
-		b = 2.0 / 3.0 * (1.0 - 2.0 * alpha * p.x3[i]);
-		d = b < 0 ? (a - pow(sqrt(-b), 3)) * (a + pow(sqrt(-b), 3)) : a * a + b * b * b;
-		c = pow((a + sqrt(d)), 1.0 / 3.0);
-		if (d >= 0) {
-			v = c != 0.0 ? c - b / c : 0.0;
-		} else {
-			v = 2.0 * sqrt(-b) * cos((1.0 / 3.0) * acos(a / (pow(sqrt(-b), 3))));
+void PrimalDualAlgorithm::ProjectionOntoParabola(Vector3D& y, Vector3D& p) {
+	float l2norm, v, a, b, c, d, value, alpha = 0.25;
+	for (int k = 0; k < level; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				l2norm = sqrt(pow(p.Get(i, j, k, 0), 2) + pow(p.Get(i, j, k, 1), 2));
+				if (alpha * pow(l2norm, 2) > p.Get(i, j, k, 2)) {
+					a = 2.0 * alpha * l2norm;
+					b = 2.0 / 3.0 * (1.0 - 2.0 * alpha * p.Get(i, j, k, 2));
+					d = b < 0 ? (a - pow(sqrt(-b), 3)) * (a + pow(sqrt(-b), 3)) : a * a + b * b * b;
+					c = pow((a + sqrt(d)), 1.0 / 3.0);
+					if (d >= 0) {
+						v = c != 0.0 ? c - b / c : 0.0;
+					} else {
+						v = 2.0 * sqrt(-b) * cos((1.0 / 3.0) * acos(a / (pow(sqrt(-b), 3))));
+					}
+					for (int c = 0; c < 2; c++) {
+						value = p.Get(i, j, k, c) != 0.0 ? (v / (2.0 * alpha)) * (p.Get(i, j, k, c) / l2norm) : 0.0;
+						y.Set(i, j, k, c, value);
+					}
+					y.Set(i, j, k, 2, alpha * pow(l2norm, 2));
+				}
+			}
 		}
-		y.x1[i] = p.x1[i] != 0.0 ? (v / (2.0 * alpha)) * (p.x1[i] / l2norm) : 0.0;
-		y.x2[i] = p.x2[i] != 0.0 ? (v / (2.0 * alpha)) * (p.x2[i] / l2norm) : 0.0;
-		y.x3[i] = alpha * pow(l2norm, 2);
 	}
 }
 
-void PrimalDualAlgorithm::ProjectionOntoConvexCone(struct Vector3D x, struct Vector3D q, float nu) {
-	float l2norm;
-	for (int i = 0; i < size; i++) {
-		l2norm = sqrt(pow(q.x1[i], 2) + pow(q.x2[i], 2));
-		x.x1[i] = l2norm <= nu ? p.x1[i] : nu * p.x1[i] / l2norm;
-		x.x2[i] = l2norm <= nu ? p.x2[i] : nu * p.x2[i] / l2norm;
-	}
-}
+// void PrimalDualAlgorithm::ProjectionOntoConvexCones(Vector3D& x, Vector3D& q, float nu, int k1, int k2) {
+// 	float K = (float)(k2 - k1) + 1.0;
+// 	float s = 0.0;
+// 	float s0 = 0.0;
+// 	int i, j, k;
+// 	for (i = 0; i < height; i++)
+// 	{
+// 		for (j = 0; j < width; j++)
+// 		{
+// 			s0 = 0.0;
+// 			for (k = k1; k < k2; k++) {
+// 				s0 += q[j + i * width + k * height * width];
+// 			}
+// 			for (k = 0; k < level; k++)
+// 			{
+// 				if (k < k1) {
+// 					x[j + i * width + k * height * width] = q[j + i * width + k * height * width];
+// 				} else if (k > k2) {
+// 					x[j + i * width + k * height * width] = q[j + i * width + k * height * width];
+// 				} else {
+// 					x[j + i * width + k * height * width] = q[j + i * width + k * height * width] + (s - s0) / K;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	float l2norm;
+// 	for (int i = 0; i < size; i++) {
+// 		l2norm = sqrt(pow(q.x1[i], 2) + pow(q.x2[i], 2));
+// 		x.x1[i] = l2norm <= nu ? p.x1[i] : nu * p.x1[i] / l2norm;
+// 		x.x2[i] = l2norm <= nu ? p.x2[i] : nu * p.x2[i] / l2norm;
+// 	}
+// }
 
-void PrimalDualAlgorithm::DykstraAlgorithm(struct Vector3D x_bar, struct Vector3D r, float* f, float L, float lambda, float nu, int max_iter) {
+void PrimalDualAlgorithm::DykstraAlgorithm(Vector3D& x_bar, Vector3D& r, float* f, float L, float lambda, float nu, int max_iter) {
 	ScaleVector3D(x, 1.0, r);
 	for (int i = 0; i < max_iter; i++) {
 		AddVector3D(p, 1.0, x, 1.0, p);
 		ProjectionOntoParabola(y, p);
 		AddVector3D(p, 1.0, p, -1.0, y);
 		AddVector3D(q, 1.0, y, 1.0, q);
-		// ProjectionOntoConvexCone(x, q, nu);
+		// ProjectionOntoConvexCones(x, q, nu);
 		AddVector3D(q, 1.0, q, -1.0, x);
 	}
 	ScaleVector3D(x_bar, 1.0, x);
 }
 
-void PrimalDualAlgorithm::NablaTranspose(float* gradient_transpose, struct Vector3D p_dual) {
-	float x , x_minus_one;
-	int index;
+// void PrimalDualAlgorithm::DykstraAlgorithm(Vector3D& x_bar, Vector3D& r, float* f, float L, float lambda, float nu, int max_iter) {
+// 	int k1 = 0, k2 = level;
+// 	ScaleVector3D(x, 1.0, r);
+// 	for (int k = 0; k < max_iter; k++) {
+// 		AddVector3D(p, 1.0, x, 1.0, p);
+// 		ProjectionOntoParabola(y, p);
+// 		AddVector3D(p, 1.0, p, -1.0, y);
+// 		for (int i = 0; i < k1; i++)
+// 		{
+// 			for (int j = 0; j < k2; j++)
+// 			{
+// 				AddVector3D(q, 1.0, y, 1.0, q);
+// 				ProjectionOntoConvexCones(x, q, nu, i, j);
+// 				AddVector3D(q, 1.0, q, -1.0, x);
+// 			}
+// 		}
+// 	}
+// 	ScaleVector3D(x_bar, 1.0, x);
+// }
+
+void PrimalDualAlgorithm::NablaTranspose(float* gradient_transpose, Vector3D& p_dual) {
+	float x , x_minus_one, nabla_transpose;
 	for (int k = 0; k < level; k++) {
 		for (int i = 0; i < height; i++) {
+			nabla_transpose = 0.0;
 			for (int j = 0; j < width; j++) {
-				index = j + i * width + k * height * width;
-				x = i + 1 < height ? p_dual.x1[index] : 0.0;
-				x_minus_one = i > 0 ? p_dual.x1[j + (i-1) * width + k * height * width] : 0.0;
-				gradient_transpose[index] = x_minus_one - x;
-				x = j + 1 < width ? p_dual.x2[index] : 0.0;
-				x_minus_one = j > 0 ? p_dual.x2[j - 1 + i * width + k * height * width] : 0.0;
-				gradient_transpose[index] += (x_minus_one - x);
-				x = k + 1 < level ? p_dual.x3[index] : 0.0;
-				x_minus_one = k > 0 ? p_dual.x3[j + i * width + (k-1) * height * width] : 0.0;
-				gradient_transpose[index] += (x_minus_one - x);
-				// x = k + 1 < level ? p_dual.x3[index] : 0.0;
-				// x_minus_one = k > 0 ? p_dual.x3[j + i * width + (k-1) * height * width] : - p_dual.x3[index];
-				// gradient_transpose[index] += (x_minus_one - x);
+				x = i + 1 < height ? p_dual.Get(i, j, k, 0) : 0.0;
+				x_minus_one = i > 0 ? p_dual.Get(i-1, j, k, 0) : 0.0;
+				nabla_transpose += (x_minus_one - x);
+				x = j + 1 < width ? p_dual.Get(i, j, k, 1) : 0.0;
+				x_minus_one = j > 0 ? p_dual.Get(i, j-1, k, 1) : 0.0;
+				nabla_transpose += (x_minus_one - x);
+				x = k + 1 < level ? p_dual.Get(i, j, k, 2) : 0.0;
+				x_minus_one = k > 0 ? p_dual.Get(i, j, k-1, 2) : 0.0;
+				nabla_transpose += (x_minus_one - x);
+				gradient_transpose[j + i * width + k * height * width] = nabla_transpose;
 			}
 		}
 	}
@@ -199,16 +226,8 @@ void PrimalDualAlgorithm::Initialize(Image& src) {
 		for (int j = 0; j < width; j++) {
 			f[j + i * width] = (float)src.Get(i, j, 0) / 255.0;
 			for (int k = 0; k < level; k++) {
-				if (((k + 1) / level) <= src.Get(i, j, 0)) {
-					u[j + i * width + k * height * width] = (float)src.Get(i, j, 0) / 255.0;
-				}
-				if (k == 0) {
-					u[j + i * width + k * height * width] = 0.0;
-				}
+				u[j + i * width + k * height * width] = k <= ((float)src.Get(i, j, 0) / 255.0) * level ? 1.0 : 0.0;
 				u_bar[j + i * width + k * height + width] = u[j + i * width + k * height * width];
-				p_dual.x1[j + i * width + k * height * width] = 0.0;
-				p_dual.x2[j + i * width + k * height * width] = 0.0;
-				p_dual.x3[j + i * width + k * height * width] = 0.0;
 			}
 		}
 	}
@@ -225,7 +244,7 @@ void PrimalDualAlgorithm::PrimalDual(Image& src, WriteableImage& dst, Parameter&
 		NablaTranspose(gradient_transpose, p_dual);
 		AddArray(gradient_transpose, 1.0, u_n, -par.tau, gradient_transpose);
 		TruncationOperation(u, gradient_transpose);
-		AddArray(u_bar, (1.0 + par.theta), u, par.theta, u_n);
+		AddArray(u_bar, 2.0, u, -1.0, u_n);
 	}
 	ComputeIsosurface(u_bar);
 	SetSolution(dst);

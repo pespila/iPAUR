@@ -18,7 +18,7 @@ int main(int argc, const char* argv[]) {
     GrayscaleImage in, out;
     in.Read(argv[1]);
     RealTimeMinimizer rtm(in, 50);
-    PrimalDualAlgorithm pd(in, 16, 100);
+    PrimalDualAlgorithm pd(in, 32, 400);
     // Parameter par;
     // rtm.RTMinimizer(in, out, par);
     Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);

@@ -117,7 +117,6 @@ void RealTimeMinimizer::RTMinimizer(Image& src, WriteableImage& dst, Parameter& 
 	{
 		for (i = 0; i < size; i++) {u_n[i] = u[i];}
 		Nabla(gradient_x, gradient_y, u_bar);
-		printf("%f\n", gradient_x[100]);
 		for (i = 0; i < size; i++) {gradient_x[i] = par.sigma * gradient_x[i] + p_x[i];}
 		for (i = 0; i < size; i++) {gradient_y[i] = par.sigma * gradient_y[i] + p_y[i];}
 		ProxRstar(p_x, p_y, gradient_x, gradient_y, par.alpha, par.lambda, par.sigma, par.cartoon);
