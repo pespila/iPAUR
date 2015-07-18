@@ -15,15 +15,17 @@ int main(int argc, const char* argv[]) {
 
     printf("\nStarting algorithm. Just a few seconds please:\n");
     float start_watch = clock();
+
     GrayscaleImage in, out;
     in.Read(argv[1]);
-    RealTimeMinimizer rtm(in, 50);
-    PrimalDualAlgorithm pd(in, 32, 400);
-    // Parameter par;
-    // rtm.RTMinimizer(in, out, par);
+    
+    PrimalDualAlgorithm pd(in, 64, 200);
     Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);
-    pd.PrimalDual(in, out, par, 10);
+    
+    pd.PrimalDual(in, out, par, 100);
+    
     out.Write(argv[2]);
+    
     float stop_watch = clock();
     printf("Algorithm finished in %f seconds.\n", (stop_watch - start_watch)/CLOCKS_PER_SEC);
     

@@ -322,7 +322,7 @@ void PrimalDualAlgorithm::PrimalDual(Image& src, WriteableImage& dst, Parameter&
 		ScaleArray(u_n, 1.0, u);
 		Nabla(gradient, u_bar);
 		AddVector3D(gradient, par.sigma, gradient, 1.0, p_dual);
-		DykstraAlgorithm(p_dual, gradient, f, par.lambda, par.L, par.nu, dykstra_max_iter);
+		// DykstraAlgorithm(p_dual, gradient, f, par.lambda, par.L, par.nu, dykstra_max_iter);
 		NablaTranspose(gradient_transpose, p_dual);
 		AddArray(gradient_transpose, 1.0, u_n, -par.tau, gradient_transpose);
 		TruncationOperation(u, gradient_transpose);
