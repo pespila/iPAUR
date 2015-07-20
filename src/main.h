@@ -14,4 +14,5 @@
 #include "ImageInpainting/ImageInpainting.h"
 #include "RealTimeMinimizer/RealTimeMinimizer.h"
 #include "TVL1Model/TVL1Model.h"
+#include "PrimalDualAlgorithm/Vectors.h"
 #include "PrimalDualAlgorithm/PrimalDualAlgorithm.h"

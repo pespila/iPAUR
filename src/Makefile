@@ -19,7 +19,7 @@ DEPS =	main.h \
 		ImageInpainting/ImageInpainting.h \
 		RealTimeMinimizer/RealTimeMinimizer.h \
 		TVL1Model/TVL1Model.h \
-		PrimalDualAlgorithm/Vector3D.h \
+		PrimalDualAlgorithm/Vectors.h \
 		PrimalDualAlgorithm/PrimalDualAlgorithm.h
 
 OBJ =	main.o \
@@ -39,7 +39,7 @@ OBJ =	main.o \
 		ImageInpainting/ImageInpainting.o \
 		RealTimeMinimizer/RealTimeMinimizer.o \
 		TVL1Model/TVL1Model.o \
-		PrimalDualAlgorithm/Vector3D.o \
+		PrimalDualAlgorithm/Vectors.o \
 		PrimalDualAlgorithm/PrimalDualAlgorithm.o
 
 LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm

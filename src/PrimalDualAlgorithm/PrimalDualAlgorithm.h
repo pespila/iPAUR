@@ -1,9 +1,7 @@
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
 #include <cmath>
 #include "../Image/Image.h"
 #include "../Parameter/Parameter.h"
-#include "Vector3D.h"
+#include "Vectors.h"
 
 #ifndef __PRIMALDUALALGORITHM_H__
 #define __PRIMALDUALALGORITHM_H__
@@ -11,49 +9,42 @@
 class PrimalDualAlgorithm
 {
 private:
-	int steps;
 	int height;
 	int width;
 	int level;
-	int size;
-	
-	float* solution;
-	float* f;
-	float* u;
-	float* u_n;
-	float* u_bar;
-	float* gradient_transpose;
 
-	Vector3D p;
-	Vector3D x;
-	Vector3D y;
-	Vector3D q;
-	Vector3D p_dual;
-	Vector3D gradient;
+	Vectors u;
+	Vectors u_n;
+	Vectors u_bar;
+	Vectors gradient_transpose;
 	
-	void ScaleArray(float*, float, float*);
-	void AddArray(float*, float, float*, float, float*);
-	void ScaleVector3D(Vector3D&, float, Vector3D&);
-	void AddVector3D(Vector3D&, float, Vector3D&, float, Vector3D&);
-	void Nabla(Vector3D&, float*);
-	void ProjectionOntoParabola(Vector3D&, Vector3D&, float*, float, float);
-	void ProjectionOntoConvexCones(Vector3D&, Vector3D&, float, int, int);
-	void DykstraAlgorithm(Vector3D&, Vector3D&, float*, float, float, float, int);
-	void NablaTranspose(float*, Vector3D&);
-	void TruncationOperation(float*, float*);
-	void ComputeIsosurface(float*);
-	void SetSolution(WriteableImage&);
-	void Initialize(Image&);
-	float EuclideanDistance(float*, float*);
-	float EuclideanDistance3D(Vector3D&, Vector3D&);
-	Mat Write(Image&);
+	Vectors p;
+	Vectors x;
+	Vectors y;
+	Vectors q;
+	Vectors p_dual;
+	Vectors gradient;
+	
+	void ScaleVectors(Vectors&, float, Vectors&);
+	void AddVectors(Vectors&, float, Vectors&, float, Vectors&);
+	void Add(Vectors&, float, Vectors&, float, Vectors&, int, int, int);
+	void Nabla(Vectors&, Vectors&);
+	void NablaTranspose(Vectors&, Vectors&);
+	void TruncationOperation(Vectors&, Vectors&);
+	float L2Norm(Vectors&, int);
+	void L2Projection(Vectors&, Vectors&, float);
+	void SoftShrinkageScheme(Vectors&, Vectors&, int, int, int, int, float);
+	void ProjectionOntoParabola(Vectors&, Vectors&, Image&, float, float, int, int, int);
+	// void DykstraAlgorithm(Vectors&, Vectors&, Image&, float, float, float, int, int, int, int);
+	void DykstraAlgorithm(Vectors&, Vectors&, Image&, float, float, float, int);
+	void ComputeIsosurface(WriteableImage&, Vectors&);
 
 public:
-	PrimalDualAlgorithm():steps(0), height(0), width(0), level(0), size(0), f(NULL), u(NULL), u_n(NULL), u_bar(NULL), gradient_transpose(NULL) {}
-	PrimalDualAlgorithm(Image&, int, int);
-	~PrimalDualAlgorithm();
+	PrimalDualAlgorithm():height(0), width(0), level(0) {}
+	PrimalDualAlgorithm(Image&, int);
+	~PrimalDualAlgorithm() {}
 
-	void PrimalDual(Image&, WriteableImage&, Parameter&, int);
+	void PrimalDual(Image&, WriteableImage&, Parameter&, int, int);
 };
 
 #endif //__PRIMALDUALALGORITHM_H__
