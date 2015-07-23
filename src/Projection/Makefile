@@ -5,13 +5,15 @@ CPPFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math 
 DEPS =	Image.h \
 		Projection.h \
 		LinearOperator.h \
-		Algebra.h
+		Algebra.h \
+		Vector.h
 
 OBJ =	main.o \
 		Image.o \
 		Projection.o \
 		LinearOperator.o \
-		Algebra.o
+		Algebra.o \
+		Vector.o
 
 # LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
 # LDFLAGS = -L/opt/local/lib
