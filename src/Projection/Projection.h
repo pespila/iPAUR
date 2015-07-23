@@ -109,89 +109,79 @@ public:
 		}
 	}
 
-	void Dykstra(Vector<F>& dst, Vector<F>& src, Algebra<F>& linalg, F alpha, F nu, int dykstra_max_iter) {
+	void InitProjectionVector(Vector<F>* dst1, Vector<F>* dst2, int size, int level) {
+		for (int i = 0; i < size; i++) {
+			if (i < level) {
+				dst1[i] = Vector<F>(1, 1, 1, 3, 0.0);
+				dst2[i] = Vector<F>(1, 1, 1, 3, 0.0);
+			} else {
+				dst1[i] = Vector<F>(1, 1, level, 3, 0.0);
+				dst2[i] = Vector<F>(1, 1, level, 3, 0.0);
+			}
+		}
+	}
+
+	void SetProjectionVector(Vector<F>* dst, Vector<F>& src, int size, int level, int i, int j) {
+		for (int k = 0; k < level; k++) {
+			for (int c = 0; c < 3; c++) {
+				dst[k].Set(0, 0, 0, c, src.Get(i, j, k, c));
+			}
+		}
+		for (int x = level; x < size; x++) {
+			for (int k = 0; k < level; k++) {
+				for (int c = 0; c < 3; c++) {
+					dst[x].Set(0, 0, k, c, src.Get(i, j, k, c));
+				}
+			}
+		}
+	}
+
+	void WriteProjectionVectors(Vector<F>& dst, Vector<F>* src, int size, int level, int i, int j) {
+		for (int k = 0; k < level; k++) {
+			for (int c = 0; c < 3; c++) {
+				dst.Set(i, j, k, c, src[k].Get(0, 0, 0, c));
+			}
+		}
+		for (int x = level; x < size; x++) {
+			for (int k = 0; k < level; k++) {
+				for (int c = 0; c < 3; c++) {
+					dst.Set(i, j, k, c, src[x].Get(0, 0, k, c));
+				}
+			}
+		}
+	}
+
+	void Dykstra(Vector<F>& dst, Vector<F>& src, Algebra<F>& linalg, F alpha, F nu, int i, int j, int dykstra_max_iter) {
 		int level = src.Level();
-		int projections = level * (level+1) / 2 + level + 1;
+		int projections = level * (level + 1) / 2 + level;
 		Vector<F>* corrections = new Vector<F>[projections];
 		Vector<F>* variables = new Vector<F>[projections];
 
-		for (int i = 0; i < projections; i++) {
-			if (i < level) {
-				corrections[i] = Vector<F>(1, 1, 1, 3, 0.0);
-				variables[i] = Vector<F>(1, 1, 1, 3, 0.0);
-			} else {
-				corrections[i] = Vector<F>(1, 1, level, 3, 0.0);
-				variables[i] = Vector<F>(1, 1, level, 3, 0.0);
-			}
-		}
-
-		for (int i = 0; i < src.Height(); i++) {
-			for (int j = 0; j < src.Width(); j++) {
-				for (int x = 0; x < projections; x++) {
-					if (x < level) {
-						for (int k = 0; k < level; k++) {
-							for (int c = 0; c < 3; c++) {
-								variables[x].Set(0, 0, 0, c, src.Get(i, j, k, c));
-							}
-						}
-					} else {
-						for (int k = 0; k < level; k++) {
-							for (int c = 0; c < 3; c++) {
-								variables[x].Set(0, 0, k, c, src.Get(i, j, k, c));
-							}
-						}
-					}
-				}
-			}
-		}
+		InitProjectionVector(variables, corrections, projections, level);
+		SetProjectionVector(variables, src, projections, level, i, j);
 
 		for (int m = 0; m < dykstra_max_iter; m++) {
-			for (int i = 0; i < src.Height(); i++) {
-				for (int j = 0; j < src.Width(); j++) {
-					for (int x = 0; x < projections; x++) {
-						for (int k1 = 0; k1 < level; k1++) {
-							if (x < level) {
-								if (m == 0) {
-									linalg.AddVector(corrections[x], variables[x], corrections[x], 1.0, 1.0);
-								} else {
-									linalg.AddVector(corrections[x], variables[x], corrections[x], 1.0, 1.0);
-									// linalg.AddVector(corrections[x], variables[projections - 1], corrections[x], 1.0, 1.0);
-								}
-								OnParabola(variables[x], corrections[x], 1.0);
-								linalg.AddVector(corrections[x], corrections[x], variables[x], 1.0, -1.0);
-							} else {
-								for (int k2 = k1; k2 < level; k2++) {
-									// linalg.AddVector(corrections[x], variables[x-1], corrections[x], 1.0, 1.0);
-									linalg.AddVector(corrections[x], variables[x], corrections[x], 1.0, 1.0);
-									SoftShrinkage(variables[x], corrections[x], i, j, k1, k2, nu);
-									linalg.AddVector(corrections[x], corrections[x], variables[x], 1.0, -1.0);
-								}
-							}
-						}
-					}
+			for (int k = 0; k < level; k++) {
+				if (m == 0) {
+					linalg.AddVector(corrections[k], variables[k], corrections[k], 1.0, 1.0);
+				} else {
+					linalg.AddVector(corrections[k], variables[level - 1], corrections[k], 1.0, 1.0);
+				}
+				OnParabola(variables[k], corrections[k], 1.0);
+				linalg.AddVector(corrections[k], corrections[k], variables[k], 1.0, -1.0);
+			}
+			int l = 0;
+			for (int k1 = 0; k1 < level; k1++) {
+				for (int k2 = k1; k2 < level; k2++) {
+					linalg.AddVector(corrections[level + l], variables[projections - 1], corrections[level + l], 1.0, 1.0);
+					SoftShrinkage(variables[level + l], corrections[level + l], i, j, k1, k2, nu);
+					linalg.AddVector(corrections[level + l], corrections[level + l], variables[level + l], 1.0, -1.0);
+					l++;
 				}
 			}
 		}
 
-		for (int i = 0; i < src.Height(); i++) {
-			for (int j = 0; j < src.Width(); j++) {
-				for (int x = 0; x < projections; x++) {
-					if (x < level) {
-						for (int k = 0; k < level; k++) {
-							for (int c = 0; c < 3; c++) {
-								dst.Set(i, j, k, c, variables[x].Get(0, 0, 0, c));
-							}
-						}
-					} else {
-						for (int k = 0; k < level; k++) {
-							for (int c = 0; c < 3; c++) {
-								dst.Set(i, j, k, c, variables[x].Get(0, 0, k, c));
-							}
-						}
-					}
-				}
-			}
-		}
+		WriteProjectionVectors(dst, variables, projections, level, i, j);
 		
 		delete[] corrections;
 		delete[] variables;

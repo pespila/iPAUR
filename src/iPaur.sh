@@ -13,7 +13,7 @@
 
 make
 
- ./iPaur "../../tests/image.jpg" "../../tests/imagenew.jpg"
+ ./iPaur "../../tests/image1.jpg" "../../tests/imagenew.jpg"
 
 # ./iPaur "tests/min.jpg" "tests/min_new.jpg"
 # ./iPaur "tests/Wafer_Detection/max.jpg" "tests/max_new5.jpg"

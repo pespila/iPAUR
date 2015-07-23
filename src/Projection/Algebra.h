@@ -11,6 +11,16 @@ public:
 	Algebra() {}
 	~Algebra() {}
 
+	void Image2Vector(Vector<F>& dst, Image<F>& src) {
+		for (int k = 0; k < dst.Level(); k++) {
+			for (int i = 0; i < dst.Height(); i++) {
+				for (int j = 0; j < dst.Width(); j++) {
+					dst.Set(i, j, k, 0, src.Get(i, j));
+				}
+			}
+		}
+	}
+
 	void AddVector(Vector<F>& dst, Vector<F>& src1, Vector<F>& src2, F factor1, F factor2) {
 		if (!(dst.EqualProperties(src1) && dst.EqualProperties(src2))) {
 			cout << "ERROR 01 (AddVector): Height, Width, Level and/or Dimension do not match for used vectors!" << endl;
