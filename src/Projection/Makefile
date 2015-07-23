@@ -1,5 +1,5 @@
 VERSION = 1.0
-CC = clang++
+CC = g++
 CPPFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -Wall
 
 DEPS =	Image.h \

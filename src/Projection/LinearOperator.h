@@ -42,7 +42,7 @@ public:
 							dst.Set(i, j, (0.5 - uk0) / (uk1 - uk0) + (F)(k + 1) / (F)(src.Level()));
 							break;
 						} else {
-							dst.Set(i, j, (F)0.5);
+							dst.Set(i, j, (F)0);
 						}
 					}
 				}
