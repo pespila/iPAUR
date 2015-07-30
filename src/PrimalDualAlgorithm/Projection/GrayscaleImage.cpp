@@ -1,6 +1,6 @@
 #include "GrayscaleImage.h"
 
-// using namespace cv;
+using namespace cv;
 
 GrayscaleImage::~GrayscaleImage() {
     free(image);

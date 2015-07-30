@@ -1,5 +1,5 @@
 VERSION = 1.0
-CC = g++
+CC = clang++
 CPPFLAGS = -O3 -ftree-vectorize -funroll-loops -fomit-frame-pointer -ffast-math -Wall
 
 DEPS =	Image.h \
@@ -15,9 +15,9 @@ OBJ =	main.o \
 		Algebra.o \
 		Vector.o
 
-# LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
-# LDFLAGS = -L/opt/local/lib
-# IDFLAGS = -I/opt/local/include
+LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
+LDFLAGS = -L/opt/local/lib
+IDFLAGS = -I/opt/local/include
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CPPFLAGS) $(IDFLAGS)

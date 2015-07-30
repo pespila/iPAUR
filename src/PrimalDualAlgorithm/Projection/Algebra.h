@@ -11,7 +11,7 @@ public:
 	Algebra() {}
 	~Algebra() {}
 
-	void Image2Vector(Vector<F>& dst, Image<F>& src) {
+	void Image2Vector(primaldual::Vector<F>& dst, Image<F>& src) {
 		for (int k = 0; k < dst.Level(); k++) {
 			for (int i = 0; i < dst.Height(); i++) {
 				for (int j = 0; j < dst.Width(); j++) {
@@ -21,7 +21,7 @@ public:
 		}
 	}
 
-	void AddVector(Vector<F>& dst, Vector<F>& src1, Vector<F>& src2, F factor1, F factor2) {
+	void AddVector(primaldual::Vector<F>& dst, primaldual::Vector<F>& src1, primaldual::Vector<F>& src2, F factor1, F factor2) {
 		if (!(dst.EqualProperties(src1) && dst.EqualProperties(src2))) {
 			cout << "ERROR 01 (AddVector): Height, Width, Level and/or Dimension do not match for used vectors!" << endl;
 		} else {
@@ -33,7 +33,7 @@ public:
 		}
 	}
 
-	void ScaleVector(Vector<F>& dst, Vector<F>& src, F factor) {
+	void ScaleVector(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, F factor) {
 		if (!(dst.EqualProperties(src))) {
 			cout << "ERROR 02 (ScaleVector): Height, Width, Level and/or Dimension do not match for used vectors!" << endl;
 		} else {

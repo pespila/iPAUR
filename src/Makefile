@@ -42,7 +42,7 @@ OBJ =	main.o \
 		PrimalDualAlgorithm/Vectors.o \
 		PrimalDualAlgorithm/PrimalDualAlgorithm.o
 
-LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc -lm
+LDLIBS = -lopencv_core -lopencv_highgui -lopencv_video -lopencv_imgproc
 LDFLAGS = -L/opt/local/lib
 IDFLAGS = -I/opt/local/include
 

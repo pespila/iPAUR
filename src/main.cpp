@@ -19,10 +19,10 @@ int main(int argc, const char* argv[]) {
     GrayscaleImage in, out;
     in.Read(argv[1]);
     
-    PrimalDualAlgorithm pd(in, 8);
-    Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);
+    // PrimalDualAlgorithm pd(in, 8);
+    // Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);
     
-    pd.PrimalDual(in, out, par, 20, 10);
+    // pd.PrimalDual(in, out, par, 20, 10);
     
     out.Write(argv[2]);
     

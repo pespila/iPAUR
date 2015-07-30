@@ -1,7 +1,11 @@
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
+using namespace cv;
 
 #ifndef __IMAGE_H__
 #define __IMAGE_H__
@@ -36,6 +40,28 @@ public:
 			}
 			cout << endl;
 		}
+	}
+
+	void Read(const string filename) {
+		Mat img = imread(filename, 0); // force gray scale
+	    this->width = img.cols;
+	    this->height = img.rows;
+	    this->v.resize(height * width, 0.0);
+	    for (int i = 0; i < height; i++) {
+	        for (int j = 0; j < width; j++) {
+	            this->v[j + i * width] = img.at<uchar>(i, j);
+	        }
+	    }
+	}
+
+	void Write(const string filename) {
+		Mat img(height, width, CV_8UC1);
+	    for (int i = 0; i < height; i++) {
+	        for (int j = 0; j < width; j++) {
+	            img.at<uchar>(i, j) = v[j + i * width];
+	        }
+	    }
+	    imwrite(filename, img);
 	}
 };
 

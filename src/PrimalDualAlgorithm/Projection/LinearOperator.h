@@ -11,7 +11,7 @@ public:
 	LinearOperator() {}
 	~LinearOperator() {}
 
-	void Nabla(Vector<F>& dst, Vector<F>& src, int i, int j, int k) {
+	void Nabla(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, int i, int j, int k) {
 		if (3 * src.Dimension() == dst.Dimension()) {
 			dst.Set(i, j, k, 0, i + 1 < src.Height() ? src.Get(i+1, j, k, 0) - src.Get(i, j, k, 0) : 0.0);
 			dst.Set(i, j, k, 1, j + 1 < src.Width() ? src.Get(i, j+1, k, 0) - src.Get(i, j, k, 0) : 0.0);
@@ -20,7 +20,7 @@ public:
 			cout << "ERROR 03 (Nabla): Dimension of 'dst' is not a third multiple of 'src'!" << endl;
 		}
 	}
-	void NablaTranspose(Vector<F>& dst, Vector<F>& src, int i, int j, int k) {
+	void NablaTranspose(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, int i, int j, int k) {
 		if (src.Dimension() == 3 * dst.Dimension()) {
 			F value = 0.0;
 			value += (i > 0 ? src.Get(i-1, j, k, 0) : 0.0) - (i + 1 < dst.Height() ? src.Get(i, j, k, 0) : 0.0);
@@ -31,7 +31,7 @@ public:
 			cout << "ERROR 04 (NablaTranspose): Dimension of 'src' is not a third multiple of 'dst'!" << endl;
 		}
 	}
-	void Isosurface(Image<F>& dst, Vector<F>& src) {
+	void Isosurface(Image<F>& dst, primaldual::Vector<F>& src) {
 		if (src.Height() == dst.Height() && src.Width() == dst.Width()) {
 			for (int i = 0; i < src.Height(); i++) {
 				for (int j = 0; j < src.Width(); j++) {
