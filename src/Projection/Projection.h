@@ -104,8 +104,19 @@ public:
 		if (!(dst.EqualProperties(src))) {
 			cout << "ERROR 08 (TruncationOperation): Height, Width, Level and/or Dimension do not match for used vectors" << endl;
 		} else {
-			for (int i = 0; i < src.Size(); i++)
-				dst.Set(0, i, 0, 0, fmin(1.0, fmax(0.0, src.Get(0, i, 0, 0))));
+			for (int k = 0; k < src.Level(); k++) {
+				for (int i = 0; i < src.Height(); i++) {
+					for (int j = 0; j < src.Width(); j++) {
+						if (k == 0) {
+							dst.Set(i, j, k, 0, 1.0);
+						} else if (k == src.Level() - 1) {
+							dst.Set(i, j, k, 0, 0.0);
+						} else {
+							dst.Set(i, j, k, 0, fmin(1.0, fmax(0.0, src.Get(i, j, k, 0))));
+						}
+					}
+				}
+			}
 		}
 	}
 	void OnParabola(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, F img, F alpha, F L, F lambda, int k) {

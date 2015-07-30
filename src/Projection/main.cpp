@@ -31,19 +31,23 @@ int main(int argc, char* argv[]) {
 	Projection<float> proj;
 	// Projection<float> proj(level);
 
-	// Image<float> img(5, 5, 0.0);
-	// img.Set(1, 2, 1.0);
-	// img.Set(2, 2, 1.0);
-	// img.Set(3, 2, 1.0);
-	// img.Set(2, 1, 1.0);
-	// img.Set(2, 3, 1.0);
+	Image<float> img(5, 5, 0.0);
+	img.Set(1, 2, 255.0);
+	img.Set(2, 2, 255.0);
+	img.Set(3, 2, 255.0);
+	img.Set(2, 1, 255.0);
+	img.Set(2, 3, 255.0);
+	img.Print();
+	cout << endl;
 
-	Image<float> img;
-	img.Read(argv[1]);
+	img.Write("./imageold.jpg");
+
+	// Image<float> img;
+	// img.Read(argv[1]);
 
 	int height = img.Height();
 	int width = img.Width();
-	int level = 64;
+	int level = 32;
 
 	for (int i = 0; i < img.Height(); i++)
 	{
@@ -71,9 +75,9 @@ int main(int argc, char* argv[]) {
 	linalg.ScaleVector(xbar, x, 1.0);
 
 	for (int X = 0; X < 100; X++) {
-		if (X%10 == 0) {
-			cout << "Step: " << X << endl;
-		}
+		// if (X%10 == 0) {
+		// 	cout << "Step: " << X << endl;
+		// }
 		// cout << "Step: " << X << endl;
 		linalg.ScaleVector(xcur, x, 1.0);
 
@@ -120,6 +124,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	img.Write("./imagenew.jpg");
+	img.Print();
 
 	return 0;
 }

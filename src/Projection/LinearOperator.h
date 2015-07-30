@@ -39,10 +39,11 @@ public:
 						F uk0 = src.Get(i, j, k, 0);
 						F uk1 = src.Get(i, j, k+1, 0);
 						if (uk0 > 0.5 && uk1 <= 0.5) {
-							dst.Set(i, j, (0.5 - uk0) / (uk1 - uk0) + (F)(k + 1) / (F)(src.Level()));
+							F value = (F)(k) + (0.5 - uk0) / (uk1 - uk0);
+							dst.Set(i, j, value / (F)(src.Level()));
 							break;
 						} else {
-							dst.Set(i, j, (F)0);
+							dst.Set(i, j, (F)uk1);
 						}
 					}
 				}

@@ -36,7 +36,7 @@ public:
 	void Print() {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				cout << Get(i, j) << " ";
+				cout << (int)Get(i, j) << " ";
 			}
 			cout << endl;
 		}
@@ -58,7 +58,7 @@ public:
 		Mat img(height, width, CV_8UC1);
 	    for (int i = 0; i < height; i++) {
 	        for (int j = 0; j < width; j++) {
-	            img.at<uchar>(i, j) = v[j + i * width];
+	            img.at<uchar>(i, j) = (int)v[j + i * width];
 	        }
 	    }
 	    imwrite(filename, img);
