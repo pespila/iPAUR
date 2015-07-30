@@ -1,8 +1,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
-#include "../Image/Image.h"
-#include "../Parameter/Parameter.h"
+#include "Image.h"
+#include "Parameter.h"
 #include "HuberROFModel.h"
 
 HuberROFModel::HuberROFModel(Image& src, int steps) {

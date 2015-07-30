@@ -18,6 +18,11 @@ int main(int argc, const char* argv[]) {
 
     GrayscaleImage in, out;
     in.Read(argv[1]);
+
+    TVL1Model tvl1(in, 400);
+    Parameter par(0.05, 0.7, 0.35, 1.0 / (0.35 * 8.0), 1.0, sqrt(8), 5.0, -1);
+
+    tvl1.TVL1(in, out, par);
     
     // PrimalDualAlgorithm pd(in, 8);
     // Parameter par(0.0, 0.1, 1.0/sqrt(12), 1.0/sqrt(12), 1.0, sqrt(12), 5.0, -1);

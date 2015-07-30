@@ -1,5 +1,5 @@
-#include "../Image/Image.h"
-#include "../Util/Util.h"
+#include "Image.h"
+#include "Util.h"
 
 #ifndef __MORPHOLOGICALFILTER_H__
 #define __MORPHOLOGICALFILTER_H__

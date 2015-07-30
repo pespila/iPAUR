@@ -1,5 +1,5 @@
-#include "../Image/Image.h"
-#include "../Util/Util.h"
+#include "Image.h"
+#include "Util.h"
 
 #ifndef __LINEARFILTER_H__
 #define __LINEARFILTER_H__

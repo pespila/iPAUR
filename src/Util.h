@@ -1,9 +1,9 @@
-#include "../Image/Image.h"
-#include "../Image/GrayscaleImage.h"
-#include "../Image/RGBImage.h"
-#include "../Image/RGBAImage.h"
-#include "../Image/HSIImage.h"
-#include "../Image/YCrCbImage.h"
+#include "Image.h"
+#include "GrayscaleImage.h"
+#include "RGBImage.h"
+#include "RGBAImage.h"
+#include "HSIImage.h"
+#include "YCrCbImage.h"
 
 #ifndef __UTIL_H__
 #define __UTIL_H__
