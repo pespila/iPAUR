@@ -13,9 +13,9 @@ public:
 
 	void Nabla(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, int i, int j, int k) {
 		if (3 * src.Dimension() == dst.Dimension()) {
-			dst.Set(i, j, k, 0, i + 1 < src.Height() ? src.Get(i+1, j, k, 0) - src.Get(i, j, k, 0) : 0.0);
-			dst.Set(i, j, k, 1, j + 1 < src.Width() ? src.Get(i, j+1, k, 0) - src.Get(i, j, k, 0) : 0.0);
-			dst.Set(i, j, k, 2, k + 1 < src.Level() ? src.Get(i, j, k+1, 0) - src.Get(i, j, k, 0) : 0.0);
+			dst.Set(i, j, k, 0, (i + 1 < src.Height() ? src.Get(i+1, j, k, 0) - src.Get(i, j, k, 0) : 0.0));
+			dst.Set(i, j, k, 1, (j + 1 < src.Width() ? src.Get(i, j+1, k, 0) - src.Get(i, j, k, 0) : 0.0));
+			dst.Set(i, j, k, 2, (k + 1 < src.Level() ? src.Get(i, j, k+1, 0) - src.Get(i, j, k, 0) : 0.0));
 		} else {
 			cout << "ERROR 03 (Nabla): Dimension of 'dst' is not a third multiple of 'src'!" << endl;
 		}
@@ -23,9 +23,9 @@ public:
 	void NablaTranspose(primaldual::Vector<F>& dst, primaldual::Vector<F>& src, int i, int j, int k) {
 		if (src.Dimension() == 3 * dst.Dimension()) {
 			F value = 0.0;
-			value += (i > 0 ? src.Get(i-1, j, k, 0) : 0.0) - (i + 1 < dst.Height() ? src.Get(i, j, k, 0) : 0.0);
-			value += (j > 0 ? src.Get(i, j-1, k, 1) : 0.0) - (j + 1 < dst.Width() ? src.Get(i, j, k, 1) : 0.0);
-			value += (k > 0 ? src.Get(i, j, k-1, 2) : 0.0) - (k + 1 < dst.Level() ? src.Get(i, j, k, 2) : 0.0);
+			value += ((i > 0 ? src.Get(i-1, j, k, 0) : 0.0) - (i + 1 < dst.Height() ? src.Get(i, j, k, 0) : 0.0));
+			value += ((j > 0 ? src.Get(i, j-1, k, 1) : 0.0) - (j + 1 < dst.Width() ? src.Get(i, j, k, 1) : 0.0));
+			value += ((k > 0 ? src.Get(i, j, k-1, 2) : 0.0) - (k + 1 < dst.Level() ? src.Get(i, j, k, 2) : 0.0));
 			dst.Set(i, j, k, 0, value);
 		} else {
 			cout << "ERROR 04 (NablaTranspose): Dimension of 'src' is not a third multiple of 'dst'!" << endl;
@@ -43,7 +43,7 @@ public:
 							dst.Set(i, j, value / (F)(src.Level()));
 							break;
 						} else {
-							dst.Set(i, j, (F)uk1);
+							dst.Set(i, j, uk0);
 						}
 					}
 				}

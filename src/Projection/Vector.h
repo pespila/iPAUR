@@ -21,6 +21,13 @@ namespace primaldual {
 
 	public:
 		Vector() {}
+		Vector(int height, int width, F value) {
+			this->v.resize(height*width, value);
+			this->height = height;
+			this->width = width;
+			this->level = 0;
+			this->dimension = 0;
+		}
 		Vector(int height, int width, int level, int dimension, F value) {
 			this->v.resize(height*width*level*dimension, value);
 			this->height = height;
@@ -31,7 +38,9 @@ namespace primaldual {
 		~Vector() {this->v.clear();}
 
 		F Get(int i, int j, int k, int l) {return this->v[j + i * width + k * height * width + l * height * width * level];}
+		F Get(int i, int j) {return this->v[j + i * width];}
 		void Set(int i, int j, int k, int l, F value) {this->v[j + i * width + k * height * width + l * height * width * level] = value;}
+		void Set(int i, int j, F value) {this->v[j + i * width] = value;}
 
 		int Height() {return this->height;}
 		int Width() {return this->width;}

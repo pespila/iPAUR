@@ -36,7 +36,7 @@ public:
 	void Print() {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				cout << (int)Get(i, j) << " ";
+				cout << Get(i, j) << " ";
 			}
 			cout << endl;
 		}

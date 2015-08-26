@@ -1,3 +1,5 @@
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
 #include <iostream>
 #include <vector>
 #include "Image.h"
@@ -9,76 +11,74 @@
 using namespace std;
 using namespace cv;
 
-int main(int argc, char* argv[]) {
-	float L = sqrt(12);
-	float sigma = 1.0 / L;
-	float tau = sigma;
-	float alpha = 0.25;
-	float lambda = 0.01;
-	float nu = 5.0;
-
-	// Image<float> img(3, 3, 0.0);
-	// img.Set(1, 1, 1.0);
-	// img.Print();
-	// cout << endl;
-
-	// int height = img.Height();
-	// int width = img.Width();
-	// int level = 32;
-
-	LinearOperator<float> apply;
-	Algebra<float> linalg;
-	Projection<float> proj;
-	// Projection<float> proj(level);
-
-	Image<float> img(5, 5, 0.0);
-	img.Set(1, 2, 255.0);
-	img.Set(2, 2, 255.0);
-	img.Set(3, 2, 255.0);
-	img.Set(2, 1, 255.0);
-	img.Set(2, 3, 255.0);
-	img.Print();
-	cout << endl;
-
-	img.Write("./imageold.jpg");
-
-	// Image<float> img;
-	// img.Read(argv[1]);
-
+template<class F>
+void PrimalDual(Image<F>& img, int dykstra_iter, int max_iter, int level) {
 	int height = img.Height();
 	int width = img.Width();
-	int level = 32;
 
-	for (int i = 0; i < img.Height(); i++)
-	{
-		for (int j = 0; j < img.Width(); j++)
-		{
+	Image<F> dst(height, width, 0.0);
+	
+	double L = sqrt(12);
+	double tau = 1000;
+	// double tau = sigma;
+	double sigma = 1.0 / (L*L*tau);
+	double alpha = 0.25;
+	double lambda = 0.1;
+	double nu = 5.0;
+
+	LinearOperator<double> apply;
+	Algebra<double> linalg;
+	Projection<double> proj(level);
+
+	for (int i = 0; i < img.Height(); i++) {
+		for (int j = 0; j < img.Width(); j++) {
 			img.Set(i, j, img.Get(i, j) / 255.0);
 		}
 	}
 
-	primaldual::Vector<float> x(height, width, level, 1, 0.0);
-	primaldual::Vector<float> grad_T(height, width, level, 1, 0.0);
-	primaldual::Vector<float> xcur(height, width, level, 1, 0.0);
-	primaldual::Vector<float> xbar(height, width, level, 1, 0.0);
-	primaldual::Vector<float> gradient(height, width, level, 3, 0.0);
-	primaldual::Vector<float> y(height, width, level, 3, 0.0);
 
-	// primaldual::Vector<float> x(3, 3, 64, 1, 0.0);
-	// primaldual::Vector<float> grad_T(3, 3, 64, 1, 0.0);
-	// primaldual::Vector<float> xcur(3, 3, 64, 1, 0.0);
-	// primaldual::Vector<float> xbar(3, 3, 64, 1, 0.0);
-	// primaldual::Vector<float> gradient(3, 3, 64, 3, 0.0);
-	// primaldual::Vector<float> y(3, 3, 64, 3, 0.0);
+	primaldual::Vector<double> x(height, width, level, 1, 0.0);
+	primaldual::Vector<double> grad_T(height, width, level, 1, 0.0);
+	primaldual::Vector<double> xcur(height, width, level, 1, 0.0);
+	primaldual::Vector<double> xbar(height, width, level, 1, 0.0);
+	primaldual::Vector<double> gradient(height, width, level, 3, 0.0);
+	primaldual::Vector<double> y(height, width, level, 3, 0.0);
 
 	linalg.Image2Vector(x, img);
 	linalg.ScaleVector(xbar, x, 1.0);
 
-	for (int X = 0; X < 100; X++) {
-		// if (X%10 == 0) {
-		// 	cout << "Step: " << X << endl;
-		// }
-		// cout << "Step: " << X << endl;
+	for (int k = 0; k < gradient.Level(); k++) {
+		for (int i = 0; i < gradient.Height(); i++) {
+			for (int j = 0; j < gradient.Width(); j++) {
+				proj.TruncationOperation(x, x, i, j, k);
+			}
+		}
+	}
+
+	for (int X = 0; X < max_iter; X++) {
+
+		apply.Isosurface(dst, xbar);
+
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				dst.Set(i, j, dst.Get(i, j) * 255.0);
+			}
+		}
+
+		string title = "frame";
+		string file = ".png";
+		string result;
+		stringstream sstm;
+		if (X < 10) {
+			sstm << "./steps/" << "0" << X << title << file;
+		} else {
+			sstm << "./steps/" << X << title << file;
+		}
+		result = sstm.str();
+		dst.Write(result);
+
+		cout << "PD-Step: " << X << endl;
+
 		linalg.ScaleVector(xcur, x, 1.0);
 
 		for (int k = 0; k < gradient.Level(); k++) {
@@ -93,10 +93,10 @@ int main(int argc, char* argv[]) {
 
 		for (int i = 0; i < y.Height(); i++) {
 			for (int j = 0; j < y.Width(); j++) {
-				proj.Dykstra(y, gradient, linalg, img.Get(i, j), alpha, nu, L, lambda, i, j, 5);
+				proj.Dykstra(y, gradient, linalg, img.Get(i, j), alpha, nu, L, lambda, i, j, level, dykstra_iter);
 			}
 		}
-
+		
 		for (int k = 0; k < gradient.Level(); k++) {
 			for (int i = 0; i < gradient.Height(); i++) {
 				for (int j = 0; j < gradient.Width(); j++) {
@@ -104,10 +104,16 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
-
-		linalg.AddVector(grad_T, xcur, grad_T, 1.0, tau);
-
-		proj.TruncationOperation(x, grad_T);
+		
+		linalg.AddVector(grad_T, xcur, grad_T, 1.0, -tau);
+		
+		for (int k = 0; k < gradient.Level(); k++) {
+			for (int i = 0; i < gradient.Height(); i++) {
+				for (int j = 0; j < gradient.Width(); j++) {
+					proj.TruncationOperation(x, grad_T, i, j, k);
+				}
+			}
+		}
 
 		linalg.AddVector(xbar, x, xcur, 2.0, -1.0);
 
@@ -115,16 +121,21 @@ int main(int argc, char* argv[]) {
 
 	apply.Isosurface(img, xbar);
 
-	for (int i = 0; i < img.Height(); i++)
-	{
-		for (int j = 0; j < img.Width(); j++)
-		{
+	for (int i = 0; i < img.Height(); i++) {
+		for (int j = 0; j < img.Width(); j++) {
 			img.Set(i, j, img.Get(i, j) * 255.0);
 		}
 	}
+}
 
-	img.Write("./imagenew.jpg");
-	img.Print();
-
+int main(int argc, char* argv[]) {
+	Image<double> img;
+	// img.Read("./ball_test.png");
+	img.Read("./synth_noise.png");
+	
+	PrimalDual(img, 10, 100, 32);
+	
+	img.Write("./synth_new.png");
+	
 	return 0;
 }

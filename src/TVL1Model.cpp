@@ -114,7 +114,18 @@ void TVL1Model::TVL1(Image& src, WriteableImage& dst, Parameter& par) {
 		for (i = 0; i < size; i++) {gradient_x[i] = par.sigma * gradient_x[i] + p_x[i];}
 		for (i = 0; i < size; i++) {gradient_y[i] = par.sigma * gradient_y[i] + p_y[i];}
 		ProxRstar(p_x, p_y, gradient_x, gradient_y, par.alpha, par.sigma);
-		NablaTranspose(gradient_transpose, p_x, p_y);
+		NablaTranspose(gradient_transpose, gradient_x, gradient_y);
+		if (k == 0) {
+			for (int m = 0; m < 20; m++)
+			{
+				for (int n = 0; n < 20; n++)
+				{
+					printf("(%2.f,%2.f)", gradient_transpose[n + m * width], gradient_transpose[n + m * height]);
+				}
+				printf("\n");
+			}
+		}
+		// NablaTranspose(gradient_transpose, p_x, p_y);
 		for (i = 0; i < size; i++) {gradient_transpose[i] = u_n[i] - par.tau * gradient_transpose[i];}
 		ProxD(u, gradient_transpose, f, par.tau, par.lambda);
 		for (i = 0; i < size; i++) {u_bar[i] = u[i] + par.theta * (u[i] - u_n[i]);}
