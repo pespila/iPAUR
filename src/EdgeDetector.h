@@ -4,32 +4,35 @@
 #ifndef __EDGEDETECTOR_H__
 #define __EDGEDETECTOR_H__
 
+template<typename aType>
 class EdgeDetector
 {
 private:
 	int height;
 	int width;
 	char type;
-	short* gx;
-	short* gy;
+	aType* gx;
+	aType* gy;
 
-	void NablaX(short*, Image&, unsigned char);
-	void NablaY(short*, Image&, unsigned char);
-	void EvalGradient(short*, short*, short*);
-	void NonMaximumSupression(short*, short*, short*);
-	void Hysteresis(WriteableImage&, short*, const int, const int);
-	void SetEdges(WriteableImage&, short*, short*);
+	void NablaX(aType*, Image<aType>&, int);
+	void NablaY(aType*, Image<aType>&, int);
+	void EvalGradient(aType*, aType*, aType*);
+	void NonMaximumSupression(aType*, aType*, aType*);
+	void Hysteresis(WriteableImage<aType>&, aType*, const int, const int);
+	void SetEdges(WriteableImage<aType>&, aType*, aType*);
 public:
 	EdgeDetector():height(0), width(0), type(0), gx(NULL), gy(NULL) {}
 	EdgeDetector(int, int, char);
-	EdgeDetector(Image&);
+	EdgeDetector(Image<aType>&);
 	~EdgeDetector();
 
-	void Sobel(Image&, WriteableImage&);
-	void Prewitt(Image&, WriteableImage&);
-	void RobertsCross(Image&, WriteableImage&);
-	void Laplace(Image&, WriteableImage&);
-	void Canny(Image&, WriteableImage&, const int, const int);
+	void Sobel(Image<aType>&, WriteableImage<aType>&);
+	void Prewitt(Image<aType>&, WriteableImage<aType>&);
+	void RobertsCross(Image<aType>&, WriteableImage<aType>&);
+	void Laplace(Image<aType>&, WriteableImage<aType>&);
+	void Canny(Image<aType>&, WriteableImage<aType>&, const int, const int);
 };
+
+#include "EdgeDetector.tpp"
 
 #endif //__EDGEDETECTOR_H__

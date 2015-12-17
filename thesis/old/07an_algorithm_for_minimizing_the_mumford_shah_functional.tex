@@ -1,0 +1,276 @@
+% chapter total_variation_based_image_processing (end)
+\chapter{An Algorithm for Minimizing the Mumford-Shah Functional} % (fold)
+\label{cha:an_algorithm_for_minimizing_the_mumford_shah_functional}
+
+    \section{The Mumford-Shah Functional} % (fold)
+    \label{sec:the_mumford_shah_functional}
+
+        \begin{definition}[Mumford-Shah Functional] % (fold)
+        \label{def:the_mumford_shah_functional}
+
+            Let $\Omega \subset \mathbb{R}^{2}$ be a rectangular image domain. In order to approximate an input image $f: \Omega \longrightarrow \mathbb{R}$ in terms of a piecewise smooth function $u: \Omega \longrightarrow \mathbb{R}$, Mumford and Shah suggested to minimize the functional
+                
+                \begin{equation}
+                    E(u) = \lambda \int_{\Omega} (f - u)^{2} dx + \int_{\Omega \setminus S_{u}} |\nabla u|^{2} dx + \nu \mathcal{H}^{1}(S_{u}),
+                \end{equation}
+                \label{eq:the_mumford_shah_functional}
+            
+            where $\lambda, \nu > 0$ are weighting parameters, $S_{u} = S^{1}_{u} \cup ... \cup S^{N}_{u}$ and $\mathcal{H}^{1}(S_{u})$ denotes the Hausdorff-measure of the curves in $S_{u}$.
+
+        \end{definition}
+        % definition the_mumford_shah_functional (end)
+
+    % section the_mumford_shah_functional (end)
+
+
+    \subsection{Convex Relaxation} % (fold)
+    \label{sec:convex_relaxation}
+
+    What we are looking for is the minimization of the piecewise smooth Mumford-Shah functional, i.e. $E(u)$ from above. Another approach would be to minimize the piecewise constant functional where you set the weight of the smoothness term $\int_{\Omega \setminus S_{u}} |\nabla u|^{2} dx$ in \ref{eq:the_mumford_shah_functional} to $+\infty$. In order to find a convex relaxation we need to introduce an indicator function. For that we first need a basic definition for the space of the special functions of bounded variation.
+
+    % \begin{defbox}
+    % \end{defbox}
+
+    % \begin{defbox}
+        
+    % \end{defbox}
+
+    % \begin{exbox}
+        
+    % \end{exbox}
+
+    % \begin{exbox}
+    %     \begin{example}
+    %         Define the function $\alpha: [0, 1] \longrightarrow \mathbb{R}$ by
+    %             \begin{equation}
+    %                 \alpha(x) =
+    %                 \left\{
+    %                     \begin{array}{l l}
+    %                         0,                      & \quad \text{if $x = 0$}, \\
+    %                         x \cos(\frac{\pi}{x}),  & \quad \text{if $x \ne 0$}.
+    %                     \end{array}
+    %                 \right.
+    %             \end{equation}
+    %         This function is continuous, but is not of bounded variation because it wobbles too much near $x = 0$. To see this, consider, for each $m \in \mathbb{N}$, the partition $P_{m} = \{ 0, \frac{1}{2m}, \frac{1}{2m-1}, ..., \frac{1}{3}, \frac{1}{2}, 1 \}$. The values of $\alpha$ at the points of this partition are $\alpha(P_{m}) = \{ 0, -\frac{1}{2m}, \frac{1}{2m-1}, ..., -\frac{1}{3}, \frac{1}{2}, -1 \}$.
+    %             \begin{center}
+    %                  \includegraphics[width=0.9\textwidth]{img/bv3.pdf}
+    %             \end{center}
+    %         For this partition,
+    %             \begin{eqnarray}
+    %                 \sum_{i = 1}^{n} |\alpha(x_{i}) - \alpha(x_{i-1})|
+    %                 &=& |\frac{1}{2m} - 0| + |-\frac{1}{2m-1} - \frac{1}{2m}| + \notag \\
+    %                 &...& + |-\frac{1}{3} - \frac{1}{4}| + |\frac{1}{2} + \frac{1}{3}| + |-1 - \frac{1}{2}| \notag \\
+    %                 &=& \frac{1}{2m} + \frac{1}{2m-1} + \frac{1}{2m} + \frac{1}{2m-1} + \notag \\
+    %                 &...& + \frac{1}{3} + \frac{1}{4} + \frac{1}{2} + \frac{1}{3} + 1 + \frac{1}{2} \notag \\
+    %                 &=& 2*(\frac{1}{2m} + \frac{1}{2m-1} + ... + \frac{1}{2}) + 1 \notag
+    %             \end{eqnarray}
+    %         The series $\sum_{k = 2}^{\infty} \frac{1}{k}$ diverges. So given any $M$, there is a partition $P_{m}$ for which
+    %             \begin{equation}
+    %                 \sum_{i = 1}^{n} |\alpha(x_{i}) - \alpha(x_{i-1})| > M.
+    %             \end{equation}
+    %     \end{example}
+    % \end{exbox}
+
+    % \begin{defbox}
+        
+    % \end{defbox}
+
+    % \begin{rebox}
+        Let $\Omega \subset \mathbb{R}^{2}$ denote the image plane and let $u \in SBV(\Omega)^{1}$. Denote the upper level sets of $u$ by the characteristic function $\mathds{1}_{u}: \Omega \times \mathbb{R} \longrightarrow \{ 0, 1 \}$ of the subgraph of $u$:
+            \begin{equation}
+                \mathds{1}_{u} =
+                    \left\{
+                        \begin{array}{l l}
+                            1, & \quad \text{if $t < u(x)$}, \\
+                            0, & \quad \text{else}.
+                        \end{array}
+                    \right.
+            \end{equation}
+    % \end{rebox}
+
+    % \begin{thebox}
+        \begin{theorem}
+            For a function $u \in SBV(\Omega)$ the Mumford Shah functional can be written as
+                \begin{equation}
+                    E(u) = \sup_{\varphi \in K} \int_{\Omega \times \mathbb{R}} \varphi D\mathds{1}_{u}, \label{eq:MSwithsup}
+                \end{equation}
+            with a convex set
+                \begin{eqnarray}
+                    K = \bigg\{ \varphi \in C^{0}(\Omega \times \mathbb{R}, \mathbb{R}^{2}) &:& \varphi^{t}(x, t) \ge \frac{\varphi^{x}(x,t)^{2}}{4} - \lambda(t - f(x))^{2}, \bigg| \int^{t_{2}}_{t_{1}} \varphi^{x}(x,s)ds \bigg| \le \nu \bigg\}, \label{eq:ContK}
+                \end{eqnarray}
+            where the inequalities in the definition of $K$ hold for all $x \in \Omega$ and for all $t, t_{1}, t_{2} \in \mathbb{R}$.
+        \end{theorem}
+    % \end{thebox}
+
+    \begin{proof}
+        For a proof take a look at \textbf{An Algorithm for Minimizing the Mumford-Shah Functional} (Pock, Bischof, Cremers, Chambolle).
+        \qed
+    \end{proof}
+
+    Our goal is now to minimize \ref{eq:MSwithsup} since minimizing the energy of this functional should lead to an optimal approximation $u$ of an input image $f$. Mathematically we have:
+
+    \begin{equation}
+        \min_{u} E(u) = \min_{u} \left( \sup_{\varphi \in K} \int_{\Omega \times \mathbb{R}} \varphi D\mathds{1}_{u} \right) \label{eq:MINMSwithsup}
+    \end{equation}
+
+    Since we are seeking for some variables $u, \varphi$ in convex sets, we need to solve a (convex) saddle-point problem. To compute the minimizer of this formulation we first want to substitute $\mathds{1}_{u}$ by a generic function
+        \begin{equation}
+            v(x, t): \Omega \times \mathbb{R} \longrightarrow [0, 1] \,\, \textnormal{which satisfies} \,\, \lim_{t \rightarrow -\infty} v(x, t) = 1, \, \, \, \lim_{t \rightarrow +\infty} v(x, t) = 0. \label{eq:limes}
+        \end{equation}
+    This substitution needs to be done, since our image takes values in between the set $[0, 1]$. On the other hand if we had a binary image with only values $\{0, 1\}$ it can be proven that the energy of the Mumford-Shah Functional can be minimized optimally. In the end we are going to face the following (convex) optimization problem:
+        \begin{equation}
+            \min_{v} \sup_{\varphi \in K} \int_{\Omega \times \mathbb{R}} \varphi Dv. \label{eq:ContSetting}
+        \end{equation}
+
+    As mentioned before images are always discrete objects that's why we need to reformulate this notation in the sense of a discrete version to this problem.
+    % section convex_relaxation (end)
+
+    \subsection{Discrete Setting}
+
+        Let $\Omega = [0, 1]^{2}$. Then the subgraph of the function $u: \mathbb{R}^{2} \longrightarrow [0, 1]$ is defined in the unit cube $[0, 1]^{3}$. In our discrete setting we define a pixel grid $\mathcal{G}$ with size $P \times N \times M$ and the following notation
+
+            \begin{equation}
+                \mathcal{G} = \bigg\{ (i , j , k ): i = 1, 2, ..., P, j = 1, ..., N, k = 1, 2, ..., M \bigg\}
+            \end{equation}
+
+        where $i, j, k$ are the discrete locations of each voxel.
+        For the reformulation of \ref{eq:ContSetting} we also need to define the discrete corresponding functions of $v, \varphi$. So, let $x \in X: \mathcal{G} \longrightarrow \mathbb{R}$ and $y \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in \ref{eq:ContSetting} where $x$ corresponds to $v$ and $y$ to $\varphi$. \\
+        We are going to face the following saddle-point problem:
+            \begin{equation}
+                \min_{x \in C} \max_{y \in K} \langle Ax, y \rangle. \label{eq:minmax}
+            \end{equation}
+        The substitution from the supremum to the maximum can be made since we are now in bounded, discrete sets $C, K$ where a maximum exists. The discrete version of \ref{eq:limes} is
+
+            \begin{equation}
+                C = \{ x \in X: x(i,j,k) \in [0,1], x(i, j, 1) = 1, x(i, j, M) = 0 \} \subseteq X,
+            \end{equation}
+
+        and \ref{eq:ContK} becomes
+
+        % The more complicated set $K$, which later needs some special treatment, looks as follows:
+            \begin{eqnarray}
+                &&K = \{ y = (y^{1}, y^{2}, y^{3})^{T} \in Y: \notag \\
+                &&y^{3}(i,j,k) \ge \frac{y^{1}(i,j,k)^{2} + y^{2}(i,j,k)^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2}, \label{eq:localconst} \\
+                &&\left| \sum_{k_{1} \le k \le k_{2}} (y^{1}(i,j,k), y^{2}(i,j,k))^{T} \right| \le \nu \} \label{eq:nonlocalconst}
+            \end{eqnarray}
+
+        % \begin{rebox}
+            \begin{remark}
+                In addition to discretize the variable $t$ in \ref{eq:ContK} one gets in the discrete version $\frac{k}{M}$ in \ref{eq:localconst}. In (Pock et. al) you find $\frac{k}{L}$ which is a mistake.
+            \end{remark}
+        % \end{rebox}
+
+        To solve the saddle-point problem we are going to use the fast primal-dual algorithm presented in (\cite{Pock-et-al-iccv09}).
+
+        % \begin{algbox}
+            \begin{algorithm}\label{alg:cremers}
+                Choose $(x^{0}, y^{0}) \in C \times K$ and let $\bar{x}^{0} = x^{0}$. We choose $\tau, \sigma > 0$. Then, we let for each $n \ge 0$
+                    \begin{equation}
+                        \left\{ 
+                            \begin{array}{l l}
+                              y^{n+1} = \Pi_{K} (y^{n} + \sigma A \bar{x}^{n}) \\
+                              x^{n+1} = \Pi_{C} (x^{n} - \tau A^{*} y^{n+1}) \\
+                              \bar{x}^{n+1} = 2x^{n+1} - x^{n}.
+                            \end{array}
+                        \right.
+                    \end{equation}
+            \end{algorithm}
+        % \end{algbox}
+
+        To find good choices for $\tau$ and $\lambda$ we have the following convergence criterion.
+
+        % \begin{thebox}
+            \begin{theorem}[Convergence]
+                Choose $\tau, \sigma$ such that $\tau\sigma ||A||_{2}^{2} < 1$. Then, as $n \longrightarrow \infty$, $(x^{n}, y^{n}) \longrightarrow (x^{*}, y^{*})$ which solves \ref{eq:minmax}.
+            \end{theorem}
+        % \end{thebox}
+
+        \begin{proof}
+            HAHAHAHAH$\blacksquare$
+        \end{proof}
+
+        This algorithm generally solves convex saddle-point problems of the form \ref{eq:minmax}. It also deals with a bigger range of problems we won't consider in this lecture.\\ \\
+
+        % \subsection{The gradient operator}
+            To understand what each step in this algorithm does, we now want to define all corresponding operators used within the algorithm.
+
+            % \begin{rebox}
+                \begin{describe}[The linear operator $A$]
+                    Here $A = \nabla$. To be able to compute the discrete nabla we define the partial derivatives by forward differences with Neumann boundary conditions, i.e.
+                    \begin{center}
+                        \begin{minipage}{0.4\textwidth}
+                            \[
+                                (\partial_{i}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i+1, j, k} - x_{i, j, k} & \textnormal{if $i < P$}\\
+                                        0 & \textnormal{if $i = P$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}\hspace{1cm}
+                        \begin{minipage}{0.4\textwidth}
+                            \[
+                                (\partial_{j}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i, j+1, k} - x_{i, j, k} & \textnormal{if $i < N$}\\
+                                        0 & \textnormal{if $i = N$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}
+                    \end{center}
+                    \begin{center}
+                        \begin{minipage}{0.5\textwidth}
+                            \[
+                                (\partial_{k}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i, j, k+1} - x_{i, j, k} & \textnormal{if $i < M$}\\
+                                        0 & \textnormal{if $i = M$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}
+                    \end{center}
+                \end{describe}
+            % \end{rebox}
+
+            % Now we need to know how $A^{*} = \nabla^{*}$ is computed. Since we are acting on Banach-Spaces consider the following equation:
+
+            % \begin{eqnarray}
+            %     \langle Ax, y \rangle &=& \langle x, A^{*}y \rangle \Longleftrightarrow \langle Ax, y \rangle - \langle x, A^{*}y \rangle = 0 \notag \\
+            %     \Longleftrightarrow && \langle \nabla x, y \rangle - \langle x, \nabla^{*}y \rangle = 0 \,\,\, \textnormal{iff} \,\,\, \nabla^{*} = - \nabla^{T} = - div \notag
+            % \end{eqnarray}
+
+            % \begin{rebox}
+                \begin{describe}[The linear operator $A^{*}$]
+                    In our case $A^{*} = -\nabla^{T}$. To be able to compute the discrete divergence we define the partial derivatives by backward differences with Dirichlet boundary conditions, i.e.
+                    \begin{center}
+                        \begin{minipage}{0.4\textwidth}
+                            \[
+                                (\partial_{i}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i, j, k} - x_{i-1, j, k} & \textnormal{if $i > 0$}\\
+                                        x_{i, j, k} & \textnormal{if $i = 0$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}\hspace{1cm}
+                        \begin{minipage}{0.4\textwidth}
+                            \[
+                                (\partial_{j}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i, j, k} - x_{i, j-1, k} & \textnormal{if $j > 0$}\\
+                                        x_{i, j, k} & \textnormal{if $j = 0$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}
+                    \end{center}
+                    \begin{center}
+                        \begin{minipage}{0.5\textwidth}
+                            \[
+                                (\partial_{k}\,x)_{i, j, k} =
+                                    \begin{dcases*}
+                                        x_{i, j, k} - x_{i, j, k-1} & \textnormal{if $k > 0$}\\
+                                        x_{i, j, k} & \textnormal{if $k = 0$}
+                                    \end{dcases*}
+                            \]
+                        \end{minipage}
+                    \end{center}
+                \end{describe}
+            % \end{rebox}

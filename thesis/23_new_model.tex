@@ -1,0 +1,85 @@
+\documentclass{scrreprt}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\chapter{UR-Model} % (fold)
+\label{cha:ur_model}
+
+	\section{UR-Model} % (fold)
+	\label{sec:ur_model}
+
+		Die hier angegebenen Formulierungen und Funktionen sind (noch) ohne Herleitung in LaTex gesetzt, jedoch schon schriftlich fest gehalten.
+
+		\subsection{Primales Problem} % (fold)
+		\label{sub:primales_problem}
+		
+			\begin{equation}
+				\min\limits_{u, v} \beta ||u - g||_{1} + ||\nabla u||_{1} + \frac{\alpha}{2} ||v - u||_{2}^{2} + ||\nabla v||_{1}.
+			\end{equation}
+
+		Da in $||v - u||_{2}^{2}$ beide zu minimierenden Variablen vorkommen, muss man diesen Term in den Funktionen die von $u$ abhängen und auch in den Funktionen die von $v$ abhängen mit einbeziehen. Man erhählt als Funktionen:
+
+			\begin{eqnarray}
+				F(u) &=& ||\nabla u||_{1} \\
+				G(u) &=& \beta ||u - g||_{1} + \frac{\alpha}{2} ||v - u||_{2}^{2} \\
+				F(v) &=& ||\nabla v||_{1} \\
+				G(v) &=& \frac{\alpha}{2} ||v - u||_{2}^{2}
+			\end{eqnarray}
+
+		Die Idee ist, dass man dieses Problem alternierend löst. Minimiert man nach $u$ ist das $v$ fest, bzw. minimiert man nach $v$ ist das $u$ fest. Also man entrauscht alternierend mit Regularisierern, die gut für Gauß-Rauschen bzw. Salt \& Pepper-Rauschen sind. Man erhält dann
+			\begin{eqnarray}
+				&\min\limits_{u}& F(u) + G(u) \\
+				&\min\limits_{v}& F(v) + G(v)
+			\end{eqnarray}
+
+		% subsection primales_problem (end)
+
+		\subsection{Primal-Dual Problem} % (fold)
+		\label{sub:primal_dual_problem}
+
+			\begin{eqnarray}
+				&\min\limits_{v} \max\limits_{p}& \langle \nabla v, p \rangle - \delta_{P}(p) + \frac{\alpha}{2} ||v - u||_{2}^{2} \\
+				&\min\limits_{u} \max\limits_{q}& \langle \nabla u, q \rangle - \delta_{Q}(q) + \beta ||u - g||_{1} + \frac{\alpha}{2} ||v - u||_{2}^{2}
+			\end{eqnarray}
+
+		Mit
+			$$
+				P = \big\{ p \in \mathbb{R}^{n} : ||p||_{\infty} \le 1 \big\}
+			$$
+		und
+			$$
+				Q = \big\{ q \in \mathbb{R}^{n} : ||q||_{\infty} \le 1 \big\},
+			$$
+		wie im ROF-Model für die Legendre-Fenchel konjugierte der totalen Variation.
+			
+		% subsection primal_dual_problem (end)
+
+		\subsection{Proximity Operatoren} % (fold)
+		\label{sub:proximity_operatoren}
+			Für die Minimierung über die Variable $v$ erhalte Operatoren aus dem ROF Model:
+				\begin{eqnarray}
+	                (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = P_{l_{2}}(\tilde{p}) = p \Longleftrightarrow p_{i,j} \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},\\ \label{eq:proximity_operator_f_star_v}
+	                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{v}) = v \Longleftrightarrow v_{i,j} = \frac{\tilde{v}_{i,j} + \tau\lambda g}{1 + \tau\sigma}, \label{eq:proximity_operator_g_v}
+	            \end{eqnarray}
+	        punktweise für alle $i, j$.
+
+		Für den Fall der Variablen $u$ haben wir
+		        \begin{eqnarray}
+	                q &=& (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{q}) = P_{l_{2}}(\tilde{q}) \Longleftrightarrow p_{i,j} \frac{\tilde{q}_{i, j}}{\max(1, |\tilde{q}_{i, j}|)},\notag \\
+	                u &=& (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) \Longleftrightarrow u_{i, j} = 
+	                    \begin{dcases*}
+	                        \frac{\tilde{u} - \tau \beta - \tau \alpha v_{i,j}}{1 - \tau \alpha} & \textnormal{if\, $\tilde{u}_{i,j} - (1 - \tau\alpha)g_{i,j} > \tau\alpha v_{i,j} + \tau\beta$,} \\
+	                        \frac{\tilde{u} + \tau \beta - \tau \alpha v_{i,j}}{1 - \tau \alpha} & \textnormal{if\, $\tilde{u}_{i,j} - (1 - \tau\alpha)g_{i,j} < \tau\alpha v_{i,j} - \tau\beta$,} \\
+	                        g_{i, j} & \textnormal{if\, $|\tilde{u}_{i,j} - (1 - \tau\alpha)g_{i,j}| \le \tau (\beta + \alpha v_{i, j})$}.
+	                    \end{dcases*}\notag
+	            \end{eqnarray}
+		% subsection proximity_operatoren (end)
+
+	% section ur_model (end)
+
+% chapter ur_model (end)
+
+\end{document}

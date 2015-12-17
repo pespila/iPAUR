@@ -8,24 +8,19 @@
 #ifndef __TYPECONVERSION_H__
 #define __TYPECONVERSION_H__
 
+template<typename aType>
 class TypeConversion
 {
-private:
-	int height;
-	int width;
-	int channel;
-	char type;
-
 public:
-	TypeConversion():height(0), width(0), channel(0), type(0) {}
-	TypeConversion(int, int, int, char);
-	TypeConversion(Image&);
+	TypeConversion();
 	~TypeConversion();
 
-	void RGB2Gray(RGBImage&, GrayscaleImage&);
-	void Gray2RGB(GrayscaleImage&, RGBImage&);
-	void RGB2YCrCb(RGBImage&, YCrCbImage&);
-	void RGB2HSI(RGBImage&, HSIImage&);
+	void RGB2Gray(RGBImage<aType>&, GrayscaleImage<aType>&);
+	void Gray2RGB(GrayscaleImage<aType>&, RGBImage<aType>&);
+	void RGB2YCrCb(RGBImage<aType>&, YCrCbImage<aType>&);
+	void RGB2HSI(RGBImage<aType>&, HSIImage<aType>&);
 };
+
+#include "TypeConversion.tpp"
 
 #endif //__TYPECONVERSION_H__

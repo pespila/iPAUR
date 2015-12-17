@@ -13,7 +13,60 @@
 
 make
 
- ./iPaur "../../tests/image1.jpg" "../../tests/imagenew.jpg"
+# TVLROF Model
+# ./iPaur "../../img/lena_noise.png" "../../noise_0_0.7.png" 0 0.7 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0_0.png" 0 0 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.01_0.1.png" 0.01 0.1 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.1_40.png" 0.1 40 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.01_40.png" 0.01 40 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.001_40.png" 0.001 40 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.01_64.png" 0.01 64 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.01_100.png" 0.01 100 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.3_0.1.png" 0.3 0.1 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.7_0.png" 0.7 0 500
+
+./iPaur "../../img/miche.jpg" "../../miche_test.png" 400 0.1 500
+
+# ./iPaur "../../img/lena_noise.png" "../../noise_4_0.7.png" 4 0.7 50
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_4_0.7.png" 4 0.7 50
+# ./iPaur "../../img/lena.png" "../../lena_4_0.7.png" 4 0.7 50
+
+# RT Model
+# ./iPaur "../../img/lena_noise.png" "../../noise_1_0.1.png" 1 0.1 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.01_1.png" 0.01 1 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_1_0.1.png" 1 0.1 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_10_7.png" 10 7 500
+# ./iPaur "../../img/lena.png" "../../lena_10_7.png" 10 7 500
+# ./iPaur "../../img/lena.png" "../../lena_0.01_1.png" 0.01 1 500
+
+# ./iPaur "../../img/lena_noise.png" "../../noise_10_7.png" 10 7 2500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_0.01_1.png" 0.01 1 2500
+# ./iPaur "../../img/lena.png" "../../lena_1_0.1.png" 1 0.1 2500
+
+# TVL1 Model
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.9.png" 0.9 0 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_1.2.png" 1.2 0 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_0.9.png" 0.9 0 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_1.2.png" 1.2 0 500
+# ./iPaur "../../img/lena.png" "../../lena_0.9.png" 0.9 0 500
+# ./iPaur "../../img/lena.png" "../../lena_1.2.png" 1.2 0 500
+
+# ./iPaur "../../img/lena_noise.png" "../../noise_0.7.png" 0.7 0 2500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_0.7.png" 0.7 0 2500
+# ./iPaur "../../img/lena.png" "../../lena_0.7.png" 0.7 0 2500
+
+# ROF Model
+# ./iPaur "../../img/lena_noise.png" "../../noise_16.png" 16 0 500
+# ./iPaur "../../img/lena_noise.png" "../../noise_32.png" 32 0 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_16.png" 16 0 500
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_32.png" 32 0 500
+# ./iPaur "../../img/lena.png" "../../lena_16.png" 16 0 500
+# ./iPaur "../../img/lena.png" "../../lena_32.png" 32 0 500
+
+# ./iPaur "../../img/lena_noisy.png" "../../noisy_8.png" 8 0 2500
+# ./iPaur "../../img/lena_noise.png" "../../noise_8.png" 8 0 2500
+# ./iPaur "../../img/lena.png" "../../lena_8.png" 8 0 2500
+
 
 # ./iPaur "tests/min.jpg" "tests/min_new.jpg"
 # ./iPaur "tests/Wafer_Detection/max.jpg" "tests/max_new5.jpg"

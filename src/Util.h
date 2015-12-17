@@ -14,23 +14,18 @@ template <typename T> int sgn(T val) {
     return (T(0) < val) - (val < T(0));
 }
 
+template<typename aType>
 class Util
 {
-private:
-	int height;
-	int width;
-	int channel;
-	char type;
-
 public:
-	Util():height(0), width(0), channel(0), type(0) {}
-	Util(int, int, int, char);
-	Util(Image&);
+	Util();
 	~Util();
 
-	void MarkRed(RGBImage&, GrayscaleImage&, RGBImage&);
-	void AddImages(Image&, Image&, WriteableImage&);
-	void InverseImage(Image&, WriteableImage&);
+	void MarkRed(RGBImage<aType>&, GrayscaleImage<aType>&, RGBImage<aType>&);
+	void AddImages(Image<aType>&, Image<aType>&, WriteableImage<aType>&);
+	void InverseImage(Image<aType>&, WriteableImage<aType>&);
 };
+
+#include "Util.tpp"
 
 #endif //__UTIL_H__

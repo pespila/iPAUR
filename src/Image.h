@@ -1,5 +1,3 @@
-// #include "opencv2/highgui/highgui.hpp"
-// #include "opencv2/imgproc/imgproc.hpp"
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <string>
@@ -13,21 +11,23 @@ using namespace cv;
 #ifndef __IMAGE_H__
 #define __IMAGE_H__
 
+template<typename aType>
 class Image
 {
 public:
-	virtual unsigned short GetChannels() = 0;
-	virtual unsigned short GetHeight() = 0;
-	virtual unsigned short GetWidth() = 0;
-	virtual unsigned short GetType() = 0;
-	virtual unsigned char Get(int, int, int) = 0;
+	virtual int GetChannels() = 0;
+	virtual int GetHeight() = 0;
+	virtual int GetWidth() = 0;
+	virtual int GetType() = 0;
+	virtual aType Get(int, int, int) = 0;
 };
 
-class WriteableImage : public Image
+template<typename aType>
+class WriteableImage : public Image<aType>
 {
 public:
-	virtual void Set(int, int, int, unsigned char) {}
-	virtual void Reset(unsigned short, unsigned short, char) {};
+	virtual void Set(int, int, int, aType) {}
+	virtual void Reset(int, int, char) {};
 };
 
 #endif //__IMAGE_H__

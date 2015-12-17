@@ -1,0 +1,54 @@
+In this first chapter we want to give an introduction to the most important concepts we meet in this thesis. We start by defining images in a mathematical manner, then introduce the total variation and basic concepts of convex analysis.
+
+\section{Images in Mathematics} % (fold)
+\label{sec:images_in_mathematics}
+
+    Images can be viewed as mathematical objects. We can distinguish between discrete and continuous images. Let us first introduce what images are in the mathematical sense and then give some examples.
+
+    \begin{definition}[Image] % (fold)
+    \label{def:image}
+
+        Let $\Omega \subset \mathbb{R}^{n}$ be an image domain and $C$ be a color space. A n-dimensional image $u$ is a mapping $u: \Omega \longrightarrow C$, where each point in $\Omega$ corresponds to a color value in $C$.
+
+    \end{definition}
+    % definition image (end)
+
+    \begin{remark}[Continuous and discrete images] % (fold)
+    \label{rem:continuous_vs_discrete}
+        
+        Yet, we did not tell anything about the difference between continuous and discrete images. We distinguish these two cases by the image domain $\Omega$.
+            \begin{enumerate}
+                \item Let $\Omega = \{ 1, ..., N \}^{n}$, then $u$ is a discrete image, since $\Omega$ is discrete.
+                \item Let $\Omega \subseteq \mathbb{R}^{n}$, then $u$ is a continuous image. For instance, we could set $\Omega = [a, b]^{n}$ with $a, b \in \mathbb{R}$ and $a < b$.
+            \end{enumerate}
+        There are several image types like binary images, or colored images. The property to which class an image $u$ belongs is determined by the color space $C$:
+            \begin{itemize}
+                \item Let $C = \{ 0, 1 \}$ then we call the image binary.
+                \item In the case of grayscaled images we set $C = \{ 0, ..., 2^{k}-1 \}$, where the value $k$ determines the bit depth. Usually we find in computers $k = 8$, i.e. grayscaled images take values in between $0$ and $255$, where $0 = \textnormal{black}$ and $255 = \textnormal{white}$.
+                \item n-dimensional color images have $C = \{ 0, ..., 2^{k}-1 \}^{n}$, or
+                \item as a last example we want to see that an image $u$ could also map to continuous color spaces, e.g. $C = [a, b]^{n}$ or $C = \mathbb{R}^{n}$. Most common are RGB (red-green-blue) images with $n = 3$, $a = 0$ and $b = 1$.
+            \end{itemize}
+
+        In this thesis we meet two cases for the domain $\Omega$. One where $\Omega$ is two-dimensional, and the other where $\Omega$ is a three-dimensional space. In the first case, we call a point $(i, j)$ in $\Omega$ pixel, in the second case a point $(i, j, k)$ is called voxel.
+
+    \end{remark}
+    % remark continuous_vs_discrete (end)
+
+    % FIGURE!!!
+        
+    Computationally, it is a convenient method to store a two-dimensional image $u \in \mathbb{R}^{N \times M}$ not as a grid (like a matrix), but as a vector $u \in \mathbb{R}^{N \cdot M}$. To derive such a vector representation one needs to linearize the arguments of the function $u$. In other words we transform $(i, j)$ to $(j + i \cdot N)$. %Note, that in lot of programming languages indices start with $0$, as it is in our case.
+    The particular pixels are stored row wise, starting at the top left corner of the image and stopping at the bottom right corner. The access of one element becomes
+        $$
+            u(i, j) \leadsto u(j + i \cdot N).
+        $$
+    There are several programming languages where the indices of a vector start with $0$. An example would be C++ and CUDA, which we used for our implementations. Then clearly, we have $u(0, 0) = u(0 + 0 \cdot N) = u(0)$ and $u(N-1, M-1) = u(M-1 + (N-1) \cdot N)$. Even though we will treat $u$ as a vector we still denote the discrete pixel positions with the notation
+        $$
+            u(i, j) = u_{i, j} \,\,\, \forall i = 1, ..., N, j = 1, ..., M.
+        $$
+    Further, note that the notation $\langle \cdot, \cdot \rangle$ has two different meanings in this thesis. In the sense of infinite spaces, e.g. $u \in L^{1}(\Omega)$, the inner product of functions is defined by
+        $$
+            \langle u, v \rangle = \int_{\Omega} u(x)v(x) dx.
+        $$
+    Whereas, in a finite space, e.g. the euclidean space, this expression stands for the standard inner product (see also \ref{eq:inner_product}).
+
+% section images_in_mathematics (end)

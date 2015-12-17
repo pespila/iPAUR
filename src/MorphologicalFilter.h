@@ -4,6 +4,7 @@
 #ifndef __MORPHOLOGICALFILTER_H__
 #define __MORPHOLOGICALFILTER_H__
 
+template<typename aType>
 class MorphologicalFilter
 {
 private:
@@ -11,26 +12,28 @@ private:
 	int width;
 	int channel;
 	char type;
-	unsigned char* filtered;
+	aType* filtered;
 
-	void MedianOfArray(unsigned char*, int);
-	void CreateOnes(float*, int);
-	void FilterDx(Image&, float*, int, char);
-	void FilterDy(WriteableImage&, float*, int, char);
+	void MedianOfArray(aType*, int);
+	void CreateOnes(aType*, int);
+	void FilterDx(Image<aType>&, aType*, int, char);
+	void FilterDy(WriteableImage<aType>&, aType*, int, char);
 
 public:
 	MorphologicalFilter():height(0), width(0), channel(0), type(0) {}
 	MorphologicalFilter(int, int, int, char);
-	MorphologicalFilter(Image&);
+	MorphologicalFilter(Image<aType>&);
 	~MorphologicalFilter();
 
-	void Erosion(Image&, WriteableImage&, int);
-	void Dilatation(Image&, WriteableImage&, int);
-	void Median(Image&, WriteableImage&, int);
-	void Open(Image&, WriteableImage&, int);
-	void Close(Image&, WriteableImage&, int);
-	void WhiteTopHat(Image&, WriteableImage&, int);
-	void BlackTopHat(Image&, WriteableImage&, int);
+	void Erosion(Image<aType>&, WriteableImage<aType>&, int);
+	void Dilatation(Image<aType>&, WriteableImage<aType>&, int);
+	void Median(Image<aType>&, WriteableImage<aType>&, int);
+	void Open(Image<aType>&, WriteableImage<aType>&, int);
+	void Close(Image<aType>&, WriteableImage<aType>&, int);
+	void WhiteTopHat(Image<aType>&, WriteableImage<aType>&, int);
+	void BlackTopHat(Image<aType>&, WriteableImage<aType>&, int);
 };
+
+#include "MorphologicalFilter.tpp"
 
 #endif //__MORPHOLOGICALFILTER_H__

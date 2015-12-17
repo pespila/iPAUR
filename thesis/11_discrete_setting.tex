@@ -1,0 +1,113 @@
+\section{Discrete Setting} % (fold)
+\label{sec:discrete_setting_ms}
+
+    Using the characteristic function, respectively the generic function $v$ means, that we are adding an additional space to our two dimensional image domain. This extra label space needs to be considered in the discrete setting. In \cite{Pock-et-al-iccv09} they consider $\Omega = [0, 1]^{2}$ and for that the subgraph of $u$ to be in $[0, 1]^{3}$. This would imply that we discetize these two spaces by adding a step-size $h$, where for instance $h = \frac{1}{N}$ or $h = \frac{1}{M}$. The size $h$ would only scale the energy, but does not change results. Further, they consider all their operators without having this additional step-size. To be not confusing we propose all our spaces and operators without needing a step size. Then our image domain is $\Omega = \{1, 2, ..., N\} \times \{1, 2, ..., M\}$ and the subgraph of the function $u: \mathbb{R}^{2} \longrightarrow [0, 1]$ is then defined in the cube $\Omega \times \{1, 2, ..., S\}$. In this discrete setting we define the pixel grid $\mathcal{G}$ with size $N \times M \times S$ and the following notation
+
+        \begin{equation}
+            \mathcal{G} = \bigg\{ (i , j , k ): i = 1, 2, ..., N, j = 1, ..., M, k = 1, 2, ..., S \bigg\}
+        \end{equation}
+
+    where $i, j, k$ are the discrete locations of each voxel. Note, that in a three dimensional space a discrete location is called voxel and in the two dimensional one pixel.
+    For reformulation of \ref{eq:continous_saddle_point_problem} we also need to define the corresponding functions of $v, \varphi$. So, let $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ and $p \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in equation \ref{eq:continous_saddle_point_problem} where $u$ corresponds to $v$ and $p$ to $\varphi$. If we replace the inner-product for infinite dimensions in equation \ref{eq:continous_saddle_point_problem} by the inner-product for finite dimensions and note that in finite spaces we can interchange $\sup$ and $\max$ we are going to face the saddle-point problem
+        \begin{equation}
+            \min_{u \in C} \max_{p \in K} \langle Ku, p \rangle.
+        \label{eq:mumford_shah_saddle_point_problem}
+        \end{equation}
+    This notation looks now familiar to us, but we still do not know how the set $K$ will be defined in this discrete version. Also, we want to clarify why we need the set $C$. Let us first state how $C$ actually looks like:
+
+        \begin{equation}
+            C = \{ u \in X: u(i,j,k) \in [0,1], u(i, j, 1) = 1, u(i, j, S) = 0 \} \subseteq X.
+        \end{equation}
+
+    In equation \ref{eq:generic_functions} we substituted the characteristic function by a generic function $v$. To take the limits of $v$ into account, we set the values in the first label space to $1$ and those in the last label space to $0$. We also stated, that our image $u$ maps into $[0, 1]$, which is also modeled in the set $C$.
+    The discrete version of our set $K$ from equation \ref{eq:set_k_continuous} can then be rewritten to
+        \begin{eqnarray}
+            K = \{ p = (p^{x}, p^{t})^{T} \in Y &:& p^{t}(i,j,k) \ge \frac{||p^{x}||_{2}^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2}, \label{eq:local_constraint} \\
+            &&\left| \sum_{k_{1} \le k \le k_{2}} p^{x} \right| \le \nu \}, \label{eq:non_local_constraint}
+        \end{eqnarray}
+    whereas we define $p^{x} := (p^{1}, p^{2})^{T}$ and $p^{t} := p^{3}$.
+
+    \begin{remark}
+        In addition to discretize the variable $t$ in \ref{eq:set_k_continuous} one gets $\frac{k}{M}$ in the discrete version for \ref{eq:localconst}. Note, that $t$ is a value in the continuous setting which determines at which point the characteristic function vanishes, i.e. is set to zero. The bound on the norm $L$ depends on the discrete gradient operator and is for a fixed notation for this operator constant. Because of this, the notation one finds in \cite{Pock-et-al-iccv09} is wrong.
+    \end{remark}
+
+    Again, we need to determine how the linear operator $K$ looks like. It is the same as found in section \ref{sec:discrete_setting}, namely the discrete gradient operator, but extended for the label space we added to this problem.
+
+    \begin{definition}[Discrete gradient operator] % (fold)
+    \label{def:discrete_gradient_operator_ms}
+
+        We define the discrete gradient of $u \in X$ by $\nabla u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j}, (\partial_{k}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
+            \begin{eqnarray}
+                &(\partial_{i}u)_{i, j} =&
+                    \begin{dcases*}
+                        u_{i+1, j, k} - u_{i, j, k} & \textnormal{if $i < N$} \\
+                        0 & \textnormal{if $i = N$}
+                    \end{dcases*}
+                \notag
+                (\partial_{j}u)_{i, j, k} =
+                    \begin{dcases*}
+                        u_{i, j+1, k} - u_{i, j, k} & \textnormal{if $j < M$} \\
+                        0 & \textnormal{if $j = M$}
+                    \end{dcases*}
+                \notag \\
+                &(\partial_{k}u)_{i, j, k} =&
+                    \begin{dcases*}
+                        u_{i, j, k+1} - u_{i, j, k} & \textnormal{if $k < S$} \\
+                        0 & \textnormal{if $k = S$}
+                    \end{dcases*}
+                \notag
+            \end{eqnarray}
+
+    \end{definition}
+    % definition discrete_gradient_operator (end)
+
+    Again we have $\textnormal{div}: Y \longrightarrow X$ as the discrete divergence operator. And it relates to $\nabla$ with $- \nabla^{\ast} = \textnormal{div}$ as seen before.
+
+    \begin{definition}[Discrete divergence operator] % (fold)
+    \label{def:discrete_divergence_operator_ms}
+
+        We define the discrete divergence of $p \in Y$ by $\nabla^{T} p = \partial_{i}p^{1}_{i, j, k} + \partial_{j}p^{2}_{i, j, k} + \partial_{k}p^{3}_{i, j, k}$ using backward differences with Dirichlet boundary conditions, i.e
+            \begin{eqnarray}
+                &(\partial_{i}p^{1})_{i, j, k} =&
+                    \begin{dcases*}
+                        p^{1}_{i, j, k} - p^{1}_{i-1, j, k} & \textnormal{if $1 < i < N$} \\
+                        p^{1}_{i, j, k} & \textnormal{if $i = 1$} \\
+                        -p^{1}_{i-1, j, k} & \textnormal{if $i = N$}
+                    \end{dcases*}
+                \notag
+                (\partial_{j}p^{2})_{i, j, k} =
+                    \begin{dcases*}
+                        p^{2}_{i, j, k} - p^{2}_{i, j-1, k} & \textnormal{if $1 < j < M$} \\
+                        p^{2}_{i, j, k} & \textnormal{if $j = 1$} \\
+                        -p^{2}_{i, j-1, k} & \textnormal{if $j = M$}
+                    \end{dcases*}
+                \notag \\
+                &(\partial_{k}p^{3})_{i, j, k} =&
+                    \begin{dcases*}
+                        p^{3}_{i, j, k} - p^{3}_{i, j, k-1} & \textnormal{if $1 < k < S$} \\
+                        p^{3}_{i, j, k} & \textnormal{if $k = 1$} \\
+                        -p^{3}_{i, j, k-1} & \textnormal{if $k = S$}
+                    \end{dcases*}
+                \notag
+            \end{eqnarray}
+
+    \end{definition}
+    % definition discrete_gradient_operator (end)
+
+    \begin{proposition}[Bound on the norm of $\nabla$] % (fold)
+        \label{prop:bound_on_the_norm}
+
+        The bound on the norm of the proposed discrete linear operators is given by
+            \begin{equation}
+                L^{2} = ||\nabla|| = ||\textnormal{div}|| \le 12.
+            \end{equation}
+
+    \end{proposition}
+    % proposition bound_on_the_norm (end)
+
+    \begin{proof}
+    	The proof is the same as in section \ref{sec:discrete_setting} by adding the additional discretization variable $p^{3}_{i,jk}$.
+    	\qed
+    \end{proof}
+
+% section discrete_setting (end)

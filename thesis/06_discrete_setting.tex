@@ -1,0 +1,105 @@
+\section{Discrete Setting} % (fold)
+\label{sec:discrete_setting}
+
+    To turn to our setting, we consider a regular pixel grid of size $N \times M$ and set
+        \begin{equation}
+            \mathcal{G} = \bigg\{ (i, j) : i = 1, ..., N \,\, \textnormal{and} \,\, j = 1, ..., M \bigg\}.
+            \label{eq:pixel_grid}
+        \end{equation}
+    where the indices $(i, j)$ denote the discrete locations in the pixel grid. And we define our image $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ where $X \in \mathbb{R}^{N \cdot M}$ is a finite dimensional vector space equipped with the standard inner product
+        \begin{equation}
+            \langle u, v \rangle_{X} = u^{T}v = \sum_{i = 1}^{N} \sum_{j = 1}^{M} u_{i, j} v_{i, j}, \,\,\, u, v \in X,
+            \label{eq:inner_product}
+        \end{equation}
+    and the standard euclidean norm
+        $$
+            ||u||_{2} = \big( u^{T} u \big)^{\frac{1}{2}} = \langle u, u \rangle^{\frac{1}{2}}, \,\,\, u \in X.
+        $$
+    Furthermore, let $Y = X \times X$ be the dual space of $X$ equipped with the inner product defined by
+        $$
+            \langle p, q \rangle_{Y} = p^{T}q = \sum_{i = 1}^{N} \sum_{j = 1}^{M} p^{1}_{i, j} q^{1}_{i, j} + p^{2}_{i, j} q^{2}_{i, j},
+        $$
+    with $p_{i, j} = \big(p^{1}_{i, j}, p^{2}_{i, j}\big)^{T}, q_{i, j} = \big(q^{1}_{i, j}, q^{2}_{i, j}\big)^{T} \in Y$ and also equipped with the euclidean norm.
+
+    For simplicity we let our normed vector space $X$ be in $\mathbb{R}^{n}$ and swap the superscript $N \cdot M$ to $n$. If the exact space size is of importance, we will make this clear. Further, we define $\mathbb{R}_{\infty} = \mathbb{R} \cup \{\infty\}$ as the space of the extended real values and $\mathbb{R}_{+} = [0, +\infty)$ as the space of all positive real values including zero.
+
+    Because the total variation is associated with the gradient operator, we want to give some discretization for this operator. As we saw in Equation \ref{eq:nabla_equals_minus_divergence}, the gradient $\nabla$ becomes $- \textnormal{div}$ by swapping it from our function $u$ to the testfunction $\varphi$. This important relation is used in the following and for that we further define the discrete divergence operator.
+
+    \begin{definition}[Discrete gradient operator] % (fold)
+    \label{def:discrete_gradient_operator}
+
+        We define the discrete gradient of a vector $u \in X$ by $\nabla_{d}\,u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
+            \begin{eqnarray}
+                (\partial_{i}u)_{i, j} =
+                    \begin{dcases*}
+                        u_{i+1, j} - u_{i, j} & \textnormal{if $i < N$}\\
+                        0 & \textnormal{if $i = N$}
+                    \end{dcases*}
+                \label{eq:forward_partial_i} \\
+                (\partial_{j}u)_{i, j} =
+                    \begin{dcases*}
+                        u_{i, j+1} - u_{i, j} & \textnormal{if $j < M$}\\
+                        0 & \textnormal{if $j = M$}
+                    \end{dcases*}
+                \label{eq:forward_partial_j}
+            \end{eqnarray}
+
+    \end{definition}
+    % definition discrete_gradient_operator (end)
+
+    We choose $\textnormal{div}_{d}: Y \longrightarrow X$ to be the discrete divergence operator, which relates to $\nabla_{d}$ with $- \nabla_{d}^{\ast} = \textnormal{div}_{d}$. That is, for every $p \in Y$ and $u \in X$,
+        $$
+            \langle \nabla_{d}\, u, p \rangle_{Y} = \langle u, \nabla_{d}^{\ast}\, p \rangle_{X} = - \langle u, \textnormal{div}_{d}\,p \rangle_{X}
+        $$
+    as in Equation \ref{eq:nabla_equals_minus_divergence}.
+
+    \begin{definition}[Discrete divergence operator] % (fold)
+    \label{def:discrete_divergence_operator}
+
+        We define the discrete divergence of a vector $p \in Y$ by $\nabla_{d}^{T} p = \partial_{i}p^{1}_{i, j} + \partial_{j}p^{2}_{i, j}$ using backward differences with Dirichlet boundary conditions, i.e
+            \begin{eqnarray}
+                (\partial_{i}p^{1})_{i, j} =
+                    \begin{dcases*}
+                        p^{1}_{i, j} - p^{1}_{i-1, j} & \textnormal{if $1 < i < N$}\\
+                        p^{1}_{i, j} & \textnormal{if $i = 1$}\\
+                        -p^{1}_{i-1, j} & \textnormal{if $i = N$}
+                    \end{dcases*}
+                \label{eq:backward_partial_i} \\
+                (\partial_{j}p^{2})_{i, j} =
+                    \begin{dcases*}
+                        p^{2}_{i, j} - p^{2}_{i, j-1} & \textnormal{if $1 < j < M$}\\
+                        p^{2}_{i, j} & \textnormal{if $j = 1$}\\
+                        -p^{2}_{i, j-1} & \textnormal{if $j = M$}
+                    \end{dcases*}
+                \label{eq:backward_partial_j}
+            \end{eqnarray}
+
+    \end{definition}
+    % definition discrete_gradient_operator (end)
+
+    \begin{proposition}[Bound on the norm of $\nabla_{d}$] % (fold)
+        \label{prop:bound_on_the_norm}
+
+        The bound on the norm of the proposed discrete linear operators is given by
+            \begin{equation}
+                L^{2} = ||\nabla_{d}|| = ||\textnormal{div}|| \le 8.
+            \end{equation}
+
+    \end{proposition}
+    % proposition bound_on_the_norm (end)
+
+    \begin{proof} % (fold)
+
+        With the definitions of \ref{def:discrete_gradient_operator}, \ref{def:discrete_divergence_operator} and \ref{eq:operator_norm} we get
+            \begin{eqnarray}
+                L &=& ||\nabla_{d}|| = \max_{||x||_{X} \le 1} ||\nabla_{d}\,x||_{Y} \notag \\
+                &=& ||\textnormal{div}_{d}|| = \max_{||p||_{Y} \le 1} ||\textnormal{div}_{d}\,p||_{X} \notag \\
+                &=& \max_{||p||_{Y} \le 1} \sum_{i = 1}^{N} \sum_{j = 1}^{M} \big( p^{1}_{i, j} - p^{1}_{i-1, j} + p^{2}_{i, j} - p^{2}_{i, j-1} \big)^{2} \notag \\
+                &\le& 4 \max_{||p||_{Y} \le 1} \sum_{i = 1}^{N} \sum_{j = 1}^{M} (p^{1}_{i, j})^{2} + (p^{1}_{i-1, j})^{2} + (p^{2}_{i, j})^{2} + (p^{2}_{i, j-1})^{2} \notag \\
+                &\le& 8 \max_{||p||_{Y} \le 1} ||p||^{2}_{Y} = 8.
+                \label{eq:bound_on_discrete_gradient}
+            \end{eqnarray}\qed
+    \end{proof}
+    % proof (end)
+
+% section discrete_setting (end)

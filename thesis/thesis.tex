@@ -1,0 +1,76 @@
+\documentclass{scrreprt}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.12}
+\pgfplotsset{soldot/.style={color=blue,only marks,mark=*}}
+\pgfplotsset{holdot/.style={color=blue,fill=white,only marks,mark=*}}
+
+\input{settings.tex}
+
+\begin{document}
+
+% \input{titlepage.tex}
+% \input{abstract.tex}
+% \input{acknowledgements.tex}
+% \input{00_introduction.tex}
+
+\chapter{Basic Concepts} % (fold)
+\label{cha:basic_concepts}
+
+    \input{01_images}
+    \input{02_convexity}
+    \input{03_total_variation}
+
+% chapter basic_concepts (end)
+
+\chapter{A Primal-Dual Algorithm for (Convex) Saddle-Point Problems} % (fold)
+\label{cha:a_first_order_primal_dual_algorithm_for_convex_saddle_point_problems}
+    
+    \input{04_the_general_saddle_point_problem}
+    \input{05_a_first_order_primal_dual_algorithm}
+    \input{06_discrete_setting}
+    \input{07_the_rof_model}
+    \input{08_the_tvl1_model}
+    \input{09_the_mumford_shah_functional}
+
+% chapter a_first_order_primal_dual_algorithm_for_convex_saddle_point_problems (end)
+
+\chapter{A Primal-Dual Algorithm for Minimizing the Mumford-Shah Functional} % (fold)
+\label{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}
+    
+    \input{10_convex_relaxation}
+    \input{11_discrete_setting}
+    \input{12_the_mumford_shah_functional}
+    \input{13_projection_onto_convex_sets}
+    % \input{13_another_approach_using_lagrange_multiplier}
+
+% chapter a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional (end)
+
+% \chapter{Applications to Imaging} % (fold)
+% \label{cha:applications_to_imaging}
+
+    % \input{14_image_cartooning}
+    % \input{15_image_denoising}
+    % \input{16_image_inpainting}
+    % \input{17_image_segmentation}
+
+% chapter applications_to_imaging (end)
+
+% \chapter{Conclusion} % (fold)
+% \label{cha:conclusion}
+
+    % \input{18_conclusion}
+
+% chapter conclusion (end)
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
