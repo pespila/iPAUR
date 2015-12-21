@@ -1,7 +1,7 @@
 \section{Convex Optimization and Convex Analysis} % (fold)
 \label{sec:convex_optimization_and_convex_analysis}
 
-    In this section we cover a few topics which are related to convexity. Since we are considering (convex) optimization problems in this work we first want to define a convex program where we mainly follow \cite{Boyd}, whereas convex sets and convex functions are the basis of convex optimization.
+    In this section we cover a few topics which are related to convex analysis. Since we are considering (convex) optimization problems in this work we first want to define a convex program where we mainly follow \cite{Boyd}, whereas convex sets and convex functions are the basis of convex optimization.
 
     An optimization problem is of the form
         \begin{equation}
@@ -34,8 +34,7 @@
         \end{equation}
     where we allow $u^{\ast}$ to take on the extended values $\pm \infty$. We set $u^{\ast} = \infty$ if the problem is infeasible, since $\inf(\emptyset) = \infty$. If there are feasible points $u_{k}$ with $F(u_{k}) \longrightarrow -\infty$ as $k \longrightarrow \infty$, then $u^{\ast} = -\infty$, and we say that problem \ref{eq:optimization_problem} is \textit{unbounded below}.\\
 
-    Since, convex optimization is based on convex functions we need to define these class of functions and its properties.
-    According to \cite{Chambolle-et-al-10} we have the following basic definitions, propositions and theorems.
+    Since, convex optimization is based on convex functions we need to define these class of functions and its properties. We set $X \subseteq \mathbb{R}^{n}$ and its dual space $X^{\ast} = Y$. According to \cite{Chambolle-et-al-10} and \cite{Rockafellar} we have the following basic definitions, propositions and theorems.
 
     \begin{definition}[Convex Set] % (fold)
     \label{def:convex_set}
@@ -185,7 +184,7 @@
         \end{tikzpicture}
         \caption{A l.s.c. function.}
         \end{subfigure}
-        \caption{(a) shows one line segment above a convex (quadratic) function which lies completely in $\textnormal{epi}(F)$. (b) is the l.s.c. function of Equation \ref{eq:lsc_example}. The left part of the plots accesses the value at $(1, 1)$, but the right part does not.}
+        \caption{(a) shows one line segment above a convex (quadratic) function which lies completely in $\textnormal{epi}(F)$. (b) is the l.s.c. function of Equation \ref{eq:lsc_example}. The left part of the function accesses the value at $(1, 1)$, but the right one does not.}
         \label{fig:convex_function}
     \end{figure}
 
@@ -202,12 +201,12 @@
                     by definition of linearity.\qed
                 \end{proof}
                 % proof (end)
-            \item Let $A \in \mathbb{R}^{n \times n}$ be a real, symmetric, positiv definite matrix and $F: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{n}$ a linear function with $F(u) = \frac{1}{2}u^{T}Au + b^{T}u + c$. Then $F$ is strictly convex. To show this we make use of a fundamental result of the calculus class. Since, if $\mathcal{H}\big(F(u)\big) > 0$ then the function $F$ is strictly convex. Here $\mathcal{H}$ stands for the Hessian of the function $F$. We have
+            \item Let $A \in \mathbb{R}^{n \times n}$ be a real, symmetric, positiv definite matrix and $F: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{n}$ a linear function with $F(u) = \frac{1}{2}u^{T}Au + b^{T}u + c$. Then $F$ is strictly convex. To show this, we make use of a fundamental result of the calculus class. Since, if $\mathcal{H}\big(F(u)\big) > 0$ then the function $F$ is strictly convex. Here $\mathcal{H}$ stands for the Hessian of the function $F$. We have
                 $$
                     \mathcal{H}\big(F(u)\big) = A > 0
                 $$
-            by definition.
-            \item This example will later be useful: Each norm $||\cdot||: X \longrightarrow \mathbb{R}$ on a normed vector space $X$ is convex (see also Figure \ref{def:convex_function_proper_lower_semicontinuous}).
+            by definition of $A$ being symmetric, positiv definite.
+            \item This example will later be useful: Each norm $||\cdot||: X \longrightarrow \mathbb{R}$ on a normed vector space $X$ is convex (see also Figure \ref{def:convex_function_proper_lower_semicontinuous} for the $l_{1}$ and $l_{2}$ norms).
                 \begin{proof} % (fold)
                     Choose $u, v \in X, t \in [0, 1]$, then
                     $$
@@ -268,7 +267,7 @@
             \end{axis}
         \end{tikzpicture}
         \label{fig:domain_epigraph}
-        \caption{Domain (red), denoted as $\textnormal{dom}(F) = [-1, 1]$ and epigraph \\$\textnormal{epi}(F) = \{(u, t) \in [-1, 1] \times \mathbb{R} : t \ge \frac{1}{2}u^{2}\}$ (gray) of a function $F: [-1, 1] \longrightarrow \mathbb{R}$ with $F(u) = \frac{1}{2}u^{2}$.}
+        \caption{The domain (red) denoted as $\textnormal{dom}(F) = [-1, 1]$ and epigraph \\$\textnormal{epi}(F) = \{(u, t) \in [-1, 1] \times \mathbb{R} : t \ge \frac{1}{2}u^{2}\}$ (gray) of a function $F: [-1, 1] \longrightarrow \mathbb{R}$ with $F(u) = \frac{1}{2}u^{2}$.}
     \end{figure}
 
     Now, that we are set up with convexity, we want to introduce one of the most important concepts for this thesis.
@@ -276,7 +275,7 @@
     \begin{definition}[Legendre-Fenchel conjugate] % (fold)
     \label{def:legendre_fenchel_conjugate}
 
-        Let $F: X \longrightarrow \mathbb{R}_{\infty}$ be a convex function. We define the Legendre-Fenchel conjugate $F^{\ast}$ of $F$ for any $p \in X$ by
+        Let $F: X \longrightarrow \mathbb{R}_{\infty}$ be a convex function. We define the Legendre-Fenchel conjugate $F^{\ast}$ of $F$ for any $p \in X^{\ast}$ by
             \begin{equation}
                 F^{\ast}(p) = \sup_{u \in X} \big( \langle p, u \rangle - F(u) \big).
                 \label{eq:legendre_fenchel_conjugate}
@@ -309,11 +308,11 @@
                     \delta^{\ast}_{C}(p) = \sup_{u \in C} \langle p, u \rangle - \delta_{C}(u) = \sup_{u \in C} \langle p, u \rangle,
                 $$
             which is the support function.
-            \item Let $F$ be an arbitrary function in $X$ and $\alpha > 0$. Then the convex conjugate of $\alpha F(u)$ is given by
+            \item Let $F$ be an arbitrary function on $X$ and $\alpha > 0$. Then the convex conjugate of $\alpha F(u)$ is given by
                 $$
                     F^{\ast}(p) = \alpha F^{\ast}(\frac{p}{\alpha}).
                 $$
-            To show this we just compute
+            To show this we compute
                 $$
                     F^{\ast}(p) = \sup_{u \in X} \langle p, u \rangle - \alpha F(u) = \alpha \big( \underbrace{\sup_{u \in X} \langle \frac{p}{\alpha}, u \rangle - F(u)}_{= F^{\ast}(\frac{p}{\alpha})} \big) = \alpha F^{\ast}(\frac{p}{\alpha}).
                 $$
@@ -325,17 +324,17 @@
                             \infty & \textnormal{else},
                         \end{dcases*}
                 $$
-            i.e. the conjugate of a norm is the indicator function of the dual norm unit ball. We have
+            i.e. the conjugate of a norm is the indicator function of the unit ball of its dual norm. We have
                 $$
                     F^{\ast}(p) = \sup_{u \in X} (\langle p, u \rangle - ||u||).
                 $$
-            First let $||p||_{\ast} > 1$. By definition of the dual norm ($||p||_{\ast} = \sup\limits_{||x|| \le 1} |p^{T}x|$) there is a $x \in \mathbb{R}^{n}$ and we observe $p^{T}x > 1$.
+            First let $||p||_{\ast} > 1$. By definition of the dual norm ($||p||_{\ast} = \sup\limits_{||x|| \le 1} |\langle p, x \rangle|$) there is a $x \in \mathbb{R}^{n}$ and we observe $\langle p, x \rangle > 1$.
 
             We take $u = tx$ and let $t \longrightarrow \infty$, then we get
                 $$
-                    \langle p, u \rangle - ||u|| = t(\langle p, z \rangle - ||z||) \longrightarrow \infty,
+                    \langle p, u \rangle - ||u|| = t(\langle p, x \rangle - ||x||) \longrightarrow \infty,
                 $$
-            which shows that $F^{\ast}(p) = \infty$. On the other hand if $||p||_{\ast} \le 1$ we have
+            which shows that $F^{\ast}(p) = \infty$. On the other hand if $||p||_{\ast} \le 1$ Cauchy-Schwarz-inequality assures that
                 $$
                     \langle p, u \rangle \le ||u|| \, ||p||_{\ast}
                 $$
@@ -343,14 +342,14 @@
                 $$
                     \langle p, u \rangle - ||u|| \le ||u|| \, ||p||_{\ast} - ||u|| = ||u|| \, (||p||_{\ast} - 1) \le 0.
                 $$
-            To get the supremum we need to choose $u = 0$ which shows that $F^{\ast} = 0$ for this case.
-            \item As a last example we show that for a function $F(u) := \frac{1}{2} ||u||^{2}$ its conjugate is $F^{\ast}(p) = \frac{1}{2} ||p||_{\ast}^{2}$. With Cauchy-Schwarz-inequality we know that $\langle p, u \rangle \le ||p||_{\ast}\,||u||$. We observe
+            Because $||p||_{\ast} \le 1$ holds, to get the supremum we need to choose $u = 0$. This shows that $F^{\ast} = \sup\limits_{u \in X} \langle p, 0 \rangle - ||0|| = 0$.
+            \item As a last example we show that for a function $F(u) = \frac{1}{2} ||u||^{2}$ its conjugate is $F^{\ast}(p) = \frac{1}{2} ||p||_{\ast}^{2}$. With Cauchy-Schwarz-inequality we have $\langle p, u \rangle \le ||p||_{\ast}\,||u||$. We observe
                 $$
                     \langle p, u \rangle - \frac{||u||^{2}}{2} \le ||p||_{\ast}\,||u|| - \frac{||u||^{2}}{2},
                 $$
-            where the righthand side is a quadratic function of $||u||$. Define $H(x) := -\frac{x^{2}}{2} + y\,x$, then clearly the maximal value of $H$ is $x = y$. Plugging $||u||$ into $H$ we see, that the maximum is attained at $||p||_{\ast}$. It follows
+            where the righthand side is a quadratic function of $||u||$. Define $H(x) := -\frac{x^{2}}{2} + y\,x$, then the maximal value of $H$ is $x = y$, since $H^{'}(x) = -x + y$ and $H^{'}(x) = 0$ implies $x = y$. Plugging $||u||$ into $H$ we see, that the maximum is attained at $||p||_{\ast}$. It follows
                 $$
-                    \langle p, u \rangle - \frac{||u||^{2}}{2} \le \frac{||p||_{\ast}^{2}}{2}.
+                    \langle p, u \rangle - \frac{||u||^{2}}{2} \le ||p||_{\ast} ||p||_{\ast} - \frac{||p||_{\ast}}{2} = \frac{||p||_{\ast}^{2}}{2}.
                 $$
             This shows that $F^{\ast}(p) \le \frac{||p||_{\ast}^{2}}{2}$. Let us now proof the inequality in the other direction. We assume that we find an arbitrary $u$ which satisfies $\langle u, p \rangle = ||u||\,||p||_{\ast}$. Further, we assume that $||u|| = ||p||_{\ast}$ where $u$ is scaled so that the last equation holds. Then we have
                 $$
@@ -369,13 +368,13 @@
     \begin{definition}[Subgradient, Subdifferential] % (fold)
         \label{def:subgradient_subdifferential}
 
-        Let $X$ be an open, convex set and $F: X \longrightarrow \mathbb{R}_{\infty}$ a (convex) function. A vector $p$ is called subgradient of $F$ in $u_{0} \in X$, if
+        Let $X$ be an open, convex set and $F: X \longrightarrow \mathbb{R}_{\infty}$ a (convex) function. A vector $y$ is called subgradient of $F$ in $u_{0} \in X$, if
             \begin{equation}
-                F(u) \ge F(u_{0}) + \langle p, u - u_{0} \rangle \,\,\, \forall u \in X. \label{eq:subgradient}
+                F(u) \ge F(u_{0}) + \langle y, u - u_{0} \rangle \,\,\, \forall u \in X. \label{eq:subgradient}
             \end{equation}
         The set
             \begin{equation}
-                \partial F(u_{0}) = \{ p \in X: \, F(u) \ge F(u_{0}) + \langle p, u - u_{0} \rangle \,\,\, \forall u \in \textnormal{dom}(F) \}
+                \partial F(u_{0}) = \{ y \in X: \, F(u) \ge F(u_{0}) + \langle y, u - u_{0} \rangle \,\,\, \forall u \in \textnormal{dom}(F) \}
             \end{equation}
         is called subdifferential of $F$ in $u_{0} \in X$ and $\textnormal{dom}(\partial F) = \{ u: \partial F(u) \ne \emptyset \} \subset F$.
 
@@ -408,22 +407,22 @@
                             -u & \textnormal{else}.
                         \end{dcases*}
                 $$
-            Since $F(u)$ is not differentiable in $0$, but on $\mathbb{R} / \{0\}$ we compute the subgradient as
+            Since $F(u)$ is not differentiable in $0$, but on $\mathbb{R} / \{0\}$ we compute the subgradient $y$ as
                 \begin{itemize}
                     \item $\partial F(u) = 1$ if $u > 0$,
                     \item $\partial F(u) = -1$ if $u < 0$,
                     \item and finally
                         $$
-                            F(0) + p(u - 0) \le F(u) \Longleftrightarrow p \cdot u \le |u|.
+                            F(0) + y(u - 0) \le F(u) \Longleftrightarrow \langle y, u \rangle \le |u|.
                         $$
-                    If $u \ge 0$ this is equivalent to $p \ge 1$. If $u < 0$ we get
+                    If $u \ge 0$ this is equivalent to $y \ge 1$. If $u < 0$ we get
                         $$
-                            p \cdot u \le |u| \Longleftrightarrow p \cdot u \le -u \Longleftrightarrow p \ge -1.
+                            \langle y, u \rangle \le |u| \Longleftrightarrow \langle y, u \rangle \le -u \Longleftrightarrow y \ge -1.
                         $$
                 \end{itemize}
             Finally, we have
                 $$
-                    p =
+                    y =
                         \begin{dcases*}
                             1 & \textnormal{if $u > 0$,} \\
                             -1 & \textnormal{if $u < 0$,} \\
@@ -432,20 +431,20 @@
                 $$
             \item Let $F(u) = ||u||_{1}$. As a non-differentiable convex function we seek for the subdifferential. For that we can express the $l_{1}$-norm as 
                 $$
-                    ||u||_{1} = |u_{1}| + ... + |u_{n}| = \max \big\{ p^{T}u : p_{i} \in \{-1, 1\} \big\},
+                    ||u||_{1} = |u_{1}| + ... + |u_{n}| = \max \big\{ \langle y, u \rangle : p_{i} \in \{-1, 1\} \big\},
                 $$
-             for all $u \in X$. Obviously, one gets $||p||_{\infty} \le 1$. %This would solve the inequality \ref{eq:subgradient}
-             If we find a $p$ such that $p^{T}u = ||u||_{1}$ then immediately inequality \ref{eq:subgradient} would be satisfied, because
+             for all $u \in X$. Obviously, one gets $||y||_{\infty} \le 1$. %This would solve the inequality \ref{eq:subgradient}
+             If we find a $y$ such that $\langle y, u \rangle = ||u||_{1}$ then immediately inequality \ref{eq:subgradient} would be satisfied, because
                 $$
-                    F(u) \ge F(u_{0}) + p^{T} u \Longleftrightarrow ||u||_{1} \ge 0 + p^{T} u = ||u||_{1}.
+                    F(u) \ge F(u_{0}) + \langle y, u \rangle \Longleftrightarrow ||u||_{1} \ge 0 + \langle y, u \rangle = ||u||_{1}.
                 $$
-            On the other hand, if we choose $p_{i} = -1$ if $u_{i} < 0$ and $p_{i} = 1$ if $u_{i} > 0$ (this was also what we got by calculating the subgradient of the absolute value function) we only have the case left where $u_{i} = 0$. In this case, we can choose both $p_{i} = -1$ or $p_{i} = 1$ or equivalently looking at the non-differentiable point $u_{0} = 0$ and if $||p||_{\infty} \le 1$, we observe
+            On the other hand, if we choose $p_{i} = -1$ if $u_{i} < 0$ and $p_{i} = 1$ if $u_{i} > 0$ (this was also what we got by calculating the subgradient of the absolute value function) we only have the case left where $u_{i} = 0$. In this case, we can choose both $p_{i} = -1$ or $p_{i} = 1$ or equivalently looking at the non-differentiable point $u_{0} = 0$ and if $||y||_{\infty} \le 1$, we observe
                 $$
-                    F(u) \ge F(0) + p^{T} (u - 0) \Longleftrightarrow ||u||_{1} \ge p^{T}u.
+                    F(u) \ge F(0) + \langle y,  (u - 0) \rangle \Longleftrightarrow ||u||_{1} \ge \langle y, u \rangle.
                 $$
             This means we have
                 $$
-                    p =
+                    y =
                         \begin{dcases*}
                             1 & \textnormal{if $u > 0$,} \\
                             -1 & \textnormal{if $u < 0$,} \\
@@ -454,7 +453,7 @@
                 $$
             and
                 \begin{equation}
-                    \partial F(u) = \big\{ p : ||p||_{\infty} \le 1, \, p^{T}u = ||x||_{1} \big\}.
+                    \partial F(u) = \big\{ y : ||y||_{\infty} \le 1, \, \langle y, u \rangle = ||x||_{1} \big\}.
                     \label{eq:subdifferential_of_l1_norm}
                 \end{equation}
         \end{enumerate}
@@ -499,15 +498,15 @@
     \end{proposition}
     % proposition zero_element_of_subgradient (end)
 
-    The three propositions from above are fundamental for our work. If we find a (local) minimizer of a convex optimization problem, we already know that this minimizer is the global optimum. Further, we see in Propositions \ref{prop:convex_subgradient} how the variables $u$ and $p$ can be interchanged by dealing with the subdifferential. The last statement assures, that if we find a global minimum of our convex optimization problem, then we have that $0$ always is an element of the subdifferential.\\ 
-    The last theorem, we will provide, can be found in \cite{Rockafellar} and is used extensively in the following chapters. One can find different editions of the theorem, see for instance (yaoling paper). We provide it without a proof, for which we also refer to \cite{Rockafellar}. But, first we need:
+    The three propositions from above are fundamental for our work. If we find a (local) minimizer of a convex optimization problem, we already know that this minimizer is the global optimum. Further, we see in Propositions \ref{prop:convex_subgradient} how the variables $u$ and $p$ can be interchanged by using the subdifferential. The last statement assures, that if we find a global minimum of our convex optimization problem, then we have that $0$ always is an element of the subdifferential.\\ 
+    The last theorem, we will provide, can be found in \cite{Rockafellar} and is used extensively in the following chapters. One can find different editions of the theorem, see for instance \cite{Yao-Liang-Yu}. We provide it without a proof, for which we also refer to \cite{Rockafellar}. But, first we need:
 
     \begin{definition}[Projection Operator, Proximity Operator, Moreau Envelop] % (fold)
     \label{def:projection_operator}
 
         For any non-empty closed set $C$ the projection operator for an arbitrary point $z \notin C$ on the set $C$ is defined by
             \begin{equation}
-                P_{l_{C}}(z) = \arg \min_{u \in C} \frac{1}{2} ||z - u||_{2}^{2},
+                \Pi_{C}(z) = \arg \min_{u \in C} \frac{1}{2} ||z - u||_{2}^{2},
                 \label{eq:projection_operator}
             \end{equation}
         meaning the orthogonal projection onto the convex set $C$. We define the Proximity Operator in a similar fashion due to
@@ -536,7 +535,7 @@
                     \textnormal{subject to} & ||u||_{p} \le 1.
                 \end{array}
             \end{equation}
-        We are looking at the $l_{2}$-Projection (euclidean projection) and the $l_{\infty}$-Projection, where both convex optimization problems have unique solutions, for more information see for instance \cite{Jitkomut Songsiri}.
+        We are looking at the $l_{2}$-Projection (euclidean projection) and the $l_{\infty}$-Projection, where both convex optimization problems have unique solutions, for more information see for instance %\cite{Jitkomut Songsiri}.
         \begin{enumerate}
             \item The solution for the euclidean projection is given by
                 \begin{equation}
@@ -548,7 +547,7 @@
                         \end{array}
                     \right.
                 \end{equation}
-            Or equivalently one gets $P_{l_{2}}(u) = \frac{u}{\max(1, |u|)}$.
+            Or equivalently one gets $\Pi_{l_{2} \le 1}(u) = \frac{u}{\max(1, |u|)}$.
             \item For the $l_{\infty}$-Projection we observe
                 \begin{equation}
                     u_{k}^{\ast} =
@@ -559,7 +558,7 @@
                         \end{array}
                     \right.
                 \end{equation}
-            for $k = 1, ..., n$ or $P_{l_{\infty}}(u) = \min(1, \max(-1, u))$.
+            for $k = 1, ..., n$ or $\Pi_{l_{\infty} \le 1}(u) = \min(1, \max(-1, u))$.
         \end{enumerate}
 
     \end{example}
@@ -587,19 +586,19 @@
     \end{theorem}
     % theorem moreau_identity (end)
 
-    This theorem was first proven in 1965 by Jean J. Moreau in (Moreau paper) and is based on the theorem of the closed complement. First Moreau generalized this theorem in 1962 and three years later stated the celebrated Theorem \ref{def:moreau_identity}.
+    This theorem was first proven in 1965 by Jean J. Moreau in (Moreau paper) and is based on the theorem of the closed complement. First Moreau generalized the closed complement theorem in 1962 and three years later stated the celebrated Theorem \ref{def:moreau_identity}.
 
     \begin{remark}
         \begin{itemize}
             \item Note that Equation \ref{eq:equivalence_of_moreau_property} is equivalent to $u \in \partial F^{\ast}(p)$ or\\
             $F(u) + F^{\ast}(p) = \langle u, p \rangle$, by Proposition \ref{prop:convex_subgradient}.
-            \item The projection $P_{F}(z)$ is uniquely determined for any $z \in X$ since the squared euclidean norm $||\cdot||_{2}^{2}$ as a sum of quadratic terms is strictly convex.
+            % \item The projection $P_{F}(z)$ is uniquely determined for any $z \in X$ since the squared euclidean norm $||\cdot||_{2}^{2}$ as a sum of quadratic terms is strictly convex.
             \item Another way to denote the proximity operator is given by
                 \begin{equation}
                     \textnormal{prox}^{\alpha}_{F} = (\textnormal{Id} + \alpha \partial F)^{-1}.
                     \label{eq:proximity_operator_reloaded}
                 \end{equation}
-            This notation can be derived if one sees that by Proposition \ref{prop:zero_element_of_subgradient} zero is an element of the subdifferential of Equation \ref{eq:proximity_operator}, namely
+            This notation can be derived by Proposition \ref{prop:zero_element_of_subgradient}. Here, zero is an element of the subdifferential of Equation \ref{eq:proximity_operator}, namely
                 $$
                     0 \in \partial \big( \alpha F(u) + \frac{1}{2} ||u - z||_{2}^{2} \big) = \alpha \, \partial F(u) + u - z.
                 $$
@@ -617,11 +616,11 @@
     \end{remark}
 
     \begin{example}
-        To this end we want to briefly discuss one example for the proximity operator. If we set $F(u) = \delta_{X}(u)$ then we observe
+        To this end we want to briefly discuss one example for the proximity operator. If we set $F(u) = \delta_{C}(u)$ then we observe
             $$
-                \textnormal{prox}^{\alpha}_{F}(\tilde{u}) = \min\limits_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \alpha \, \delta_{X}(u) = \min\limits_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} = P_{l_{2}}(\tilde{u}).
+                \textnormal{prox}^{\alpha}_{F}(\tilde{u}) = \min\limits_{u \in C} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \alpha \, \delta_{C}(u) = \min\limits_{u \in C} \frac{||u - \tilde{u}||_{2}^{2}}{2} = \Pi_{C}(\tilde{u}).
             $$
-        Here, one can see the connection between the two operators. Proximation of the indicator function is the same as doing a euclidean projection of the corresponding set.
+        Here, one can see the connection between the two operators. Proximation of the indicator function is the same as doing a euclidean projection onto the corresponding set $C$.
     \label{ex:proximity_operator}
     \end{example}
 

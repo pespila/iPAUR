@@ -1,7 +1,7 @@
 \section{Discrete Setting} % (fold)
 \label{sec:discrete_setting}
 
-    To turn to our setting, we consider a regular pixel grid of size $N \times M$ and set
+    In our discrete setting we consider a regular pixel grid of size $N \times M$ and set
         \begin{equation}
             \mathcal{G} = \bigg\{ (i, j) : i = 1, ..., N \,\, \textnormal{and} \,\, j = 1, ..., M \bigg\}.
             \label{eq:pixel_grid}
@@ -28,7 +28,7 @@
     \begin{definition}[Discrete gradient operator] % (fold)
     \label{def:discrete_gradient_operator}
 
-        We define the discrete gradient of a vector $u \in X$ by $\nabla_{d}\,u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
+        We define the discrete gradient of a vector $u \in X$ by $\nabla\,u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
             \begin{eqnarray}
                 (\partial_{i}u)_{i, j} =
                     \begin{dcases*}
@@ -47,16 +47,16 @@
     \end{definition}
     % definition discrete_gradient_operator (end)
 
-    We choose $\textnormal{div}_{d}: Y \longrightarrow X$ to be the discrete divergence operator, which relates to $\nabla_{d}$ with $- \nabla_{d}^{\ast} = \textnormal{div}_{d}$. That is, for every $p \in Y$ and $u \in X$,
+    We choose $\textnormal{div}: Y \longrightarrow X$ to be the discrete divergence operator, which relates to $\nabla$ with $- \nabla^{\ast} = \textnormal{div}$. That is, for every $p \in Y$ and $u \in X$,
         $$
-            \langle \nabla_{d}\, u, p \rangle_{Y} = \langle u, \nabla_{d}^{\ast}\, p \rangle_{X} = - \langle u, \textnormal{div}_{d}\,p \rangle_{X}
+            \langle \nabla\, u, p \rangle_{Y} = \langle u, \nabla^{\ast}\, p \rangle_{X} = - \langle u, \textnormal{div}\,p \rangle_{X}
         $$
     as in Equation \ref{eq:nabla_equals_minus_divergence}.
 
     \begin{definition}[Discrete divergence operator] % (fold)
     \label{def:discrete_divergence_operator}
 
-        We define the discrete divergence of a vector $p \in Y$ by $\nabla_{d}^{T} p = \partial_{i}p^{1}_{i, j} + \partial_{j}p^{2}_{i, j}$ using backward differences with Dirichlet boundary conditions, i.e
+        We define the discrete divergence of a vector $p \in Y$ by $\nabla^{T} p = \partial_{i}p^{1}_{i, j} + \partial_{j}p^{2}_{i, j}$ using backward differences with Dirichlet boundary conditions, i.e
             \begin{eqnarray}
                 (\partial_{i}p^{1})_{i, j} =
                     \begin{dcases*}
@@ -77,12 +77,12 @@
     \end{definition}
     % definition discrete_gradient_operator (end)
 
-    \begin{proposition}[Bound on the norm of $\nabla_{d}$] % (fold)
+    \begin{proposition}[Bound on the norm of $\nabla$] % (fold)
         \label{prop:bound_on_the_norm}
 
         The bound on the norm of the proposed discrete linear operators is given by
             \begin{equation}
-                L^{2} = ||\nabla_{d}|| = ||\textnormal{div}|| \le 8.
+                L^{2} = ||\nabla|| = ||\textnormal{div}|| \le 8.
             \end{equation}
 
     \end{proposition}
@@ -92,8 +92,8 @@
 
         With the definitions of \ref{def:discrete_gradient_operator}, \ref{def:discrete_divergence_operator} and \ref{eq:operator_norm} we get
             \begin{eqnarray}
-                L &=& ||\nabla_{d}|| = \max_{||x||_{X} \le 1} ||\nabla_{d}\,x||_{Y} \notag \\
-                &=& ||\textnormal{div}_{d}|| = \max_{||p||_{Y} \le 1} ||\textnormal{div}_{d}\,p||_{X} \notag \\
+                L &=& ||\nabla|| = \max_{||x||_{X} \le 1} ||\nabla\,x||_{Y} \notag \\
+                &=& ||\textnormal{div}|| = \max_{||p||_{Y} \le 1} ||\textnormal{div}\,p||_{X} \notag \\
                 &=& \max_{||p||_{Y} \le 1} \sum_{i = 1}^{N} \sum_{j = 1}^{M} \big( p^{1}_{i, j} - p^{1}_{i-1, j} + p^{2}_{i, j} - p^{2}_{i, j-1} \big)^{2} \notag \\
                 &\le& 4 \max_{||p||_{Y} \le 1} \sum_{i = 1}^{N} \sum_{j = 1}^{M} (p^{1}_{i, j})^{2} + (p^{1}_{i-1, j})^{2} + (p^{2}_{i, j})^{2} + (p^{2}_{i, j-1})^{2} \notag \\
                 &\le& 8 \max_{||p||_{Y} \le 1} ||p||^{2}_{Y} = 8.

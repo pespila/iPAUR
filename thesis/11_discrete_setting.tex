@@ -7,13 +7,13 @@
             \mathcal{G} = \bigg\{ (i , j , k ): i = 1, 2, ..., N, j = 1, ..., M, k = 1, 2, ..., S \bigg\}
         \end{equation}
 
-    where $i, j, k$ are the discrete locations of each voxel. Note, that in a three dimensional space a discrete location is called voxel and in the two dimensional one pixel.
-    For reformulation of \ref{eq:continous_saddle_point_problem} we also need to define the corresponding functions of $v, \varphi$. So, let $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ and $p \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in equation \ref{eq:continous_saddle_point_problem} where $u$ corresponds to $v$ and $p$ to $\varphi$. If we replace the inner-product for infinite dimensions in equation \ref{eq:continous_saddle_point_problem} by the inner-product for finite dimensions and note that in finite spaces we can interchange $\sup$ and $\max$ we are going to face the saddle-point problem
+    where $i, j, k$ are the discrete locations of each voxel. For a reformulation of \ref{eq:continous_saddle_point_problem} we also need to define the corresponding functions of $v, \varphi$. So, let $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ and $p \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in equation \ref{eq:continous_saddle_point_problem} where $u$ corresponds to $v$ and $p$ to $\varphi$. If we replace the inner-product for infinite dimensions in equation \ref{eq:continous_saddle_point_problem} by the inner-product for finite dimensions and note that in finite spaces we can interchange $\sup$ and $\max$ we are going to face the saddle-point problem
         \begin{equation}
-            \min_{u \in C} \max_{p \in K} \langle Ku, p \rangle.
+            \min_{u \in C} \max_{p \in K} \langle Au, p \rangle.
         \label{eq:mumford_shah_saddle_point_problem}
         \end{equation}
-    This notation looks now familiar to us, but we still do not know how the set $K$ will be defined in this discrete version. Also, we want to clarify why we need the set $C$. Let us first state how $C$ actually looks like:
+    This notation looks now familiar to us. Here, $A$ is our discrete, linear operator. We used the notation $A$ instead of $K$ as before, since we also have a discrete convex set $K$. Before we state how this set looks like, let us first give the definition of the set $C$.
+    %but we still do not know how the set $K$ will be defined in this discrete version. Also, we want to clarify why we need the set $C$. Let us first state how $C$ actually looks like:
 
         \begin{equation}
             C = \{ u \in X: u(i,j,k) \in [0,1], u(i, j, 1) = 1, u(i, j, S) = 0 \} \subseteq X.
@@ -25,13 +25,13 @@
             K = \{ p = (p^{x}, p^{t})^{T} \in Y &:& p^{t}(i,j,k) \ge \frac{||p^{x}||_{2}^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2}, \label{eq:local_constraint} \\
             &&\left| \sum_{k_{1} \le k \le k_{2}} p^{x} \right| \le \nu \}, \label{eq:non_local_constraint}
         \end{eqnarray}
-    whereas we define $p^{x} := (p^{1}, p^{2})^{T}$ and $p^{t} := p^{3}$.
+    whereas we define $p^{x} := (p^{1}, p^{2})^{T}$ and $p^{t} := p^{3}$ and the vector $p$ itself is an element of $\mathbb{R}^{N \times M \times S \times 3}$. For this, it also holds that $p^{x} \in \mathbb{R}^{N \times M \times S \times 2}$ and $p^{t} \in \mathbb{R}^{N \times M \times S}$. To be clear, the constraint in equation \ref{eq:local_constraint} goes pointwise for all $(i, j, k) \in \mathcal{G}$. The second constraint is more involved, since the constraint in \ref{eq:non_local_constraint} holds for all $i = 1, ..., N$, $j = 1, ..., M$ and all possible combinations $(k_{1}, k_{2})$ for all $k = 1, ..., S$. What looks like having a set $K$ with two constraints, turns out that the set $K$ is an intersection of a couple of convex sets. Namely, one has that for a fixed voxel $(i, j, k)$ one can compute $\frac{S (S - 1)}{2} + 1$ many convex sets. The amount of several convex sets will lead us to a long run-time for our algorithms, but also to interesting mathematical problems. Before we discuss this in detail, we first continuou by defining our discrete setting.
 
     \begin{remark}
         In addition to discretize the variable $t$ in \ref{eq:set_k_continuous} one gets $\frac{k}{M}$ in the discrete version for \ref{eq:localconst}. Note, that $t$ is a value in the continuous setting which determines at which point the characteristic function vanishes, i.e. is set to zero. The bound on the norm $L$ depends on the discrete gradient operator and is for a fixed notation for this operator constant. Because of this, the notation one finds in \cite{Pock-et-al-iccv09} is wrong.
     \end{remark}
 
-    Again, we need to determine how the linear operator $K$ looks like. It is the same as found in section \ref{sec:discrete_setting}, namely the discrete gradient operator, but extended for the label space we added to this problem.
+    We need to determine how the linear operator $A$ looks like. It is the same as found in section \ref{sec:discrete_setting}, namely the discrete gradient operator, but extended for the label space we added to this problem.
 
     \begin{definition}[Discrete gradient operator] % (fold)
     \label{def:discrete_gradient_operator_ms}

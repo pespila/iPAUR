@@ -1,14 +1,14 @@
 \section{Projection onto the convex sets and Dykstra's projection algorithm}
 
-    In this section we want to discuss the projections onto the convex sets $C$ and $K$. To project onto $K$, we additionally need Dykstra's project algorithm which we will also discuss. First, we start with the projection onto the set $C$.
+    In this section we want to discuss the projections onto the convex sets $C$ and $K$. To project onto $K$, we additionally need Dykstra's project algorithm which we also discuss. We start with the projection onto the set $C$.
 
     \subsection{Projection onto $C$}
 
-    Computing onto $C$ can be efficiently computed. By definition of the proximity operator we have
+    The projection onto $C$ can efficiently be computed. By definition of the proximity operator we have
         $$
             u = \arg\min_{u \in C} \frac{||u-\tilde{u}||_{2}^{2}}{2} + \tau \delta_{C}(u) = \arg\min_{u \in C} \frac{||u - \tilde{u}||_{2}^{2}}{2}.
         $$
-    Assume that $\tilde{u} \in C$. Then the best choice for $u$ is of course $u = \tilde{u}$, since the energy of the minimization problem is equal to zero in this case, for which it is minimal. On the other hand, if $\tilde{u} \notin C$ the euclidean distance or shortest distance to $C = [0, 1]$ is to clip $\tilde{u}$ onto the bound of $C$. This means if $\tilde{u} < 0$ then the shortest distance $u$ to $\tilde{u}$ is to set $u = 0$. Reversely, if $\tilde{u} > 1$ then the euclidean distance to $C$ is given by setting $u = 1$. This idea is also illustrated in figure (Bild einfuegen!!!). Overall, the projection onto $C$, which is also called clipping or $l_{\infty}$-Projection is given by:
+    Assume that $\tilde{u} \in C$. Then the best choice for $u$ is of course $u = \tilde{u}$ itself, since the energy of the minimization problem is equal to zero in this case, for which it is minimal. On the other hand, if $\tilde{u} \notin C$ the euclidean distance or shortest distance to $C = [0, 1]$ is to clip $\tilde{u}$ onto the bound of $C$. This means if $\tilde{u} < 0$ then the shortest distance from $\tilde{u}$ to $u$ is to set $u = 0$. Reversely, if $\tilde{u} > 1$ then the euclidean distance to $C$ is given by setting $u = 1$. This idea is also illustrated in figure (Bild einfuegen!!!). Overall, the projection onto $C$, which is also called clipping or $l_{\infty}$-Projection is given by:
 
     \begin{algorithm}[Clipping]
         The projection of a vector $u \in \mathbb{R}^{N \times M \times S}$ on the set
@@ -23,13 +23,13 @@
     \end{algorithm}
 
     \begin{remark}
-        By projecting onto $C$ we also need to take care about the limits in \ref{eq:limits}. For that we set $u(i, j, 1) = 1$ and $u(i, j, M) = 0$ in each projection. Or similarly, using for instance the programming language C++, we would have $u(i, j, 0) = 1$ and $u(i, j, M-1) = 0$.
+        By projecting onto $C$ we also need to take care about the limits in \ref{eq:limits}. For that we set $u(i, j, 1) = 1$ and $u(i, j, S) = 0$ in each projection. Or similarly, using for instance the programming language C++, we would have $u(i, j, 0) = 1$ and $u(i, j, M-1) = 0$.
     \end{remark}
 
     \subsection{The projection onto $K$} % (fold)
     \label{sub:the_projection_onto_K}
 
-        Projecting onto $K$ is slightly more difficult than the projection onto $C$ since $K$ takes into account local and non-local constraints. In other words, the set $K$ is an intersection of several (convex) sets. The projection onto the intersection of convex sets can be done by Dykstra's projection algorithm. The idea behind this algorithm is to project onto each set $n$ times alternatingly and store the error, which is made in each step. Before the projection in each step is done, the vector which should be projected is reduced by the error made in the previous step. To fully understand this scheme, we first give the definition which was first proposed by Boyle and Dykstra in \cite{dykstra-et-al-aors14}, where one can also find a proof of convergence. Afterwards, we will provide and discuss the algorithm and additionally show some pictures.
+        Projecting onto $K$ is slightly more difficult than the projection onto $C$ since $K$ takes into account local and non-local constraints. In other words, the set $K$ is an intersection of several (convex) sets. The projection onto the intersection of convex sets can be done by Dykstra's projection algorithm. The idea behind this algorithm is to project onto each set $n$ times alternatingly and store the error, which is made in each step. Before the projection in each step is done, the vector which should be projected is reduced by the error made in the previous step. To fully understand this scheme, we first give the definition which was first proposed by Boyle and Dykstra in \cite{dykstra-et-al-aors14}, where one can also find a proof of convergence. Afterwards, we will provide and discuss the algorithm and additionally show an example.
 
         Consider $P$ convex sets with $\mathbb{R}^{n} \ni X = X_{1} \cap X_{2} \cap ... \cap X_{P}$. Let $\Pi_{i}$ denote the projection onto the i-th set for $i = 1, ..., P$. And let $u_{c} \in \mathbb{R}^{n}$ be the current estimate with $u_{c} \notin X$, $u_{i}^{k} \in \mathbb{R}^{n}$ for $i = 0, ..., P$ and $v_{i}^{k} \in \mathbb{R}^{n}$ for $i = 1, ..., P$ and $k = 1, 2, ...$, where $k$ denotes the number of iterations. Then the algorithm of (Boyle and) Dykstra finds for a point $u_{c} \in \mathbb{R}^{n}$ the (only) $u^{\ast} \in X$ such that
 
@@ -48,9 +48,10 @@
             \end{eqnarray}
         \end{algorithm}
 
-        \begin{proposition}
+        As mentioned the proof for the theorem of convergence can be found in \cite{dykstra-et-al-aors14}. The theorem is as follows:
+        \begin{theorem}[Convergence]
             The sequence $u_{0}^{k}$ in algorithm \ref{alg:dykstra} converges to the (only) point $u \in X$.
-        \end{proposition}
+        \end{theorem}
 
         (BILD!!!)
 
@@ -62,7 +63,7 @@
     \subsection{Decomposition of $K$} % (fold)
     \label{sub:decomposition_of_K}
         
-        We will decompose the set $K$ into two sets $K_{p}$ and $K_{nl}$, where the first one resembles the local constraint, or more precisely, a parabola constraint and the second one corresponds to the non-local constraint. Overall, we have $K = K_{p} \cap K_{nl}$ and we have        
+        We will decompose the set $K$ into two sets $K_{p}$ and $K_{nl}$, where the first one resembles the local constraint, or more precisely, a parabola constraint and the second one corresponds to the non-local constraint. Overall, we have $K = K_{p} \cap K_{nl}$ and
     % subsection decomposition_of_K (end)
 
     \begin{equation}
@@ -71,13 +72,13 @@
         % \Longleftrightarrow &K_{p}& = \bigg\{ p^{t}(i, j, k) \ge \frac{||p^{x}(i, j, k)||^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2} \bigg\} \,\,\, \forall i, j, k \label{eq:parabola}
     \end{equation}
 
-    where $p^{t}(i, j, k) = p^{3}(i, j, k)$ and $p^{x}(i, j, k) = (p^{1}(i, j, k), p^{2}(i, j, k))^{T}$. For the non-local constraint we have
+    where $p^{t}(i, j, k) = p^{3}(i, j, k)$ and $p^{x}(i, j, k) = (p^{1}(i, j, k), p^{2}(i, j, k))^{T}$ as mentioned before. For the non-local constraint we have
 
     \begin{equation}
         K_{nl} = \bigg\{ \left| \sum_{k_{1} \le k \le k_{2}} p^{x}(i, j, k) \right| \le \nu \bigg\} \,\,\, \forall i, j, k_{1} \le k \le k_{2} \label{eq:nonlocal}
     \end{equation}
 
-    being the non-local constraint. We will now deduce the projection on these two sets. Let us start with the projection onto the parabola.
+    We will now deduce the projection on these two sets. Let us start with the projection onto the parabola.
     %Since $K_{p}$ is an intersection of $P \cdot N \cdot M$ set and $K_{nl}$ is an intersection of $P \cdot N \cdot (\frac{M(M-1)}{2} + M)$ sets we need an algorithm which can handle the projection of a point onto (convex) sets. First let us introduce the projections onto $K_{p}$ and $K_{nl}$.
 
     \subsection{Projection onto $K_{p}$}
@@ -88,39 +89,39 @@
         % \begin{describe}[]
             Let $\alpha > 0$, $p^{x} \in \mathbb{R}^{n}$, $p^{t} \in \mathbb{R}$ %(in our case we would have
             %$$
-             %   p^{t} := p^{3}(i, j, k) + \lambda \bigg( \frac{k}{M} - f(i, j)\bigg)^{2}
+             %   p^{t} = p^{3}(i, j, k) + \lambda \bigg( \frac{k}{M} - f(i, j)\bigg)^{2}
             %$$
             %for all $i = 1, ..., P$, $j = 1, ..., N$, $k = 1, ..., M$) and
-            $y = (p^{x}, p^{t})^{T} \in \mathbb{R}^{n} \times \mathbb{R}$.
+            $p = (p^{x}, p^{t})^{T} \in \mathbb{R}^{n} \times \mathbb{R}$.
             The projection of a $p_{0}$ with $p_{0}^{t} < \alpha ||p_{0}^{x}||_{2}^{2}$ can be written as
 
             \begin{eqnarray}
-                &\min\limits_{y \in \mathbb{R}^{n} \times \mathbb{R}}& \frac{1}{2} ||y - p_{0}||_{2}^{2} \notag \\
+                &\min\limits_{p \in \mathbb{R}^{n} \times \mathbb{R}}& \frac{1}{2} ||p - p_{0}||_{2}^{2} \notag \\
                 &\textnormal{subject to}& p^{t} \ge \alpha||p^{x}||_{2}^{2} \notag
             \end{eqnarray}
 
             An equivalent notation for this problem is
 
             \begin{eqnarray}
-                &\min\limits_{y \in \mathbb{R}^{n} \times \mathbb{R}}& f(y) := \frac{(y - p_{0})^{2}}{2} \notag \\
-                &\textnormal{subject to}& g(y) := p^{t} - \alpha ||p^{x}||_{2}^{2} \ge 0 \notag
+                &\min\limits_{p \in \mathbb{R}^{n} \times \mathbb{R}}& f(p) = \frac{(p - p_{0})^{2}}{2} \notag \\
+                &\textnormal{subject to}& g(p) = p^{t} - \alpha ||p^{x}||_{2}^{2} \ge 0 \notag
             \end{eqnarray}
         % \end{describe}
 
         To find the solution of this optimization problem we introduce some auxiliary variable (or Lagrange Multiplier) $\mu \in \mathbb{R}$ and define the Lagrangian as
 
         \begin{equation}
-            \mathcal{L}(x, y, \mu) = f(y) - \mu g(y) = \frac{(y - p_{0})^{2}}{2} - \mu \bigg( p^{t} - \alpha||p^{x}||_{2}^{2} \bigg).
+            \mathcal{L}(x, p, \mu) = f(p) - \mu g(p) = \frac{(p - p_{0})^{2}}{2} - \mu \bigg( p^{t} - \alpha||p^{x}||_{2}^{2} \bigg).
         \end{equation}
 
-        Seeking for the local minima where $\nabla \mathcal{L}(x, y, \mu) = 0$ we even get a global minimum since our function to optimize is convex, the inequality constraint is convex and the feasible set $\mathbb{R}^{n} \times \mathbb{R}$ is also convex. We set
+        Seeking for the local minima where $\nabla \mathcal{L}(x, p, \mu) = 0$ we even get a global minimum, since our function to optimize is convex, the inequality constraint is convex and the feasible set $\mathbb{R}^{n} \times \mathbb{R}$ is also convex. We set
 
         \begin{equation}
-            \nabla \mathcal{L}(y, \mu) =
+            \nabla \mathcal{L}(p, \mu) =
             \begin{pmatrix}
-                \partial_{p^{x}} \mathcal{L}(y, \mu) \\
-                \partial_{p^{t}} \mathcal{L}(y, \mu) \\
-                \partial_{\mu} \mathcal{L}(y, \mu)
+                \partial_{p^{x}} \mathcal{L}(p, \mu) \\
+                \partial_{p^{t}} \mathcal{L}(p, \mu) \\
+                \partial_{\mu} \mathcal{L}(p, \mu)
             \end{pmatrix} = 
             \begin{pmatrix}
                 p^{x} - p_{0}^{x} - \mu 2 \alpha p^{x} \\
@@ -142,9 +143,9 @@
             p^{t} = p_{0}^{t} + \mu. \label{eq:2ndequ}
         \end{equation}
 
-        At this point we can solve this system in two ways - if $p_{0}^{t} \ge \alpha ||p_{0}^{x}||_{2}^{2}$ is not true already
+        At this point we can solve this system in two ways - if $p_{0}^{t} \ge \alpha ||p_{0}^{x}||_{2}^{2}$ is not true already.
         \begin{enumerate}
-            \item By plugging these two equalities into the third equation, we get
+            \item By plugging the two equalities \ref{eq:1stequ} and \ref{eq:2ndequ} into the third line of equation \ref{eq:linearSystem}. We get
 
         \begin{eqnarray}
             p_{0}^{t} + \mu - \alpha \bigg|\bigg|\frac{p_{0}^{x}}{\mu 2 \alpha + 1}\bigg|\bigg|_{2}^{2} = 0 &\Longleftrightarrow& p_{0}^{t} + \mu - \frac{\alpha}{(\mu 2 \alpha + 1)^{2}} ||p_{0}^{x}||_{2}^{2} = 0 \notag \\
@@ -173,17 +174,17 @@
         \begin{equation}
             \mu^{k+1} = \mu^{k} - \frac{4 \alpha^{2} \mu^{3} + \mu^{2} (4 \alpha^{2} p_{0}^{t} + 4 \alpha) + \mu(4 \alpha p_{0}^{t} + 1) + p_{0}^{t} - \alpha ||p_{0}^{x}||_{2}^{2}}{12 \alpha^{2} \mu^{2} + 2 \mu (4 \alpha^{2} p_{0}^{t} + 4 \alpha) + (4 \alpha p_{0}^{t} + 1)}.
         \end{equation}
-        In \cite{Chambolle-et-al-10} they suggest setting $\mu^{0} = \max \{ 0, - \frac{2 p_{0}^{t}}{3} \}$. The algorithm converges within 10-20 iterations to a quite accurate solution.\\
-        The projected vector $y$ of our problem is then given by
+        In \cite{Chambolle-et-al-10} they suggest setting $\mu^{0} = \max \{ 0, - \frac{2 p_{0}^{t}}{3} \}$, where they state that Newton's method then converges within 7-10 iterations to a quite accurate solution.\\
+        The projected vector $p$ of our problem is then given by
         \begin{equation}
-            y = \bigg( \frac{p_{0}^{x}}{\mu 2 \alpha + 1}, p_{0}^{t} + \mu \bigg). \label{eq:newtonSolution}
+            p = \bigg( \frac{p_{0}^{x}}{\mu 2 \alpha + 1}, p_{0}^{t} + \mu \bigg). \label{eq:newtonSolution}
         \end{equation}
 
         \item For the second approach we note that \ref{eq:1stequ} and \ref{eq:2ndequ} hold and the third equation in \ref{eq:linearSystem} can only hold if
         \begin{equation}
             p^{t} = \alpha ||p^{x}||_{2}^{2} \Longleftrightarrow \alpha ||p^{x}||_{2}^{2} = p_{0}^{t} + \mu. \label{eq:tmp1}
         \end{equation}
-        With \ref{eq:1stequ} we can also compute the solution of $\mu$ by noticing that
+        With \ref{eq:1stequ} we can also compute the solution of $\mu$ by using that
 
         \begin{eqnarray}
             ||p^{x}||_{2} = \bigg|\bigg| \frac{p_{0}^{x}}{1 + 2 \alpha \mu} \bigg|\bigg|_{2} &\Longleftrightarrow& ||p^{x}||_{2} = \frac{1}{1 + 2 \alpha \mu} ||p_{0}^{x}||_{2} \notag \\
@@ -203,11 +204,11 @@
         \end{eqnarray}
 
         with $a = 2 \alpha ||p_{0}^{x}||_{2}$, $b = \frac{2}{3}(1 - 2 \alpha p_{0}^{t})$ and $t = 2 \alpha ||p^{x}||_{2}$.\\
-        The cubic equation \ref{eq:cubic} in $t$ can efficiently be solved using \cite{kelvey-ajp}.
+        The cubic equation \ref{eq:cubic} in $t$ can efficiently be solved using the analytical formulas for solving cubic equation published by J. P. McKelvey in 1984 in \cite{kelvey-ajp}.
 
         \end{enumerate}
 
-        The result of the work mentioned is summarized in the following algorithm. Notice that we already computed the factors $a$ and $b$. The others follow through the proof.
+        The result of the work mentioned is summarized in the following algorithm. Notice that we already computed the factors $a$ and $b$. The others follow with \cite{kelvey-ajp}.
 
         % After computing the optimal $\mu$ we get the solution to our optimization problem by plugging the Lagrange Multiplier into \ref{eq:1stequ} and \ref{eq:2ndequ} and computing $p^{x}, p^{t}$ respectively.
 
@@ -222,10 +223,10 @@
                 % Let $\alpha > 0$. For $p_{0}^{x} \in \mathbb{R}^{n}$ and $p_{0} \in \mathbb{R}$ the projection onto the parabola of the form
 
                 % \begin{equation}
-                %     \arg \min_{x \in \mathbb{R}^{n}, y \in \mathbb{R}, y \ge \alpha ||x||_{2}^{2}} \frac{(x - p_{0}^{x})^{2}}{2} + \frac{(y - p_{0})^{2}}{2}.
+                %     \arg \min_{x \in \mathbb{R}^{n}, p \in \mathbb{R}, p \ge \alpha ||x||_{2}^{2}} \frac{(x - p_{0}^{x})^{2}}{2} + \frac{(p - p_{0})^{2}}{2}.
                 % \end{equation}
 
-                If already $p_{0}^{t} \ge \alpha ||p_{0}^{x}||_{2}^{2}$, the solution is $(p^{x}, p^{t}) = (p_{0}^{x}, p_{0}^{t})$. Otherwise, with $a := 2 \alpha ||p_{0}^{x}||_{2}$, $b := \frac{2}{3} (1 - 2 \alpha p_{0}^{t})$, and
+                If already $p_{0}^{t} \ge \alpha ||p_{0}^{x}||_{2}^{2}$, the solution is $(p^{x}, p^{t}) = (p_{0}^{x}, p_{0}^{t})$. Otherwise, with $a = 2 \alpha ||p_{0}^{x}||_{2}$, $b = \frac{2}{3} (1 - 2 \alpha p_{0}^{t})$, and
 
                     \[
                         d =
@@ -245,7 +246,7 @@
                             \end{dcases*}
                     \]
 
-                If $c = 0$ in the first case, set $v := 0$. The solution is then given by
+                If $c = 0$ in the first case, set $v = 0$. The solution is then given by
 
                     \[
                         p^{x} =
@@ -262,16 +263,16 @@
             %     Later...
             % \end{proof}
 
-        The above method states that the projection onto the parabola can be done by one cycle of straightforward computations. The implementation of it is quite simple and computation time is fast.% But as mentioned there is another approach for this projection.\\
+        The above method states that the projection onto the parabola can be done by one cycle of straightforward computations. The implementation of it is quite simple and computation time is fast, which we discuss in detail in chapter \ref{cha:applications_to_imaging}.% But as mentioned there is another approach for this projection.\\
 
     \subsection{Projection onto $K_{nl}$}
 
         This set is a combination of non-local constraints, meaning that in a fixed point $(i, j, k)$ you sum up for all $k_{1} \le k \le k_{2}$. For that reason you can not project pointwise. First of all we want to present the algorithm:
 
-        % Let $p_{k} := (p^{1}(i, j, k), p^{2}(i, j, k))^{T}$. Then the projection $y = (p_{1}, ..., p_{M})^{T}$ of a $p_{0} = (p_{0}_{1}, ..., p_{0}_{M})^{T}$ is - for each combination $k_{1} \le k \le k_{2}$ - of the following problem:
+        % Let $p_{k} = (p^{1}(i, j, k), p^{2}(i, j, k))^{T}$. Then the projection $p = (p_{1}, ..., p_{M})^{T}$ of a $p_{0} = (p_{0}_{1}, ..., p_{0}_{M})^{T}$ is - for each combination $k_{1} \le k \le k_{2}$ - of the following problem:
         % \begin{algbox}
             \begin{algorithm}[Soft Shrinkage Scheme]\label{alg:softshrinkage}
-                Let $p^{i}_{k} := (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \in \mathbb{R}^{2}$, $p^{i} := (p^{i}_{1}, ..., p^{i}_{M})^{T} \in \mathbb{R}^{2 \times M}$ for all $i = 1, 2, ...$. Then the projection $p^{n+1}$ of a $p^{n}$ - for an arbitrary, fixed pair $(k_{1}, k_{2})$ with $1 \le k_{1} \le k \le k_{2} \le M$ - is computed by:
+                Let $p^{i}_{k} = (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \in \mathbb{R}^{2}$, $p^{i} = (p^{i}_{1}, ..., p^{i}_{M})^{T} \in \mathbb{R}^{2 \times M}$ for all $i = 1, 2, ...$. Then the projection $p^{n+1}$ of a $p^{n}$ - for an arbitrary, fixed pair $(k_{1}, k_{2})$ with $1 \le k_{1} \le k \le k_{2} \le M$ - is computed by:
 
                     \[
                         p^{n+1} =
@@ -296,15 +297,15 @@
                     \]
 
                 % \begin{equation}
-                %     \min\limits_{p_{k} \in \mathbb{R}^{2}} \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{y}_{k}||^{2} \,\,\, \textnormal{s.t.} \,\,\, \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \bigg{|} \bigg{|}_{2} \le \nu. \label{eq:minnonlocal}
+                %     \min\limits_{p_{k} \in \mathbb{R}^{2}} \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{p}_{k}||^{2} \,\,\, \textnormal{s.t.} \,\,\, \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \bigg{|} \bigg{|}_{2} \le \nu. \label{eq:minnonlocal}
                 % \end{equation}
-                % It follows that we have $p_{k} = \tilde{y}_{k}$ for all $k < k_{1}$ and $k > k_{2}$.\\
+                % It follows that we have $p_{k} = \tilde{p}_{k}$ for all $k < k_{1}$ and $k > k_{2}$.\\
                 % If $k_{1} \le k \le k_{2}$ one can show that we have:
                 % \begin{equation}
-                %     p_{k} = \tilde{y}_{k} + \frac{s - s_{0}}{k_{2} - k_{1} + 1},
+                %     p_{k} = \tilde{p}_{k} + \frac{s - s_{0}}{k_{2} - k_{1} + 1},
                 % \end{equation}
                 % where
-                % $$s_{0} = \sum_{k_{1} \le k \le k_{2}} \tilde{y}_{k}$$
+                % $$s_{0} = \sum_{k_{1} \le k \le k_{2}} \tilde{p}_{k}$$
                 % and
                 % $$s = \Pi_{||\cdot||_{l^{2}} \le \nu} (s_{0}).$$
             \end{algorithm}
@@ -344,54 +345,54 @@
         % \end{defbox}
 
     \begin{proof}[Proof of Algorithm \ref{alg:softshrinkage}]
-        Let $p_{k}, \tilde{y}_{k} \in \mathbb{R}^{2}$ and $y, \tilde{y} \in \mathbb{R}^{2 \times M}$ have the same form as in \ref{alg:softshrinkage}. Then for a fixed pair $(k_{1}, k_{2})$ we face the following optimization problem: %$K = k_{2} - k_{1} + 1$, $m = \frac{M(M-1)}{2}$, 
-        % $p_{k} \in \mathbb{R}^{2}$, $\tilde{y}_{k} \in \mathbb{R}^{2}$, $y = (p_{1}, ..., p_{M})^{T} \in \mathbb{R}^{2 \times M}$ and $\tilde{y} = (\tilde{y}_{1}, ..., \tilde{y}_{M})^{T} \in \mathbb{R}^{2 \times M}$. Then for a fixed pair $(k_{1}, k_{2})$ we have% have that \ref{eq:minnonlocal} is equivalent to
+        Let $p_{k}, \tilde{p}_{k} \in \mathbb{R}^{2}$ and $p, \tilde{p} \in \mathbb{R}^{2 \times M}$ have the same form as in \ref{alg:softshrinkage}. Then for a fixed pair $(k_{1}, k_{2})$ we face the following optimization problem: %$K = k_{2} - k_{1} + 1$, $m = \frac{M(M-1)}{2}$, 
+        % $p_{k} \in \mathbb{R}^{2}$, $\tilde{p}_{k} \in \mathbb{R}^{2}$, $p = (p_{1}, ..., p_{M})^{T} \in \mathbb{R}^{2 \times M}$ and $\tilde{p} = (\tilde{p}_{1}, ..., \tilde{p}_{M})^{T} \in \mathbb{R}^{2 \times M}$. Then for a fixed pair $(k_{1}, k_{2})$ we have% have that \ref{eq:minnonlocal} is equivalent to
 
         \begin{eqnarray}
-            &\min\limits_{y \in \mathbb{R}^{2 \times M}}& \frac{1}{2} ||y - \tilde{y}||^{2}_{2} \notag \\
+            &\min\limits_{p \in \mathbb{R}^{2 \times M}}& \frac{1}{2} ||p - \tilde{p}||^{2}_{2} \notag \\
             &\textnormal{subject to}& \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} p_{k} \bigg{|} \bigg{|}_{2} \le \nu. \notag
         \end{eqnarray}
 
         This equivalent to
 
         \begin{eqnarray}
-            &\min\limits_{y \in \mathbb{R}^{2 \times M}}& f(y) \notag \\
-            &\textnormal{subject to}& g(y) \le 0, \label{eq:inequalityConstraint}
+            &\min\limits_{p \in \mathbb{R}^{2 \times M}}& f(p) \notag \\
+            &\textnormal{subject to}& g(p) \le 0, \label{eq:inequalityConstraint}
         \end{eqnarray}
 
         if we set
-            $$f(y) = \sum_{k = 1}^{M} \frac{(p_{k} - \tilde{y}_{k})^{2}}{2}$$
+            $$f(p) = \sum_{k = 1}^{M} \frac{(p_{k} - \tilde{p}_{k})^{2}}{2}$$
         and
-            $$g(y) = \frac{1}{2} \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} p_{k} \bigg{|} \bigg{|}_{2}^{2} - \frac{1}{2} \nu^{2}.$$
+            $$g(p) = \frac{1}{2} \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} p_{k} \bigg{|} \bigg{|}_{2}^{2} - \frac{1}{2} \nu^{2}.$$
 
-        This problem states that we try to find the closest $y$ to $\tilde{y}$ whose components fullfil the inequality constraint in \ref{eq:inequalityConstraint}.\\
+        This problem states that we try to find the closest $p$ to $\tilde{p}$ whose components fullfil the inequality constraint in \ref{eq:inequalityConstraint}.\\
 
         % \begin{equation}
-        %     \min\limits_{p_{k} \in \mathbb{R}^{2}} \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{y}_{k}||^{2} \,\,\, \textnormal{s.t.} \,\,\, \frac{1}{2} \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \bigg{|} \bigg{|}_{2}^{2} - \frac{1}{2} \nu^{2} \le 0 \notag
+        %     \min\limits_{p_{k} \in \mathbb{R}^{2}} \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{p}_{k}||^{2} \,\,\, \textnormal{s.t.} \,\,\, \frac{1}{2} \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \bigg{|} \bigg{|}_{2}^{2} - \frac{1}{2} \nu^{2} \le 0 \notag
         % \end{equation}
 
         Let us now introduce a new variable $\lambda \in \mathbb{R}$ which is called Lagrange Multiplier and observe the Lagrange function (or Lagrangian) with
 
         % \begin{equation}
-        %     \min_{y \in \mathbb{R}^{2 \times M}} f(y) \,\,\, \textnormal{s.t.} \,\,\, g_{i}(y) \le \nu \,\,\, \forall i = 1, ..., m \notag
+        %     \min_{p \in \mathbb{R}^{2 \times M}} f(p) \,\,\, \textnormal{s.t.} \,\,\, g_{i}(p) \le \nu \,\,\, \forall i = 1, ..., m \notag
         % \end{equation}
 
         % has the following form
 
         \begin{equation}
-            \mathcal{L}(y, \lambda) = f(y) + \lambda g(y)% = \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{y}_{k}||^{2} + \sum_{l = 1}^{K} \lambda_{l} g_{l}(y),
+            \mathcal{L}(p, \lambda) = f(p) + \lambda g(p)% = \frac{1}{2} \sum_{k = 1}^{M} ||p_{k} - \tilde{p}_{k}||^{2} + \sum_{l = 1}^{K} \lambda_{l} g_{l}(p),
         \end{equation}
 
         Looking at \underline{Stationarity} condition to find a valid $\lambda^{\ast}$ and $p^{\ast}$ leads us to:
 
         \begin{equation}
-            \nabla_{y} \mathcal{L}(p^{\ast}, \lambda^{\ast}) = \nabla_{y} f(p^{\ast}) + \lambda \nabla_{y} g(p^{\ast}) =
+            \nabla_{p} \mathcal{L}(p^{\ast}, \lambda^{\ast}) = \nabla_{p} f(p^{\ast}) + \lambda \nabla_{p} g(p^{\ast}) =
             \underbrace{\begin{pmatrix}
-                p^{\ast}_{1} - \tilde{y}_{1} \\
+                p^{\ast}_{1} - \tilde{p}_{1} \\
                  \\
                 \vdots \\
                  \\
-                p^{\ast}_{M} - \tilde{y}_{M}
+                p^{\ast}_{M} - \tilde{p}_{M}
             \end{pmatrix}}_{\in \mathbb{R}^{M}}
             + \lambda^{\ast}
             \underbrace{\begin{pmatrix}
@@ -410,12 +411,12 @@
 
         where the zeroes in the last vector are obtain for all components where $k < k_{1}$ and $k > k_{2}$. In these lines we already see that we get
 
-            $$p^{\ast}_{k} = \tilde{y}_{k} \,\,\, \textnormal{if} \,\, k < k_{1} \,\, \textnormal{and} \,\, k > k_{2}.$$
+            $$p^{\ast}_{k} = \tilde{p}_{k} \,\,\, \textnormal{if} \,\, k < k_{1} \,\, \textnormal{and} \,\, k > k_{2}.$$
 
-        Let us now take a closer look at the i-th line where $\nabla_{p_{k}} g(y) \ne 0$. Then we have
+        Let us now take a closer look at the i-th line where $\nabla_{p_{k}} g(p) \ne 0$. Then we have
 
             \begin{equation}
-                p^{\ast}_{i} - \tilde{y}_{i} + \lambda^{\ast} \sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k} = 0. \label{eq:ithRow}
+                p^{\ast}_{i} - \tilde{p}_{i} + \lambda^{\ast} \sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k} = 0. \label{eq:ithRow}
             \end{equation}
 
         We set % state that the optimal $\lambda^{\ast}$ is of the form
@@ -427,7 +428,7 @@
 
         % with
 
-            $$\tilde{s} := \sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}_{k}$$
+            $$\tilde{s} = \sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}_{k}$$
 
         and define a $s \in \mathbb{R}^{2}$ as
 
@@ -444,8 +445,8 @@
         For finding the optimal values $p^{\ast}_{k}$ we want to distinguish between two cases:
 
         \begin{enumerate}
-            \item $||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}_{k}||_{2} \le \nu$:\\
-            Setting $p^{\ast}_{k} = \tilde{y}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} = \tilde{y}_{k}$ for all $k_{1} \le k \le k_{2}$ and $s = \tilde{s}$ leads to
+            \item $||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}_{k}||_{2} \le \nu$:\\
+            Setting $p^{\ast}_{k} = \tilde{p}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} = \tilde{p}_{k}$ for all $k_{1} \le k \le k_{2}$ and $s = \tilde{s}$ leads to
                 \begin{equation}
                     \frac{1}{2} ||\sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2}^{2} - \frac{1}{2} \nu^{2} \le 0, \label{eq:caseOne}
                 \end{equation}
@@ -456,29 +457,29 @@
 
             % since $||\tilde{s}||_{2} \le \nu$.
             % which is equivalent to
-                % ||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}^{k}||_{2} = 
+                % ||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}^{k}||_{2} = 
                 % $$\frac{\nu}{||\tilde{s}||_{2}} - 1 = 0 \Longleftrightarrow ||\tilde{s}||_{2} = \nu.$$
             % On the other hand if the inequality holds we have
-            %     % ||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}^{k}||_{2} = 
+            %     % ||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}^{k}||_{2} = 
             %     $$||\sum\limits_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2} < \nu \Longrightarrow \lambda^{\ast} = \underbrace{\frac{\nu}{||\sum\limits_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2}}}_{> 1} - 1 > 0.$$
             % Then $\lambda^{\ast}$ additionally satisfies the \underline{Complementary Slackness} condition.
-            \item $||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}_{k}||_{2} > \nu$:\\
+            \item $||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}_{k}||_{2} > \nu$:\\
             % If the equality holds we know that $s(\tilde{s})$
-            Here, we would violate the \underline{Primal Feasibility} condition if we set $p^{\ast}_{k} = \tilde{y}_{k}$ for all $k_{1} \le k \le k_{2}$. For this reason we choose
-                $$p^{\ast}_{k} = \tilde{y}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
-                % $$p^{\ast}_{k} = \frac{\nu}{||\tilde{s}||_{2}} \tilde{y}_{k} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
+            Here, we would violate the \underline{Primal Feasibility} condition if we set $p^{\ast}_{k} = \tilde{p}_{k}$ for all $k_{1} \le k \le k_{2}$. For this reason we choose
+                $$p^{\ast}_{k} = \tilde{p}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
+                % $$p^{\ast}_{k} = \frac{\nu}{||\tilde{s}||_{2}} \tilde{p}_{k} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
             We observe for the \underline{Primal Feasibility} condition that
                 \begin{eqnarray}
                     \frac{1}{2} ||\sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2}^{2} - \frac{1}{2} \nu^{2} &=& \label{eq:caseTwo} \\
-                    &=& \frac{1}{2(k_{2} - k_{1} + 1)} ||\sum_{k_{1} \le k \le k_{2}} \tilde{y}_{k} + (s - \tilde{s})||_{2}^{2} - \frac{1}{2} \nu^{2}\notag \\
+                    &=& \frac{1}{2(k_{2} - k_{1} + 1)} ||\sum_{k_{1} \le k \le k_{2}} \tilde{p}_{k} + (s - \tilde{s})||_{2}^{2} - \frac{1}{2} \nu^{2}\notag \\
                     &=& \frac{1}{2} ||\sum_{k_{1} \le k \le k_{2}} \tilde{s} + s - \tilde{s}||_{2}^{2} - \frac{1}{2} \nu^{2} = \frac{1}{2} \underbrace{||s||_{2}^{2}}_{= \nu^{2}} - \frac{1}{2} \nu^{2} = 0. \notag
                 \end{eqnarray}
-            Using this equality we already see that \underline{Complementary Slackness} is fullfild with a \underline{dual feasible} $\lambda^{\ast} \ge 0$. Since we set $p^{\ast}_{k} = \tilde{y}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1}$ we can plug $p^{\ast}$ into \ref{eq:ithRow} to derive $\lambda^{\ast}$. It follows %We still need to proof that \ref{eq:lambda} is valid with this choice of $p^{\ast}_{k}$.
+            Using this equality we already see that \underline{Complementary Slackness} is fullfild with a \underline{dual feasible} $\lambda^{\ast} \ge 0$. Since we set $p^{\ast}_{k} = \tilde{p}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1}$ we can plug $p^{\ast}$ into \ref{eq:ithRow} to derive $\lambda^{\ast}$. It follows %We still need to proof that \ref{eq:lambda} is valid with this choice of $p^{\ast}_{k}$.
 
                 \begin{eqnarray}
-                    &&p^{\ast}_{i} - \tilde{y}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k} = \notag \\
-                    &=& \tilde{y}_{i} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} - \tilde{y}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \sum_{k_{1} \le k \le k_{2}} \tilde{y}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \notag \\
-                    &=& \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \bigg( \underbrace{\sum_{k_{1} \le k \le k_{2}} \tilde{y}_{k}}_{= \tilde{s}} + \underbrace{\sum_{k_{1} \le k \le k_{2}} \frac{s - \tilde{s}}{k_{2} - k_{1} + 1}}_{= \frac{(k_{2} - k_{1} + 1) (s - \tilde{s})}{k_{2} - k_{1} + 1} = s - \tilde{s}} \bigg) \notag \\
+                    &&p^{\ast}_{i} - \tilde{p}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \sum_{k_{1} \le k \le k_{2}} p^{\ast}_{k} = \notag \\
+                    &=& \tilde{p}_{i} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} - \tilde{p}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \sum_{k_{1} \le k \le k_{2}} \tilde{p}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \notag \\
+                    &=& \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \bigg( \underbrace{\sum_{k_{1} \le k \le k_{2}} \tilde{p}_{k}}_{= \tilde{s}} + \underbrace{\sum_{k_{1} \le k \le k_{2}} \frac{s - \tilde{s}}{k_{2} - k_{1} + 1}}_{= \frac{(k_{2} - k_{1} + 1) (s - \tilde{s})}{k_{2} - k_{1} + 1} = s - \tilde{s}} \bigg) \notag \\
                     &=& \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} (\tilde{s} + s - \tilde{s}) \notag \\
                     &=& \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1}s \notag \\
                     &=& \frac{1}{k_{2} - k_{1} + 1} (s - \tilde{s} + \lambda^{\ast}s) = 0 \label{eq:equalsZero}
@@ -496,12 +497,12 @@
 
             This satisfies the \underline{Dual Feasibility} condition.
 
-                % $$||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}_{k}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \frac{||\tilde{s}||_{2}}{\nu} p^{\ast}||_{2} = ||\tilde{s}||_{2} =  \nu \Longrightarrow \lambda^{\ast} = 1 - 1 = 0.$$
+                % $$||\tilde{s}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}_{k}||_{2} = ||\sum\limits_{k_{1} \le k \le k_{2}} \frac{||\tilde{s}||_{2}}{\nu} p^{\ast}||_{2} = ||\tilde{s}||_{2} =  \nu \Longrightarrow \lambda^{\ast} = 1 - 1 = 0.$$
 
-                % $$\nu = ||\sum\limits_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2} = ||\frac{\nu}{||\tilde{s}||_{2}} \sum\limits_{k_{1} \le k \le k_{2}} \tilde{y}^{k}||_{2} = ||\tilde{s}||_{2} =  \nu \Longrightarrow \lambda^{\ast} = 1 - 1 = 0.$$
+                % $$\nu = ||\sum\limits_{k_{1} \le k \le k_{2}} p^{\ast}_{k}||_{2} = ||\frac{\nu}{||\tilde{s}||_{2}} \sum\limits_{k_{1} \le k \le k_{2}} \tilde{p}^{k}||_{2} = ||\tilde{s}||_{2} =  \nu \Longrightarrow \lambda^{\ast} = 1 - 1 = 0.$$
 
                 % \begin{equation}
-                %     p^{\ast}_{i} - \tilde{y}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \tilde{s} = \frac{\nu}{||\tilde{s}||_{2}} \tilde{y}_{i} - \tilde{y}_{i} + \frac{1}{k_{2} - k_{1} + 1} \bigg( \frac{\nu}{||\tilde{s}||_{2}} - 1 \bigg) \tilde{s}
+                %     p^{\ast}_{i} - \tilde{p}_{i} + \frac{\lambda^{\ast}}{k_{2} - k_{1} + 1} \tilde{s} = \frac{\nu}{||\tilde{s}||_{2}} \tilde{p}_{i} - \tilde{p}_{i} + \frac{1}{k_{2} - k_{1} + 1} \bigg( \frac{\nu}{||\tilde{s}||_{2}} - 1 \bigg) \tilde{s}
                 % \end{equation}
             % First, we define a two-dimensional vector $s$ with
             %     \begin{equation}
@@ -512,9 +513,9 @@
 
         With the choices of $\tilde{s}, s$ and
 
-            $$p^{\ast}_{k} = \tilde{y}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
+            $$p^{\ast}_{k} = \tilde{p}_{k} + \frac{s - \tilde{s}}{k_{2} - k_{1} + 1} \,\,\,\,\,\, \forall k_{1} \le k \le k_{2}$$
 
-        we solved \ref{eq:ithRow} (\underline{Stationarity}). Applying this procedure to each combination of the $(k_{1}, k_{2})$ and replacing $p^{\ast}$ by $p^{n+1}$, $\tilde{y}$ by $p^{n}$ respectively, we observe our algorithm.
+        we solved \ref{eq:ithRow} (\underline{Stationarity}). Applying this procedure to each combination of the $(k_{1}, k_{2})$ and replacing $p^{\ast}$ by $p^{n+1}$, $\tilde{p}$ by $p^{n}$ respectively, we observe our algorithm.
         \qed
     \end{proof}
 
@@ -533,6 +534,6 @@
         %     \lambda^{*} g(p^{*}) = 0.% \bigg( \frac{1}{2} \bigg{|} \bigg{|} \sum_{k_{1} \le k \le k_{2}} (p^{1}(i, j, k), p^{2}(i, j, k))^{T} \bigg{|} \bigg{|}_{2}^{2} - \frac{1}{2} \nu^{2} \bigg) = 0.
         % \end{equation}
 
-% Back to the convex set $K$ we find that this set is the intersection of several sets. In \ref{eq:localconst} you find local constraints, more precisely parabola constraints. This constraint is pixel wise. If the third component of a vector $y$ namely $p^{3}$ satisfies this inequality the vector $y$ already lies in the constraint set \ref{eq:localconst}. If not some computations need to be done. We'll come back to that later. \\
-% On the other hand the set in \ref{eq:nonlocalconst} is more complicated and also needs special treatment. This set takes not only values from one fixed voxel into account but sums up several voxel from a range $k_{1}$ to $k_{2}$. In the end we need to have that $y \in K$ and $y$ must satisfy both constraints. \\
+% Back to the convex set $K$ we find that this set is the intersection of several sets. In \ref{eq:localconst} you find local constraints, more precisely parabola constraints. This constraint is pixel wise. If the third component of a vector $p$ namely $p^{3}$ satisfies this inequality the vector $p$ already lies in the constraint set \ref{eq:localconst}. If not some computations need to be done. We'll come back to that later. \\
+% On the other hand the set in \ref{eq:nonlocalconst} is more complicated and also needs special treatment. This set takes not only values from one fixed voxel into account but sums up several voxel from a range $k_{1}$ to $k_{2}$. In the end we need to have that $p \in K$ and $p$ must satisfy both constraints. \\
 

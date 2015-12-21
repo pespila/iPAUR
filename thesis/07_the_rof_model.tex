@@ -1,17 +1,17 @@
-Since, there exists a couple of models to approximate an input image $g$ by a function $u$, we want to make some conventions about this. Our models are based on the idea that a given image $g$ consists of two things: data and noise. This can be expressed by
-    $$
-        g = g_{d} + g_{n},
-    $$
-where $g_{d}$ denotes the (actual) data of the image and $g_{n}$ the noise which should be removed.
-
-An example model to efficiently remove Gaussian noise from an image input image $g$ would be the so called ROF model. Before introducing this model in detail, let us state one general property of all our underlying models. What they all have in common is the idea how they are set up:
-    $$
-        \textnormal{Model} = \textnormal{Data Fidelity Term} + \textnormal{Regularizer Term}.
-    $$
-So all of our models look exactly like this. The data fidelity term assures that the approximation $u$ is as close to the input image $g$ as possible. For instance, one can set $G(u) = \frac{1}{2} ||u - g||_{2}^{2}$ having the quadratic, euclidean distance as the data fidelity term. As a quadratic norm function this term would be convex. For the regularizer we will see that we find convex terms which are easy to handle, but we also find highly non-convex regularizers like in the Mumford-Shah Functional, discussed in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}.
-
 \section{The ROF Model} % (fold)
 \label{sec:the_rof_model}
+
+    Since, there exists a couple of models to approximate an input image $g$ by a function $u$, we want to make some conventions about this. Our models are based on the idea that a given image $g$ consists of two things: data and noise. This can be expressed by
+        $$
+            g = g_{d} + g_{n},
+        $$
+    where $g_{d}$ denotes the (actual) data of the image and $g_{n}$ the noise which should be removed.
+
+    An example model to efficiently remove Gaussian noise from an image input image $g$ would be the so called ROF model. Before introducing this model in detail, let us state one general property of all our underlying models. What they all have in common is the idea how they are set up:
+        $$
+            \textnormal{Model} = \textnormal{Data Fidelity Term} + \textnormal{Regularizer Term}.
+        $$
+    The data fidelity term assures that the approximation $u$ is as close to the input image $g$ as possible. For instance, one can set $G(u) = \frac{1}{2} ||u - g||_{2}^{2}$ having the quadratic, euclidean distance as the data fidelity term. As a quadratic norm function this term would be convex. For the regularizer we will see that we find convex terms which are easy to handle, but we also find highly non-convex regularizers like in the Mumford-Shah Functional, discussed in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}.
     
     The first model we consider in this thesis is the ROF Model, named after Leonid I. Rudin, Stanley Osher and Emad Fatemi. They first proposed this model in 1992 in \cite{ROF}. It is the prototype when talking about variational methods in image processing. For this we first define two important norms, which will appear. We define the discrete isotropic total variation norm by
         \begin{equation}
@@ -27,7 +27,7 @@ So all of our models look exactly like this. The data fidelity term assures that
     \begin{definition}[ROF Model] % (fold)
     \label{def:the_rof_model}
 
-        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ the approximation and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the ROF model is defined as the variational problem
+        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the ROF model is defined as the variational problem
             \begin{equation}
                 \min_{u} E_{ROF}(u) = \min_{u} \textnormal{TV}(u) + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx = \min_{u \in X} \int_{\Omega} |\nabla \, u| \, dx + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx.
                 \label{eq:the_rof_model}
