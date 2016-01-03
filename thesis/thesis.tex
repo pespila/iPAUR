@@ -49,12 +49,75 @@
     \input{11_discrete_setting}
     \input{12_the_mumford_shah_functional}
     \input{13_projection_onto_convex_sets}
-    % \input{13_another_approach_using_lagrange_multiplier}
+    \input{13_another_approach_using_lagrange_multiplier}
 
 % chapter a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional (end)
 
 \chapter{Applications to Imaging} % (fold)
 \label{cha:applications_to_imaging}
+
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/rof/0.3/lena.png}
+            \caption{$\lambda = 0.3$}
+            \label{fig:rof_0.3_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/rof/0.03/lena.png}
+            \caption{$\lambda = 0.03$}
+            \label{fig:rof_0.03_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/rof/0.003/lena.png}
+            \caption{$\lambda = 0.003$}
+            \label{fig:rof_0.003_lena}
+        \end{subfigure}
+        \caption{Approximation of Lena with ROF. The higher $\lambda$ the closer the minimizer of the ROF Model to the original image.}
+        \label{fig:rof_lena_compare}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/tvl1/1.2/lena.png}
+            \caption{$\lambda = 1.2$}
+            \label{fig:tvl1_1.2_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/tvl1/0.7/lena.png}
+            \caption{$\lambda = 0.7$}
+            \label{fig:tvl1_0.7_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/tvl1/0.2/lena.png}
+            \caption{$\lambda = 0.2$}
+            \label{fig:tvl1_0.2_lena}
+        \end{subfigure}
+        \caption{Approximation of Lena with TVL1. Again, the higher $\lambda$ the closer the minimizer of the TVL1 Model to the original image.}
+        \label{fig:tvl1_lena_compare}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/realtime/1_0.6/lena.png}
+            \caption{$\lambda = 0.6$ and $\alpha = 1$}
+            \label{fig:realtime_1_0.6_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/realtime/20_0.6/lena.png}
+            \caption{$\lambda = 0.6$ and $\alpha = 20$}
+            \label{fig:realtime_20_0.6_lena}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[width=\textwidth]{img/realtime/1000_0.6/lena.png}
+            \caption{$\lambda = 0.6$ and $\alpha = $}
+            \label{fig:realtime_1000_0.6_lena}
+        \end{subfigure}
+        \caption{Approximation of Lena with the Real-Time Mumford-Shah Model. For a fixed $\lambda$ the parameter $\alpha$ handles the tradeoff between data fidelity and regularizer term.}
+        \label{fig:realtime_lena_compare}
+    \end{figure}
 
     % \input{14_image_cartooning}
     % \input{15_image_denoising}
