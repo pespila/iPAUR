@@ -4,8 +4,8 @@
 
 using namespace std;
 
-#ifndef __URModel_H__
-#define __URModel_H__
+#ifndef __URMODEL_H__
+#define __URMODEL_H__
 
 template<typename aType>
 class URModel
@@ -46,4 +46,4 @@ public:
 
 #include "URModel.tpp"
 
-#endif //__URModel_H__
+#endif //__URMODEL_H__

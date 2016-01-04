@@ -1,11 +1,3 @@
-/* FIT THE (GOOD DEFAULT) PARAMETER TO THE ALGORTIHMS
-    - ROF-Model: alpha = 0.f, lambda = 0.03f, tau = 0.25f, sigma = 1.0 / (tau * 8.0), theta = 1.f, L = sqrt(8), nu = 0.f, cartoon = -1
-    - Huber-ROF-Model: alpha = 0.05, lambda = 0.03f, tau = 0.2f, sigma = 1.0 / (tau * 8.0), theta = 1.0, L = sqrt(8), nu = 0.f, cartoon = -1
-    - Image Inpainting: alpha = 0.0, lambda = 0.03, tau = 0.01, sigma = 1.0 / (tau * 8.0), theta = 1.0, L = sqrt(8), nu = 0.f, cartoon = -1
-    - TVL1-Model: alpha = 0.05, lambda = 0.7, tau = 0.35, sigma = 1.0 / (0.35 * 8.0), theta = 1.0, L = sqrt(8), nu = 5, cartoon = -1
-    - Real-Time-Minimizer: alpha = 20.0, lambda = 0.1, tau = 0.25, sigma = 0.5, theta = 1.0, L = sqrt(8), nu = 5, cartoon = 1/0
-*/
-
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -21,6 +13,7 @@
 #include "TVL1Model.h"
 #include "ROFModel.h"
 #include "URModel.h"
+#include "iPaurModel.h"
 
 using namespace std;
 
@@ -112,6 +105,10 @@ int main(int argc, const char* argv[]) {
     getParam("beta", beta, argc, argv);
     cout << "beta = " << beta << endl;
 
+    float gamma = 0.f;
+    getParam("gamma", gamma, argc, argv);
+    cout << "gamma = " << gamma << endl;
+
     float lambda = 0.7f;
     getParam("lambda", lambda, argc, argv);
     cout << "lambda = " << lambda << endl;
@@ -142,11 +139,16 @@ int main(int argc, const char* argv[]) {
     } else if (model.compare("realtime") == 0) {
         printf("\nStarting Real-Time Minimizer. Just a few seconds please:\n");
         RealTimeMinimizer<float> rt(in, iter);
-        rt.RTMinimizer(in, out, alpha, lambda, tau);
+        rt.RTMinimizer(in, out, alpha, lambda, gamma, tau);
     } else if (model.compare("ur") == 0) {
         printf("\nStarting UR Model. Just a few seconds please:\n");
         URModel<float> ur(in, iter);
+        // ur.UR(in, out, alpha, beta, gamma, lambda, tau);
         ur.UR(in, out, alpha, beta, tau);
+    } else if (model.compare("ipaur") == 0) {
+        printf("\nStarting iPaur Model. Just a few seconds please:\n");
+        iPaurModel<float> ipaur(in, iter);
+        ipaur.iPaur(in, out, alpha, beta, gamma, lambda, tau);
     } else if (model.compare("inpaint") == 0) {
         printf("\nStarting Inpainting. Just a few seconds please:\n");
         ImageInpainting<float> ii(in, iter);
@@ -243,7 +245,7 @@ int main(int argc, const char* argv[]) {
     
     float stop_watch = clock();
     cout << "Estimated MSE: " << MSE(in, out) << endl;
-    cout << "Estimated PSNR: " << PSNR(in, out) << "db" << endl;
+    cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
     cout << "Estimated Run-Time: " << (stop_watch - start_watch)/CLOCKS_PER_SEC << endl << endl;
     
     out.Write(output);

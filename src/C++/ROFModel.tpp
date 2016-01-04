@@ -156,30 +156,6 @@ aType ROFModel<aType>::PrimalEnergy(aType* u, aType* g, aType lambda) {
 }
 
 template<typename aType>
-aType ROFModel<aType>::DualEnergy(aType* p_x, aType* p_y, aType* g, aType lambda) {
-	aType energy = 0;
-	aType div_p = 0;
-	aType x = 0;
-	aType x_minus_one = 0;
-	for (int k = 0; k < channel; k++) {
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				int X = j + i * width + k * height * width;
-				x = i + 1 < height ? p_x[X] : 0.0;
-				x_minus_one = i > 0 ? p_x[j + (i-1) * width + k * height * width] : 0.0;
-				div_p = x_minus_one - x;
-				x = j + 1 < width ? p_y[X] : 0.0;
-				x_minus_one = j > 0 ? p_y[j - 1 + i * width + k * height * width] : 0.0;
-				div_p += x_minus_one - x;
-				energy -= (0.5f * pow(div_p, 2));
-				energy -= (lambda * (div_p * g[X]));
-			}
-		}
-	}
-	return energy;
-}
-
-template<typename aType>
 void ROFModel<aType>::ROF(Image<aType>& src, Image<aType>& dst, aType lambda, aType tau) {
 	int k;
 	aType theta = 1;
@@ -195,19 +171,15 @@ void ROFModel<aType>::ROF(Image<aType>& src, Image<aType>& dst, aType lambda, aT
 		Extrapolation(u_bar, u, u_n, theta);
 		if (k > 500) {
 			aType energy_tmp = Energy(u, f, p_x, p_y, lambda);
-			if (abs(energy - energy_tmp) < 1E-9) {
+			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
 		}
-		if (k > 10000) {
-			break;
-		}
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated PrimalEnergy: " << PrimalEnergy(u, f, lambda) << endl;
-	cout << "Estimated DualEnergy: " << DualEnergy(p_x, p_y, f, lambda) << endl;
 	cout << "Estimated Energy: " << Energy(u, f, p_x, p_y, lambda) << endl;
 	SetSolution(dst);
 }

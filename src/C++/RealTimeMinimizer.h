@@ -32,8 +32,10 @@ private:
 	void VectorOfInnerProduct(aType*, aType*, aType*);
 	void ProxRstar(aType*, aType*, aType*, aType*, aType, aType, aType);
 	void NablaTranspose(aType*, aType*, aType*, aType*, aType);
+	void ProxDgamma(aType*, aType*, aType*, aType*, aType, aType);
 	void ProxD(aType*, aType*, aType*, aType);
 	void Extrapolation(aType*, aType*, aType*, aType);
+	void EdgeHighlighting(aType*, aType, aType);
 	aType StopCriterion(aType*, aType*);
 	aType PrimalEnergy(aType*, aType*, aType, aType);
 
@@ -42,7 +44,7 @@ public:
 	RealTimeMinimizer(Image<aType>&, int);
 	~RealTimeMinimizer();
 
-	void RTMinimizer(Image<aType>&, Image<aType>&, aType, aType, aType);
+	void RTMinimizer(Image<aType>&, Image<aType>&, aType, aType, aType, aType);
 };
 
 #include "RealTimeMinimizer.tpp"

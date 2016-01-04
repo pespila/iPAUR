@@ -178,17 +178,14 @@ void URModel<aType>::UR(Image<aType>& src, Image<aType>& dst, aType alpha, aType
 		// tau *= theta;
 		// sigma /= theta;
 		Extrapolation(u_bar, u, u_n, theta);
-		if (k > 500) {
+		// if (k > 500) {
 			aType energy_tmp = PrimalEnergy(u, f, alpha, beta);
 			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
-		}
-		if (k > 10000) {
-			break;
-		}
+		// }
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated Primal Energy: " << PrimalEnergy(u, f, alpha, beta) << endl;

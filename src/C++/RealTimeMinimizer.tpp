@@ -79,23 +79,6 @@ void RealTimeMinimizer<aType>::VectorOfInnerProduct(aType* vector_norm_squared, 
 	}
 }
 
-// template<typename aType>
-// void RealTimeMinimizer<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_x, aType* p_tilde_y, aType alpha, aType lambda, aType sigma, int cartoon) {
-// 	aType* vector_norm_squared = (aType*)malloc(height*width*sizeof(aType));
-// 	aType factor = cartoon ? 1.0 : (2.0 * alpha) / (sigma + 2.0 * alpha);
-// 	aType bound = cartoon ? 2.0 * lambda * sigma : (lambda / alpha) * sigma * (sigma + 2.0 * alpha);
-// 	VectorOfInnerProduct(vector_norm_squared, p_tilde_x, p_tilde_y);
-// 	for (int k = 0; k < channel; k++) {
-// 		for (int i = 0; i < height; i++) {
-// 			for (int j = 0; j < width; j++) {
-// 				p_x[j + i * width + k * height * width] = vector_norm_squared[j + i * width] * factor <= bound ? factor * p_tilde_x[j + i * width + k * height * width] : 0.0;
-// 				p_y[j + i * width + k * height * width] = vector_norm_squared[j + i * width] * factor <= bound ? factor * p_tilde_y[j + i * width + k * height * width] : 0.0;
-// 			}
-// 		}
-// 	}
-// 	free(vector_norm_squared);
-// }
-
 template<typename aType>
 void RealTimeMinimizer<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_x, aType* p_tilde_y, aType alpha, aType lambda, aType sigma) {
 	aType* vector_norm_squared = (aType*)malloc(height*width*sizeof(aType));
@@ -114,25 +97,6 @@ void RealTimeMinimizer<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_
 	}
 	free(vector_norm_squared);
 }
-
-// template<typename aType>
-// void RealTimeMinimizer<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_x, aType* p_tilde_y, aType alpha, aType lambda, aType sigma) {
-// 	aType* vector_norm_squared = (aType*)malloc(height*width*sizeof(aType));
-// 	aType factor = alpha / (sigma + alpha);
-// 	aType bound = sqrt((2.f * lambda / alpha) * (sigma + alpha));
-// 	VectorOfInnerProduct(vector_norm_squared, p_tilde_x, p_tilde_y);
-// 	for (int k = 0; k < channel; k++) {
-// 		for (int i = 0; i < height; i++) {
-// 			for (int j = 0; j < width; j++) {
-// 				int ix = j + i * width + k * height * width;
-// 				int X = j + i * width;
-// 				p_x[ix] = vector_norm_squared[X] <= bound ? factor * p_tilde_x[ix] : 0;
-// 				p_y[ix] = vector_norm_squared[X] <= bound ? factor * p_tilde_y[ix] : 0;
-// 			}
-// 		}
-// 	}
-// 	free(vector_norm_squared);
-// }
 
 template<typename aType>
 void RealTimeMinimizer<aType>::NablaTranspose(aType* gradient_transpose, aType* p_x, aType* p_y, aType* u_n, aType tau) {
@@ -157,7 +121,23 @@ template<typename aType>
 void RealTimeMinimizer<aType>::ProxD(aType* u, aType* u_tilde, aType* f, aType tau) {
 	for (int i = 0; i < size; i++)
 		u[i] = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
-		// u[i] = (u_tilde[i] + tau * f[i]) / (1.0 + tau);
+}
+
+template<typename aType>
+void RealTimeMinimizer<aType>::ProxDgamma(aType* u, aType* u_tilde, aType* u_n, aType* f, aType gamma, aType tau) {
+	aType q = 1.5f;
+	aType taubar;
+	aType t;
+	aType u0;
+	aType uprev;
+	for (int i = 0; i < size; i++)
+	{
+		u0 = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
+		uprev = u_n[i];
+		taubar = ((gamma*tau)/(1 + 2*tau)) * pow(fabs(u0 - uprev), q - 2);
+		t = (aType)1 / pow((3*taubar)/(aType)4 + sqrt(1 + pow((3*taubar)/(aType)4, 2)), 2);
+		u[i] = (1 - t)*uprev + t*u0;
+	}
 }
 
 template<typename aType>
@@ -203,20 +183,41 @@ aType RealTimeMinimizer<aType>::StopCriterion(aType* u, aType* u_n) {
 }
 
 template<typename aType>
-void RealTimeMinimizer<aType>::RTMinimizer(Image<aType>& src, Image<aType>& dst, aType alpha, aType lambda, aType tau) {
+void RealTimeMinimizer<aType>::EdgeHighlighting(aType* u, aType alpha, aType lambda) {
+	for (int k = 0; k < channel; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				int X = j + i * width + k * height * width;
+				aType dx = i + 1 < height ? u[j + (i+1) * width + k * height * width] - u[X] : 0;
+				aType dy = j + 1 < width ? u[j + 1 + i * width + k * height * width] - u[X] : 0;
+				aType norm = abs(dx*dx + dy*dy);
+				if (norm >= sqrt(lambda/alpha)) {
+					aType c = (aType)1 / log(sqrt(2)/sqrt(lambda/alpha));
+					u[i] = (1 - c * log(norm / sqrt(lambda/alpha))) * u[i];
+				}
+			}
+		}
+	}
+}
+
+template<typename aType>
+void RealTimeMinimizer<aType>::RTMinimizer(Image<aType>& src, Image<aType>& dst, aType alpha, aType lambda, aType gamma, aType tau) {
 	int k;
 	aType theta = 1;
 	aType sigma = (aType)1 / (aType)(tau * 8);
 	aType h = (aType)1 / (src.Height()*src.Width());
 	aType stop;
-	// aType energy = PrimalEnergy(u, f, alpha, lambda);
 	dst.Reset(height, width, channel, src.Type());
 	Initialize(src);
 	for (k = 1; k < steps; k++) {
 		Nabla(gradient_x, gradient_y, u_bar, p_x, p_y, sigma);
 		ProxRstar(p_x, p_y, gradient_x, gradient_y, alpha, lambda, sigma);
 		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
-		ProxD(u, gradient_transpose, f, tau);
+		if (gamma > 0) {
+			ProxDgamma(u, gradient_transpose, u_n, f, gamma, tau);
+		} else {
+			ProxD(u, gradient_transpose, f, tau);
+		}
 		theta = (aType)1 / sqrt(1 + 4 * tau);
 		tau *= theta;
 		sigma /= theta;
@@ -227,17 +228,12 @@ void RealTimeMinimizer<aType>::RTMinimizer(Image<aType>& src, Image<aType>& dst,
 			}
 		}
 		Extrapolation(u_bar, u, u_n, theta);
-		// if (k > 500) {
-		// 	aType energy_tmp = PrimalEnergy(u, f, alpha, lambda);
-		// 	if (abs(energy - energy_tmp) < 1E-6) {
-		// 		break;
-		// 	} else {
-		// 		energy = energy_tmp;
-		// 	}
-		// }
 		if (k > 10000) {
 			break;
 		}
+	}
+	if (gamma > 0) {
+		EdgeHighlighting(u, alpha, lambda);
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated Primal Energy: " << PrimalEnergy(u, f, alpha, lambda) << endl;
