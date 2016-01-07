@@ -23,12 +23,12 @@
 
     For simplicity we let our normed vector space $X$ be in $\mathbb{R}^{n}$ and swap the superscript $N \cdot M$ to $n$. If the exact space size is of importance, we will make this clear. Further, we define $\mathbb{R}_{\infty} = \mathbb{R} \cup \{\infty\}$ as the space of the extended real values and $\mathbb{R}_{+} = [0, +\infty)$ as the space of all positive real values including zero.
 
-    Because the total variation is associated with the gradient operator, we want to give some discretization for this operator. As we saw in Equation \ref{eq:nabla_equals_minus_divergence}, the gradient $\nabla$ becomes $- \textnormal{div}$ by swapping it from our function $u$ to the testfunction $\varphi$. This important relation is used in the following and for that we further define the discrete divergence operator.
+    Because the total variation is associated with the gradient operator, we want to give some discretization for this operator. From Equation \ref{eq:nabla_equals_minus_divergence} we know that $\langle \nabla u, p \rangle = - \langle u, \textnormal{div}p \rangle$ holds. In a finite dimensional vector space equipped with inner product one has $\langle \nabla u, p \rangle = \langle u, \nabla^{T} p \rangle$. Because of this reason we set $\nabla^{T} = -\textnormal{div}$. Or, according to the linear operator $K$ we set $K = \nabla$ and $K^{\ast} = \nabla^{T}$.
 
     \begin{definition}[Discrete gradient operator] % (fold)
     \label{def:discrete_gradient_operator}
 
-        We define the discrete gradient of a vector $u \in X$ by $\nabla\,u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
+        We define the discrete gradient of a vector $u \in X$ by $\nabla u = ((\partial_{i}u)_{i, j}, (\partial_{j}u)_{i, j})^{T}$ using forward differences with Neumann boundary conditions, i.e
             \begin{eqnarray}
                 (\partial_{i}u)_{i, j} =
                     \begin{dcases*}
@@ -47,11 +47,13 @@
     \end{definition}
     % definition discrete_gradient_operator (end)
 
-    We choose $\textnormal{div}: Y \longrightarrow X$ to be the discrete divergence operator, which relates to $\nabla$ with $- \nabla^{\ast} = \textnormal{div}$. That is, for every $p \in Y$ and $u \in X$,
-        $$
-            \langle \nabla\, u, p \rangle_{Y} = \langle u, \nabla^{\ast}\, p \rangle_{X} = - \langle u, \textnormal{div}\,p \rangle_{X}
-        $$
-    as in Equation \ref{eq:nabla_equals_minus_divergence}.
+    And the discrete divergence operator is defined in the following fashion:
+
+    % We choose $\textnormal{div}: Y \longrightarrow X$ to be the discrete divergence operator, which relates to $\nabla$ with $- \nabla^{\ast} = \textnormal{div}$. That is, for every $p \in Y$ and $u \in X$,
+    %     $$
+    %         \langle \nabla\, u, p \rangle_{Y} = \langle u, \nabla^{\ast}\, p \rangle_{X} = - \langle u, \textnormal{div}\,p \rangle_{X}
+    %     $$
+    % as in Equation \ref{eq:nabla_equals_minus_divergence}.
 
     \begin{definition}[Discrete divergence operator] % (fold)
     \label{def:discrete_divergence_operator}
@@ -76,6 +78,8 @@
 
     \end{definition}
     % definition discrete_gradient_operator (end)
+
+    We additionally propose in the following propose a bound on the norm of these two operators.
 
     \begin{proposition}[Bound on the norm of $\nabla$] % (fold)
         \label{prop:bound_on_the_norm}

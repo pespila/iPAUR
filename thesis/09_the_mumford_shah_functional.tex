@@ -1,7 +1,7 @@
 \section{The Mumford-Shah Functional} % (fold)
 \label{sec:the_mumford_shah_functional}
     
-    We saw that solving the ROF Model and TVL1 Model, respectively, depended mainly on finding the right choices of the convex conjugates and the proximity operator. Now, we introduce a highly non-convex functional which is more difficult to solve. The problem of the proposed method in this section is, that there is - to date - no proof that it convergences to a global minimum. Even though, one can see that it yields to high quality solutions. But, of course one wants to be sure to compute the global optimum. Therefore, we discuss in the next chapter a method to minimize the Mumford-Shah functional optimally. For now, let us first give the definition of this functional.
+    We saw that solving the ROF Model and TVL1 Model, respectively, depended mainly on finding the right choices of the convex conjugates and the proximity operator. Now, we introduce a highly non-convex functional. The problem of the proposed method for this kind of functional is, that there is - to date - no proof that it convergences to a global minimum. Even though, one can see that it yields to high quality solutions. But, of course one wants to be sure to compute the global optimum. Therefore, we discuss in the next chapter a method to minimize the Mumford-Shah functional optimally. For now, let us first give the definition of this functional.
 
     \begin{definition}[The Mumford-Shah Functional \cite{Strekalovskiy-Cremers-eccv14}] % (fold)
     \label{def:the_mumford_shah_functional}
@@ -19,10 +19,10 @@
     % definition the_mumford_shah_functional (end)
 
     \begin{remark}
-        In this section we follow the represenation of the Mumford-Shah Functional of \cite{Strekalovskiy-Cremers-eccv14}. This is equivalent to Equation \ref{eq:the_mumford_shah_functional}, but has some advantages for our notation. In Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional} we will state a second notation.
+        In this section we follow the representation of the Mumford-Shah Functional of \cite{Strekalovskiy-Cremers-eccv14}. This is equivalent to Equation \ref{eq:the_mumford_shah_functional}, but has some advantages for our proposed method. In Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional} we will state a second notation.
     \end{remark}
 
-    This functional differs from the ones in the previous sections. The first term, the data fidelity term, remains the same as in the ROF or TVL1 Model. The approximation $u$ should be as close to the input image $g$ as possible. The regularizer consists of two terms. The first term of this kind of regularizer, also known as Mumford-Shah regularizer, uses again the gradient, but not in the set $\Omega$ itself. Instead it states that the approximation $u$ is not allowed to change too much in sets $\Omega \setminus K_{i}$. We call $K_{i}$ the discontinouty sets (or jump sets) for all $i = 1, ..., N$ and curves $u_{i}$. The gradient is only taken into account in these regions if they are smooth enough. These discontinouties of the sets $K_{i}$ are also measured and taken into account in the energy $E(u)$. This means, that all curves $K_{i}$ should be regular in the sense of measure theory. Here, we also find two weighting parameters $\nu$ and $\lambda$. Where $\lambda$ handles the tradeoff between the first two terms as in the ROF or TVL1 Model, $\nu$ controls the length of the discontinouty sets. A smaller $\nu$ yields to a smoother image, where a higher $\nu$ leads to sharper edges in our images. The parameter $\lambda$ yet plays another important role. If one chooses a $\lambda$ small enough, then our model is also called piecewise-smooth Mumford-Shah Model. On the other hand, in the limiting case $\lambda \longrightarrow \infty$, we can only attain a minimum if we set $\nabla u = 0$ in $\Omega \setminus K$. Then the model is known as the piecewise-constant Mumford-Shah Model.
+    This functional differs from the ones in the previous sections. The first term, the data fidelity term, remains the same as in the ROF or TVL1 Model. The approximation $u$ should be as close to the input image $g$ as possible. The regularizer consists of two terms. The first term of the also called Mumford-Shah regularizer, uses again the gradient, but not in the set $\Omega$ itself. Instead it states that the approximation $u$ is not allowed to change too much in sets $\Omega \setminus K_{k}$. We call $K_{k}$ the discontinouty sets (or jump sets) for all $k = 1, ..., L$ and curves $u_{k}$. The gradient is only taken into account in exactly these regions. The discontinouties of the sets $K_{k}$ are also measured and taken into account in the energy $E(u)$. This means, that all curves $K_{k}$ should be regular in the sense of measure theory. Here, we also find two weighting parameters $\nu$ and $\lambda$. Where $\lambda$ handles the tradeoff between the first term of the regularizer and the data fidelity term, $\nu$ controls the length of the discontinouty sets. A smaller $\nu$ yields to a smoother image, where a higher $\nu$ leads to sharper edges in our images. The parameter $\lambda$ yet plays another important role. If one chooses a $\lambda$ small enough, then our model is also called piecewise-smooth Mumford-Shah Model. On the other hand, in the limiting case $\lambda \longrightarrow \infty$, we can only attain a minimum if we set $\nabla u = 0$ in $\Omega \setminus K$. Then the model is known as the piecewise-constant Mumford-Shah Model.
     In \cite{Strekalovskiy-Cremers-eccv14} Strekalovskiy and Cremers proposed to rewrite this functional in a discrete setting by first defining the discrete regularizer function by
         \begin{equation}
             R_{MS}(u) = \min(\lambda||u||_{2}^{2},\nu).
@@ -38,7 +38,7 @@
             K_{MS} = \bigg\{ (i, j) \in \Omega : ||\nabla u_{i, j}||_{2}^{2} \ge \sqrt{\frac{\nu}{\lambda}} \bigg\}.
         \label{eq:set_k_ms}
         \end{equation}
-    We can check easy that for a point $(i, j) \in K_{MS}$ we observe
+    We can check that for a point $(i, j) \in K_{MS}$ we observe
         $$
             R_{MS}(\nabla u_{i, j}) = \min(\underbrace{\lambda||\nabla u_{i, j}||_{2}^{2}}_{\ge \lambda \sqrt{\frac{\nu}{\lambda}}^{2} = \nu}, \nu) = \nu
         $$
@@ -48,7 +48,7 @@
         $$
 
     \begin{remark}
-        In the piecewise-constant case, where $\lambda \longrightarrow \infty$, Equation \ref{eq:ms_regularizer} changes to
+        In the piecewise-constant case, where $\lambda \longrightarrow \infty$, equation \ref{eq:ms_regularizer} changes to
             \begin{equation}
                 R_{MS}(u) = 
                     \begin{dcases*}
@@ -62,7 +62,7 @@
     \subsection{Mumford-Shah as Saddle-Point Problem} % (fold)
     \label{sub:mumford_shah_as_saddle_point_problem}
 
-        Again, we try to formulate the Mumford-Shah Model as a saddle-point problem to be able to apply the second primal-dual algorithm of Section \ref{sec:a_firs_order_primal_dual_algorithm}. In the sense of our notations from the previous section we have
+        Again, we try to formulate the Mumford-Shah Model as a saddle-point problem to be able to apply the second primal-dual algorithm of section \ref{sec:a_firs_order_primal_dual_algorithm}. In the sense of our notations from the previous section we have
             \begin{equation}
                 \min_{u \in X}\,\, F(\nabla u) + G(u) = R_{MS}(\nabla u) + ||u - g||_{2}^{2}
                 \label{eq:primal_mumford_shah_model}
@@ -72,188 +72,381 @@
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle_{X} - R_{MS}^{\ast}(p) + G(u).% = \min_{u \in X}\, \max_{p \in Y}\,\, -\langle \nabla^{T}\,p, u \rangle_{X} - R_{MS}^{\ast}(p) + G(u).
             \label{eq:primal_dual_mumford_shah_model}
             \end{equation}
-        As before, we want to compute the convex conjugate of $R_{MS}$. We have
-            $$
-                R_{MS}^{\ast}(p) = \sup_{u \in X} \langle p, u \rangle - R_{MS}(u) = \sup_{p \in Y} \langle p, u \rangle - \min(\lambda ||u||_{2}^{2}, \nu).
-            $$
-        We need to distinguish both cases of our minimum function.
-            \begin{enumerate}
-                \item Assume that $\min(\lambda ||u||_{2}^{2}, \nu) = \nu$. We get
-                    $$
-                        \sup_{u \in X} \langle p, u \rangle - \nu = S_{Y}(p) - \nu.
-                    $$
-                where $S_{Y}(p)$ denotes the support function of $Y$ for a point $p \in Y$. Clearly, if $p \neq 0$, then the supremum over all $u$ is $\infty$. But if $p = 0$, this expression becomes
-                    $$
-                        S_{Y}(0) - \nu = - \nu \Longleftrightarrow -S_{Y}(0) + \nu = \nu.
-                    $$
-                \item On the other side, if we assume that $\min(\lambda ||u||_{2}^{2}, \nu) = \lambda ||u||_{2}^{2}$ we can apply Example \ref{ex:legendre_fenchel_conjugate_example} 2. and 4. Let $\hat{R}(u) = \frac{||u||_{2}^{2}}{2}$, then the Legendre-Fenchel conjugate of $R_{MS}(u) = 2\lambda \hat{R}(u)$ is $2\lambda \hat{R}^{\ast}(\frac{p}{2\lambda})$. We get
-                    \begin{equation}
-                        R_{MS}^{\ast}(p) = 2\lambda \hat{R}^{\ast}(\frac{p}{2\lambda}) = 2\lambda \frac{||\frac{p}{2\lambda}||_{2}^{2}}{2} = \frac{||p||_{2}^{2}}{4\lambda}.
-                    \label{eq:mumford_shah_convex_conjugate}
-                    \end{equation}
-                If we now make use of Proposition \ref{prop:convex_subgradient}, we have that $p \in \partial R_{MS}(u)$ if and only if
-                    $$
-                        \langle p, u \rangle - R_{MS}(u) = R_{MS}^{\ast}(p).
-                    $$
-                First, let us verify that this expression holds.
-                    \begin{proof}
-                        "$\Longrightarrow$":\\
-                        Let $p \in \partial R_{MS}(u) = 2\lambda u$, then this is equivalent to $p = 2\lambda u \Longleftrightarrow u = \frac{p}{2\lambda}$. Pluging this into the equation we get
-                            \begin{eqnarray}
-                                \langle p, u \rangle - R_{MS}(u) &=& \langle p, \frac{p}{2\lambda} \rangle - \lambda||\frac{p}{2\lambda}||_{2}^{2} = \frac{1}{2\lambda} ||p||_{2}^{2} - \frac{\lambda}{4\lambda^{2}} ||p||_{2}^{2} \notag \\
-                                &=& \frac{1}{\lambda} ||p||_{2}^{2} - \frac{1}{4\lambda} ||p||_{2}^{2} \notag \\
-                                &=& \frac{1}{4\lambda} ||p||_{2}^{2} = R_{MS}^{\ast}(p).
-                            \end{eqnarray}
-                        "$\Longleftarrow$":\\
-                        Now, rewrite the equation to
-                            $$
-                                R_{MS}(u) = \langle p, u \rangle - R_{MS}^{\ast}(p).
-                            $$
-                        Taking the subdifferential on $R_{MS}$ we observe
-                            $$
-                                \partial R_{MS}(u) = \partial \bigg( \langle p, u \rangle - R_{MS}^{\ast}(p) \bigg) \Longleftrightarrow \lambda u = p \Longleftrightarrow p \in \lambda u = \partial R_{MS}(u).
-                            $$
-                        \qed
-                    \end{proof}
-                Knowing that $p \in \partial R_{MS}(u)$ or $u = \frac{p}{2\lambda}$ respectively, we have that Equation \ref{eq:mumford_shah_convex_conjugate} only holds if $\lambda ||u||_{2}^{2} \le \nu$ or if $\lambda ||\frac{p}{2\lambda}||_{2}^{2} = \frac{||p||_{2}^{2}}{4\lambda} \le \nu$ or equivalently $||p||_{2} \le \sqrt{2\lambda \nu}$.
-            \end{enumerate}
-        Overall, the convex conjugate of the Mumford-Shah regularizer is given by
-            \begin{equation}
-                R_{MS}^{\ast}(p) =
-                    \begin{dcases*}
-                        \frac{||p||_{2}^{2}}{4\lambda}, & \textnormal{if $||p||_{2} \in (0, \sqrt{2\lambda \nu}]$,} \\
-                        \nu, & \textnormal{if $||p||_{2} = 0$,} \\
-                        \infty, & \textnormal{else.}
-                    \end{dcases*}
-                \label{eq:r_star}
-            \end{equation}
-        % To simplify this equation, we define the set $A$ with
+        Since the function $R_{MS}(g)$ is highly non-convex, we can still compute $R^{\ast}_{MS}$, which is then convex by definition, but $R_{MS}(g) \neq R^{\ast\ast}_{MS}(g)$. For this reason the dual formulation of this problem, as well as computing the proximity operator for $R^{\ast}_{MS}$, as we did in the previous sections, is obsolete. We will discuss this in detail in the next subsection.
+        % As before, we want to compute the convex conjugate of $R_{MS}$. We have
+        %     $$
+        %         R_{MS}^{\ast}(p) = \sup_{u \in X} \langle p, u \rangle - R_{MS}(u) = \sup_{p \in Y} \langle p, u \rangle - \min(\lambda ||u||_{2}^{2}, \nu).
+        %     $$
+        % We need to distinguish both cases of our minimum function.
+        %     \begin{enumerate}
+        %         \item Assume that $\min(\lambda ||u||_{2}^{2}, \nu) = \nu$. We get
+        %             $$
+        %                 \sup_{u \in X} \langle p, u \rangle - \nu = S_{Y}(p) - \nu.
+        %             $$
+        %         where $S_{Y}(p)$ denotes the support function of $Y$ for a point $p \in Y$. Clearly, if $p \neq 0$, then the supremum over all $u$ is $\infty$. But if $p = 0$, this expression becomes
+        %             $$
+        %                 S_{Y}(0) - \nu = - \nu \Longleftrightarrow -S_{Y}(0) + \nu = \nu.
+        %             $$
+        %         \item On the other side, if we assume that $\min(\lambda ||u||_{2}^{2}, \nu) = \lambda ||u||_{2}^{2}$ we can apply Example \ref{ex:legendre_fenchel_conjugate_example} 2. and 4. Let $\hat{R}(u) = \frac{||u||_{2}^{2}}{2}$, then the Legendre-Fenchel conjugate of $R_{MS}(u) = 2\lambda \hat{R}(u)$ is $2\lambda \hat{R}^{\ast}(\frac{p}{2\lambda})$. We get
+        %             \begin{equation}
+        %                 R_{MS}^{\ast}(p) = 2\lambda \hat{R}^{\ast}(\frac{p}{2\lambda}) = 2\lambda \frac{||\frac{p}{2\lambda}||_{2}^{2}}{2} = \frac{||p||_{2}^{2}}{4\lambda}.
+        %             \label{eq:mumford_shah_convex_conjugate}
+        %             \end{equation}
+        %         If we now make use of Proposition \ref{prop:convex_subgradient}, we have that $p \in \partial R_{MS}(u)$ if and only if
+        %             $$
+        %                 \langle p, u \rangle - R_{MS}(u) = R_{MS}^{\ast}(p).
+        %             $$
+        %         First, let us verify that this expression holds.
+        %             \begin{proof}
+        %                 "$\Longrightarrow$":\\
+        %                 Let $p \in \partial R_{MS}(u) = 2\lambda u$, then this is equivalent to $p = 2\lambda u \Longleftrightarrow u = \frac{p}{2\lambda}$. Pluging this into the equation we get
+        %                     \begin{eqnarray}
+        %                         \langle p, u \rangle - R_{MS}(u) &=& \langle p, \frac{p}{2\lambda} \rangle - \lambda||\frac{p}{2\lambda}||_{2}^{2} = \frac{1}{2\lambda} ||p||_{2}^{2} - \frac{\lambda}{4\lambda^{2}} ||p||_{2}^{2} \notag \\
+        %                         &=& \frac{1}{\lambda} ||p||_{2}^{2} - \frac{1}{4\lambda} ||p||_{2}^{2} \notag \\
+        %                         &=& \frac{1}{4\lambda} ||p||_{2}^{2} = R_{MS}^{\ast}(p).
+        %                     \end{eqnarray}
+        %                 "$\Longleftarrow$":\\
+        %                 Now, rewrite the equation to
+        %                     $$
+        %                         R_{MS}(u) = \langle p, u \rangle - R_{MS}^{\ast}(p).
+        %                     $$
+        %                 Taking the subdifferential on $R_{MS}$ we observe
+        %                     $$
+        %                         \partial R_{MS}(u) = \partial \bigg( \langle p, u \rangle - R_{MS}^{\ast}(p) \bigg) \Longleftrightarrow \lambda u = p \Longleftrightarrow p \in \lambda u = \partial R_{MS}(u).
+        %                     $$
+        %                 \qed
+        %             \end{proof}
+        %         Knowing that $p \in \partial R_{MS}(u)$ or $u = \frac{p}{2\lambda}$ respectively, we have that Equation \ref{eq:mumford_shah_convex_conjugate} only holds if $\lambda ||u||_{2}^{2} \le \nu$ or if $\lambda ||\frac{p}{2\lambda}||_{2}^{2} = \frac{||p||_{2}^{2}}{4\lambda} \le \nu$ or equivalently $||p||_{2} \le \sqrt{2\lambda \nu}$.
+        %     \end{enumerate}
+        % Overall, the convex conjugate of the Mumford-Shah regularizer is given by
         %     \begin{equation}
-        %         A := \big\{ p \in Y : ||p||_{2} \le \sqrt{\lambda \nu} \big\}.
-        %     \label{eq:set_a}
+        %         R_{MS}^{\ast}(p) =
+        %             \begin{dcases*}
+        %                 \frac{||p||_{2}^{2}}{4\lambda}, & \textnormal{if $||p||_{2} \in (0, \sqrt{2\lambda \nu}]$,} \\
+        %                 \nu, & \textnormal{if $||p||_{2} = 0$,} \\
+        %                 \infty, & \textnormal{else.}
+        %             \end{dcases*}
+        %         \label{eq:r_star}
         %     \end{equation}
-        % Then we can express the 
-        To derive the dual formulation of the Mumford-Shah Model we would just need to plug the derived definition of the convex conjugate into the dual problem.
-            $$
-                \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{p \in Y} -(||\nabla^{T}p - g||_{2}^{2}) + \frac{||p||_{2}^{2}}{2\lambda},
-            $$
-        as long as $||p||_{2} \in (0, \sqrt{\lambda \nu}]$. If $||p||_{2} = 0$ we have
-            $$
-                \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{0 = p \in Y} -(||\nabla^{T}p - g||_{2}^{2}) + \nu = -(g^{T}g + \nu) = -g^{T}g - \nu.
-            $$
-        In all other cases we would observe
-            $$
-                \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{p \in Y} -(||\nabla^{T}p - g||_{2}^{2} + \infty) = -\infty.
-            $$
-        We are now interested in the proximity operators for our model, which we compute in the next subsection.
+        % % To simplify this equation, we define the set $A$ with
+        % %     \begin{equation}
+        % %         A := \big\{ p \in Y : ||p||_{2} \le \sqrt{\lambda \nu} \big\}.
+        % %     \label{eq:set_a}
+        % %     \end{equation}
+        % % Then we can express the 
+        % To derive the dual formulation of the Mumford-Shah Model we would just need to plug the derived definition of the convex conjugate into the dual problem.
+        %     $$
+        %         \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{p \in Y} -(||\nabla^{T}p - g||_{2}^{2}) + \frac{||p||_{2}^{2}}{2\lambda},
+        %     $$
+        % as long as $||p||_{2} \in (0, \sqrt{\lambda \nu}]$. If $||p||_{2} = 0$ we have
+        %     $$
+        %         \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{0 = p \in Y} -(||\nabla^{T}p - g||_{2}^{2}) + \nu = -(g^{T}g + \nu) = -g^{T}g - \nu.
+        %     $$
+        % In all other cases we would observe
+        %     $$
+        %         \max_{p \in Y} - (G^{\ast}(-K^{\ast}p) + R_{MS}^{\ast}(p)) = \max_{p \in Y} -(||\nabla^{T}p - g||_{2}^{2} + \infty) = -\infty.
+        %     $$
+        % We are now interested in the proximity operators for our model, which we compute in the next subsection.
 
     % subsection mumford_shah_as_saddle_point_problem (end)
 
     \subsection{The Proximity Operators of the Mumford-Shah Model} % (fold)
     \label{sub:the_proximity_operators_of_the_mumford_shah_model}
         
-        Let us now compute the proximity operators of our proposed model. The operator for the function $G$ can be adapted from Equation \ref{eq:proximity_operator_g_rof}, because our data fidelity term is the same as in the ROF Model. Then we have pointwise for all $i = 1, ..., N$ and $j = 1, ..., M$
+        Let us first compute the proximity operator for the function $G$. We can partially adapt it from equation \ref{eq:proximity_operator_g_rof}, because the underlying data fidelity term is the same as in the ROF Model, excluding the scaling factor $\frac{\lambda}{2}$. For a function $\mathcal{L}(u) := \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \frac{||u - g||_{2}^{2}}{2}$ we had
+            $$
+                \bigg( \textnormal{Id} + \tau \partial G \bigg)^{-1}(\tilde{u}) = \min_{u in X} \mathcal{L}(u) \Longleftrightarrow \nabla \mathcal{L}(u) = 0.
+            $$
+        From this characterization it follows
+            $$
+                u - \tilde{u} + 2\tau (u - g) = 0 \Longleftrightarrow (1 + 2\tau)u = \tilde{u} + 2\tau g \Longleftrightarrow u = \frac{\tilde{u} + 2\tau g}{1 + 2\tau}.
+            $$
+        We have pointwise for all $i = 1, ..., N$ and $j = 1, ..., M$
 
             \begin{equation}
-                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = u \Longleftrightarrow u_{i,j} = \frac{\tilde{u}_{i,j} + \tau\nu g}{1 + \tau\sigma}.
-            \label{eq:proximity_operator_g_mumford_shah}
+                u = \bigg( \textnormal{Id} + \tau\,\partial\,G \bigg)^{-1}(\tilde{u}) \Longleftrightarrow u_{i,j} = \frac{\tilde{u}_{i,j} + 2\tau g_{i,j}}{1 + 2\tau}.
+            \label{eq:proximity_operator_G}
             \end{equation}
 
-        The more interesting case is to compute the proximity operator for $R_{MS}^{\ast}(p)$. Here, we have two possibilities to derive a formula for this. In \cite{Strekalovskiy-Cremers-eccv14} one can find this operator derived by using Moreau's Identity. We will show this case, too. But first we want to provide another way to derive the formula. We just computed $R_{MS}^{\ast}(p)$, so we easily apply the definition of the proximity operator. Since the third case of $R_{MS}^{\ast}$ where the conjugate is $\infty$ is useless for us, we skip this case and first consider the case where $||p||_{2} = 0$ which is equivalent to $p = 0$. For that we already see that if $||p||_{2} = 0$ we set $p = 0$. If $||p||_{2} \in (0, \sqrt{\lambda \nu}]$, then we get
-            \begin{eqnarray}
-                \textnormal{prox}_{R_{MS}^{\ast}(p)}^{\sigma}(\tilde{p}) &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma R_{MS}^{\ast}(p) \notag \\
-                &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma \frac{||p||_{2}^{2}}{4\lambda} \notag
-            \end{eqnarray}
-        Again, we define $\mathcal{L}(p) = \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma \frac{||p||_{2}^{2}}{4\lambda}$ then $\min\limits_{p} \mathcal{L}(p)$ is equivalent to solve $\nabla \mathcal{L}(p) = 0$. We have
-            $$
-                \nabla \mathcal{L}(p) = p - \tilde{p} + \sigma \frac{p}{2\lambda} = 0 \Longleftrightarrow (1 + \frac{\sigma}{2\lambda}) p = \tilde{p}.
-            $$
-        Solving for $p$ leads us to
-            $$
-                p = \frac{\tilde{p}}{1 + \frac{\sigma}{2\lambda}} = \frac{2\lambda}{2\lambda + \sigma} \tilde{p}.
-            $$
-        Now, that we know that $p = \frac{2\lambda}{2\lambda + \sigma} \tilde{p}$ we can plug this into the constraint to see for which condition on $\tilde{g}$ the computed value for $p$ holds. Then with $\frac{||p||_{2}^{2}}{4\lambda} \le \nu$ and $p \ne 0$ we have
-            \begin{eqnarray}
-                \frac{||\frac{2\lambda}{2\lambda + \sigma} \tilde{p}||_{2}^{2}}{4\lambda} \le \nu &\Longleftrightarrow& \frac{4\lambda^{2}}{4\lambda(4\lambda + \sigma)^{2}} ||\tilde{p}||_{2}^{2} \le \nu \notag \\
-                &\Longleftrightarrow& \frac{4\lambda}{(4\lambda + \sigma)^{2}} ||\tilde{p}||_{2}^{2} \le \nu \notag \\
-                &\Longleftrightarrow& ||\tilde{p}||_{2}^{2} \le \frac{\nu}{4\lambda} (4\lambda + \sigma)^{2} \notag \\
-                &\Longleftrightarrow& ||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{4\lambda}} \, (4\lambda + \sigma) \notag
-            \end{eqnarray}
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        Then the proximity operator is defined by
+        As mentioned before, the more interesting case is to compute the proximity operator for $R_{MS}^{\ast}(p)$. In \cite{Strekalovskiy-Cremers-eccv14} the key idea they proposed was using Moreau's Theorem (theorem \ref{def:moreau_identity}) to compute the operator. The reason why we need to do the computation through Moreau is the regularizer $R_{MS}$ and its non-convexity. 
+
+
+        Moreau states, that we can compute $\bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p})$ using the identity
             \begin{equation}
-                p = (\textnormal{Id} + \sigma \partial R_{MS}^{\ast})^{-1}(\tilde{p}) \Longleftrightarrow p_{i,j} =
+                \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) = \tilde{p} - \sigma \bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS} \bigg)^{-1} \bigg(\frac{\tilde{p}}{\sigma}) \bigg.
+            \label{eq:moreau_mumford_shah_regularizer}
+            \end{equation}
+        % With this, it follows
+        %     $$
+        %         \bigg( \textnormal{Id} + \sigma \partial R_{MS} \bigg)^{-1}(\tilde{p}) = \tilde{p} - \sigma \min_{p \in Y} \frac{||p - \frac{\tilde{p}}{\sigma}||_{2}^{2}}{2} + \frac{1}{\sigma} \min(\lambda ||p||_{2}^{2}, \nu).
+        %     $$
+        Let us start by computing $\bigg( \textnormal{Id} + \gamma\partial R_{MS} \bigg)^{-1}(\tilde{p})$ for some time-step parameter $\gamma > 0$. Since the minimum function in $R_{MS}$ can attain two different values we need to do a case differentiation:
+        \begin{enumerate}
+            \item Assume that $R_{MS}(p) = \nu$. Then
+                \begin{eqnarray}
+                    p = \bigg( \textnormal{Id} + \gamma R_{MS} \bigg)^{-1}(\tilde{p}) &=& \arg \min_{p \in Y} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma\nu \notag \\
+                    &\Longleftrightarrow& \nabla \big( \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma\nu \big) = 0 \notag \\
+                    &\Longleftrightarrow& p - \tilde{p} = 0 \notag \\
+                    &\Longrightarrow& p = \tilde{p}. \notag
+                \end{eqnarray}
+            \item On the other hand, if $R_{MS}(p) = \lambda ||p||_{2}^{2}$ we get
+                \begin{eqnarray}
+                    p = \bigg( \textnormal{Id} + \gamma R_{MS} \bigg)^{-1}(\tilde{p}) &=& \arg \min_{p \in Y} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma \lambda ||p||_{2}^{2} \notag \\
+                    &\Longleftrightarrow& \nabla \big( \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma \lambda ||p||_{2}^{2} \big) = 0 \notag \\
+                    &\Longleftrightarrow& p - \tilde{p} + 2 \gamma \lambda p = 0 \notag \\
+                    &\Longleftrightarrow& p (1 + 2\gamma \lambda) = \tilde{p} \notag \\
+                    &\Longrightarrow& p = \frac{\tilde{p}}{(1 + 2\gamma \lambda)} \notag
+                \end{eqnarray}
+        \end{enumerate}
+        It is left to show, for which case the energy in the proximity operator is minimal. By definition of  $R_{MS}$ the following inequality holds:
+            \begin{equation}
+                \min_{p \in Y} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma \lambda ||p||_{2}^{2} \le \min_{p \in Y} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \gamma\nu.
+                \label{eq:minimal_energy}
+            \end{equation}
+        In the first case, where the minimum is attained for $p = \tilde{p}$, we get
+            $$
+                \min_{p \in Y} \frac{||\tilde{p} - \tilde{p}||_{2}^{2}}{2} + \gamma\nu = \gamma \nu.
+            $$
+        But if we need to set $p = \frac{\tilde{p}}{(1 + 2\gamma \lambda)}$ to attain the minimal value, as in the second case, we have
+            \begin{eqnarray}
+                \frac{||\frac{\tilde{p}}{1 + 2\gamma\lambda} - \tilde{p}||_{2}^{2}}{2} + \gamma \lambda ||\frac{\tilde{p}}{1 + 2\gamma\lambda}||_{2}^{2} &=& \frac{\frac{||2\gamma\lambda \tilde{p}}{1 + 2\gamma\lambda}||_{2}^{2}}{2} + \gamma\lambda \frac{1}{(1 + 2\gamma\lambda)^{2}}||\tilde{p}||_{2}^{2} \notag \\
+                &=& \frac{4\gamma^{2}\lambda^{2}}{2(1 + 2\gamma\lambda)^{2}} ||\tilde{p}||_{2}^{2} + \frac{\gamma\lambda}{(1 + 2\gamma\lambda)^{2}} ||\tilde{p}||_{2}^{2} \notag \\
+                &=& \frac{2\gamma^{2}\lambda^{2} + \gamma\lambda}{(1 + 2\gamma\lambda)^{2}} ||\tilde{p}||_{2}^{2} \notag \\
+                &=& \frac{(1 + 2\gamma\lambda)\gamma\lambda}{(1 + 2\gamma\lambda)^{2}} ||\tilde{p}||_{2}^{2} \notag \\
+                &=& \frac{\gamma\lambda}{1 + 2\gamma\lambda} ||\tilde{p}||_{2}^{2}. \label{eq:bound_on_p}
+            \end{eqnarray}
+        Together with inequality \ref{eq:minimal_energy} we conclude
+            \begin{eqnarray}
+                && \frac{\gamma\lambda}{1 + 2\gamma\lambda} ||\tilde{p}||_{2}^{2} \le \gamma\nu \notag \\
+                &\Longleftrightarrow& \frac{\lambda}{1 + 2\gamma\lambda} ||\tilde{p}||_{2}^{2} \le \nu \notag \\
+                &\Longleftrightarrow& ||\tilde{p}||_{2}^{2} \le \frac{\nu}{\lambda}(1 + 2\gamma\lambda) \notag \\
+                &\Longleftrightarrow& ||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)} \label{eq:constraint_R}
+            \end{eqnarray}
+        The proximity operator of the function $R_{MS}$ is therefore given by
+            \begin{equation}
+                p = \bigg( \textnormal{Id} + \gamma R_{MS} \bigg)^{-1}(\tilde{p}) \Longleftrightarrow p_{i,j} =
+                \begin{dcases*}
+                    \frac{1}{1 + 2\gamma\lambda}\tilde{p}_{i,j} & \textnormal{if $||\tilde{p}_{i,j}||_{2} \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$} \\
+                    \tilde{p}_{i,j} & \textnormal{else.}
+                \end{dcases*}
+                \label{eq:proximity_operator_R}
+            \end{equation}
+        Holding pointwise for all $i = 1, ..., N$ and $j = 1, ..., M$.
+
+        To derive the representation of the proximal operator for $R_{MS}^{\ast}$ we now plug the operator of equation \ref{eq:proximity_operator_R} into Moreau's identity formula of equation \ref{eq:moreau_mumford_shah_regularizer}. Again, we need to distinguish two cases.
+        \begin{enumerate}
+            \item Assume that $||\tilde{p}||_{2} > \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$. Then
+                $$
+                    \sigma\bigg( \textnormal{Id} + \frac{1}{\sigma} R_{MS} \bigg)^{-1} \bigg(\frac{\tilde{p}}{\sigma} \bigg) = \sigma \frac{\tilde{p}}{\sigma} = \tilde{p}.
+                $$
+            And we observe
+                \begin{eqnarray}
+                    p = \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) &=& \tilde{p} - \sigma \bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS} \bigg)^{-1} \bigg(\frac{\tilde{p}}{\sigma} \bigg) \notag \\
+                    &=& \tilde{p} - \tilde{p} = 0. \notag
+                \end{eqnarray}
+            \item Let now be $||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$. This leads to
+                \begin{eqnarray}
+                    p = \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) &=& \tilde{p} - \sigma \bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS} \bigg)^{-1} \bigg(\frac{\tilde{p}}{\sigma} \bigg) \notag \\
+                    &=& \tilde{p} - \sigma \frac{\frac{\tilde{p}}{\sigma}}{1 + 2\frac{1}{\sigma}\lambda} \notag \\
+                    &=& \tilde{p} - \frac{\sigma}{\sigma + 2\lambda}\tilde{p} \notag \\
+                    &=& \bigg(1 - \frac{\sigma}{\sigma + 2\lambda}\bigg) \tilde{p} \notag \\
+                    &=& \bigg(\frac{\sigma + 2\lambda - \sigma}{\sigma + 2\lambda}\bigg) \tilde{p} \notag \\
+                    &=& \frac{2\lambda}{\sigma + 2\lambda} \tilde{p}. \label{eq:proximity_operator_R_star}
+                \end{eqnarray}
+        \end{enumerate}
+        As we did for the proximity operator for $R_{MS}$, we also need to show for which condition these two cases hold. Using equation \ref{eq:bound_on_p}, inequality \ref{eq:minimal_energy} and the fact that we have $\gamma = \frac{1}{\sigma}$ gives us
+            \begin{eqnarray}
+                &&\frac{\frac{1}{\sigma}\lambda}{1 + 2\frac{1}{\sigma}\lambda} ||\tilde{p}||_{2}^{2} \le \frac{1}{\sigma} \nu \notag \\
+                &\Longleftrightarrow& \frac{\lambda}{\sigma + 2\lambda} ||\tilde{p}||_{2}^{2} \le \sigma \nu \notag \\
+                &\Longleftrightarrow& ||\tilde{p}||_{2}^{2} \le \frac{\nu}{\lambda}\sigma(\sigma + 2\lambda) \notag \\
+                &\Longleftrightarrow& ||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}\sigma(\sigma + 2\lambda)}. \label{eq:constraint_R_star}
+            \end{eqnarray}
+        Overall, the proximity operator for $R_{MS}^{\ast}$ is defined by
+            \begin{equation}
+                p = \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) \Longleftrightarrow p_{i,j} =
                     \begin{dcases*}
-                        \frac{\lambda}{\lambda + \sigma} \tilde{p}, & \textnormal{if $||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}} \, (\lambda + \sigma)$,} \\
-                        0 & \textnormal{else.}
+                        \frac{\lambda}{\lambda + \sigma} \tilde{p}, & \textnormal{if $||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}\sigma(\sigma + 2\lambda)}$,} \\
+                        0 & \textnormal{else,}
                     \end{dcases*}
-                \label{eq:proximity_operator_f_star}
+                \label{eq:proximity_operator_r_star}
             \end{equation}
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        for all $i = 1, ..., N$, $j = 1, ..., M$.
 
-        As mentioned before we have a second possibility to derive the proximity operator for $R_{MS}^{\ast}$. For this we use Moreau's Theorem, c.f. Theorem \ref{def:moreau_identity}. It states, that we can compute $(\textnormal{Id} + \sigma \partial R_{MS}^{\ast})^{-1}(\tilde{p})$ by
-            $$
-                (\textnormal{Id} + \sigma \partial R_{MS}^{\ast})^{-1}(\tilde{p}) = \tilde{p} - \sigma (\textnormal{Id} + \frac{1}{\sigma} \partial R_{MS})^{-1}(\tilde{u}).
-            $$
-        Then we can compute the proximity operator of $R_{MS}$ with
-            $$
-                (\textnormal{Id} + \tau \partial R_{MS})^{-1}(\tilde{u}) = \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \min(\lambda ||u||_{2}^{2}, \nu).
-            $$
-        First, we consider the case where the minimum function attains $\nu$. Then
-            \begin{eqnarray}
-                \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau \bigg) = 0 \notag \\
-                &\Longleftrightarrow& u - \tilde{u} = 0 \notag \\
-                &\Longrightarrow& u = \tilde{u}. \notag
-            \end{eqnarray}
-        Now, assume that $\lambda ||u||_{2}^{2} < \nu$:
-            \begin{eqnarray}
-                \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau ||u||_{2}^{2} &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \lambda ||u||_{2}^{2} \bigg) = 0 \notag \\
-                &\Longleftrightarrow& (u - \tilde{u} + 2\lambda\tau u) = 0 \notag \\
-                &\Longleftrightarrow& (1 + 2\lambda\tau) u = \tilde{u} \notag \\
-                &\Longleftarrow& u = \frac{\tilde{u}}{(1 + 2\lambda\tau)} \notag
-            \end{eqnarray}
-        Again, since we know that at least $\lambda \frac{||u||_{2}^{2}}{2} \le \nu$ holds we can compute the constraint by plugging $u = \frac{\tilde{u}}{(1 + 2\lambda\tau)}$ into the inequality. We observe
-            \begin{eqnarray}
-                \lambda ||u||_{2}^{2} \le \nu &\Longleftrightarrow& \lambda ||\frac{\tilde{u}}{(1 + 2\lambda\tau)}||_{2}^{2} \le \nu \notag \\
-                &\Longleftrightarrow& \frac{\lambda}{(1 + 2\lambda\tau)^{2}} ||\tilde{u}||_{2}^{2} \le \nu \notag \\
-                &\Longleftrightarrow& ||\tilde{u}||_{2}^{2} \le \frac{\nu}{\lambda}(1 + 2\lambda\tau)^{2} \notag \\
-                &\Longrightarrow& ||\tilde{u}||_{2} \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau) \notag
-            \end{eqnarray}
-        The proximity operator for $R_{MS}$ for all $i = 1, ..., N$ and $j = 1, ..., M$ is then given pointwise by
-            \begin{equation}
-                u = (\textnormal{Id} + \tau \partial R_{MS})^{-1}(\tilde{u}) \Longleftrightarrow u_{i, j} = 
-                    \begin{dcases*}
-                        \frac{1}{1 + 2\lambda\tau}\tilde{u}_{i, j} & \textnormal{if $|\tilde{u}_{i, j}| \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau)$,} \\
-                        \tilde{u}_{i, j} & \textnormal{else.}
-                    \end{dcases*}
-            \label{eq:proximity_operator_r}
-            \end{equation}
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        Computing the proximity operator for $R_{MS}^{\ast}$ is now straightforward. We use Moreau's Theorem and get
-            \begin{eqnarray}
-                (\textnormal{Id} + \sigma \partial R_{MS}^{\ast})^{-1}(\tilde{p}) &=& \tilde{p} - \sigma \bigg(\textnormal{Id} + \frac{1}{\sigma} \partial R_{MS}\bigg)^{-1}\big(\frac{\tilde{p}}{\sigma}\big) \notag \\
-                &=& \tilde{p} - \sigma
-                    \begin{dcases*}
-                        \frac{1}{1 + \lambda\frac{1}{\sigma}}\frac{\tilde{p}}{\sigma} & \textnormal{if $|\frac{\tilde{p}}{\sigma}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
-                        \frac{\tilde{p}}{\sigma} & \textnormal{else,}
-                    \end{dcases*} \notag \\
-                &=& \begin{dcases*}
-                        \tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $\frac{1}{\sigma}|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
-                        0 & \textnormal{else,}
-                    \end{dcases*} \notag \\
-                &=& \begin{dcases*}
-                        \frac{\sigma + \lambda}{\sigma + \lambda}\tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\sigma + \lambda)$,} \\
-                        0 & \textnormal{else,}
-                    \end{dcases*} \notag \\
-                &=& \begin{dcases*}
-                        \frac{\lambda}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\lambda + \sigma)$,} \\
-                        0 & \textnormal{else,}
-                    \end{dcases*} \notag
-            \end{eqnarray}
-        which is what we obtained before. Since the data fidelity term $G(u) = ||u - g||_{2}^{2}$ is uniformly convex we choose to solve this saddle-point problem with Algorithm \ref{alg:f_star_or_g_uniformly_convex}.
+        Despite the fact, that there is no convergence theorem for using algorithm \ref{alg:f_star_or_g_uniformly_convex} together with the computed proximal operators, one can show the boundedness for $u^{n}$ in the case $\lambda < \infty$.
 
-        In this section we were able to provide a framework to solve highly non-convex Mumford-Shah functional. Unfortunately, there is no proof of convergence to the global minimum value. As we will see in Chapter \ref{cha:applications_to_imaging} this lack of correctness does not matter. From a mathematical point of view, we still want to be able to compute the global minimum of the Mumford-Shah functional. In the next chapter we will focus a framework, which again uses the primal-dual algorithm, that solves the functional optimally.
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        \begin{proposition}
+        \label{prop:boundedness_realtime_algorithm}
+            The sequence $(u^{n}, p^{n})$ generated by algorithm \ref{alg:f_star_or_g_uniformly_convex} is bounded and thus compact for $\lambda < \infty$, for instance it has a convergent subsequence.
+        \end{proposition}
+
+        This proposition can be found in \cite{Strekalovskiy-Cremers-eccv14}, along with a proof in the supplementary material.
+        % Because the proximal operator assures that the proximation is the shortest distance from a point $\tilde{p}$ to $p$ itself coupled with a function, and for this that the energy is minimal we n
+
+        % First, we consider the case where the minimum function attains $\nu$. Then
+        %     \begin{eqnarray}
+        %         \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau \bigg) = 0 \notag \\
+        %         &\Longleftrightarrow& u - \tilde{u} = 0 \notag \\
+        %         &\Longrightarrow& u = \tilde{u}. \notag
+        %     \end{eqnarray}
+        % Now, assume that $\lambda ||u||_{2}^{2} < \nu$:
+        %     \begin{eqnarray}
+        %         \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau ||u||_{2}^{2} &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \lambda ||u||_{2}^{2} \bigg) = 0 \notag \\
+        %         &\Longleftrightarrow& (u - \tilde{u} + 2\lambda\tau u) = 0 \notag \\
+        %         &\Longleftrightarrow& (1 + 2\lambda\tau) u = \tilde{u} \notag \\
+        %         &\Longleftarrow& u = \frac{\tilde{u}}{(1 + 2\lambda\tau)} \notag
+        %     \end{eqnarray}
+        % Again, since we know that at least $\lambda \frac{||u||_{2}^{2}}{2} \le \nu$ holds we can compute the constraint by plugging $u = \frac{\tilde{u}}{(1 + 2\lambda\tau)}$ into the inequality. We observe
+        %     \begin{eqnarray}
+        %         \lambda ||u||_{2}^{2} \le \nu &\Longleftrightarrow& \lambda ||\frac{\tilde{u}}{(1 + 2\lambda\tau)}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& \frac{\lambda}{(1 + 2\lambda\tau)^{2}} ||\tilde{u}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& ||\tilde{u}||_{2}^{2} \le \frac{\nu}{\lambda}(1 + 2\lambda\tau)^{2} \notag \\
+        %         &\Longrightarrow& ||\tilde{u}||_{2} \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau) \notag
+        %     \end{eqnarray}
+        % The proximity operator for $R_{MS}$ for all $i = 1, ..., N$ and $j = 1, ..., M$ is then given pointwise by
+        %     \begin{equation}
+        %         u = \bigg( \textnormal{Id} + \tau \partial R_{MS} \bigg)^{-1}(\tilde{u}) \Longleftrightarrow u_{i, j} = 
+        %             \begin{dcases*}
+        %                 \frac{1}{1 + 2\lambda\tau}\tilde{u}_{i, j} & \textnormal{if $|\tilde{u}_{i, j}| \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau)$,} \\
+        %                 \tilde{u}_{i, j} & \textnormal{else.}
+        %             \end{dcases*}
+        %     \label{eq:proximity_operator_r}
+        %     \end{equation}
+        % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        % Computing the proximity operator for $R_{MS}^{\ast}$ is now straightforward. We use Moreau's Theorem and get
+        %     \begin{eqnarray}
+        %         \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) &=& \tilde{p} - \sigma \bigg\bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS}\bigg \bigg)^{-1}\big(\frac{\tilde{p}}{\sigma}\big) \notag \\
+        %         &=& \tilde{p} - \sigma
+        %             \begin{dcases*}
+        %                 \frac{1}{1 + \lambda\frac{1}{\sigma}}\frac{\tilde{p}}{\sigma} & \textnormal{if $|\frac{\tilde{p}}{\sigma}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
+        %                 \frac{\tilde{p}}{\sigma} & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $\frac{1}{\sigma}|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \frac{\sigma + \lambda}{\sigma + \lambda}\tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\sigma + \lambda)$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \frac{\lambda}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\lambda + \sigma)$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag
+        %     \end{eqnarray}
+        % which is what we obtained before. Since the data fidelity term $G(u) = ||u - g||_{2}^{2}$ is uniformly convex we choose to solve this saddle-point problem with Algorithm \ref{alg:f_star_or_g_uniformly_convex}.
+
+        % In this section we were able to provide a framework to solve highly non-convex Mumford-Shah functional. Unfortunately, there is no proof of convergence to the global minimum value. As we will see in Chapter \ref{cha:applications_to_imaging} this lack of correctness does not matter. From a mathematical point of view, we still want to be able to compute the global minimum of the Mumford-Shah functional. In the next chapter we will focus a framework, which again uses the primal-dual algorithm, that solves the functional optimally.
+
+
+
+        % The key idea was, that since $R_{MS}$ is non-convex, we do not have the identity $R_{MS} = (R_{MS}^{\ast})^{\ast}$. But then  We follow this suggestion in this work 
+
+
+
+
+        % Here, we have two possibilities to derive a formula for this. In \cite{Strekalovskiy-Cremers-eccv14} one can find this operator derived by using Moreau's Identity. We will show this case, too. But first we want to provide another way to derive the formula. We just computed $R_{MS}^{\ast}(p)$, so we easily apply the definition of the proximity operator. Since the third case of $R_{MS}^{\ast}$ where the conjugate is $\infty$ is useless for us, we skip this case and first consider the case where $||p||_{2} = 0$ which is equivalent to $p = 0$.
+        % It also implies that $R_{MS}^{\ast}(p) = \nu$. Then we know
+        %     \begin{eqnarray}
+        %         \textnormal{prox}_{R_{MS}^{\ast}(p)}^{\sigma}(\tilde{p}) &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma R_{MS}^{\ast}(p) \notag \\
+        %         &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \nu \notag
+        %     \end{eqnarray}
+        % Since $\nu$ is constant and the norm is positive and attains zero if and only if $p = \tilde{p}$ the minimial value of this optimization problem is zero. It also implies that $\tilde{p} = 0$.
+
+        % For that we already see that if $||p||_{2} = 0$ we set $p = 0$. If $||p||_{2} \in (0, \sqrt{\lambda \nu}]$, then we get
+        %     \begin{eqnarray}
+        %         \textnormal{prox}_{R_{MS}^{\ast}(p)}^{\sigma}(\tilde{p}) &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma R_{MS}^{\ast}(p) \notag \\
+        %         &=& \min_{p} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma \frac{||p||_{2}^{2}}{4\lambda} \notag
+        %     \end{eqnarray}
+        % Again, we define $\mathcal{L}(p) = \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma \frac{||p||_{2}^{2}}{4\lambda}$ then $\min\limits_{p} \mathcal{L}(p)$ is equivalent to solve $\nabla \mathcal{L}(p) = 0$. We have
+        %     $$
+        %         \nabla \mathcal{L}(p) = p - \tilde{p} + \sigma \frac{p}{2\lambda} = 0 \Longleftrightarrow (1 + \frac{\sigma}{2\lambda}) p = \tilde{p}.
+        %     $$
+        % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        % Solving for $p$ leads us to
+        %     $$
+        %         p = \frac{\tilde{p}}{1 + \frac{\sigma}{2\lambda}} = \frac{2\lambda}{2\lambda + \sigma} \tilde{p}.
+        %     $$
+        % Now, that we know that $p = \frac{2\lambda}{2\lambda + \sigma} \tilde{p}$ we can plug this into the constraint to see for which condition on $\tilde{g}$ the computed value for $p$ holds. Then with $\frac{||p||_{2}^{2}}{4\lambda} \le \nu$ and $p \ne 0$ we have
+        %     \begin{eqnarray}
+        %         \frac{||\frac{2\lambda}{2\lambda + \sigma} \tilde{p}||_{2}^{2}}{4\lambda} \le \nu &\Longleftrightarrow& \frac{4\lambda^{2}}{4\lambda(4\lambda + \sigma)^{2}} ||\tilde{p}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& \frac{4\lambda}{(4\lambda + \sigma)^{2}} ||\tilde{p}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& ||\tilde{p}||_{2}^{2} \le \frac{\nu}{4\lambda} (4\lambda + \sigma)^{2} \notag \\
+        %         &\Longleftrightarrow& ||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{4\lambda}} \, (4\lambda + \sigma) \notag
+        %     \end{eqnarray}
+        % Then the proximity operator is defined by
+        %     \begin{equation}
+        %         p = \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) \Longleftrightarrow p_{i,j} =
+        %             \begin{dcases*}
+        %                 \frac{\lambda}{\lambda + \sigma} \tilde{p}, & \textnormal{if $||\tilde{p}||_{2} \le \sqrt{\frac{\nu}{\lambda}} \, (\lambda + \sigma)$,} \\
+        %                 0 & \textnormal{else.}
+        %             \end{dcases*}
+        %         \label{eq:proximity_operator_f_star}
+        %     \end{equation}
+        % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        % As mentioned before we have a second possibility to derive the proximity operator for $R_{MS}^{\ast}$. For this we use Moreau's Theorem, c.f. Theorem \ref{def:moreau_identity}. It states, that we can compute $\bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p})$ by
+        %     $$
+        %         \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) = \tilde{p} - \sigma \bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS} \bigg)^{-1}(\tilde{u}).
+        %     $$
+        % Then we can compute the proximity operator of $R_{MS}$ with
+        %     $$
+        %         \bigg( \textnormal{Id} + \tau \partial R_{MS} \bigg)^{-1}(\tilde{u}) = \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \min(\lambda ||u||_{2}^{2}, \nu).
+        %     $$
+        % First, we consider the case where the minimum function attains $\nu$. Then
+        %     \begin{eqnarray}
+        %         \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \nu\tau \bigg) = 0 \notag \\
+        %         &\Longleftrightarrow& u - \tilde{u} = 0 \notag \\
+        %         &\Longrightarrow& u = \tilde{u}. \notag
+        %     \end{eqnarray}
+        % Now, assume that $\lambda ||u||_{2}^{2} < \nu$:
+        %     \begin{eqnarray}
+        %         \min_{u} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau ||u||_{2}^{2} &\Longleftrightarrow& \nabla \bigg( \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \lambda ||u||_{2}^{2} \bigg) = 0 \notag \\
+        %         &\Longleftrightarrow& (u - \tilde{u} + 2\lambda\tau u) = 0 \notag \\
+        %         &\Longleftrightarrow& (1 + 2\lambda\tau) u = \tilde{u} \notag \\
+        %         &\Longleftarrow& u = \frac{\tilde{u}}{(1 + 2\lambda\tau)} \notag
+        %     \end{eqnarray}
+        % Again, since we know that at least $\lambda \frac{||u||_{2}^{2}}{2} \le \nu$ holds we can compute the constraint by plugging $u = \frac{\tilde{u}}{(1 + 2\lambda\tau)}$ into the inequality. We observe
+        %     \begin{eqnarray}
+        %         \lambda ||u||_{2}^{2} \le \nu &\Longleftrightarrow& \lambda ||\frac{\tilde{u}}{(1 + 2\lambda\tau)}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& \frac{\lambda}{(1 + 2\lambda\tau)^{2}} ||\tilde{u}||_{2}^{2} \le \nu \notag \\
+        %         &\Longleftrightarrow& ||\tilde{u}||_{2}^{2} \le \frac{\nu}{\lambda}(1 + 2\lambda\tau)^{2} \notag \\
+        %         &\Longrightarrow& ||\tilde{u}||_{2} \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau) \notag
+        %     \end{eqnarray}
+        % The proximity operator for $R_{MS}$ for all $i = 1, ..., N$ and $j = 1, ..., M$ is then given pointwise by
+        %     \begin{equation}
+        %         u = \bigg( \textnormal{Id} + \tau \partial R_{MS} \bigg)^{-1}(\tilde{u}) \Longleftrightarrow u_{i, j} = 
+        %             \begin{dcases*}
+        %                 \frac{1}{1 + 2\lambda\tau}\tilde{u}_{i, j} & \textnormal{if $|\tilde{u}_{i, j}| \le \sqrt{\frac{\nu}{\lambda}}(1 + 2\lambda\tau)$,} \\
+        %                 \tilde{u}_{i, j} & \textnormal{else.}
+        %             \end{dcases*}
+        %     \label{eq:proximity_operator_r}
+        %     \end{equation}
+        % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        % Computing the proximity operator for $R_{MS}^{\ast}$ is now straightforward. We use Moreau's Theorem and get
+        %     \begin{eqnarray}
+        %         \bigg( \textnormal{Id} + \sigma \partial R_{MS}^{\ast} \bigg)^{-1}(\tilde{p}) &=& \tilde{p} - \sigma \bigg\bigg( \textnormal{Id} + \frac{1}{\sigma} \partial R_{MS}\bigg \bigg)^{-1}\big(\frac{\tilde{p}}{\sigma}\big) \notag \\
+        %         &=& \tilde{p} - \sigma
+        %             \begin{dcases*}
+        %                 \frac{1}{1 + \lambda\frac{1}{\sigma}}\frac{\tilde{p}}{\sigma} & \textnormal{if $|\frac{\tilde{p}}{\sigma}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
+        %                 \frac{\tilde{p}}{\sigma} & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $\frac{1}{\sigma}|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(1 + \lambda\frac{1}{\sigma})$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \frac{\sigma + \lambda}{\sigma + \lambda}\tilde{p} - \frac{\sigma}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\sigma + \lambda)$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag \\
+        %         &=& \begin{dcases*}
+        %                 \frac{\lambda}{\sigma + \lambda}\tilde{p} & \textnormal{if $|\tilde{p}| \le \sqrt{\frac{\nu}{\lambda}}(\lambda + \sigma)$,} \\
+        %                 0 & \textnormal{else,}
+        %             \end{dcases*} \notag
+        %     \end{eqnarray}
+        % which is what we obtained before. Since the data fidelity term $G(u) = ||u - g||_{2}^{2}$ is uniformly convex we choose to solve this saddle-point problem with Algorithm \ref{alg:f_star_or_g_uniformly_convex}.
+
+        % In this section we were able to provide a framework to solve highly non-convex Mumford-Shah functional. Unfortunately, there is no proof of convergence to the global minimum value. As we will see in Chapter \ref{cha:applications_to_imaging} this lack of correctness does not matter. From a mathematical point of view, we still want to be able to compute the global minimum of the Mumford-Shah functional. In the next chapter we will focus a framework, which again uses the primal-dual algorithm, that solves the functional optimally.
+        % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     % subsubsection the_proximity_operators_of_the_tvl1_model (end)
 

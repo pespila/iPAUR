@@ -1,12 +1,12 @@
 \section{The TVL1 Model} % (fold)
 \label{sec:the_tvl1_model}
     
-    In the previous section we discussed the ROF Model. This model is sometimes also known as the TVL2 Model. The reason for that is, that we set the total variation term as the regularizer and use a $L^{2}$ norm in the data fidelity term. The idea now is to replace the norm in the data term with the $L^{1}$ norm. This norm is more robust in removing the so called salt and pepper noise, meaning that it removes single pixels with extrem values white or black. The model looks as follows:
+    The idea within the TVL1 model is to replace the $L_{2}$ norm in the data fidelity term with the $L^{1}$ norm. This norm is more robust in removing the so called salt and pepper noise, meaning that it removes single pixels with extrem values white or black. The model is depicted as follows:
 
     \begin{definition}[The TVL1 Model] % (fold)
     \label{def:the_tvl1_model}
 
-        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ the approximation and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the TVL1 Model is defined as the variational problem
+        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the TVL1 Model is defined as the variational problem
             \begin{equation}
                 \min_{u} E_{TVL1}(u) = \min_{u} \textnormal{TV}(u) + \lambda \int_{\Omega} |u - g| \, dx = \min_{u \in X} \int_{\Omega} |\nabla \, u| \, dx + \lambda \int_{\Omega} |u - g| \, dx.
                 \label{eq:the_tvl1_model}
@@ -15,42 +15,43 @@
     \end{definition}
     % definition the_tvl1_model (end)
 
-    Note, that there is also the parameter $\lambda$ to handle the tradeoff between both terms. If we reformulate this into a discrete version we have
+    Note, that there is also the parameter $\lambda$ to handle the tradeoff between both terms, as seen in the previous section for the ROF model. Then, primal formulation of the TVL1 model is represented by
         \begin{equation}
             \min_{u \in X} E_{TVL1}(u) = \min_{u \in X} ||\nabla \, u||_{1} + \lambda ||u - g||_{1},
-        \label{eq:discrete_tvl1_model}
+        \label{eq:primal_tvl1_problem}
         \end{equation}
-    where again $u$ is the approximation of an input image $g$.
+    where $u$ is the approximation of an input image $g$.
 
     \subsection{TVL1 as Saddle-Point Problem} % (fold)
     \label{sub:tvl1_as_saddle_point_problem}
 
-        As we did in the previous section, we can formulate this minimization problem into a saddle-point problem to apply the Primal-Dual Algorithm. Let us first state that our function $F(\nabla u)$ remains the same. We only have a change in $G$. Then the primal problem of the TVL1 Model becomes
-            \begin{equation}
-                \min_{u \in X}\,\, F(\nabla u) + G(u) = \min_{u \in X}\,\, ||\nabla \, u||_{1} + \lambda ||u - g||_{1}.
-                \label{eq:primal_tvl1_problem}
-            \end{equation}
-        Again using the Legendre-Fenchel conjugate for $F$ - as in subsection \ref{sub:rof_model_as_saddle_point_problem} we obtain
-            \begin{equation}
-                \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle_{X} - F^{\ast}(p) + G(u) = \min_{u \in X}\, \max_{p \in Y}\,\, -\langle \nabla^{T}\,p, u \rangle_{X} - F^{\ast}(p) + G(u).
-            \end{equation}
-        From Equation \ref{eq:rof_f_star} we already know how $F^{\ast}$ looks like. Writing it as the indicator function we got $F^{\ast} = \delta_{P}(p)$ with the set $P$ of Equation \ref{eq:the_set_P}. Then the primal-dual problem becomes
+        We can rewrite this minimization problem into a saddle-point problem. Let us first state, that our function $F(\nabla u)$ remains the same as in the ROF model. We only have a change in $G$.
+        %Then the primal problem of the TVL1 model becomes
+            % \begin{equation}
+            %     \min_{u \in X}\,\, F(\nabla u) + G(u) = \min_{u \in X}\,\, ||\nabla \, u||_{1} + \lambda ||u - g||_{1}.
+            %     \label{eq:primal_tvl1_problem}
+            % \end{equation}
+        Again using the Legendre-Fenchel conjugate for $F$ - as in subsection \ref{sub:rof_model_as_saddle_point_problem} - we obtain
+            $$
+                \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle_{X} - F^{\ast}(p) + G(u)% = \min_{u \in X}\, \max_{p \in Y}\,\, -\langle \nabla^{T}\,p, u \rangle_{X} - F^{\ast}(p) + G(u).
+            $$
+        From equation \ref{eq:rof_f_star} we already know how $F^{\ast}$ looks like. Writing it as the indicator function we got $F^{\ast} = \delta_{P}(p)$ with the set $P$ of Equation \ref{eq:the_set_P}. Then the primal-dual problem becomes
             \begin{equation}
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla\, u \rangle_{Y} + \lambda ||u - g||_{1} - \delta_{P}(p).
             \label{eq:primal_dual_tvl1_problem}
             \end{equation}
-        We find the conjugate of the function $G(u) = \lambda||u-g||_{1}$ is given by
+        To give the representation of the dual-problem for the TVL1 model, we need to compute $G^{\ast}$. We find, that the Legendre-Fenchel conjugate of the function $G(u) = \lambda||u-g||_{1}$ is given by
             \begin{equation}
                 G^{\ast}(q) =
                     \begin{dcases*}
-                        0 & \textnormal{if $||q||_{\ast} \le \lambda$,} \\
+                        \langle q, g \rangle & \textnormal{if $||q||_{\infty} \le \lambda$,} \\
                         \infty & \textnormal{else},
                     \end{dcases*}
                 \label{eq:tvl1_g_star}
             \end{equation}
-        which means nothing but $G^{\ast}(q) = \delta_{Q}(q)$ for a set
+        which means nothing but $G^{\ast}(q) = \delta_{Q}(q) + \langle q, g \rangle$ for a set
             \begin{equation}
-                Q = \big\{ q \in Y : ||q||_{\infty} \le \lambda \big\}.
+                Q = \big\{ q \in X : ||q||_{\infty} \le \lambda \big\}.
             \label{eq:the_set_Q}
             \end{equation}
 
@@ -59,26 +60,28 @@
                     \begin{eqnarray}
                         G^{\ast}(q) = \sup_{u \in X} \langle q, u \rangle - G(u) \Longleftrightarrow G^{\ast}(q) &=& \sup_{z \in X} \langle q, z + g \rangle - G(z + g) \notag \\
                         &=& \sup_{z \in X} \langle q, z + g \rangle - \lambda ||z||_{1} \notag \\
-                        &=& \sup_{z \in X} \frac{1}{\lambda} \big(\langle q, z \rangle + \underbrace{\langle p, g \rangle}_{= \textnormal{const}} \big) - ||z||_{1} \notag \\
-                        &=& \sup_{z \in X} \langle \frac{1}{\lambda} q, z \rangle - ||z||_{1}.
+                        &=& \sup_{z \in X} \frac{1}{\lambda} \big(\langle q, z \rangle + \underbrace{\langle q, g \rangle}_{= \textnormal{const}} \big) - ||z||_{1} \notag \\
+                        &=& \bigg(\sup_{z \in X} \langle \frac{1}{\lambda} q, z \rangle - ||z||_{1} \bigg) + \langle q, g \rangle.
                     \end{eqnarray}
-                Since we are facing to compute the Legendre-Fenchel conjugate of the $l^{1}$ norm we already know from Example \ref{ex:legendre_fenchel_conjugate_example} 2. that
+                Using again example \ref{ex:legendre_fenchel_conjugate_example} 2. and the fact that the conjugate norm of the $l_{1}$ norm is the $l_{\infty}$ norm, gives us
+                    % Since we are facing to compute the Legendre-Fenchel conjugate of the $l^{1}$ norm we already know from Example \ref{ex:legendre_fenchel_conjugate_example} 2. that
                     $$
                         G^{\ast}(q) =
                             \begin{dcases*}
-                                0 & \textnormal{if $||\frac{1}{\lambda}q||_{\ast} \le 1$,} \\
+                                \langle q, g \rangle & \textnormal{if $||\frac{1}{\lambda}q||_{\infty} \le 1$,} \\
                                 \infty & \textnormal{else},
                             \end{dcases*} \Longleftrightarrow
                         G^{\ast}(q) =
                             \begin{dcases*}
-                                0 & \textnormal{if $||q||_{\ast} \le \lambda$,} \\
+                                \langle q, g \rangle & \textnormal{if $||q||_{\infty} \le \lambda$,} \\
                                 \infty & \textnormal{else}.
                             \end{dcases*}
-                    $$\qed
+                    $$
+                Or equivalently $G^{\ast}(q) = \delta_{Q}(q) + \langle q, g \rangle$.\qed
             \end{proof}
         We obtain the dual formulation of the TVL1 Model as
             \begin{equation}
-                \max_{p \in Y}\,\, -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) = \max_{p \in Y} -\bigg( \delta_{Q}(\nabla^{T}\,q) + \delta_{P}(p) \bigg).
+                \max_{p \in Y}\,\, -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) = \max_{p \in Y} -\bigg( \delta_{Q}(\nabla^{T}\,q) + \langle \nabla^{T}q, g \rangle + \delta_{P}(p) \bigg).
             \label{eq:dual_tvl1_problem}
             \end{equation}
     
@@ -87,52 +90,55 @@
     \subsubsection{The Proximity Operators of the TVL1 Model} % (fold)
     \label{ssub:the_proximity_operators_of_the_tvl1_model}
         
-        For the implementation of the Primal-Dual Algorithm we need the proximity operators of the TVL1 Model. Fortunatelly, the operator for the function $F^{\ast}$ remains the same as in Subsection \ref{sub:the_proximity_operators_for_the_rof_model} since the functions are the same. We get again
+        %For the implementation of the Primal-Dual Algorithm we need the proximity operators of the TVL1 Model.
+        The proximity operator of $F^{\ast}$ remains the same as in subsection \ref{sub:the_proximity_operators_for_the_rof_model}. We get again
             \begin{equation}
-                (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = P_{l_{2}}(\tilde{p}) = p \Longleftrightarrow p_{i,j} \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},
+                p = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \Pi_{P}(\tilde{p}) \Longleftrightarrow p_{i,j} = \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},
             \label{eq:proximity_operator_f_star_tvl1}
             \end{equation}
         for all $i = 1, ..., N, j = 1, ..., M$.
 
-        To compute the proximity operator of the function $G$ we apply again Definition \ref{eq:proximity_operator}. Then we have
+        To compute the proximity operator of the function $G$ we get
             $$
                 (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u - g||_{1}.
             $$
-        If we define $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u||_{1}$ then the minimization problem $\min\limits_{u \in X} \mathcal{L}(u)$ is equivalent to $\nabla\mathcal{L}(u) = 0$. We already saw that the $l^{1}$ norm is not differentiable everywhere and for that non-smooth. To compute the gradient we need need the partial derivatives for each $i = 1, ..., N$. Let us first take a look at the i-th row of $\nabla\mathcal{L}(u)$:
+        If we define $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u||_{1}$ and use the linearized notation for the image $u$, namely $u \in \mathbb{R}^{N \cdot M}$, then the minimization problem $\min\limits_{u \in X} \mathcal{L}(u)$ is equivalent to $\nabla\mathcal{L}(u) = 0$. We already saw that the $l^{1}$ norm is not differentiable everywhere and for that non-smooth. To compute the gradient we need the partial derivatives for each $k = 1, ..., N \cdot M$. Let us first take a look at the k-th row of $\nabla\mathcal{L}(u)$:
+            \begin{eqnarray}
+                \partial_{k}(\mathcal{L}(u)) &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(||u-g||_{1}) \notag \\
+                &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(|u_{1}-g_{1}| + ... + |u_{k}-g_{k}| + ... + |u_{n}-g_{n}|) \notag \\
+                &=& u_{k} - \tilde{u}_{k} + \tau \lambda \partial_{k}\big(|u_{k} - g_{k}|\big).
+            \end{eqnarray}
+        With that we see that we need to compute the subgradient of the absolute value function for all partial subderivatives $k = 1, ..., N \cdot M$. From example \ref{ex:subgradient_subdifferential} 1. we have
             $$
-                \partial_{i}(\mathcal{L}(u)) = u_{i} - \tilde{u}_{i} + \tau\lambda \partial_{i}(||u-g||_{1}) = u_{i} - \tilde{u}_{i} + \tau\lambda \partial_{i}(|u_{1}-g_{1}| + ... + |u_{i}-g_{i}| + ... + |u_{n}-g_{n}|).
-            $$
-        With that we see that we need to compute the subgradient of the absolute value function in the i-th line of the above equation. From Example \ref{ex:subgradient_subdifferential} 1. we have
-            $$
-                y_{i} =
+                y_{k} =
                     \begin{dcases*}
-                        1 & \textnormal{if $u_{i} - g_{i} > 0$,} \\
-                        -1 & \textnormal{if $u_{i} - g_{i} < 0$,} \\
-                        [-1, 1] & \textnormal{if $u_{i} - g_{i} = 0 \Longleftrightarrow u_{i} = g_{i}$,}
+                        1 & \textnormal{if $u_{k} - g_{k} > 0$,} \\
+                        -1 & \textnormal{if $u_{k} - g_{k} < 0$,} \\
+                        [-1, 1] & \textnormal{if $u_{k} - g_{k} = 0 \Longleftrightarrow u_{k} = g_{k}$,}
                     \end{dcases*}
             $$
-        where $y_{i}$ is the subgradient of the i-th row. Let us check all three cases:
+        where $y_{k}$ is the subgradient of the k-th row. Let us check all three cases:
             \begin{enumerate}
-                \item Let $y_{i} = 1$. Then we obtain for the i-th row
+                \item Let $y_{k} = 1$. Then we obtain
                     $$
-                        u_{i} - \tilde{u}_{i} + \tau\lambda = 0 \Longleftrightarrow u_{i} = \tilde{u}_{i} - \tau\lambda.
+                        u_{k} - \tilde{u}_{k} + \tau\lambda = 0 \Longleftrightarrow u_{k} = \tilde{u}_{k} - \tau\lambda.
                     $$
-                From $u - g_{i} > 0$ we know that this equation holds for $\tilde{u}_{i} - \tau\lambda - g_{i} > 0$, which is then equivalent to $\tilde{u}_{i} - g_{i} > \tau\lambda$.
-                \item Now, let $y_{i} = -1$. The we get in row i
+                With $u_{k} - g_{k} > 0$ and $u_{k} = \tilde{u}_{k} - \tau\lambda$ we have that this equation holds if $\tilde{u}_{k} - \tau\lambda - g_{k} > 0$, which is then equivalent to $\tilde{u}_{k} - g_{k} > \tau\lambda$.
+                \item Now, let $y_{k} = -1$. The we get in row k
                     $$
-                        u_{i} - \tilde{u}_{i} - \tau\lambda = 0 \Longleftrightarrow u_{i} = \tilde{u}_{i} + \tau\lambda.
+                        u_{k} - \tilde{u}_{k} - \tau\lambda = 0 \Longleftrightarrow u_{k} = \tilde{u}_{k} + \tau\lambda.
                     $$
-                Rewriting the constraint we obtain $\tilde{u}_{i} + \tau\lambda - g_{i} > 0$. From this it follows $\tilde{u} - g_{i} > \tau\lambda$.
-                \item Finally, $y_{i} \in [-1, 1]$. Since, we know that $u_{i} = g_{i}$ we get
+                Rewriting the constraint in the definition of the subgradient leads us to $\tilde{u}_{k} + \tau\lambda - g_{k} > 0$. From this it follows $\tilde{u} - g_{k} > \tau\lambda$.
+                \item Finally, $y_{k} \in [-1, 1]$. Since, we know that $u_{k} = g_{k}$ we get
                     $$
-                        g_{i} - \tilde{u}_{i} + \tau\lambda y_{i} = 0 \Longleftrightarrow \tilde{u}_{i} - g_{i} = \tau\lambda y_{i}.
+                        g_{k} - \tilde{u}_{k} + \tau\lambda y_{k} = 0 \Longleftrightarrow \tilde{u}_{k} - g_{k} = \tau\lambda y_{k}.
                     $$
-                We apply the absolute value function to each side of the equation, then with $|y_{i}| \le 1$ we have
+                We apply the absolute value function to each side of the equation, then with $|y_{k}| \le 1$ we have
                     $$
-                        |\tilde{u}_{i} - g_{i}| = |\tau\lambda y_{i}| \le \tau\lambda.
+                        |\tilde{u}_{k} - g_{k}| = |\tau\lambda y_{k}| \le \tau\lambda.
                     $$
             \end{enumerate}
-        Overall, we have pointwise
+        Overall, we observe for all $i = 1, ..., N$, $j = 1, ..., M$
             \begin{equation}
                 u = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) \Longleftrightarrow u_{i, j} = 
                     \begin{dcases*}
@@ -142,7 +148,7 @@
                     \end{dcases*}
             \label{eq:prox_g_tvl1}
             \end{equation}
-        Note, that we used the discrete locations of the pixel $(i, j)$ in this notation instead of the row-wise notation $i$ from above. Of course, this does not change any of the solutions.
+        Note, that we used the discrete locations of the pixel $(i, j)$ in this representation instead of the row-wise notation $k$. As we discussed earlier, these two notations are totally consistent.
 
     % subsubsection the_proximity_operators_of_the_tvl1_model (end)
 

@@ -29,9 +29,9 @@
         \end{equation}
     This set is the set of points for which the objective and all constraint functions are defined. We call a point $u \in \mathcal{D}$ \textit{feasible} if it satisfies all constraints. The optimization problem \ref{eq:optimization_problem} is said to be feasible if there exists at least one feasible point, and \textit{infeasible} otherwise. We call the set of all feasible points the \textit{feasible set} or alternatively the \textit{constraint set}.\\
     We define the optimal value $u^{\ast}$ of the problem \ref{eq:optimization_problem} by
-        \begin{equation}
+        $$
             u^{\ast} = \inf \big\{ F(u) : G_{i}(u) \le 0, i = 1, ..., m, H_{j}(u) = 0, j = 1, ..., p \big\},
-        \end{equation}
+        $$
     where we allow $u^{\ast}$ to take on the extended values $\pm \infty$. We set $u^{\ast} = \infty$ if the problem is infeasible, since $\inf(\emptyset) = \infty$. If there are feasible points $u_{k}$ with $F(u_{k}) \longrightarrow -\infty$ as $k \longrightarrow \infty$, then $u^{\ast} = -\infty$, and we say that problem \ref{eq:optimization_problem} is \textit{unbounded below}.\\
 
     Since, convex optimization is based on convex functions we need to define these class of functions and its properties. We set $X \subseteq \mathbb{R}^{n}$ and its dual space $X^{\ast} = Y$. According to \cite{Chambolle-et-al-10} and \cite{Rockafellar} we have the following basic definitions, propositions and theorems.
@@ -39,7 +39,7 @@
     \begin{definition}[Convex Set] % (fold)
     \label{def:convex_set}
 
-        A subset $C \subseteq X$ is said to be convex if and only if for any $u_{1}, u_{2} \in C$, the line segment $[u_{1}, u_{2}] \subseteq C$, that is, for any $t \in [0, 1]$,
+        A subset $C \subseteq \mathbb{R}^{n}$ is said to be convex if and only if for any $u_{1}, u_{2} \in C$, the line segment $[u_{1}, u_{2}] \subseteq C$, that is, for any $t \in [0, 1]$,
             \begin{equation}
                 u_{1}t + u_{2}(1 - t) \in C.
                 \label{eq:convex_set}
@@ -60,17 +60,14 @@
         \begin{subfigure}[b]{0.3\textwidth}
             \includegraphics[width=\textwidth]{img/unit_l1_norm.png}
             \caption{$l_{1}$ unit sphere}
-            \label{fig:unit_l2_norm}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\textwidth}
             \includegraphics[width=\textwidth]{img/unit_l2_norm.png}
             \caption{$l_{2}$ unit sphere}
-            \label{fig:unit_l1_norm}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\textwidth}
             \includegraphics[width=\textwidth]{img/non_convex_set.png}
             \caption{Star: a non-convex set.}
-            \label{fig:star}
         \end{subfigure}
         \caption{We see three different sets, where (a) and (b) are convex, but (c) is not. (a) refers to the unit sphere of the $l_{1}$ norm where (b) refers to the unit sphere of the $l_{2}$ norm. In (c) we see that the line segment of $[u_{2}, u_{3}]$ lies not in the set itself.}
         \label{fig:convex_and_non_convex_sets}
@@ -370,12 +367,13 @@
 
         Let $X$ be an open, convex set and $F: X \longrightarrow \mathbb{R}_{\infty}$ a (convex) function. A vector $y$ is called subgradient of $F$ in $u_{0} \in X$, if
             \begin{equation}
-                F(u) \ge F(u_{0}) + \langle y, u - u_{0} \rangle \,\,\, \forall u \in X. \label{eq:subgradient}
+                F(u) \ge F(u_{0}) + \langle y, u - u_{0} \rangle \,\,\, \forall u \in X.
+            \label{eq:subgradient}
             \end{equation}
         The set
-            \begin{equation}
+            $$
                 \partial F(u_{0}) = \{ y \in X: \, F(u) \ge F(u_{0}) + \langle y, u - u_{0} \rangle \,\,\, \forall u \in \textnormal{dom}(F) \}
-            \end{equation}
+            $$
         is called subdifferential of $F$ in $u_{0} \in X$ and $\textnormal{dom}(\partial F) = \{ u: \partial F(u) \ne \emptyset \} \subset F$.
 
     \end{definition}
@@ -534,6 +532,7 @@
                     \min\limits_{u \in C} &  \frac{1}{2} ||u - p||_{2}^{2} \\
                     \textnormal{subject to} & ||u||_{p} \le 1.
                 \end{array}
+                \notag
             \end{equation}
         We are looking at the $l_{2}$-Projection (euclidean projection) and the $l_{\infty}$-Projection, where both convex optimization problems have unique solutions, for more information see for instance %\cite{Jitkomut Songsiri}.
         \begin{enumerate}
@@ -546,6 +545,7 @@
                            \frac{p}{||p||_{2}}, & \textnormal{otherwise.}
                         \end{array}
                     \right.
+                    \notag
                 \end{equation}
             Or equivalently one gets $\Pi_{l_{2} \le 1}(u) = \frac{u}{\max(1, |u|)}$.
             \item For the $l_{\infty}$-Projection we observe
@@ -557,6 +557,7 @@
                            1, & \textnormal{otherwise,}
                         \end{array}
                     \right.
+                    \notag
                 \end{equation}
             for $k = 1, ..., n$ or $\Pi_{l_{\infty} \le 1}(u) = \min(1, \max(-1, u))$.
         \end{enumerate}
@@ -567,9 +568,9 @@
     \label{def:moreau_identity}
 
         Let $F \in \Gamma_{0}(X)$ and $F^{\ast}(p) = \sup\limits_{u \in X} \langle u, p \rangle - F(u)$ be its Legendre-Fenchel conjugate. Then
-            \begin{equation}
+            $$
                 M^{\alpha}_{F}(z) + M^{\alpha}_{F^{\ast}}(z) = \frac{1}{2}||z||^{2},
-            \end{equation}
+            $$
         i.e. for each $z \in \mathbb{R}^{n}$ one has
             \begin{equation}
                 \min_{u \in X} \frac{1}{2} ||u - z||^{2} +  \alpha \, F(u) + \min_{p \in X^{\ast}} \frac{1}{2} ||p - z||^{2} +  \alpha \, F^{\ast}(p) = \frac{1}{2}||z||^{2},
@@ -577,12 +578,13 @@
             \end{equation}
         where both minima are uniquely attained. The unique vectors $u$ and $p$ for which the respective minima are attained for a given $z$ are the unique vectors $u$ and $p$ such that
             \begin{equation}
-                z = u + p, \,\,\,\,\, p \in \partial F(u), \label{eq:equivalence_of_moreau_property}
+                z = u + p, \,\,\,\,\, p \in \partial F(u),
+                \label{eq:equivalence_of_moreau_property}
             \end{equation}
         and they are given by
-            \begin{equation}
+            $$
                 u = \textnormal{prox}^{\alpha}_{F}(z), \,\,\,\,\, p = \textnormal{prox}^{\alpha}_{F^{\ast}}(z).
-            \end{equation}
+            $$
     \end{theorem}
     % theorem moreau_identity (end)
 

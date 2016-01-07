@@ -1,12 +1,12 @@
 \section{A First-Order Primal-Dual Algorithm} % (fold)
 \label{sec:a_firs_order_primal_dual_algorithm}
 
-    Our goal is to solve the saddle-point problem \ref{eq:the_saddle_point_problem}. Therefore, one finds in a series of paper the celebrated (fast) first-order Primal-Dual Algorithm. According to \cite{Chambolle-et-al-10} the idea of this method for solving saddle-point problems goes back to Arrow and Hurwicz, see also \cite{Arrow-Hurwicz}. For that reason these primal-dual approaches are sometimes also called Arrow-Hurwicz methods. The first time this algorithm was stated in a framework was probably in \cite{Appleton-Talbot}. The general idea of the proposed algorithm is to do a gradient descent in $u$, since this is the variable of the minimzation problem. And do, simultaneously, a gradient ascent in $p$, because this is the variable of the maximization problem. Choosing time-steps $\sigma, \tau > 0$ one gets
+    Our goal is to solve the saddle-point problem \ref{eq:the_saddle_point_problem}. Therefore, one finds in a series of paper the celebrated (fast) first-order Primal-Dual Algorithm. According to \cite{Chambolle-et-al-10} the idea of this method of solving saddle-point problems in this manner goes back to Arrow and Hurwicz, see also \cite{Arrow-Hurwicz}. For that reason these primal-dual approaches are sometimes also called Arrow-Hurwicz type methods. The first time this algorithm was stated in this framework was probably in \cite{Appleton-Talbot}. The general idea of the proposed algorithm is to do a gradient descent in $u$, since this is the variable of the minimzation problem. And do, simultaneously, a gradient ascent in $p$, because this is the variable of the maximization problem. Choosing time-steps $\sigma, \tau > 0$ one gets
         \begin{eqnarray}
             p^{n+1} = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(p^{n} + \sigma\,Ku^{n}) \notag \\
             u^{n+1} = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(u^{n} - \tau\,K^{\ast}p^{n+1}). \notag
         \end{eqnarray}
-    The algorithm is proposed in a paper of Zhu and Chan in \cite{Zhu-Chan}. Unfortunatelly, there is no proof of convergence for this scheme. This makes the approach poor. But in 2009 Pock, Cremers, Bischof and Chambolle proposed a paper, that we also consider in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}, whose contribution was a provable extension of the above scheme. The idea here was to add an additional extrapolation step to the algorithm, as seen in line three of the primal-dual algorithm. In \cite{Chambolle10afirst-order} Pock and Chambolle generalized this algorithm. They also proposed some variations of the algorithm itself. Depending on the properties of the corresponding functions $F^{\ast}$ and $G$ one can derive a better convergence rate. We will not provide details and just make use of two algorithms. In Chapter \ref{cha:applications_to_imaging}, we apply the two versions to different problems in imaging. Further, we will not provide a proof of convergence for these algorithms. For details we refer to \cite{Chambolle10afirst-order} and \cite{Pock-et-al-iccv09}. Then the general fast primal-dual algorithm is as follows
+    The scheme above was first proposed in a paper of Zhu and Chan in \cite{Zhu-Chan}. Unfortunatelly, there is no proof of convergence for this scheme. This makes the approach poor. But in 2009 Pock, Cremers, Bischof and Chambolle published a paper, that we also consider in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}, whose contribution was a provable extension of the above scheme. The idea here was to add an additional extrapolation step to the algorithm, as seen in line three of the primal-dual algorithm \ref{eq:fast_primal_dual_algorithm}. In \cite{Chambolle10afirst-order} Pock and Chambolle generalized this algorithm. They also proposed some variations of the algorithm itself. Depending on the properties of the corresponding functions $F^{\ast}$ and $G$ one can derive a better convergence rate. We will not provide details and only make use of two of the proposed algorithms. In Chapter \ref{cha:applications_to_imaging} we apply the two versions to different problems in imaging. Further, we will not provide a proof of convergence for these algorithms. For details we refer to \cite{Chambolle10afirst-order} and \cite{Pock-et-al-iccv09}. The general fast primal-dual algorithm is as follows
 
     \begin{algorithm}[First-Order Primal-Dual Algorithm]
     \label{alg:fast_primal_dual_algorithm}
@@ -23,7 +23,9 @@
             \end{equation}
     \end{algorithm}
 
-    Additionally, let us introduce the primal-dual gap, which is strongly related to the weak and strong duality theorems (found for instance in \cite{Geiger-Kanzow}. The primal-dual gap will be a part of the convergences theorem \ref{the:primal_dual_convergence}.
+    These three lines of pseudo code give us a powerful tool. Computing $p^{n} + \sigma\,K\bar{u}^{n}$, respectively, $u^{n} - \tau\,K^{\ast}p^{n+1}$ is easy, since these two are sums of vectors. The last line of this scheme is again the summation of vectors. In the next section we introduce the notation for $K$ and $K^{\ast}$. We will see that, computing the linear operator applied to $u$ and $p$, is again a simple task. Computing the proximity operators in line one and two of the algorithm needs further work and varies within each model. We will compute the proximity operators for each model explicitly in the corresponding sections.
+
+    Additionally, let us introduce the primal-dual gap, which is strongly related to the weak and strong duality theorems (found for instance in \cite{Geiger-Kanzow}. The primal-dual gap will be a part of the convergence theorem \ref{the:primal_dual_convergence}.
     \begin{definition}[Primal-Dual Gap] % (fold)
     \label{def:primal_dual_gap}
 
@@ -34,10 +36,9 @@
                 \label{eq:primal_dual_gap}
             \end{equation}
         which has the property that $\mathcal{G}(u, p) \ge 0$ for all $u, p$ and equality only holds if and only if $(u, p)$ is a saddle-point. If $\hat{p}$ is a solution of the maximization problem and $\hat{u}$ a solution of the minimization problem the following inequality holds:
-            \begin{equation}
+            $$
                 \mathcal{G}(u, p) \ge \langle \hat{p}, Ku \rangle - F^{\ast}(\hat{p}) + G(u) - \langle p, K\hat{u} \rangle - F^{\ast}(p) + G(\hat{u}) \ge 0
-                \label{eq:primal_dual_gap}
-            \end{equation}
+            $$
     \end{definition}
     % definition primal_dual_gap (end)
 
@@ -66,10 +67,12 @@
     \end{theorem}
 
     \begin{remark}
-        What this theorem states is, that one needs to choose $\tau, \sigma$ carefully by initializing the algorithm. As long as the inequality $\tau\sigma L^{2} < 1$ holds, convergence is guaranteed. The two parameters $\tau, \sigma$ are also sometimes called time-steps. The better the choice for these beforhand, the faster the algorithm converges. Of course, it is not the best way having an algorithm which is dependent on manual choices, but on the other hand two parameter are highly controllable and one gets fast convergence. Other methods are almost as fast as the primal-dual algorithm, but depend on a couple of parameters, or they are independent of parameter choices and have a slow convergence rate.
+        What this theorem states is, that one needs to choose $\tau, \sigma$ carefully by initializing the algorithm. As long as the inequality $\tau\sigma L^{2} < 1$ holds, convergence is guaranteed. The two parameters $\tau, \sigma$ are also sometimes called time-steps. The better the choice for these beforhand, the faster the algorithm converges. Unfortunatelly, the two time-step parameters also depend on the choice of the parameters of the underlying model, c.f. \ref{cha:applications_to_imaging}. Estimating the best time-steps is ongoing research. A first approach was a preconditioning scheme, published in \cite{Pock2011}. Of course, it is not best practice having an algorithm which is dependent on manually choosen parameters, which further depend on other parameters. But, on the other hand, two parameter are highly controllable, with respect to the fact that $\sigma$ can be computed from $\tau$ with $\sigma = \frac{1}{\tau * L^{2}}$. Other methods are almost as fast as the primal-dual algorithm, but depend on a couple of parameters, or they are independent of parameter choices and have a slow convergence rate.
     \end{remark}
 
-    As mentioned, sometimes this method for solving saddle-point problems is also called Arrow-Hurwicz methods. To derive their original algorithm one would need to choose $\theta = 0$. We will not consider this case in our computations. The convergence rate for the primal-dual algorithm is $\mathcal{O}(\frac{1}{N})$. In the case that one function, $F^{\ast}$ or $G$, is uniformly convex one gets:
+    As mentioned, the proposed algorithm goes probably back to Arrow-Hurwicz. To derive their original algorithm one would only need to choose $\theta = 0$. Then the last line of algorithm \ref{alg:fast_primal_dual_algorithm} becomes $\bar{u}^{n+1} = u^{n}$. And for that, one can drop $\bar{u}$ and derive the Arrow-Hurwicz method. We state this for the sake of completeness but will not consider this case in our computations.
+
+    The convergence rate for our primal-dual algorithm is $\mathcal{O}(\frac{1}{N})$. In the case that one function, $F^{\ast}$ or $G$, is uniformly convex one gets:
 
     \begin{algorithm}[$F^{\ast}$ or $G$ are uniformly convex]
     \label{alg:f_star_or_g_uniformly_convex}
@@ -87,9 +90,9 @@
             \end{equation}
     \end{algorithm}
 
-    This leads to a convergence rate of $\mathcal{O}(\frac{1}{N})$. Once parallelized, these algorithms will run in real-time. Fortunatelly, both are highly parallelizable on a GPU using the CUDA framework. In Chapter \ref{cha:applications_to_imaging} we provide in-depth details of this.
+    This leads to a convergence rate of $\mathcal{O}(\frac{1}{N^{2}})$. These two types of convergence rates are called sublinear convergence. Fortunatelly, both primal-dual algorithm versions are highly parallelizable on a GPU using the CUDA framework. In Chapter \ref{cha:applications_to_imaging} we provide in-depth details of this.
 
-    The computations in each line are straightforward. One has to compute sums of vectors and scaled vectors. Since, we will set $K = \nabla$ and for that its conjugate is $-\textnormal{div}$ or equivalently $- \nabla^{T}$, calculating the operator is also easy. The main work needs to be done to find the proximity operators for $G$ and $F^{\ast}$, respectively. They vary within different models. For that, we need to find these operators for each and every model.
+    % The computations in each line are straightforward. One has to compute sums of vectors and scaled vectors. Since, we will set $K = \nabla$ and for that its conjugate is $-\textnormal{div}$ or equivalently $- \nabla^{T}$, calculating the operator is also easy. The main work needs to be done to find the proximity operators for $G$ and $F^{\ast}$, respectively. They vary within different models. For that, we need to find these operators for each and every model.
 
     % \begin{algorithm}[$F^{\ast}$ and $G$ are uniformly convex]
     % \label{alg:f_star_and_g_uniformly_convex}
