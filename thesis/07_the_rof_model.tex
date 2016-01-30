@@ -8,18 +8,18 @@ An example model to efficiently remove Gaussian noise from an input image $g$ wo
     $$
         \textnormal{Model} = \textnormal{Data Fidelity Term} + \textnormal{Regularizer Term}.
     $$
-The data fidelity term assures that the approximation $u$ is as close to the input image $g$ as possible. For instance, one can set $G(u) = \frac{1}{2} ||u - g||_{2}^{2}$ having the quadratic, euclidean distance as the data fidelity term. As a quadratic norm function this term is convex. For the regularizer we use convex terms, which are easy to handle, but also highly non-convex regularizers, like in the Mumford-Shah Functional, discussed in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}.
+The data fidelity term assures that the approximation $u$ is as close to the input image $g$ as possible. For instance, we set $G(u) = \frac{1}{2} ||u - g||_{2}^{2}$ having the quadratic, euclidean distance as the data fidelity term. As a quadratic norm function this term is convex. For the regularizer we use convex terms, which are easy to handle, but also highly non-convex regularizers, like in the Mumford-Shah Functional, discussed in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}.
 
 \section{The ROF Model} % (fold)
 \label{sec:the_rof_model}
     
-    The first model we consider in this thesis is the ROF Model, named after Leonid I. Rudin, Stanley Osher and Emad Fatemi. They first proposed this model in 1992 in \cite{ROF}. It is the prototype when talking about variational methods in image processing. For this we first define two important norms. We define the discrete isotropic total variation norm by
+    The first model we consider in this thesis is the ROF Model, named after Leonid I. Rudin, Stanley Osher and Emad Fatemi. They first proposed this model in 1992 in \cite{ROF}. It is the prototype when talking about variational methods in image processing. Before we define this model in details, we define two important norms. The discrete isotropic total variation norm is given by
         \begin{equation}
-            ||\nabla \, u||_{1} = \sum_{i = 1}^{N} \sum_{j = 1}^{M} |(\nabla \, u)_{i, j}|, \,\,\, \textnormal{where} \,\,\, |(\nabla \, u)_{i, j}| = \sqrt{((\nabla \, u)^{1}_{i, j})^{2} + ((\nabla \, u)_{i, j})^{2}}.
+            ||\nabla \, u||_{1} = \sum_{i = 1}^{N} \sum_{j = 1}^{M} |(\nabla \, u)_{i, j}|, \,\,\, \textnormal{where} \,\,\, |(\nabla \, u)_{i, j}| = \sqrt{((\nabla \, u)^{1}_{i, j})^{2} + ((\nabla \, u)^{2}_{i, j})^{2}}.
         \label{eq:isotropic_total_variation_norm}
         \end{equation}
 
-    Additionally, we define the discrete maximum (or $l_{\infty}$) norm by
+    Additionally, we define the discrete maximum norm by
         \begin{equation}
             ||p||_{\infty} = \max_{i, j} |p_{i, j}|, \,\,\, \textnormal{where} \,\,\, |p_{i, j}| = \sqrt{(p^{1}_{i, j})^{2} + (p^{2}_{i, j})^{2}}.
         \end{equation}
@@ -27,16 +27,17 @@ The data fidelity term assures that the approximation $u$ is as close to the inp
     \begin{definition}[ROF Model] % (fold)
     \label{def:the_rof_model}
 
-        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the ROF model is defined as the variational problem
+        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ an (noisy) input image. Then the ROF model is defined as the minimization problem
             \begin{equation}
-                \min_{u} E_{ROF}(u) = \min_{u} \textnormal{TV}(u) + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx = \min_{u \in X} \int_{\Omega} |\nabla \, u| \, dx + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx.
+                \min_{u} E_{ROF}(u) = \min_{u} \textnormal{TV}(u) + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx = \min_{u} \int_{\Omega} |\nabla \, u| \, dx + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx,
                 \label{eq:the_rof_model}
             \end{equation}
 
     \end{definition}
     % definition the_rof_model (end)
 
-    The appearing parameter $\lambda$ is used to model the tradeoff between the regularizer, namely the total variation, and the data fidelity term. Using a larger value for $\lambda$ one gets an approximation $u$ which is closer to the input image $g$. If we choose $\lambda$ to be small, then the weighting of the regularizer is higher and for that the approximation $u$ is smoother and sharper edges are favored. Sometimes, this model is also called the TVL2 Model. The name is a compound of the regularizer, the total variation (TV) and the norm for the data fidelity term, the $L_{2}$ norm.
+    The appearing parameter $\lambda$ is used to handle the tradeoff between the regularizer, namely the total variation, and the data fidelity term. Using a larger value for $\lambda$ one gets an approximation $u$, which is closer to the input image $g$. If we choose $\lambda$ to be small, then the weighting of the regularizer is higher and for that the approximation $u$ is smoother.
+    %and sharper edges are favored. Sometimes, this model is also called the TVL2 Model. The name is a compound of the regularizer, the total variation (TV) and the norm for the data fidelity term, the $L_{2}$ norm.
 
     Reformulation of Equation \ref{eq:the_rof_model} into a discrete setting leads us to:
         \begin{equation}
@@ -53,12 +54,12 @@ The data fidelity term assures that the approximation $u$ is as close to the inp
     \subsection{ROF Model as Saddle-Point Problem} % (fold)
     \label{sub:rof_model_as_saddle_point_problem}
 
-        Let us now rewrite the minimization problem in Equation \ref{eq:discrete_rof_model} to derive the saddle-point formulation from Section \ref{sec:the_general_saddle_point_problem}. For that we set $F(\nabla u) = ||\nabla \, u||_{1}$ and $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$. Hence, we are facing the following optimization problem
+        Let us now rewrite the minimization problem in Equation \ref{eq:discrete_rof_model} to derive a saddle-point formulation. For that, we set $F(\nabla u) = ||\nabla \, u||_{1}$ and $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$. Hence, we are facing the following optimization problem
             \begin{equation}
                 \min_{u \in X}\,\, F(\nabla u) + G(u) = \min_{u \in X}\,\, ||\nabla \, u||_{1} + \frac{\lambda}{2} ||u - g||_{2}^{2}.
             \label{eq:primal_rof_problem}
             \end{equation}
-        Using the Legendre-Fenchel conjugate for $F$, one has $F(\nabla u) = \sup\limits_{p \in Y} \langle p, \nabla \, u \rangle_{Y} - F^{\ast}(p)$, and we observe the saddle-point problem
+        Applying the Legendre-Fenchel conjugate, one has $F^{\ast\ast}(\nabla u) = F(\nabla u) = \sup\limits_{p \in Y} \langle p, \nabla \, u \rangle_{Y} - F^{\ast}(p)$, and we observe the saddle-point problem
             \begin{equation}
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle_{X} - F^{\ast}(p) + G(u) = \min_{u \in X}\, \max_{p \in Y}\,\, -\langle \nabla^{T}\,p, u \rangle_{X} - F^{\ast}(p) + G(u).
             \end{equation}
@@ -76,56 +77,70 @@ The data fidelity term assures that the approximation $u$ is as close to the inp
                 P = \big\{ p \in Y : ||p||_{\infty} \le 1 \big\}.
                 \label{eq:the_set_P}
             \end{equation}
-        Using this notation in the saddle-point problem gives us
+        Using this notation in the saddle-point problem leads us to
             \begin{equation}
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla\, u \rangle_{Y} + \frac{\lambda}{2} ||u - g||_{2}^{2} - \delta_{P}(p).
             \label{eq:primal_dual_rof_problem}
             \end{equation}
-        We also want to propose the dual formluation of equation \ref{eq:primal_dual_rof_problem}. For that, we need to compute $G^{\ast}$. By Example \ref{ex:legendre_fenchel_conjugate_example} 3. the conjugate of the function $G$ is given by $G^{\ast}(p) = \frac{\lambda}{2}||p - g||_{2}^{2}$ since the conjugate of the euclidean norm is itself the euclidean norm. Plugging $F^{\ast}$ and $G^{\ast}$, respectively, into equation \ref{eq:dual_problem} and setting $K^{\ast} = \nabla^{T}$ we get
+        We also want to propose the dual formluation of equation \ref{eq:primal_dual_rof_problem}. For that, we need to compute $G^{\ast}$. \\
+        Setting $v = u - g$, which is equivalent to $u = v + g$. Further,
             \begin{eqnarray}
-                \max_{p \in Y}\,\, -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) &=& \max_{p \in Y} -\bigg( \frac{\lambda}{2}||-\nabla^{T}p - g||_{2}^{2} + \delta_{P}(p) \bigg) \notag \\
-                &=& \max_{p \in Y} -\bigg( \frac{\lambda}{2}||\nabla^{T}p + g||_{2}^{2} + \delta_{P}(p) \bigg)
-            \label{eq:dual_rof_problem}
+                G^{\ast}(p) &=& \sup_{u \in X} \langle u, p \rangle - \frac{\lambda}{2} ||u - g||_{2}^{2} \notag \\
+                &=& \sup_{v \in X} \langle v + g, p \rangle - \frac{\lambda}{2} ||v||_{2}^{2} \notag \\
+                &=& \underbrace{\sup_{v \in X} \langle v, p \rangle - \frac{\lambda}{2} ||v||_{2}^{2}}_{= \frac{1}{2\lambda} ||p||_{2}^{2} (\ast)} + \langle g, p \rangle \notag \\
+                &=& \frac{1}{2\lambda} ||p||_{2}^{2} + \langle g, p \rangle. \notag
             \end{eqnarray}
-        which is the dual of the ROF model. In \cite{Chambolle10afirst-order} one finds another notation for the dual ROF model, namely
-            $$
-                \max_{p \in Y} - \bigg( \frac{1}{2\lambda} ||\nabla^{T}p||^{2}_{2} + \langle g, \nabla^{T}p \rangle_{X} + \delta_{P}(p) \bigg).
-            $$
-        This is equivalent to our formulation. First note that the parameter $\lambda$ in Equation \ref{eq:primal_rof_problem} can be swapped from the data fidelity term to the regularizer with $\frac{1}{\lambda}$. This has no effect on the energy. Computing $||\nabla^{T}p + g||_{2}^{2} = ||\nabla^{T}p||_{2}^{2} + ||g||_{2}^{2} + 2 \langle \nabla^{T}p, g \rangle$, gives us the first two terms of the above notation. The constant factor two vanishes by multiplying the objective function with $\frac{1}{2}$. And the term $||g||_{2}^{2}$ as a constant factor can be neglected, since it only shifts the energy. Then we derive the same notations as found in \cite{Chambolle10afirst-order}.
+        In $(\ast)$ we used example \ref{ex:legendre_fenchel_conjugate_example} 2. and 4.
+        % By Example \ref{ex:legendre_fenchel_conjugate_example} 3. the conjugate of the function $G$ is given by $G^{\ast}(p) = \frac{\lambda}{2}||p - g||_{2}^{2}$ since the conjugate of the euclidean norm is itself the euclidean norm.
+        Plugging $F^{\ast}$ and $G^{\ast}$, respectively, into equation \ref{eq:dual_problem} and setting $K^{\ast} = -\nabla^{T}$ we get
+            \begin{equation}
+                \max_{p \in Y}\,\, -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) = \max_{p \in Y} - \bigg( \frac{1}{2\lambda} ||\nabla^{T}p||^{2}_{2} + \langle g, \nabla^{T}p \rangle_{X} + \delta_{P}(p) \bigg).
+                % &=& \max_{p \in Y} -\bigg( \frac{\lambda}{2}||\nabla^{T}p + g||_{2}^{2} + \delta_{P}(p) \bigg)
+            \label{eq:dual_rof_problem}
+            \end{equation}
+        which is the dual of the ROF model.
+        %In \cite{Chambolle10afirst-order} one finds another notation for the dual ROF model, namely
+        %     $$
+        %         \max_{p \in Y} - \bigg( \frac{1}{2\lambda} ||\nabla^{T}p||^{2}_{2} + \langle g, \nabla^{T}p \rangle_{X} + \delta_{P}(p) \bigg).
+        %     $$
+        % This is equivalent to our formulation. First note that the parameter $\lambda$ in Equation \ref{eq:primal_rof_problem} can be swapped from the data fidelity term to the regularizer with $\frac{1}{\lambda}$. This has no effect on the energy. Computing $||\nabla^{T}p + g||_{2}^{2} = ||\nabla^{T}p||_{2}^{2} + ||g||_{2}^{2} + 2 \langle \nabla^{T}p, g \rangle$, gives us the first two terms of the above notation. The constant factor two vanishes by multiplying the objective function with $\frac{1}{2}$. And the term $||g||_{2}^{2}$ as a constant factor can be neglected, since it only shifts the energy. Then we derive the same notations as found in \cite{Chambolle10afirst-order}.
 
         % subsection rof_model_as_saddle_point_problem (end)
 
     \subsection{The Proximity Operators of the ROF Model} % (fold)
     \label{sub:the_proximity_operators_for_the_rof_model}
 
-        In Algorithm \ref{alg:fast_primal_dual_algorithm} we saw, how such saddle-point problems can be solved efficiently. In two of the three steps in this scheme we needed to calculate the proximity operators $(\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}$ and $(\textnormal{Id} + \tau\,\partial\,G)^{-1})$, respectively. Within the ROF Model ones has $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$ and $F^{\ast}(p) = \delta_{P}(p)$. Applying Equation \ref{eq:proximity_operator} to $F^{\ast}$ we get
+        In Algorithm \ref{alg:fast_primal_dual_algorithm} we saw, how saddle-point problems can be solved efficiently. In two of the three steps in this scheme we needed to calculate the proximity operators $(\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}$ and $(\textnormal{Id} + \tau\,\partial\,G)^{-1})$. Within the ROF Model one has $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$ and $F^{\ast}(p) = \delta_{P}(p)$. Applying Equation \ref{eq:proximity_operator} to $F^{\ast}$ we get
             $$
-                (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \min_{p \in P} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma\,\delta_{P}(p) = \min_{p \in P} \frac{||p - \tilde{p}||_{2}^{2}}{2}.
+                (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \arg \min_{p \in P} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma\,\delta_{P}(p) = \arg \min_{p \in P} \frac{||p - \tilde{p}||_{2}^{2}}{2}.
             $$
         This is nothing but the euclidean projection of a vector $\tilde{p} \notin P$ onto the convex set $P$. From Example \ref{ex:projection_operator} 1. we have
             \begin{equation}
-                p = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \Pi_{P}(\tilde{p}) \Longleftrightarrow p_{i,j} \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},
+                p = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \Pi_{P}(\tilde{p}) \Longleftrightarrow p_{i,j} = \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},
             \label{eq:proximity_operator_f_star_rof}
             \end{equation}
-        for all $i = 1, ..., N, j = 1, ..., M$ pointwise. This projection can easily be implemented. So, it only remains to compute the proximity operator for our function $G$. Here, we get
+        pointwise for all $i = 1, ..., N, j = 1, ..., M$. So, it only remains to compute the proximity operator for our function $G$. Here, we get
             $$
-                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \frac{\tau\lambda}{2} ||u - g||_{2}^{2} = \min_{u \in X} \mathcal{L}(u)
+                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \arg \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \frac{\tau\lambda}{2} ||u - g||_{2}^{2} = \arg \min_{u \in X} \mathcal{L}(u).
             $$
-        where $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \frac{\tau\lambda}{2} ||u - g||_{2}^{2}$. Then this minimization problem is equivalent to compute $\nabla\mathcal{L}(u) = 0$. It follows
+        Since this minimization problem is convex, a local minimizer is also a global minimizer of this problem. So, let $\hat{u} \in \arg \min\limits_{u \in X} \mathcal{L}(u)$. With proposition \ref{prop:zero_element_of_subgradient} we have
+        % where $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \frac{\tau\lambda}{2} ||u - g||_{2}^{2}$. Then this minimization problem is equivalent to compute $\nabla\mathcal{L}(u) = 0$. It follows
             $$
-                \nabla\mathcal{L}(u) = (u - \tilde{u}) + \tau\lambda (u - g) = 0 \Longleftrightarrow (1 + \tau\lambda)u = \tilde{u} + \tau\lambda g \Longleftrightarrow u = \frac{\tilde{u} + \tau\lambda g}{1 + \tau\lambda}.
+                0 \in \partial \mathcal{L}(\hat{u}) \Longleftrightarrow 0 \in (\hat{u} - \tilde{u}) + \tau\lambda (\hat{u} - g) \Longleftrightarrow (1 + \tau\lambda)\hat{u} = \tilde{u} + \tau\lambda g,
             $$
+        and this implies $\hat{u} = \frac{\tilde{u} + \tau\lambda g}{1 + \tau\lambda}$.
+
 
         Overall, the following equivalence holds
         % We have for all $i = 1, ..., N$ and $j = 1, ..., M$ pointwise
             \begin{equation}
-                u = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = u \Longleftrightarrow u_{i,j} = \frac{\tilde{u}_{i,j} + \tau\lambda g}{1 + \tau\sigma}
+                u = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) \Longleftrightarrow u_{i,j} = \frac{\tilde{u}_{i,j} + \tau\lambda g}{1 + \tau\sigma}
             \label{eq:proximity_operator_g_rof}
             \end{equation}
 
         for all $i = 1, ..., N$ and $j = 1, ..., M$ pointwise.
 
-        As mentioned in section \ref{sec:discrete_setting}, each model has its proximity operators. Now, that we computed the versions for the ROF model, everything is set up and one can implement the primal-dual algorithm. We make use of the first one from equation \ref{eq:fast_primal_dual_algorithm}. Since the proximity operators of the ROF model have a very simple representation, all computations in the algorithm are highly parallelizable. We will discuss the implementation issues in chapter \ref{cha:applications_to_imaging}.
+        As mentioned in section \ref{sec:discrete_setting}, each model has its proximity operators. Now, that we computed the versions for the ROF model, everything is set up and one can implement the primal-dual algorithm. Since the proximity operators of the ROF model have a very simple representation, all computations in the algorithm are highly parallelizable. We will discuss the implementation issues in chapter \ref{cha:applications_to_imaging}.
         % subsection the_proximity_operators_for_the_rof_model (end)
 
     % Now, that everything is defined and set perfectly one can implement the ROF model. This algorithm is massively parallelizable. We used in our framework C++ and CUDA respectively. We will discuss implementation issues and applications of the ROF Model in detail in Chapter \ref{cha:applications_to_imaging}.

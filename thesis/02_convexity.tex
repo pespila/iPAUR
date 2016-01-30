@@ -1,7 +1,7 @@
 \section{Convex Optimization and Convex Analysis} % (fold)
 \label{sec:convex_optimization_and_convex_analysis}
 
-    In this section we cover a few topics which are related to convex analysis. Since we are considering (convex) optimization problems in this work we first want to define a convex program where we mainly follow \cite{Boyd}, whereas convex sets and convex functions are the basis of convex optimization.
+    In this section we cover a few topics which are related to convex analysis. Since we are considering (convex) optimization problems, we first define a convex program where we mainly follow \cite{Boyd}.
 
     An optimization problem is of the form
         \begin{equation}
@@ -10,7 +10,7 @@
                 \textnormal{subject to} & G_{i}(u) \le 0, & i = 1, ..., m \\
                 & H_{j}(u) = 0 & j = 1, ..., p,
             \end{array}
-            \label{eq:optimization_problem}
+            \label{eq:optimization_problem_original}
         \end{equation}
     where
         \begin{itemize}
@@ -21,18 +21,18 @@
             \item $G_{i}: \mathbb{R}^{n} \longrightarrow \mathbb{R}$ for all $i = 1, ..., m$ the \textit{inequality constraint functions} and
             \item $H_{j}(u) = 0$ for all $j = 1, ..., p$ the \textit{equality constraint functions}.
         \end{itemize}
-    If we have no constraints, meaning $m = p = 0$, we say the problem \ref{eq:optimization_problem} is \textit{unconstrained}. It is called convex if all, the objectiv, equality and inequality functions, are convex.\\
-    Further, we define the domain of the optimization problem \ref{eq:optimization_problem} by
+    If we have no constraints, meaning $m = p = 0$, we say the system \ref{eq:optimization_problem_original} is \textit{unconstrained}. It is called convex if all, the objectiv, equality and inequality functions, are convex.\\
+    Further, we define the domain of the optimization problem \ref{eq:optimization_problem_original} by
         \begin{equation}
             \mathcal{D} = \textnormal{dom}(F) \cap \bigcap_{i = 1}^{m} \textnormal{dom}(G_{i}) \cap \bigcap_{j = 1}^{p} \textnormal{dom}(H_{j}).
             \label{eq:domain_of_optimization_problem}
         \end{equation}
-    This set is the set of points for which the objective and all constraint functions are defined. We call a point $u \in \mathcal{D}$ \textit{feasible} if it satisfies all constraints. The optimization problem \ref{eq:optimization_problem} is said to be feasible if there exists at least one feasible point, and \textit{infeasible} otherwise. We call the set of all feasible points the \textit{feasible set} or alternatively the \textit{constraint set}.\\
-    We define the optimal value $u^{\ast}$ of the problem \ref{eq:optimization_problem} by
+    This set is the set of points for which the objective and all constraint functions are defined. We call a point $u \in \mathcal{D}$ \textit{feasible} if it satisfies all constraints. The optimization problem \ref{eq:optimization_problem_original} is said to be feasible if there exists at least one feasible point, and \textit{infeasible} otherwise. We call the set of all feasible points the \textit{feasible set} or alternatively the \textit{constraint set}.\\
+    We define the optimal value $u^{\ast}$ of the system \ref{eq:optimization_problem_original} by
         $$
             u^{\ast} = \inf \big\{ F(u) : G_{i}(u) \le 0, i = 1, ..., m, H_{j}(u) = 0, j = 1, ..., p \big\},
         $$
-    where we allow $u^{\ast}$ to take on the extended values $\pm \infty$. We set $u^{\ast} = \infty$ if the problem is infeasible, since $\inf(\emptyset) = \infty$. If there are feasible points $u_{k}$ with $F(u_{k}) \longrightarrow -\infty$ as $k \longrightarrow \infty$, then $u^{\ast} = -\infty$, and we say that problem \ref{eq:optimization_problem} is \textit{unbounded below}.\\
+    where we allow $u^{\ast}$ to take on the extended values $\pm \infty$. We set $u^{\ast} = \infty$ if the problem is infeasible, since $\inf(\emptyset) = \infty$. If there are feasible points $u_{k}$ with $F(u_{k}) \longrightarrow -\infty$ as $k \longrightarrow \infty$, then $u^{\ast} = -\infty$, and we say that problem \ref{eq:optimization_problem_original} is \textit{unbounded below}.\\
 
     Since, convex optimization is based on convex functions we need to define these class of functions and its properties. We set $X \subseteq \mathbb{R}^{n}$ and its dual space $X^{\ast} = Y$. According to \cite{Chambolle-et-al-10} and \cite{Rockafellar} we have the following basic definitions, propositions and theorems.
 
@@ -54,7 +54,7 @@
     \end{definition}
     % definition convex_set (end)
 
-    This definition ensures that if $C$ is convex, we can always find two arbitrary points in $C$ such that the line segment $[u_{1}, u_{2}]$ with end points $u_{1}, u_{2}$ lies fully in $C$ (see Figure \ref{fig:convex_and_non_convex_sets}).
+    This definition ensures that if $C$ is convex, we can always find two arbitrary points in $C$, such that the line segment $[u_{1}, u_{2}]$ with end points $u_{1}, u_{2}$ lies fully in $C$ (see figure \ref{fig:convex_and_non_convex_sets}).
     \begin{figure}[ht]
         \centering
         \begin{subfigure}[b]{0.3\textwidth}
@@ -93,34 +93,34 @@
             \label{eq:support_function}
             \end{equation}
         where we allow $S_{C}(u)$ to be $+\infty$.
-
+ 
     \end{definition}
     % definition indicator_function (end)
 
     \begin{definition}[Convex Function, Proper, Lower-Semicontinuouity] % (fold)
     \label{def:convex_function_proper_lower_semicontinuous}
 
-        A function $F: X \longrightarrow \mathbb{R}_{\infty}$ is said to be
+        Let $C \in \mathbb{R}^{n}$ be a convex set. A function $F: C \longrightarrow \mathbb{R}_{\infty}$ is said to be
             \begin{itemize}
                 \item convex if for all $u_{1}, u_{2} \in C$ and any $t \in [0, 1]$ the inequality
                 \begin{equation}
                     F(u_{1}t + u_{2}(1 - t)) \le F(u_{1})t + F(u_{2})(1 - t)
                     \label{eq:convex_function}
                 \end{equation}
-                is satisfied. $F$ is called strictly convex, if the inequality \ref{eq:convex_function} holds strictly whenever $u_{1}, u_{2}$ are distinct points and $t \in (0, 1)$.
+                is satisfied. $F$ is called strictly convex, if the inequality \ref{eq:convex_function} holds strictly, whenever $u_{1}, u_{2}$ are distinct points and $t \in (0, 1)$.
                 \item proper if $F$ is not identically $-\infty$ or $+\infty$.
-                \item lower-semicontinuous (l.s.c) if for any $u \in X$ and a sequence $(u_{n})$ converging to $u$,
+                \item lower-semicontinuous (l.s.c) if for any $u \in C$ and a sequence $(u_{n})$ converging to $u$,
                     \begin{equation}
                         F(u) \le \liminf_{n \rightarrow \infty} F(u_{n}).
                         \label{eq:lower_semicontinuous}
                     \end{equation}
             \end{itemize}
-        We define $\Gamma_{0}(X)$ as the set of all convex, proper, l.s.c. functions on $X$.
+        We define $\Gamma_{0}(C)$ as the set of all convex, proper, l.s.c. functions on $C$.
 
     \end{definition}
     % definition convex_function_proper_lower_semicontinuous (end)
 
-    A common example for a strictly convex function would be a quadratic function (see Example \ref{ex:convex_function}). In Figure \ref{fig:convex_function} (a) this is also illustrated, together with the plot in (b) of the function
+    A common example for a strictly convex function would be a quadratic function, c.f. example \ref{ex:convex_function} and figure \ref{fig:convex_function} (a). It is illustrated, together with the plot in (b) of the function
         \begin{equation}
             F(u) =
                 \begin{dcases*}
@@ -139,21 +139,21 @@
     % proposition (end)
 
     \begin{proof} % (fold)
-        This can easily be verified. Define $H(u) = F(u) + G(u)$ with $F, G$ convex and choose $u_{1}, u_{2} \in X$ and $t \in [0, 1]$, then we obtain
+        Define $H(u) = F(u) + G(u)$ with $F, G$ convex and choose $u_{1}, u_{2} \in X$ and $t \in [0, 1]$, then we obtain
         \begin{eqnarray}
             H(u_{1}t + u_{2}(1 - t)) &=& F(u_{1}t + u_{2}(1 - t)) + G(u_{1}t + u_{2}(1 - t)) \notag \\ 
             &\le& F(u_{1})t + F(u_{2})(1 - t) + G(u_{1})t + G(u_{2})(1 - t) \notag \\
             &=& \underbrace{F(u_{1})t + G(u_{1})t}_{= H(u_{1})t} + \underbrace{F(u_{2})(1 - t) + G(u_{2})(1 - t)}_{H(u_{2})(1 - t)} \notag \\
             &=& H(u_{1})t + H(u_{2})(1 - t), \notag
         \end{eqnarray}
-        which shows that $H$ is convex.\qed
+        where we used the convexity of $F$ and $G$. This shows that $H$ is convex.\qed
     \end{proof}
     % proof (end)
 
     \begin{remark}[Concave Function] % (fold)
         \label{rem:concave_function}
 
-        Let $F$ be as in Definition \ref{def:convex_function_proper_lower_semicontinuous}. If $-F$ is (strictly) convex, then we say that $F$ is (strictly) concave. If $F$ is both convex and concave we say that $F$ is affine, i.e. equality holds in Equation \ref{eq:convex_function}.
+        If $-F$ is (strictly) convex, then we say that $F$ is (strictly) concave. If $F$ is both convex and concave we say that $F$ is affine, i.e. equality holds in Equation \ref{eq:convex_function}.
 
     \end{remark}
     % remark concave_function (end)
@@ -181,7 +181,7 @@
         \end{tikzpicture}
         \caption{A l.s.c. function.}
         \end{subfigure}
-        \caption{(a) shows one line segment above a convex (quadratic) function which lies completely in $\textnormal{epi}(F)$. (b) is the l.s.c. function of Equation \ref{eq:lsc_example}. The left part of the function accesses the value at $(1, 1)$, but the right one does not.}
+        \caption{(a) shows one line segment above a convex (quadratic) function which lies completely in $\textnormal{epi}(F)$. (b) The l.s.c. function of Equation \ref{eq:lsc_example}. The left part of the function accesses the value at $(1, 1)$, but the right one does not.}
         \label{fig:convex_function}
     \end{figure}
 
@@ -198,12 +198,23 @@
                     by definition of linearity.\qed
                 \end{proof}
                 % proof (end)
-            \item Let $A \in \mathbb{R}^{n \times n}$ be a real, symmetric, positiv definite matrix and $F: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{n}$ a linear function with $F(u) = \frac{1}{2}u^{T}Au + b^{T}u + c$. Then $F$ is strictly convex. To show this, we make use of a fundamental result of the calculus class. Since, if $\mathcal{H}\big(F(u)\big) > 0$ then the function $F$ is strictly convex. Here $\mathcal{H}$ stands for the Hessian of the function $F$. We have
-                $$
-                    \mathcal{H}\big(F(u)\big) = A > 0
-                $$
-            by definition of $A$ being symmetric, positiv definite.
-            \item This example will later be useful: Each norm $||\cdot||: X \longrightarrow \mathbb{R}$ on a normed vector space $X$ is convex (see also Figure \ref{def:convex_function_proper_lower_semicontinuous} for the $l_{1}$ and $l_{2}$ norms).
+            \item Let $A \in \mathbb{R}^{n \times n}$ be a real, symmetric, positiv definite matrix and $F: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{n}$ a linear function with $F(u) = \frac{1}{2}u^{T}Au + b^{T}u + c$. Then $F$ is strictly convex. So, for $t \in [0, 1]$ we get
+
+                \begin{eqnarray}
+                    F(u_{1}t + u_{2}(t-1)) &=& \frac{1}{2} (u_{1}t + u_{2}(t-1))^{T} A (u_{1}t + u_{2}(t-1)) + b^{T} (u_{1}t + u_{2}(t-1)) + c \notag \\
+                    &=& \frac{1}{2} \left( t^{2}u_{1}^{T} A u_{1} + (t-1)^{2} u_{2}^{T} A u_{2} + 2 t(t-1) u_{1}^{T} A u_{2} \right) \notag \\
+                    &+& t b^{T} u_{1} + (t-1) b^{T} u_{2} + c + c - c \notag \\
+                    &=& \underbrace{\frac{1}{2} t^{2}u_{1}^{T} A u_{1}}_{\le t \frac{1}{2} u_{1}^{T} A u_{1}} + t b^{T} u_{1} + c \notag \\
+                    &+& \underbrace{\frac{1}{2} (t-1)^{2} u_{2}^{T} A u_{2}}_{\le (t-1) \frac{1}{2} u_{2}^{T} A u_{2}} + (t-1) b^{T} u_{2} + c \notag \\
+                    &+& \underbrace{\underbrace{t(t-1)}_{< 0} u_{1}^{T} A u_{2} - c}_{< 0} \notag \\
+                    &<& F(u_{1})t + F(u_{2})(t-1).
+                \end{eqnarray}
+            %To show this, we make use of a fundamental result of the calculus class. Since, if $\mathcal{H}\big(F(u)\big) > 0$ then the function $F$ is strictly convex. Here $\mathcal{H}$ stands for the Hessian of the function $F$. We have
+                % $$
+                %     \mathcal{H}\big(F(u)\big) = A > 0
+                % $$
+            % by definition of $A$ being symmetric, positiv definite.
+            \item Each norm $||\cdot||: X \longrightarrow \mathbb{R}$ on a normed vector space $X$ is convex (see also figure \ref{def:convex_function_proper_lower_semicontinuous} for the $l_{1}$ and $l_{2}$ norms).
                 \begin{proof} % (fold)
                     Choose $u, v \in X, t \in [0, 1]$, then
                     $$
@@ -267,7 +278,7 @@
         \caption{The domain (red) denoted as $\textnormal{dom}(F) = [-1, 1]$ and epigraph \\$\textnormal{epi}(F) = \{(u, t) \in [-1, 1] \times \mathbb{R} : t \ge \frac{1}{2}u^{2}\}$ (gray) of a function $F: [-1, 1] \longrightarrow \mathbb{R}$ with $F(u) = \frac{1}{2}u^{2}$.}
     \end{figure}
 
-    Now, that we are set up with convexity, we want to introduce one of the most important concepts for this thesis.
+    Now, that we are set up with convexity, we want to introduce an important concepts, which is used in this thesis.
 
     \begin{definition}[Legendre-Fenchel conjugate] % (fold)
     \label{def:legendre_fenchel_conjugate}
@@ -282,7 +293,10 @@
     % definition legendre_fenchel_conjugate (end)
 
     \begin{remark} % (fold)
-        Without a proof we state that $F^{\ast}$ - as the supremum of linear, continuous functions - is convex and lower-semicontinous, even $F$ is not. In addition $F^{\ast}$ is proper if $F$ is convex and proper.
+        \begin{itemize}
+            \item Without a proof we state that $F^{\ast}$ - as the supremum of linear, continuous functions - is convex and lower-semicontinous, even $F$ is not. In addition $F^{\ast}$ is proper if $F$ is convex and proper.
+            \item In some literature the Legendre-Fenchel conjugate can also be found as convex conjugate. We use these two expressions equivalently.
+        \end{itemize}
     \end{remark}
     % remark (end)
 
@@ -293,7 +307,7 @@
 
     The last theorem assures that we can rewrite Equation \ref{eq:legendre_fenchel_conjugate} to derive
         $$
-            F(u) = \big( F^{\ast}(p) \big)^{\ast}(u) = \sup_{p \in Y} \big( \langle u, p \rangle - F^{\ast}(p) \big).
+            F(u) = \big( F^{\ast}(p) \big)^{\ast}(u) = \sup_{p \in X^{\ast}} \big( \langle u, p \rangle - F^{\ast}(p) \big).
         $$
     \begin{example}
     \label{ex:legendre_fenchel_conjugate_example}
@@ -305,33 +319,35 @@
                     \delta^{\ast}_{C}(p) = \sup_{u \in C} \langle p, u \rangle - \delta_{C}(u) = \sup_{u \in C} \langle p, u \rangle,
                 $$
             which is the support function.
-            \item Let $F$ be an arbitrary function on $X$ and $\alpha > 0$. Then the convex conjugate of $\alpha F(u)$ is given by
+            \item Let $F: X \longleftarrow \mathbb{R}_{\infty}$ be an arbitrary function and $\alpha > 0$. Then the convex conjugate of $\alpha F(u)$ is given by
                 $$
                     F^{\ast}(p) = \alpha F^{\ast}(\frac{p}{\alpha}).
                 $$
-            To show this we compute
+            We compute
                 $$
-                    F^{\ast}(p) = \sup_{u \in X} \langle p, u \rangle - \alpha F(u) = \alpha \big( \underbrace{\sup_{u \in X} \langle \frac{p}{\alpha}, u \rangle - F(u)}_{= F^{\ast}(\frac{p}{\alpha})} \big) = \alpha F^{\ast}(\frac{p}{\alpha}).
+                    F^{\ast}(p) = \sup_{u \in X} \langle p, u \rangle - \alpha F(u) = \alpha \big( \underbrace{\sup_{u \in X} \langle \frac{p}{\alpha}, u \rangle - F(u)}_{= F^{\ast}(\frac{p}{\alpha})} \big) = \alpha F^{\ast}(\frac{p}{\alpha}),
                 $$
-            \item Now, let $||\cdot||$ be a norm on $X$, with dual norm $||\cdot||_{\ast}$ on $Y$. We show that
+            which shows the desired equation.
+            \item Now, let $||\cdot||$ be a norm on $X$, with dual norm $||\cdot||_{\ast}$ on $X^{\ast}$. We show that
                 $$
                     F^{\ast}(p) =
                         \begin{dcases*}
                             0 & \textnormal{if $||p||_{\ast} \le 1$,} \\
                             \infty & \textnormal{else},
                         \end{dcases*}
+                    = \delta_{||p||_{\ast} \le 1}(p),
                 $$
-            i.e. the conjugate of a norm is the indicator function of the unit ball of its dual norm. We have
+            i.e. the convex conjugate of a norm is the indicator function of the unit ball of its dual norm. We have
                 $$
                     F^{\ast}(p) = \sup_{u \in X} (\langle p, u \rangle - ||u||).
                 $$
-            First let $||p||_{\ast} > 1$. By definition of the dual norm ($||p||_{\ast} = \sup\limits_{||x|| \le 1} |\langle p, x \rangle|$) there is a $x \in \mathbb{R}^{n}$ and we observe $\langle p, x \rangle > 1$.
+            First let $||p||_{\ast} > 1$. By definition of the dual norm ($||p||_{\ast} = \sup\limits_{||x|| \le 1} |\langle p, x \rangle|$) there is a $x \in \mathbb{R}^{n}$ for which we observe that $\langle p, x \rangle > 1$.
 
-            We take $u = tx$ and let $t \longrightarrow \infty$, then we get
+            We take $u = tx$ and let $t \longrightarrow \infty$, then we have
                 $$
-                    \langle p, u \rangle - ||u|| = t(\langle p, x \rangle - ||x||) \longrightarrow \infty,
+                    \langle p, u \rangle - ||u|| = t(\langle p, x \rangle - ||x||) \longrightarrow \infty.
                 $$
-            which shows that $F^{\ast}(p) = \infty$. On the other hand if $||p||_{\ast} \le 1$ Cauchy-Schwarz-inequality assures that
+            This shows that $F^{\ast}(p) = \infty$. On the other hand if $||p||_{\ast} \le 1$ Cauchy-Schwarz-inequality assures that
                 $$
                     \langle p, u \rangle \le ||u|| \, ||p||_{\ast}
                 $$
@@ -348,7 +364,7 @@
                 $$
                     \langle p, u \rangle - \frac{||u||^{2}}{2} \le ||p||_{\ast} ||p||_{\ast} - \frac{||p||_{\ast}}{2} = \frac{||p||_{\ast}^{2}}{2}.
                 $$
-            This shows that $F^{\ast}(p) \le \frac{||p||_{\ast}^{2}}{2}$. Let us now proof the inequality in the other direction. We assume that we find an arbitrary $u$ which satisfies $\langle u, p \rangle = ||u||\,||p||_{\ast}$. Further, we assume that $||u|| = ||p||_{\ast}$ where $u$ is scaled so that the last equation holds. Then we have
+            This shows that $F^{\ast}(p) = \sup\limits_{u \in X} \langle u, p \rangle - \frac{||u||_{2}^{2}}{2} \le \frac{||p||_{\ast}^{2}}{2}$. Let us now proof the inequality in the other direction. We assume that we find an arbitrary $u$ which satisfies $\langle u, p \rangle = ||u||\,||p||_{\ast}$. Further, we assume that $||u|| = ||p||_{\ast}$ where $u$ is scaled so that the equation holds. Then we have
                 $$
                     \langle p, u \rangle - \frac{||u||^{2}}{2} = ||u||\,||p||_{\ast} - \frac{||u||^{2}}{2} = \frac{||p||^{2}_{\ast}}{2},
                 $$
@@ -356,7 +372,7 @@
                 $$
                     \langle p, u \rangle - \frac{||u||^{2}}{2} \le \sup\limits_{u \in X} \langle p, u \rangle - \frac{||u||^{2}}{2} = F^{\ast}(p).
                 $$
-            From these two inequalities it follows that $F^{\ast}(p) = \frac{||p||_{\ast}^{2}}{2}$
+            From these two inequalities it follows that $F^{\ast}(p) = \frac{||p||_{\ast}^{2}}{2}$.\qed
         \end{enumerate}
     \end{example}
 
@@ -379,7 +395,7 @@
     \end{definition}
     % definition subgradient_subdifferential (end)
 
-    If $F$ and $G$ are differentiable we have $\partial(F + G) = \partial F + \partial G$. For the subdifferential this holds under some conditions. We want to give the corresponding Proposition without giving a proof. We just state that in our computations this equality can always be used.
+    If $F$ and $G$ are differentiable we have $\partial(F + G) = \partial F + \partial G$. For the subdifferential this holds under some conditions. We want to give the corresponding Proposition without giving a proof. But, we state that in our computations this equality can always be used.
 
     \begin{proposition} % (fold)
 
@@ -405,20 +421,20 @@
                             -u & \textnormal{else}.
                         \end{dcases*}
                 $$
-            Since $F(u)$ is not differentiable in $0$, but on $\mathbb{R} / \{0\}$ we compute the subgradient $y$ as
+            Since $F(u)$ is not differentiable in $0$, but on $\mathbb{R} / \{0\}$ we compute the subgradient $y$ by
                 \begin{itemize}
                     \item $\partial F(u) = 1$ if $u > 0$,
                     \item $\partial F(u) = -1$ if $u < 0$,
                     \item and finally
                         $$
-                            F(0) + y(u - 0) \le F(u) \Longleftrightarrow \langle y, u \rangle \le |u|.
+                            F(0) + \langle y, (u - 0) \rangle \le F(u) \Longleftrightarrow \langle y, u \rangle \le |u|.
                         $$
                     If $u \ge 0$ this is equivalent to $y \ge 1$. If $u < 0$ we get
                         $$
                             \langle y, u \rangle \le |u| \Longleftrightarrow \langle y, u \rangle \le -u \Longleftrightarrow y \ge -1.
                         $$
                 \end{itemize}
-            Finally, we have
+            Finally, we summarize
                 $$
                     y =
                         \begin{dcases*}
@@ -431,8 +447,8 @@
                 $$
                     ||u||_{1} = |u_{1}| + ... + |u_{n}| = \max \big\{ \langle y, u \rangle : p_{i} \in \{-1, 1\} \big\},
                 $$
-             for all $u \in X$. Obviously, one gets $||y||_{\infty} \le 1$. %This would solve the inequality \ref{eq:subgradient}
-             If we find a $y$ such that $\langle y, u \rangle = ||u||_{1}$ then immediately inequality \ref{eq:subgradient} would be satisfied, because
+             for all $u \in X$. One gets $||p||_{\infty} \le 1$. %This would solve the inequality \ref{eq:subgradient}
+             If we find a $p$ such that $\langle p, u \rangle = ||u||_{1}$ then immediately inequality \ref{eq:subgradient} would be satisfied, because
                 $$
                     F(u) \ge F(u_{0}) + \langle y, u \rangle \Longleftrightarrow ||u||_{1} \ge 0 + \langle y, u \rangle = ||u||_{1}.
                 $$
@@ -483,7 +499,7 @@
                 \langle p, u \rangle - F(u) = F^{\ast}(p).
             $$
 
-        Moreover if $F \in \Gamma_{0}$, so that $F^{\ast\ast} = F$, then this is equivalent to $u \in \partial F^{\ast}(p)$.
+        Moreover, if $F \in \Gamma_{0}$, so that $F^{\ast\ast} = F$, then this is equivalent to $u \in \partial F^{\ast}(p)$.
 
     \end{proposition}
     % proposition convex_subgradient (end)
@@ -496,8 +512,8 @@
     \end{proposition}
     % proposition zero_element_of_subgradient (end)
 
-    The three propositions from above are fundamental for our work. If we find a (local) minimizer of a convex optimization problem, we already know that this minimizer is the global optimum. Further, we see in Propositions \ref{prop:convex_subgradient} how the variables $u$ and $p$ can be interchanged by using the subdifferential. The last statement assures, that if we find a global minimum of our convex optimization problem, then we have that $0$ always is an element of the subdifferential.\\ 
-    The last theorem, we will provide, can be found in \cite{Rockafellar} and is used extensively in the following chapters. One can find different editions of the theorem, see for instance \cite{Yao-Liang-Yu}. We provide it without a proof, for which we also refer to \cite{Rockafellar}. But, first we need:
+    The three propositions from above are fundamental for our work. If we find a (local) minimizer of a convex optimization problem, we already know that this minimizer is the global optimum. The last proposition assures, that if we find a global minimum of our convex optimization problem, then we have that $0$ always is an element of the subdifferential.\\ 
+    The next theorem can be found in \cite{Rockafellar} and is used extensively in the following chapters. One can find different editions of the theorem, see for instance \cite{Yao-Liang-Yu}. We provide it without a proof, for which we also refer to \cite{Rockafellar}. But, first we need:
 
     \begin{definition}[Projection Operator, Proximity Operator, Moreau Envelop] % (fold)
     \label{def:projection_operator}
@@ -521,7 +537,8 @@
     \end{definition}
     % definition projection_operator (end)
 
-    The Proximity operator is a strict generalization of the Projection operator, while the Moreau envelop is a generalization of the squared distance measure function. Later, we will work out the connection between the projection and the proximity operator in detail. Let us shortly view two useful examples for the projection operator.
+    % The Proximity operator is a strict generalization of the Projection operator, while the Moreau envelop is a generalization of the squared distance measure function. Later, we will work out the connection between the projection and the proximity operator in detail.
+    Let us shortly view two useful examples for the projection operator.
 
     \begin{example}
     \label{ex:projection_operator}
@@ -534,7 +551,7 @@
                 \end{array}
                 \notag
             \end{equation}
-        We are looking at the $l_{2}$-Projection (euclidean projection) and the $l_{\infty}$-Projection, where both convex optimization problems have unique solutions, for more information see for instance %\cite{Jitkomut Songsiri}.
+        We are looking at the $l_{2}$-Projection (euclidean projection) and the $l_{\infty}$-Projection, where both convex optimization problems have unique solutions.%, for more information see for instance %\cite{Jitkomut Songsiri}.
         \begin{enumerate}
             \item The solution for the euclidean projection is given by
                 \begin{equation}
@@ -588,7 +605,8 @@
     \end{theorem}
     % theorem moreau_identity (end)
 
-    This theorem was first proven in 1965 by Jean J. Moreau in (Moreau paper) and is based on the theorem of the closed complement. First Moreau generalized the closed complement theorem in 1962 and three years later stated the celebrated Theorem \ref{def:moreau_identity}.
+    This theorem was first proven in 1965 by Jean J. Moreau and can be found in \cite{Rockafellar}.
+    %and is based on the theorem of the closed complement. First Moreau generalized the closed complement theorem in 1962 and three years later stated the celebrated Theorem \ref{def:moreau_identity}.
 
     \begin{remark}
         \begin{itemize}
@@ -608,7 +626,7 @@
                 $$
                     z \in \alpha\,\partial F(u) + u \Longleftrightarrow u = (\textnormal{Id} + \alpha \, \partial F)^{-1}(z).
                 $$
-            For that, the solution $u$ is well-defined and unique. Furthermore, using Equation \ref{eq:moreau_identity} one gets
+            Furthermore, using Equation \ref{eq:moreau_identity} one gets
                 \begin{equation}
                     u = (\textnormal{Id} + \alpha \, \partial F)^{-1}(u) + \alpha \bigg( \textnormal{Id} + \frac{1}{\alpha} \partial F^{\ast} \bigg)^{-1} \bigg(\frac{u}{\alpha}\bigg).
                     \label{eq:moreau_identity_reloaded}
@@ -618,7 +636,7 @@
     \end{remark}
 
     \begin{example}
-        To this end we want to briefly discuss one example for the proximity operator. If we set $F(u) = \delta_{C}(u)$ then we observe
+        To this end we briefly discuss one example for the proximity operator. If we set $F(u) = \delta_{C}(u)$ then we observe
             $$
                 \textnormal{prox}^{\alpha}_{F}(\tilde{u}) = \min\limits_{u \in C} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \alpha \, \delta_{C}(u) = \min\limits_{u \in C} \frac{||u - \tilde{u}||_{2}^{2}}{2} = \Pi_{C}(\tilde{u}).
             $$

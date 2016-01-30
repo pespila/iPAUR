@@ -244,8 +244,8 @@ int main(int argc, const char* argv[]) {
     }
     
     float stop_watch = clock();
-    cout << "Estimated MSE: " << MSE(in, out) << endl;
-    cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
+    // cout << "Estimated MSE: " << MSE(in, out) << endl;
+    // cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
     cout << "Estimated Run-Time: " << (stop_watch - start_watch)/CLOCKS_PER_SEC << endl << endl;
     
     out.Write(output);

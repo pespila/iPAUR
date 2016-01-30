@@ -1,87 +1,132 @@
-\subsection{An alternative approach using Lagrange Multiplier}
-            Let $f(x, y) := \langle Ax, y \rangle$. Hence we have
+\section{An alternative approach} % (fold)
+\label{sec:an_alternative_approach}
+    
+    In this section we present a formulation to solve the discrete Mumford-Shah Functional of subsection \ref{sub:the_mumford_shah_model_as_saddle_point_problem}. The idea is to decouple the set $K_{nl}$ to derive an alternative saddle-point problem, which can be solved with our primal-dual algorithm. Recalling the original problem, we had
+        \begin{equation}
+            \min_{u \in C} \max_{p \in K} \langle Au, p \rangle,
+            \label{eq:standard_form}
+        \end{equation}
+    where we maximized over the whole set $K$, defined in equations \ref{eq:local_constraint} and \ref{eq:non_local_constraint}. As discussed in section \ref{sec:discrete_setting_ms}, this set is an intersection of several convex sets. We projected onto the non-local constraint, which was defined by
+        $$
+            K_{nl} = \left\{ \left| \sum_{k_{1} \le k \le k_{2}} p^{x}(i, j, k) \right| \le \nu \right\} \,\,\, \forall i, j, k_{1} \le k \le k_{2},
+        $$
+    where $p^{x}$ is defined as in subsection \ref{sub:decomposition_of_K}, using a soft-shrinkage scheme. This projection was used in each step of Dykstra's algorithm. We now want to solve this problem optimal by decoupling the non-local constraint. We note that in the following we drop the index representation for $p^{x}$. Instead of writting $p^{x}(i, j, k)$ we denote this by $p^{x}_{k}$ for a pair $(i,j)$ and all $k$. Decoupling means then, that we substitute $p^{x}_{k}$ by $s_{k_{1}, k_{2}}$ and introduce an additional constraint to take the bound on $\nu$ into account. We have
+        \begin{equation}
+            K_{nl} = \left\{ |s_{k_{1}, k_{2}}| \le \nu \,\,\, \textnormal{subject to} \,\,\, s_{k_{1}, k_{2}} = \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right\}
+            \label{eq:non_local_constraint_reloaded}
+        \end{equation}
+    for all combinations $1 \le k_{1} \le k \le k_{2} \le S$, $s_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ and $s \in \mathbb{R}^{N \times M \times S \times 2}$, respectively. Alternatively, we can also denote this set by
+        $$
+            K_{nl} = \left\{ |s_{k_{1}, k_{2}}| \le \nu \,\,\, \textnormal{subject to} \,\,\, s_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = 0 \right\}
+        $$
+    We further present an auxiliary variable $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$, which belongs to a $\mu \in \mathbb{R}^{N \times M \times S \times 2}$. We define a new function
+        \begin{equation}
+            \mathcal{L}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, s_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \rangle,
+        \end{equation}
+    in which we added to our original problem an enforced term corresponding to the constraint in $K_{nl}$. Taking now into account, that the constraint is an equality constraint, we have that all $\mu_{k_{1}, k_{2}}$ can either be greater, less than or equal to zero. Additionally, we need to be sure, that the inequality $|s_{k_{1}, k_{2}}| \le \nu$ holds. Then we obtain the following equivalence:
+        $$
+            \min_{u \in C} \max_{p \in K} \langle Au, p \rangle \Longleftrightarrow \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \mathcal{L}(u, \mu, p, s),
+        $$
+    which complies to
+        \begin{equation}
+            \min_{u \in C} \max_{p \in K} \langle \nabla u, p \rangle \Longleftrightarrow \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle \nabla u, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = 1}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle,
+            \label{eq:lagrange_problem}
+        \end{equation}
+    if we use $A = \nabla$ as in the other chapters. Let us proof this equivalence in the general case, where $A$ resemble a linear operator:
+
+    \begin{proof}
+        As we did not change either the properties on $u$ nor the set $C$, we assume for the rest of the proof, that we found an optimal value $u^{\ast}$. Further, assume we have a optimal value $s^{\ast}$, for which $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ for all possible combinations $(k_{1}, k_{2})$. Then, we do a case analysis:
+        \begin{enumerate}
+            \item If the equality
+                $$
+                    \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s^{\ast}_{k_{1}, k_{2}} = 0,
+                $$
+            holds, the saddle-point problem reduces to
+                $$
+                    \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle.
+                $$
+            If the equality does not hold, we distinguish between two other cases:
+            \item Let $\sum\limits_{k_{1} \le k \le k_{2}} p^{x}_{k} < s^{\ast}_{k_{1}, k_{2}}$, then first note, that this is equivalent to
+                $$
+                    \left|\left|\sum_{k_{1} \le k \le k_{2}} p^{x}_{k}\right|\right| < |s^{\ast}_{k_{1}, k_{2}}|.
+                $$
+            But as $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ we already have
+                $$
+                    \left|\left|\sum_{k_{1} \le k \le k_{2}} p^{x}_{k}\right|\right| \le \nu.
+                $$
+            Further, we obtain the minimal value over all possible $\mu_{k_{1}, k_{2}}$ in this case only if we let $\mu_{k_{1}, k_{2}} \longrightarrow \infty$, for which the whole energy becomes $-\infty$. Since, the conditions according to the set $K_{nl}$ are met and to avoid having a energy with the value $-\infty$, we set $\mu_{k_{1}, k_{2}} = 0$ in this case. We get again
+                $$
+                    \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle.
+                $$
+            \item Now, let $\sum\limits_{k_{1} \le k \le k_{2}} p^{x}_{k} > s^{\ast}_{k_{1}, k_{2}}$. In this case we could again set $\mu_{k_{1}, k_{2}} = 0$. Then the last term in \ref{eq:lagrange_problem} will not be considered. But with this we are not able to tell anything about the sum over the $p^{x}_{k}$. We know that
+                $$
+                    \left|\left|\sum_{k_{1} \le k \le k_{2}} p^{x}_{k}\right|\right| > |s^{\ast}_{k_{1}, k_{2}}|
+                $$
+            and from our assumption that $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$. The only choice we have is to set
+                $$
+                    \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = s^{\ast}_{k_{1}, k_{2}}.
+                $$
+            With this we get
+                $$
+                    \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle,
+                $$
+            and the $\mu_{k_{1}, k_{2}}$ can be chosen arbitrarily. This shows, that the two problems are equivalent.
+        \end{enumerate}\qed
+    \end{proof}
+
+    Defining the function
+    $$
+        \mathcal{M}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = 1}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle
+    $$
+
+    leads to
+
+        \begin{eqnarray}
+            \frac{\partial \mathcal{M}(u, \mu, p, s)}{\partial u} &=& A^{T} p \\
+            \frac{\partial \mathcal{M}(u, \mu, p, s)}{\partial p_{k}} &=& \sum_{k_{1}, k_{2}} \mu_{k_{1}, k_{2}} \\
+            \frac{\partial \mathcal{M}(u, \mu, p, s)}{\partial \mu_{k_{1}, k_{2}}} &=& \sum_{k_{1}, k_{2}} \bigg( \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \bigg) \\
+            \frac{\partial \mathcal{M}(u, \mu, p, s)}{\partial p} &=& Au + \hat{p}.
+        \end{eqnarray}
+
+    with
+
+        \begin{eqnarray}
+            \frac{\partial \mathcal{M}(u, \mu, p, s)}{\partial p_{l}} &=& (Au)_{l} + \frac{\partial}{\partial p_{l}} \bigg(\sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, s_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \bigg) \notag \\
+            &=& (Au)_{l} + \frac{\partial}{\partial p_{l}} \bigg(\sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, s_{k_{1}, k_{2}} \rangle - \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \bigg) \notag \\
+            &=& (Au)_{l} - \frac{\partial}{\partial p_{l}} \bigg(\sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \bigg) \notag \\
+            &=& (Au)_{l} - 
+                \begin{pmatrix}
+                    \sum\limits_{k_{1} = 1}^{l} \sum\limits_{k_{2} = k_{1}}^{l} \mu_{k_{1}, k_{2}}^{1} \\
+                    \sum\limits_{k_{1} = 1}^{l} \sum\limits_{k_{2} = k_{1}}^{l} \mu_{k_{1}, k_{2}}^{2}
+                \end{pmatrix}
+        \end{eqnarray}
+
+    With this it follows
+
+        \begin{equation}
+            \tilde{p} = -
+                \begin{pmatrix}
+                    \sum\limits_{k_{1} = 1}^{l} \sum\limits_{k_{2} = k_{1}}^{l} \mu_{k_{1}, k_{2}}^{1} \\
+                    \sum\limits_{k_{1} = 1}^{l} \sum\limits_{k_{2} = k_{1}}^{l} \mu_{k_{1}, k_{2}}^{2}
+                \end{pmatrix}
+        \end{equation}
+
+    We have
+
+        \begin{algorithm}
+            Choose $(u^{0}, p^{0}, \mu^{0}, s^{0}) \in C \times K_{p} \times \mathbb{R}^{2 \times N \times M \times S} \times \mathbb{R}^{2 \times N \times M \times S}$ and let $\bar{x}^{0} = u^{0}, \bar{\mu}^{0} = \mu^{0}$. We choose $\tau_{u} = \frac{1}{6}, \tau_{\mu} = \frac{1}{2 + k_{2} - k_{1}}, \sigma_{p} = \frac{1}{3 + S}, \sigma_{s} = 1$. Then, we let for each $n \ge 0$
                 \begin{equation}
-                    \min_{x \in C} \max_{y \in K} f(x, y) = \min_{x \in C} \max_{y \in K} \langle Ax, y \rangle. \label{eq:original}
+                    \left\{ 
+                        \begin{array}{l l}
+                          p^{n+1} = \Pi_{K_{p}} (p^{n} + \sigma_{p} (A \bar{u}^{n} + \tilde{p})) \\
+                          s_{k_{1}, k_{2}}^{n+1} = \Pi_{|\cdot| \le \nu} (s_{k_{1}, k_{2}}^{n} + \sigma_{s} \bar{\mu}_{k_{1}, k_{2}}^{n}) \\
+                          u^{n+1} = \Pi_{C} (u^{n} - \tau_{u} A^{*} p^{n+1}) \\
+                          \mu_{k_{1}, k_{2}}^{n+1} = \mu_{k_{1}, k_{2}}^{n} - \tau_{\mu} (s_{k_{1}, k_{2}}^{n+1} - \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \\
+                          \bar{u}^{n+1} = 2u^{n+1} - u^{n} \\
+                          \bar{\mu}_{k_{1}, k_{2}}^{n+1} = 2\mu_{k_{1}, k_{2}}^{n+1} - \mu_{k_{1}, k_{2}}^{n}.
+                        \end{array}
+                    \right.
                 \end{equation}
-            Rewrite non-local-constraint in the set $K$ - \ref{eq:localconst} is pointwise so this is already easy to compute: \\
-            We get the formulation
-                \begin{equation}
-                    ||p_{k_{1}, k_{2}}||_{2} \le \nu \,\,  \textnormal{ s.t. } \, \, p_{k_{1}, k_{2}} = \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \label{eq:lmnew}
-                \end{equation}
-            which corresponds to \ref{eq:nonlocalconst}. \\
-            The constraint functions in \ref{eq:lmnew} is equivalent to
-                \begin{equation}
-                    g(p, y) := p_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} = 0 \label{eq:gofp}
-                \end{equation}
-            holding for all combinations of $k_{1}, k_{2}$ with $1 \le k_{1} \le k \le k_{2} \le M$. \\
-            Let $K = \frac{M(M-1)}{2}$ be all possible combinations of the $k_{1}, k_{2}$. For a Lagrange (dual) function $\mathcal{L}$ depending on the optimization problem in \ref{eq:original} we get
-                \begin{eqnarray}
-                    \mathcal{L}(x, y, \lambda, p) &=& f(x, y) + \sum_{K} \lambda_{K} g(p, y) = \notag \\
-                    &&\langle Ax, y \rangle + \sum_{k_{1} = 1}^{M} \sum_{k_{2} = k_{1}}^{M} \langle \lambda_{k_{1}, k_{2}}, p_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \rangle.
-                \end{eqnarray}
-            where $x = x(i, j, k) \in \mathbb{R}^{N \times N \times M}, y(i, j, k) = (y_{1}(i, j, k), y_{2}(i, j, k), y_{3}(i, j, k))^{T} \in \mathbb{R}^{3 \times N \times N \times M}, \lambda(i, j, k) \in \mathbb{R}^{2 \times K \times N \times N}$ and $p(i, j, k) \in \mathbb{R}^{2 \times K \times N \times N}$. \\
-            Now, instead of minimizing over $x$ and maximizing over $y$ we have an equivalent formulation:
-                \begin{equation}
-                    \min_{x \in C} \max_{y \in K} f(x, y) \Longleftrightarrow \min_{\substack{x \in C \\ \lambda_{k_{1}, k_{2}}}} \max_{\substack{y \in K_{p} \\ ||p_{k_{1}, k_{2}}|| \le \nu}} \mathcal{L} (x, y, \lambda, p),
-                \end{equation}
-            where $K_{p}$ denotes the subset of $K$ with only the parabola constraint, i.e.
-                \begin{eqnarray}
-                    &&K = \{ y = (y^{1}, y^{2}, y^{3})^{T} \in Y: \notag \\
-                    &&y^{3}(i,j,k) \ge \frac{y^{1}(i,j,k)^{2} + y^{2}(i,j,k)^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2}.
-                \end{eqnarray}
+        \end{algorithm}
 
-            To solve this saddle-point problem we can again apply our primal dual algorithm. As mentioned we can solve problems of the form $\min \max \langle Ax, y \rangle$ with this algorithm. \\
-            Now, let $\tilde{x} = (x, \lambda)^{T}$ and $\tilde{y} = (y, p)^{T}$ then we have
-                % \begin{algbox}
-                    \begin{algorithm}
-                        Choose $(\tilde{x}^{0}, \tilde{y}^{0}) \in \tilde{C} \times \tilde{K}$ and let $\bar{\tilde{x}}^{0} = \tilde{x}^{0}$. We choose $\tau, \sigma > 0$. Then, we let for each $n \ge 0$
-                            \begin{equation}
-                                \left\{ 
-                                    \begin{array}{l l}
-                                      \tilde{y}^{n+1} = \Pi_{\tilde{K}} (\tilde{y}^{n} + \sigma A \bar{\tilde{x}}^{n}) \\
-                                      \tilde{x}^{n+1} = \Pi_{\tilde{C}} (\tilde{x}^{n} - \tau A^{*} \tilde{y}^{n+1}) \\
-                                      \bar{\tilde{x}}^{n+1} = 2\tilde{x}^{n+1} - \tilde{x}^{n}.
-                                    \end{array}
-                                \right.
-                            \end{equation}
-                    \end{algorithm}
-                % \end{algbox}
-
-            The question how to compute the new projections and to bring the $\lambda$ and $p$ into this algorithm remains. To give the answer to this question we first need to differentiate the Lagrange function, to get the derivative.
-
-                \begin{eqnarray}
-                    \frac{\partial \mathcal{L}(x, y, \lambda, p)}{\partial x} &=& A^{T} y \\
-                    \frac{\partial \mathcal{L}(x, y, \lambda, p)}{\partial p} &=& \sum_{k_{1}, k_{2}} \lambda_{k_{1}, k_{2}} \\
-                    \frac{\partial \mathcal{L}(x, y, \lambda, p)}{\partial \lambda} &=& \sum_{k_{1}, k_{2}} \bigg( p_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \bigg) \\
-                    \frac{\partial \mathcal{L}(x, y, \lambda, p)}{\partial y} &=& Ax + \hat{y}.
-                \end{eqnarray}
-
-            To see what $\hat{y}$ looks like, we need to compute the partial derivative of $\mathcal{L}$ in the $y$-direction. By looking at the $l$-th component we observe:
-
-                \begin{eqnarray}
-                    \frac{\partial \mathcal{L}(x, y, \lambda, p)}{\partial y_{l}} &=& (Ax)_{l} + \frac{\partial}{\partial y_{l}} \bigg(\sum_{k_{1} = 1}^{M} \sum_{k_{2} = k_{1}}^{M} \langle \lambda_{k_{1}, k_{2}}, p_{k_{1}, k_{2}} - \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \bigg) \notag \\
-                    &=& (Ax)_{l} + \frac{\partial}{\partial y_{l}} \bigg(\sum_{k_{1} = 1}^{M} \sum_{k_{2} = k_{1}}^{M} \langle \lambda_{k_{1}, k_{2}}, p_{k_{1}, k_{2}} \rangle - \langle \lambda_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \bigg) \notag \\
-                    &=& (Ax)_{l} - \frac{\partial}{\partial y_{l}} \bigg(\sum_{k_{1} = 1}^{M} \sum_{k_{2} = k_{1}}^{M} \langle \lambda_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T} \bigg) \notag \\
-                    &=& (Ax)_{l} - (\lambda_{l}^{1} + \lambda_{l}^{2})
-                \end{eqnarray}
-
-            We observe the following algorithm:
-                % \begin{algbox}
-                    \begin{algorithm}
-                        Choose $(x^{0}, y^{0}, \lambda^{0}, p^{0}) \in C \times K_{p} \times \mathbb{R}^{2 \times N \times N \times M} \times \mathbb{R}^{2 \times N \times N \times M}$ and let $\bar{x}^{0} = x^{0}, \bar{\lambda}^{0} = \lambda^{0}$. We choose $\tau_{x} = \frac{1}{6}, \tau_{\lambda} = \frac{1}{2 + k_{2} - k_{1}}, \sigma_{y} = \frac{1}{3 + M}, \sigma_{p} = 1$. Then, we let for each $n \ge 0$
-                            \begin{equation}
-                                \left\{ 
-                                    \begin{array}{l l}
-                                      y^{n+1} = \Pi_{K_{p}} (y^{n} + \sigma_{y} (A \bar{x}^{n} + \tilde{y})) \\
-                                      p_{k_{1}, k_{2}}^{n+1} = \Pi_{||\cdot||_{2} \le \nu} (p_{k_{1}, k_{2}}^{n} + \sigma_{p} \bar{\lambda}_{k_{1}, k_{2}}^{n}) \\
-                                      x^{n+1} = \Pi_{C} (x^{n} - \tau_{x} A^{*} y^{n+1}) \\
-                                      \lambda_{k_{1}, k_{2}}^{n+1} = \lambda_{k_{1}, k_{2}}^{n} - \tau_{\lambda} (p_{k_{1}, k_{2}}^{n+1} - \sum_{k_{1} \le k \le k_{2}} (y_{1}(i, j, k), y_{2}(i, j, k))^{T}) \\
-                                      \bar{x}^{n+1} = 2x^{n+1} - x^{n} \\
-                                      \bar{\lambda}_{k_{1}, k_{2}}^{n+1} = 2\lambda_{k_{1}, k_{2}}^{n+1} - \lambda_{k_{1}, k_{2}}^{n}.
-                                    \end{array}
-                                \right.
-                            \end{equation}
-                    \end{algorithm}
-                % \end{algbox}
-
-% chapter an_algorithm_for_minimizing_the_mumford_shah_functional (end)
+% % % chapter an_algorithm_for_minimizing_the_mumford_shah_functional (end)

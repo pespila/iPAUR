@@ -1,13 +1,13 @@
 \section{The General Saddle-Point Problem} % (fold)
 \label{sec:the_general_saddle_point_problem}
     
-    In this section we present the general class of problem we consider in this work. Therefore we define the the map $K: X \longrightarrow Y$ as a continuous linear operator with induced norm
+    In this section we present the general class of problem we consider in this work. Therefore we define the map $K: X \longrightarrow Y$ as a continuous linear operator with induced norm
         \begin{equation}
             ||K|| = \max \big\{ ||Kx||_{Y} : x \in X \,\, \textnormal{with} \,\, ||x||_{X} \le 1 \big\}.
             \label{eq:operator_norm}
         \end{equation}
 
-    Furthermore, we set the map $K^{\ast}: Y \longrightarrow X$ as the adjoint operator of $K$.\\
+    Furthermore, we define the map $K^{\ast}: Y \longrightarrow X$ as the adjoint operator of $K$.\\
     Now, let $K$ be a linear operator, $u \in X$, $p \in Y$ and define $G: X \longrightarrow \mathbb{R}_{+}$ and $F^{\ast}: Y \longrightarrow \mathbb{R}_{+}$ where $G, F^{\ast} \in \Gamma_{0}$ and $F^{\ast}$ being the Legendre-Fenchel conjugate of a convex, l.s.c. function $F$. We are trying to find the saddle point $(u, p)$ of the following problem:
         \begin{equation}
             \min_{u \in X} \max_{p \in Y} \langle Ku, p \rangle + G(u) - F^{\ast}(p).
@@ -23,7 +23,7 @@
             \max_{p \in Y} -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)).
             \label{eq:dual_problem}
         \end{equation}
-    These three different classes of problems are equivalent, if $F$ itself is convex. Then the Legendre-Fenchel conjugate assures, with $F(Ku) = \sup\limits_{p \in Y} \langle p, Ku \rangle - F^{\ast}(p)$, that
+    These three different classes of problems are equivalent, if $F$ itself is convex. The Legendre-Fenchel conjugate assures, with $F(Ku) = \sup\limits_{p \in Y} \langle p, Ku \rangle - F^{\ast}(p)$, that
         \begin{eqnarray}
             \min_{u \in X} F(Ku) + G(u) &=& \min_{u \in X} \max_{p \in Y} \langle p, Ku \rangle - F^{\ast}(p) + G(u) \notag \\
             &=& \min_{u \in X} \max_{p \in Y} \langle K^{\ast}p, u \rangle + G(u) - F^{\ast}(p) \notag \\
@@ -33,7 +33,7 @@
             &=& \max_{p \in Y} -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p))
             \label{eq:swap_min_to_max}
         \end{eqnarray}
-    Note that we can swap $\min$ and $\max$ and exchange $\sup$ by $\max$ since we are acting on finite, normed vector spaces. It is equivalent to seek for the maximimum of a function $u$ or instead seek for the minimum of the function $-u$.
+    Note that we can swap $\min$ and $\max$ and exchange $\sup$ by $\max$ since we are acting on finite, bounded, normed vector spaces. It is equivalent to seek for the maximimum of a function $u$ or instead seek for the minimum of the function $-u$.
     % Additionally, let us introduce the primal-dual gap:
 
     % \begin{definition}[Primal-Dual Gap] % (fold)
@@ -53,7 +53,7 @@
     % \end{definition}
     % % definition primal_dual_gap (end)
 
-    Assuming that problem \ref{eq:the_saddle_point_problem} we are considering has at least one solution, which we denote by $(\hat{u}, \hat{p}) \in X \times Y$, then $\hat{u}$ as the solution to the primal-problem satisfies
+    Assuming that problem \ref{eq:the_saddle_point_problem} has at least one solution, which we denote by $(\hat{u}, \hat{p}) \in X \times Y$, then $\hat{u}$ as the solution to the primal-problem satisfies
         \begin{equation}
             K\hat{u} \in \partial_{p} F^{\ast}(\hat{p}),
             \label{eq:kx_in_subgradient}
@@ -66,7 +66,7 @@
     where $\partial_{p}$ and $\partial_{u}$, respectively, denote the subdifferential of the corresponding functions.
         
     \begin{proof}
-        If we define a function $L(u, p) := \langle K^{\ast}p, u \rangle - F^{\ast}(p) + G(u)$ in the sense of equation \ref{eq:swap_min_to_max}, we have
+        If we define a function $L(u, p) := \langle K^{\ast}p, u \rangle - F^{\ast}(p) + G(u)$, we consider
             $$
                 \min_{u \in X} \max_{p \in Y} L(u, p).
             $$
@@ -74,7 +74,7 @@
             $$
                 \min_{u \in X} L(u, \hat{p}).
             $$
-        According to Proposition \ref{prop:zero_element_of_subgradient} this is equivalent to $0 \in \partial\,L(\hat{u}, \hat{p})$ if $\hat{u}$ is a minimizer of this optimization problem. But, this leads us to equation \ref{eq:k_star_y_in_subgradient}, since
+        According to Proposition \ref{prop:zero_element_of_subgradient} this is equivalent to $0 \in \partial\,L(\hat{u}, \hat{p})$, if $\hat{u}$ is a minimizer of this optimization problem. But, this leads us to equation \ref{eq:k_star_y_in_subgradient}, since
             $$
                 0 \in \partial_{u} \, (\langle K^{\ast}\hat{p}, \hat{u} \rangle - F^{\ast}(\hat{p}) + G(\hat{u})) \Longleftrightarrow 0 \in K^{\ast}\hat{p} + \partial_{u} \, G(\hat{u}) \Longleftrightarrow -K^{\ast}\hat{p} \in \partial_{u} \, G(\hat{u}).
             $$

@@ -31,7 +31,7 @@
                 \label{eq:tvl1}
             \end{equation}
         The idea to derive Equation \ref{eq:tvl1} is that we first evaluate the case where\\
-        $\textnormal{TV}(u) \le \int_{\Omega} |\nabla\,f| dx$. This can easily be seen by using Cauchy-Schwarz-inequality and
+        $\textnormal{TV}(u) \le \int_{\Omega} |\nabla\,f| dx$. This can easily be seen by using Cauchy-Schwarz-inequality
             \begin{eqnarray}
                 \int_{\Omega} \nabla u \, \varphi \, dx &\le& \bigg| \int_{\Omega} \nabla u \, \varphi dx \bigg| \, dx \notag \\
                 &\le& \int_{\Omega} |\nabla u| \, \underbrace{|\varphi|}_{\le 1} \, dx \le \int_{\Omega} |\nabla u| \, dx.
@@ -42,8 +42,8 @@
     % example u_is_smooth (end)
 
     \begin{remark}
-        Note that $W_{1}^{1}(\Omega)$ denotes the $L^{1}$-Sobolev-Space of $\Omega$, which means that $u \in L^{1}(\Omega)$ and $Du \in L^{1}(\Omega)$. Here $Du$ is meant in the sense of distributional derivatives. From now on, we assume that all images $u$ are in $W_{1}^{1}(\Omega)$, where $\Omega$ is the image domain, so that Equation \ref{eq:tvl1} holds. \\
-        Further, the total variation is convex and lower-semicontinous. See \cite{Chambolle-et-al-10} for details.
+        Note that $W_{1}^{1}(\Omega)$ denotes the $L^{1}$-Sobolev-Space of $\Omega$, which means that $u \in L^{1}(\Omega)$ and $Du \in L^{1}(\Omega)$. Here $Du$ is meant in the sense of distributional derivatives. From now on, we assume that all functions $u$ are in $W_{1}^{1}(\Omega)$, where $\Omega$ is the image domain.%, so that Equation \ref{eq:tvl1} holds. \\
+        Further note, that the total variation is convex and lower-semicontinous. See \cite{Chambolle-et-al-10} for details.
     \end{remark}
 
     To get a better intuition about the Total Variation, we also want to give the defintion of the variation of functions $u \in [a, b] \subset \mathbb{R}$ with $a, b \in \mathbb{R}$ and $a < b$.
@@ -59,7 +59,7 @@
     \end{definition}
     % definition variation_of_a_function (end)
 
-    This definition is well known and suited for functions form $\mathbb{R}$ to $\mathbb{R}$. In the sense of measures and integrals this definition is ill-posed (referring to \cite{Giusti}). But to make variation a bit more vivid this definition is perfect.
+    This definition is well known and suited for functions form $\mathbb{R}$ to $\mathbb{R}$. According to \cite{Giusti} this definition is ill-posed in the sense of measures and integrals. But to make variation a bit more vivid it fits perfectly.
 
     \begin{example} % (fold)
     \label{ex:total_variation_one_d}
@@ -89,7 +89,7 @@
         \begin{figure}[ht]
             \centering
             \includegraphics[width=\textwidth]{img/bv_test.png}
-            \caption{The plot of the function of equation \ref{eq:not_bv_function}. One can see the strong oscilations in the domain $[0, 1]$.}
+            \caption{The plot of the function of equation \ref{eq:not_bv_function}.}
             \label{fig:plot_of_not_bv_function}
         \end{figure}
 
@@ -112,7 +112,7 @@
     % example total_variation_one_d (end)
 
     Another concept which later is used in Chapter \ref{cha:a_first_order_primal_dual_algorithm_for_minimizing_the_mumford_shah_functional}
-    are (special) functions of bounded variation. Even though we do not expliciely make use of this class of functions, we want to give the definition(s) for the sake of completeness. Further, (special) funcitons of bounded variation are strongly related to Total Variation as the following definition (see for instance \cite{Giusti}) ensures.
+    are (special) functions of bounded variation. Even though we do not explicitely make use of this class of functions, we want to give the definition(s) for the sake of completeness. Further, (special) funcitons of bounded variation are strongly related to Total Variation as the following definition (see for instance \cite{Giusti}) ensures.
 
     \begin{definition}[Functions of bounded variation]
     \label{def:functions_of_bounded_variation}
@@ -126,8 +126,8 @@
     \end{definition}
     % definition functions_of_bounded_variation (end)
 
-    As mentioned the Total Variation is the basis for this class of functions. Related to example \ref{ex:total_variation_one_d} we find that $u \in BV(\mathbb{R})$ in the first example, since we had $V^{b}_{a}(u) = u(b) - u(a) < \infty$. Furthermore $u$ in the second example is not a function of bounded variation, because $V^{b}_{a}(u) = \infty$.\\
-    Additionally, $BV$-functions are proper and therefore we have if $u \in BV(\Omega)$, then also $u \in \Gamma_{0}(\Omega)$, since the total varition is convex and l.s.c.
+    As mentioned the Total Variation is the basis for this class of functions. Relating to example \ref{ex:total_variation_one_d} we find that $u \in BV(\mathbb{R})$ in the first example, since we had that $V^{b}_{a}(u) = u(b) - u(a) < \infty$ for $a, b \in \mathbb{R}$, $a < b$. Furthermore $u$ in the second example is not a function of bounded variation, because $V^{b}_{a}(u) = \infty$.\\
+    Additionally, $BV$-functions are proper and we have if $u \in BV(\Omega)$, then also $u \in \Gamma_{0}(\Omega)$, since the total varition is convex and l.s.c. (see for instance \cite{Chambolle-et-al-10}).
 
     \begin{definition}[Special functions of bounded variation \cite{Pock-et-al-iccv09}]
         $SBV$ denotes the special functions of bounded variation, i.e. functions $u$ of bounded variation for which the derivative $Du$ is the sum of an absolutely continuous part $\nabla u \cdot dx$ and a discontinuous singular part $S_{u}$.

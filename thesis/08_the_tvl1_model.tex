@@ -6,7 +6,7 @@
     \begin{definition}[The TVL1 Model] % (fold)
     \label{def:the_tvl1_model}
 
-        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ a (noisy) input image. Then the TVL1 Model is defined as the variational problem
+        Let $\Omega \in \mathbb{R}^{d}$ be the $d$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ an (noisy) input image. Then the TVL1 Model is defined as the optimization problem
             \begin{equation}
                 \min_{u} E_{TVL1}(u) = \min_{u} \textnormal{TV}(u) + \lambda \int_{\Omega} |u - g| \, dx = \min_{u \in X} \int_{\Omega} |\nabla \, u| \, dx + \lambda \int_{\Omega} |u - g| \, dx.
                 \label{eq:the_tvl1_model}
@@ -15,7 +15,7 @@
     \end{definition}
     % definition the_tvl1_model (end)
 
-    Note, that there is also the parameter $\lambda$ to handle the tradeoff between both terms, as seen in the previous section for the ROF model. Then, primal formulation of the TVL1 model is represented by
+    Note, that there is also the parameter $\lambda$ to handle the tradeoff between both terms, as seen in the previous section for the ROF model. The primal formulation of the TVL1 model is represented by
         \begin{equation}
             \min_{u \in X} E_{TVL1}(u) = \min_{u \in X} ||\nabla \, u||_{1} + \lambda ||u - g||_{1},
         \label{eq:primal_tvl1_problem}
@@ -35,7 +35,7 @@
             $$
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle_{X} - F^{\ast}(p) + G(u)% = \min_{u \in X}\, \max_{p \in Y}\,\, -\langle \nabla^{T}\,p, u \rangle_{X} - F^{\ast}(p) + G(u).
             $$
-        From equation \ref{eq:rof_f_star} we already know how $F^{\ast}$ looks like. Writing it as the indicator function we got $F^{\ast} = \delta_{P}(p)$ with the set $P$ of Equation \ref{eq:the_set_P}. Then the primal-dual problem becomes
+        Writing $F^{\ast}$ as the indicator function with $F^{\ast} = \delta_{P}(p)$ and the set $P$ of Equation \ref{eq:the_set_P} we observe for the primal-dual formulation
             \begin{equation}
                 \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla\, u \rangle_{Y} + \lambda ||u - g||_{1} - \delta_{P}(p).
             \label{eq:primal_dual_tvl1_problem}
@@ -100,38 +100,57 @@
 
         To compute the proximity operator of the function $G$ we get
             $$
-                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u - g||_{1}.
+                (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \arg \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u - g||_{1}.
             $$
-        If we define $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u||_{1}$ and use the linearized notation for the image $u$, namely $u \in \mathbb{R}^{N \cdot M}$, then the minimization problem $\min\limits_{u \in X} \mathcal{L}(u)$ is equivalent to $\nabla\mathcal{L}(u) = 0$. We already saw that the $l^{1}$ norm is not differentiable everywhere and for that non-smooth. To compute the gradient we need the partial derivatives for each $k = 1, ..., N \cdot M$. Let us first take a look at the k-th row of $\nabla\mathcal{L}(u)$:
+        Therefore, we define $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u - g||_{1}$ and assume that $\hat{u} \in \arg \min\limits_{u \in X} \mathcal{L}(u)$. Then with proposition \ref{prop:zero_element_of_subgradient} we have that
+            $$
+                0 \in \partial \mathcal{L}(\hat{u}) \Longleftrightarrow 0 \in \hat{u} - \tilde{u} + \tau\lambda \partial(||\hat{u} - g||_{1}).
+            $$
+        In example \ref{ex:subgradient_subdifferential} 2. we already saw that the $l^{1}$ norm is not differentiable everywhere. To compute the subgradient we need the partial derivatives for each $k = 1, ..., N \cdot M$. Let us first take a look at the k-th row of $\partial\mathcal{L}(\hat{u})$:
             \begin{eqnarray}
-                \partial_{k}(\mathcal{L}(u)) &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(||u-g||_{1}) \notag \\
-                &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(|u_{1}-g_{1}| + ... + |u_{k}-g_{k}| + ... + |u_{n}-g_{n}|) \notag \\
-                &=& u_{k} - \tilde{u}_{k} + \tau \lambda \partial_{k}\big(|u_{k} - g_{k}|\big).
+                0 \in \partial_{k} \mathcal{L}(\hat{u}) &\Longleftrightarrow& 0 \in \hat{u}_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(||\hat{u} - g||_{1}) \notag \\
+                &\Longleftrightarrow& 0 \in \hat{u}_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k} (|\hat{u}_{k} - g_{k}|). \notag
+                % \partial_{k}(\mathcal{L}(u)) &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(||u-g||_{1}) \notag \\
+                % &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(|u_{1}-g_{1}| + ... + |u_{k}-g_{k}| + ... + |u_{n}-g_{n}|) \notag \\
+                % &=& u_{k} - \tilde{u}_{k} + \tau \lambda \partial_{k}\big(|u_{k} - g_{k}|\big).
             \end{eqnarray}
-        With that we see that we need to compute the subgradient of the absolute value function for all partial subderivatives $k = 1, ..., N \cdot M$. From example \ref{ex:subgradient_subdifferential} 1. we have
+
+        % If we define $\mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \lambda\tau||u||_{1}$ and use the linearized notation for the image $u$, namely $u \in \mathbb{R}^{N \cdot M}$, then the minimization problem $\min\limits_{u \in X} \mathcal{L}(u)$ is equivalent to $\nabla\mathcal{L}(u) = 0$. We already saw that the $l^{1}$ norm is not differentiable everywhere and for that non-smooth. To compute the gradient we need the partial derivatives for each $k = 1, ..., N \cdot M$. Let us first take a look at the k-th row of $\nabla\mathcal{L}(u)$:
+        %     \begin{eqnarray}
+        %         \partial_{k}(\mathcal{L}(u)) &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(||u-g||_{1}) \notag \\
+        %         &=& u_{k} - \tilde{u}_{k} + \tau\lambda \partial_{k}(|u_{1}-g_{1}| + ... + |u_{k}-g_{k}| + ... + |u_{n}-g_{n}|) \notag \\
+        %         &=& u_{k} - \tilde{u}_{k} + \tau \lambda \partial_{k}\big(|u_{k} - g_{k}|\big).
+        %     \end{eqnarray}
+        With this we see that we need to compute the subgradient of the absolute value function for all partial subderivatives $k = 1, ..., N \cdot M$. From example \ref{ex:subgradient_subdifferential} 1. we have
             $$
                 y_{k} =
                     \begin{dcases*}
-                        1 & \textnormal{if $u_{k} - g_{k} > 0$,} \\
-                        -1 & \textnormal{if $u_{k} - g_{k} < 0$,} \\
-                        [-1, 1] & \textnormal{if $u_{k} - g_{k} = 0 \Longleftrightarrow u_{k} = g_{k}$,}
+                        1 & \textnormal{if $\hat{u}_{k} - g_{k} > 0$,} \\
+                        -1 & \textnormal{if $\hat{u}_{k} - g_{k} < 0$,} \\
+                        [-1, 1] & \textnormal{if $\hat{u}_{k} - g_{k} = 0 \Longleftrightarrow \hat{u}_{k} = g_{k}$,}
                     \end{dcases*}
             $$
         where $y_{k}$ is the subgradient of the k-th row. Let us check all three cases:
             \begin{enumerate}
                 \item Let $y_{k} = 1$. Then we obtain
                     $$
-                        u_{k} - \tilde{u}_{k} + \tau\lambda = 0 \Longleftrightarrow u_{k} = \tilde{u}_{k} - \tau\lambda.
+                        0 \in \hat{u}_{k} - \tilde{u}_{k} + \tau\lambda \Longleftrightarrow \hat{u}_{k} = \tilde{u}_{k} - \tau\lambda.
                     $$
-                With $u_{k} - g_{k} > 0$ and $u_{k} = \tilde{u}_{k} - \tau\lambda$ we have that this equation holds if $\tilde{u}_{k} - \tau\lambda - g_{k} > 0$, which is then equivalent to $\tilde{u}_{k} - g_{k} > \tau\lambda$.
+                With $\hat{u}_{k} - g_{k} > 0$ and $\hat{u}_{k} = \tilde{u}_{k} - \tau\lambda$ we have that this equation holds if 
+                    $$
+                        \tilde{u}_{k} - \tau\lambda - g_{k} > 0 \Longleftrightarrow \tilde{u}_{k} - g_{k} > \tau\lambda.
+                    $$
                 \item Now, let $y_{k} = -1$. The we get in row k
                     $$
-                        u_{k} - \tilde{u}_{k} - \tau\lambda = 0 \Longleftrightarrow u_{k} = \tilde{u}_{k} + \tau\lambda.
+                        0 \in \hat{u}_{k} - \tilde{u}_{k} - \tau\lambda \Longleftrightarrow \hat{u}_{k} = \tilde{u}_{k} + \tau\lambda.
                     $$
-                Rewriting the constraint in the definition of the subgradient leads us to $\tilde{u}_{k} + \tau\lambda - g_{k} > 0$. From this it follows $\tilde{u} - g_{k} > \tau\lambda$.
-                \item Finally, $y_{k} \in [-1, 1]$. Since, we know that $u_{k} = g_{k}$ we get
+                Rewriting the constraint in the definition of the subgradient leads us to
                     $$
-                        g_{k} - \tilde{u}_{k} + \tau\lambda y_{k} = 0 \Longleftrightarrow \tilde{u}_{k} - g_{k} = \tau\lambda y_{k}.
+                        \tilde{u}_{k} + \tau\lambda - g_{k} > 0 \Longleftrightarrow \tilde{u} - g_{k} > \tau\lambda.
+                    $$
+                \item Finally, $y_{k} \in [-1, 1]$. Since, we know that $\hat{u}_{k} = g_{k}$ we get
+                    $$
+                        0 \in g_{k} - \tilde{u}_{k} + \tau\lambda y_{k} \Longleftrightarrow \tilde{u}_{k} - g_{k} = \tau\lambda y_{k}.
                     $$
                 We apply the absolute value function to each side of the equation, then with $|y_{k}| \le 1$ we have
                     $$

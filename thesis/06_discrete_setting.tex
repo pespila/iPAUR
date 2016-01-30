@@ -3,10 +3,10 @@
 
     In our discrete setting we consider a regular pixel grid of size $N \times M$ and set
         \begin{equation}
-            \mathcal{G} = \bigg\{ (i, j) : i = 1, ..., N \,\, \textnormal{and} \,\, j = 1, ..., M \bigg\}.
+            \mathcal{G} = \bigg\{ (i, j) : i = 1, ..., N \,\, \textnormal{and} \,\, j = 1, ..., M \bigg\},
             \label{eq:pixel_grid}
         \end{equation}
-    where the indices $(i, j)$ denote the discrete locations in the pixel grid. And we define our image $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ where $X \in \mathbb{R}^{N \cdot M}$ is a finite dimensional vector space equipped with the standard inner product
+    where the indices $(i, j)$ denote the discrete locations in the pixel grid. And we define an image $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ where $X \in \mathbb{R}^{N \cdot M}$ is a finite dimensional vector space equipped with the standard inner product
         \begin{equation}
             \langle u, v \rangle_{X} = u^{T}v = \sum_{i = 1}^{N} \sum_{j = 1}^{M} u_{i, j} v_{i, j}, \,\,\, u, v \in X,
             \label{eq:inner_product}
@@ -15,15 +15,16 @@
         $$
             ||u||_{2} = \big( u^{T} u \big)^{\frac{1}{2}} = \langle u, u \rangle^{\frac{1}{2}}, \,\,\, u \in X.
         $$
-    Furthermore, let $Y = X \times X$ be the dual space of $X$ equipped with the inner product defined by
+    Furthermore, let $Y = X \times X$ be the dual space of $X$, equipped with the inner product defined by
         $$
             \langle p, q \rangle_{Y} = p^{T}q = \sum_{i = 1}^{N} \sum_{j = 1}^{M} p^{1}_{i, j} q^{1}_{i, j} + p^{2}_{i, j} q^{2}_{i, j},
         $$
     with $p_{i, j} = \big(p^{1}_{i, j}, p^{2}_{i, j}\big)^{T}, q_{i, j} = \big(q^{1}_{i, j}, q^{2}_{i, j}\big)^{T} \in Y$ and also equipped with the euclidean norm.
 
-    For simplicity we let our normed vector space $X$ be in $\mathbb{R}^{n}$ and swap the superscript $N \cdot M$ to $n$. If the exact space size is of importance, we will make this clear. Further, we define $\mathbb{R}_{\infty} = \mathbb{R} \cup \{\infty\}$ as the space of the extended real values and $\mathbb{R}_{+} = [0, +\infty)$ as the space of all positive real values including zero.
+    For simplicity we let our normed vector space $X$ be in $\mathbb{R}^{n}$ and swap the superscript $N \cdot M$ to $n$. If the exact space size is of importance, we will make this clear.
+    %Further, we define $\mathbb{R}_{\infty} = \mathbb{R} \cup \{\infty\}$ as the space of the extended real values and $\mathbb{R}_{+} = [0, +\infty)$ as the space of all positive real values including zero.
 
-    Because the total variation is associated with the gradient operator, we want to give some discretization for this operator. From Equation \ref{eq:nabla_equals_minus_divergence} we know that $\langle \nabla u, p \rangle = - \langle u, \textnormal{div}p \rangle$ holds. In a finite dimensional vector space equipped with inner product one has $\langle \nabla u, p \rangle = \langle u, \nabla^{T} p \rangle$. Because of this reason we set $\nabla^{T} = -\textnormal{div}$. Or, according to the linear operator $K$ we set $K = \nabla$ and $K^{\ast} = \nabla^{T}$.
+    Because the total variation is associated with the gradient operator, we want to give some discretization for this operator. From Equation \ref{eq:nabla_equals_minus_divergence} we know that $\langle \nabla u, p \rangle = - \langle u, \textnormal{div}p \rangle$ holds. In a finite dimensional vector space equipped with inner product one has $\langle \nabla u, p \rangle = \langle u, \nabla^{T} p \rangle$. Because of this, we set $\nabla^{T} = -\textnormal{div}$. According to the linear operator $K$ we set $K = \nabla$ and $K^{\ast} = \nabla^{T}$.
 
     \begin{definition}[Discrete gradient operator] % (fold)
     \label{def:discrete_gradient_operator}
@@ -79,7 +80,7 @@
     \end{definition}
     % definition discrete_gradient_operator (end)
 
-    We additionally propose in the following propose a bound on the norm of these two operators.
+    We additionally compute the bound on the norm of these two operators.
 
     \begin{proposition}[Bound on the norm of $\nabla$] % (fold)
         \label{prop:bound_on_the_norm}

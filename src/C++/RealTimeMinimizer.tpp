@@ -125,7 +125,7 @@ void RealTimeMinimizer<aType>::ProxD(aType* u, aType* u_tilde, aType* f, aType t
 
 template<typename aType>
 void RealTimeMinimizer<aType>::ProxDgamma(aType* u, aType* u_tilde, aType* u_n, aType* f, aType gamma, aType tau) {
-	aType q = 1.5f;
+	aType q = 2.f;
 	aType taubar;
 	aType t;
 	aType u0;
@@ -135,7 +135,9 @@ void RealTimeMinimizer<aType>::ProxDgamma(aType* u, aType* u_tilde, aType* u_n, 
 		u0 = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
 		uprev = u_n[i];
 		taubar = ((gamma*tau)/(1 + 2*tau)) * pow(fabs(u0 - uprev), q - 2);
-		t = (aType)1 / pow((3*taubar)/(aType)4 + sqrt(1 + pow((3*taubar)/(aType)4, 2)), 2);
+		// t = (aType)1 / pow((3*taubar)/(aType)4 + sqrt(1 + pow((3*taubar)/(aType)4, 2)), 2);
+		t = (aType) 1 / (1 + 2 * taubar);
+		// t = max(0.f, 1 - taubar);
 		u[i] = (1 - t)*uprev + t*u0;
 	}
 }

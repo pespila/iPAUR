@@ -38,6 +38,9 @@ void ROFModel<aType>::Initialize(Image<aType>& src) {
 				u[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u_n[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u_bar[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
+				// u[j + i * width + k * height * width] = 124.f;
+				// u_n[j + i * width + k * height * width] = 124.f;
+				// u_bar[j + i * width + k * height * width] = 124.f;
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
@@ -90,11 +93,11 @@ void ROFModel<aType>::NablaTranspose(aType* gradient_transpose, aType* p_x, aTyp
 			for (int j = 0; j < width; j++) {
 				x = i + 1 < height ? p_x[j + i * width + k * height * width] : 0.0;
 				x_minus_one = i > 0 ? p_x[j + (i-1) * width + k * height * width] : 0.0;
-				gradient_transpose[j + i * width + k * height * width] = x_minus_one - x;
+				gradient_transpose[j + i * width + k * height * width] = x - x_minus_one;
 				x = j + 1 < width ? p_y[j + i * width + k * height * width] : 0.0;
 				x_minus_one = j > 0 ? p_y[j - 1 + i * width + k * height * width] : 0.0;
-				gradient_transpose[j + i * width + k * height * width] += x_minus_one - x;
-				gradient_transpose[j + i * width + k * height * width] = u_n[j + i * width + k * height * width] - tau * gradient_transpose[j + i * width + k * height * width];
+				gradient_transpose[j + i * width + k * height * width] += x - x_minus_one;
+				gradient_transpose[j + i * width + k * height * width] = u_n[j + i * width + k * height * width] + tau * gradient_transpose[j + i * width + k * height * width];
 			}
 		}
 	}
@@ -169,14 +172,14 @@ void ROFModel<aType>::ROF(Image<aType>& src, Image<aType>& dst, aType lambda, aT
 		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
 		ProxD(u, gradient_transpose, f, tau, lambda);
 		Extrapolation(u_bar, u, u_n, theta);
-		if (k > 500) {
+		// if (k > 500) {
 			aType energy_tmp = Energy(u, f, p_x, p_y, lambda);
 			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
-		}
+		// }
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated PrimalEnergy: " << PrimalEnergy(u, f, lambda) << endl;

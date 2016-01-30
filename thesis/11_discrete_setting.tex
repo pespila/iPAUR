@@ -1,37 +1,37 @@
 \section{Discrete Setting} % (fold)
 \label{sec:discrete_setting_ms}
 
-    Using the characteristic function, respectively the generic function $v$ means, that we are adding an additional space to our two dimensional image domain. This extra label space needs to be considered in the discrete setting. In \cite{Pock-et-al-iccv09} they consider $\Omega = [0, 1]^{2}$ and for that the subgraph of $u$ to be in $[0, 1]^{3}$. This would imply that we discetize these two spaces by adding a step-size $h$, where for instance $h = \frac{1}{N}$ or $h = \frac{1}{M}$. The size $h$ would only scale the energy, but does not change results. Further, they consider all their operators without having this additional step-size. To be not confusing we propose all our spaces and operators without needing a step size. Then our image domain is $\Omega = \{1, 2, ..., N\} \times \{1, 2, ..., M\}$ and the subgraph of the function $u: \mathbb{R}^{2} \longrightarrow [0, 1]$ is then defined in the cube $\Omega \times \{1, 2, ..., S\}$. In this discrete setting we define the pixel grid $\mathcal{G}$ with size $N \times M \times S$ and the following notation
+    Using the characteristic function, respectively the function $v$ means, that we are adding an additional space to our two dimensional image domain. This extra label space needs to be considered in the discrete setting. In \cite{Pock-et-al-iccv09} they consider $\Omega = [0, 1]^{2}$ and for that the subgraph of $u$ to be in $[0, 1]^{3}$. This would imply that we discetize these two spaces by adding a step-size $h$, where for instance $h_{N} = \frac{1}{N}$ or $h_{M} = \frac{1}{M}$. Further, they consider all their operators without having this additional step-size. To be not confusing, we propose all our spaces and operators without needing a step size. Then the image domain is $\Omega = \{1, 2, ..., N\} \times \{1, 2, ..., M\}$ and the subgraph of the function $u: \mathbb{R}^{2} \longrightarrow [0, 1]$ is defined in the cube $\Omega \times \{1, 2, ..., S\}$. In this discrete setting we define the pixel grid $\mathcal{G}$ with size $N \times M \times S$ and the following notation
 
         \begin{equation}
             \mathcal{G} = \bigg\{ (i , j , k ): i = 1, 2, ..., N, j = 1, ..., M, k = 1, 2, ..., S \bigg\}
         \end{equation}
 
-    where $i, j, k$ are the discrete locations of each voxel. For a reformulation of \ref{eq:continous_saddle_point_problem} we also need to define the corresponding functions of $v, \varphi$. So, let $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ and $p \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in equation \ref{eq:continous_saddle_point_problem} where $u$ corresponds to $v$ and $p$ to $\varphi$. If we replace the inner-product for infinite dimensions in equation \ref{eq:continous_saddle_point_problem} by the inner-product for finite dimensions and note that in finite spaces we can interchange $\sup$ and $\max$ we are going to face the saddle-point problem
+    where $i, j, k$ are the discrete locations of each voxel. For a reformulation of \ref{eq:continous_saddle_point_problem} we also need to define the corresponding functions of $v, \varphi$. So, let $u \in X: \mathcal{G} \longrightarrow [0, 1]$ and $p \in Y: \mathcal{G} \longrightarrow \mathbb{R}^{3}$ be the discrete versions of the continous functions in equation \ref{eq:continous_saddle_point_problem} where $u$ corresponds to $v$ and $p$ to $\varphi$. If we replace the inner-product for infinite dimensions in equation \ref{eq:continous_saddle_point_problem} by the inner-product for finite dimensions and note that in finite, bounded normed vector spaces we can interchange $\sup$ and $\max$ we are going to face the saddle-point problem
         \begin{equation}
             \min_{u \in C} \max_{p \in K} \langle Au, p \rangle.
         \label{eq:mumford_shah_saddle_point_problem}
         \end{equation}
-    This notation looks now familiar to us. Here, $A$ is our discrete, linear operator. We used the notation $A$ instead of $K$ as before, since we also have a discrete convex set $K$. Before we state how this set looks like, let us first give the definition of the set $C$.
+    This notation looks now familiar to us. Here, $A$ is the linear operator, earlier denoted with $K$. The set $C$ of the minimization is defined as
     %but we still do not know how the set $K$ will be defined in this discrete version. Also, we want to clarify why we need the set $C$. Let us first state how $C$ actually looks like:
 
         \begin{equation}
-            C = \{ u \in X: u(i,j,k) \in [0,1], u(i, j, 1) = 1, u(i, j, S) = 0 \} \subseteq X.
+            C = \{ u \in X: u(i,j,k) \in [0,1], u(i, j, 1) = 1, u(i, j, S) = 0 \}.
         \end{equation}
 
-    In equation \ref{eq:generic_functions} we substituted the characteristic function by a generic function $v$. To take the limits of $v$ into account, we set the values in the first label space to $1$ and those in the last label space to $0$. We also stated, that our image $u$ maps into $[0, 1]$, which is also modeled in the set $C$.
-    The discrete version of our set $K$ from equation \ref{eq:set_k_continuous} can then be rewritten to
+    To take the limits of the function $v$ into account in its discrete version $u$, we set the values in the first label space to $1$ and those in the last label space to $0$. We also stated, that the approximation $u$ maps into $[0, 1]$, which is modeled in the set $C$.
+    The discrete version of the set $K$ from equation \ref{eq:set_k_continuous} has the following notation:
         \begin{eqnarray}
-            K = \{ p = (p^{x}, p^{t})^{T} \in Y &:& p^{t}(i,j,k) \ge \frac{||p^{x}||_{2}^{2}}{4} - \lambda(\frac{k}{M} - f(i,j))^{2}, \label{eq:local_constraint} \\
+            K = \{ p = (p^{x}, p^{t})^{T} \in Y &:& p^{t}(i,j,k) \ge \frac{||p^{x}||_{2}^{2}}{4} - \lambda(\frac{k}{S} - f(i,j))^{2}, \label{eq:local_constraint} \\
             &&\left| \sum_{k_{1} \le k \le k_{2}} p^{x} \right| \le \nu \}, \label{eq:non_local_constraint}
         \end{eqnarray}
-    whereas we define $p^{x} := (p^{1}, p^{2})^{T}$ and $p^{t} := p^{3}$ and the vector $p$ itself is an element of $\mathbb{R}^{N \times M \times S \times 3}$. For this, it also holds that $p^{x} \in \mathbb{R}^{N \times M \times S \times 2}$ and $p^{t} \in \mathbb{R}^{N \times M \times S}$. To be clear, the constraint in equation \ref{eq:local_constraint} goes pointwise for all $(i, j, k) \in \mathcal{G}$. The second constraint is more involved, since the constraint in \ref{eq:non_local_constraint} holds for all $i = 1, ..., N$, $j = 1, ..., M$ and all possible combinations $(k_{1}, k_{2})$ for all $k = 1, ..., S$. What looks like having a set $K$ with two constraints, turns out that the set $K$ is an intersection of a couple of convex sets. Namely, one has that for a fixed voxel $(i, j, k)$ one can compute $\frac{S (S - 1)}{2} + 1$ many convex sets. The amount of several convex sets will lead us to a long run-time for our algorithms, but also to interesting mathematical problems. Before we discuss this in detail, we first continuou by defining our discrete setting.
+    whereas we define $p^{x} := (p^{1}, p^{2})^{T}$ and $p^{t} := p^{3}$ and the vector $p$ itself is an element of $\mathbb{R}^{N \cdot M \cdot S \cdot 3}$. For this, $p^{x} \in \mathbb{R}^{N \cdot M \cdot S \cdot 2}$ and $p^{t} \in \mathbb{R}^{N \cdot M \cdot S}$. The constraint in equation \ref{eq:local_constraint} goes pointwise for all $(i, j, k) \in \mathcal{G}$. The second constraint is more involved, since the constraint in \ref{eq:non_local_constraint} holds for all $i = 1, ..., N$, $j = 1, ..., M$ and all possible combinations $(k_{1}, k_{2})$ for all $k_{1}, k_{2} = 1, ..., S$. What looks like having a set $K$ with two constraints, turns out that the set $K$ is an intersection of a couple of convex sets. Namely, one has that for a fixed voxel $(i, j, k)$ one can compute $\frac{S (S - 1)}{2} + S + 1$ many convex sets. The amount of several convex sets will lead us to a long run-time in our algorithm. Before we discuss this in detail, we first continue with the definitions of the discrete setting.
 
     \begin{remark}
-        In addition to discretize the variable $t$ in \ref{eq:set_k_continuous} one gets $\frac{k}{M}$ in the discrete version for \ref{eq:localconst}. Note, that $t$ is a value in the continuous setting which determines at which point the characteristic function vanishes, i.e. is set to zero. The bound on the norm $L$ depends on the discrete gradient operator and is for a fixed notation for this operator constant. Because of this, the notation one finds in \cite{Pock-et-al-iccv09} is wrong.
+        In addition to discretize the variable $t$ in \ref{eq:set_k_continuous} one gets $\frac{k}{S}$ in the discrete version of \ref{eq:localconst}. Note, that $t$ is a value in the continuous setting which determines at which point the characteristic function vanishes, i.e. is set to zero. The bound on the norm $L$ depends on the discrete gradient operator. In \cite{Pock-et-al-iccv09} they proposed to set the discrete version of $t$ to $\frac{k}{L}$, which is a mistake.
     \end{remark}
 
-    We need to determine how the linear operator $A$ looks like. It is the same as found in section \ref{sec:discrete_setting}, namely the discrete gradient operator, but extended for the label space we added to this problem.
+    We want to define  the representation of the linear operator $A$ is represented. It is the same as found in section \ref{sec:discrete_setting}, namely the discrete gradient operator, but extended to the additional label space.
 
     \begin{definition}[Discrete gradient operator] % (fold)
     \label{def:discrete_gradient_operator_ms}
@@ -61,7 +61,7 @@
     \end{definition}
     % definition discrete_gradient_operator (end)
 
-    Again we have $\textnormal{div}: Y \longrightarrow X$ as the discrete divergence operator. And it relates to $\nabla$ with $- \nabla^{\ast} = \textnormal{div}$ as seen before.
+    Again we have $\textnormal{div}: Y \longrightarrow X$ as the discrete divergence operator. And it relates to $\nabla$ with $\nabla^{T} = -\textnormal{div}$ as seen before.
 
     \begin{definition}[Discrete divergence operator] % (fold)
     \label{def:discrete_divergence_operator_ms}
@@ -97,7 +97,7 @@
     \begin{proposition}[Bound on the norm of $\nabla$] % (fold)
         \label{prop:bound_on_the_norm}
 
-        The bound on the norm of the proposed discrete linear operators is given by
+        The bound on the norm of the proposed discrete linear operator is given by
             \begin{equation}
                 L^{2} = ||\nabla|| = ||\textnormal{div}|| \le 12.
             \end{equation}
