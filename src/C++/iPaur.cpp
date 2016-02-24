@@ -12,6 +12,7 @@
 #include "RealTimeMinimizer.h"
 #include "TVL1Model.h"
 #include "ROFModel.h"
+#include "MumfordShah.h"
 #include "URModel.h"
 #include "iPaurModel.h"
 
@@ -93,6 +94,10 @@ int main(int argc, const char* argv[]) {
     getParam("radius", radius, argc, argv);
     cout << "Radius: " << radius << endl;
 
+    int level = 16;
+    getParam("level", level, argc, argv);
+    cout << "level: " << level << endl;
+
     float sigma = 2.4f;
     getParam("sigma", sigma, argc, argv);
     cout << "sigma = " << sigma << endl;
@@ -112,6 +117,10 @@ int main(int argc, const char* argv[]) {
     float lambda = 0.7f;
     getParam("lambda", lambda, argc, argv);
     cout << "lambda = " << lambda << endl;
+
+    float nu = 0.01f;
+    getParam("nu", nu, argc, argv);
+    cout << "nu = " << nu << endl;
 
     float tau = 0.25f;
     getParam("tau", tau, argc, argv);
@@ -136,6 +145,10 @@ int main(int argc, const char* argv[]) {
         printf("\nStarting TVL1 Model. Just a few seconds please:\n");
         TVL1Model<float> tvl1(in, iter);
         tvl1.TVL1(in, out, lambda, tau);
+    } else if (model.compare("minimizer") == 0) {
+        printf("\nStarting Mumford-Shah Model. Just a few seconds please:\n");
+        MumfordShah<float> ms(in, iter, level);
+        ms.Minimizer(in, out, lambda, nu);
     } else if (model.compare("realtime") == 0) {
         printf("\nStarting Real-Time Minimizer. Just a few seconds please:\n");
         RealTimeMinimizer<float> rt(in, iter);
@@ -143,7 +156,6 @@ int main(int argc, const char* argv[]) {
     } else if (model.compare("ur") == 0) {
         printf("\nStarting UR Model. Just a few seconds please:\n");
         URModel<float> ur(in, iter);
-        // ur.UR(in, out, alpha, beta, gamma, lambda, tau);
         ur.UR(in, out, alpha, beta, tau);
     } else if (model.compare("ipaur") == 0) {
         printf("\nStarting iPaur Model. Just a few seconds please:\n");
@@ -244,8 +256,8 @@ int main(int argc, const char* argv[]) {
     }
     
     float stop_watch = clock();
-    // cout << "Estimated MSE: " << MSE(in, out) << endl;
-    // cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
+    cout << "Estimated MSE: " << MSE(in, out) << endl;
+    cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
     cout << "Estimated Run-Time: " << (stop_watch - start_watch)/CLOCKS_PER_SEC << endl << endl;
     
     out.Write(output);

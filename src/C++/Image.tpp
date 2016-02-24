@@ -14,14 +14,14 @@ Image<aType>::Image(const string filename, bool gray) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                this->image[j + i * this->width] = img.at<uchar>(i, j);
+                this->image[j + i * this->width] = img.at<uchar>(i, j)/255.f;
             }
         }
     } else if (this->channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k];
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k]/255.f;
                 }
             }
         }
@@ -29,7 +29,7 @@ Image<aType>::Image(const string filename, bool gray) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k];
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k]/255.f;
                 }
             }
         }
@@ -47,14 +47,14 @@ void Image<aType>::Read(const string filename, bool gray) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                this->image[j + i * this->width] = img.at<uchar>(i, j);
+                this->image[j + i * this->width] = img.at<uchar>(i, j)/255.f;
             }
         }
     } else if (this->channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k];
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k]/255.f;
                 }
             }
         }
@@ -62,7 +62,7 @@ void Image<aType>::Read(const string filename, bool gray) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k];
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k]/255.f;
                 }
             }
         }
@@ -75,14 +75,14 @@ void Image<aType>::Write(const string filename) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                img.at<uchar>(i, j) = this->image[j + i * this->width];
+                img.at<uchar>(i, j) = this->image[j + i * this->width]*255.f;
             }
         }
     } else if (this-> channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    img.at<Vec3b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
+                    img.at<Vec3b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width]*255.f;
                 }
             }
         }
@@ -90,7 +90,7 @@ void Image<aType>::Write(const string filename) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    img.at<Vec4b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
+                    img.at<Vec4b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width]*255.f;
                 }
             }
         }

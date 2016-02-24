@@ -34,7 +34,7 @@ private:
 	void NablaTranspose(aType*, aType*, aType*, aType*, aType);
 	void ProxD(aType*, aType*, aType*, int*, aType, aType);
 	void Extrapolation(aType*, aType*, aType*, aType);
-	aType PrimalEnergy(aType*, aType*, aType);
+	aType PrimalEnergy(aType*, aType*, int*, aType);
 	
 public:
 	ImageInpainting():steps(0), height(0), width(0), channel(0), size(0), hash_table(NULL), f(NULL), u(NULL), u_n(NULL), u_bar(NULL), gradient_x(NULL), gradient_y(NULL), gradient_transpose(NULL), p_x(NULL), p_y(NULL) {}

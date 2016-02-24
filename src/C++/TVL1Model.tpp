@@ -173,14 +173,14 @@ void TVL1Model<aType>::TVL1(Image<aType>& src, Image<aType>& dst, aType lambda, 
 		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
 		ProxD(u, gradient_transpose, f, tau, lambda);
 		Extrapolation(u_bar, u, u_n, theta);
-		// if (k > 500) {
+		if (k%10 == 0) {
 			aType energy_tmp = Energy(u, f, p_x, p_y, lambda);
 			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
-		// }
+		}
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated PrimalEnergy: " << PrimalEnergy(u, f, lambda) << endl;

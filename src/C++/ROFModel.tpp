@@ -38,9 +38,6 @@ void ROFModel<aType>::Initialize(Image<aType>& src) {
 				u[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u_n[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u_bar[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
-				// u[j + i * width + k * height * width] = 124.f;
-				// u_n[j + i * width + k * height * width] = 124.f;
-				// u_bar[j + i * width + k * height * width] = 124.f;
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
@@ -159,27 +156,67 @@ aType ROFModel<aType>::PrimalEnergy(aType* u, aType* g, aType lambda) {
 }
 
 template<typename aType>
+void ROFModel<aType>::DualAscent(aType* p_x, aType* p_y, aType* u_bar, aType sigma) {
+	int I;
+	aType u1, u2, norm;
+	for (int k = 0; k < channel; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				I = j + i * width + k * height * width;
+				u1 = i+1 < height ? (u_bar[j + (i+1) * width + k * height * width] - u_bar[I]) : 0.0;
+				u2 = j+1 < width ? (u_bar[(j+1) + i * width + k * height * width] - u_bar[I]) : 0.0;
+				u1 = p_x[I] + sigma * u1;
+				u2 = p_y[I] + sigma * u2;
+				norm = sqrt(u1*u1+u2*u2);
+				p_x[I] = u1/fmax(1.f, norm);
+				p_y[I] = u2/fmax(1.f, norm);
+			}
+		}
+	}
+}
+
+template<typename aType>
+void ROFModel<aType>::PrimalDescent(aType* u_bar, aType* u, aType* p_x, aType* p_y, aType lambda, aType tau, aType theta) {
+	int I;
+	aType u1, u2, un;
+	for (int k = 0; k < channel; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				I = j + i * width + k * height * width;
+				u1 = (i+1 < height ? p_x[I] : 0.0) - (i>0 ? p_x[j + (i-1) * width + k * height * width] : 0.0);
+				u2 = (j+1 < width ? p_y[I] : 0.0) - (j>0 ? p_y[(j-1) + i * width + k * height * width] : 0.0);
+				un = u[I];
+				u[I] = ((un + tau * (u1+u2)) + tau * lambda * f[I]) / (1.0 + tau * lambda);
+				u_bar[I] = u[I] + theta * (u[I] - un);
+			}
+		}
+	}
+}
+
+template<typename aType>
 void ROFModel<aType>::ROF(Image<aType>& src, Image<aType>& dst, aType lambda, aType tau) {
 	int k;
-	aType theta = 1;
+	aType theta = 1.f;
 	aType sigma = (aType)1 / (aType)(tau * 8);
 	aType energy = Energy(u, f, p_x, p_y, lambda);
 	dst.Reset(height, width, channel, src.Type());
 	Initialize(src);
 	for (k = 1; k < steps; k++) {
-		Nabla(gradient_x, gradient_y, u_bar, p_x, p_y, sigma);
-		ProxRstar(p_x, p_y, gradient_x, gradient_y);
-		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
-		ProxD(u, gradient_transpose, f, tau, lambda);
-		Extrapolation(u_bar, u, u_n, theta);
-		// if (k > 500) {
+		DualAscent(p_x, p_y, u_bar, sigma);
+		PrimalDescent(u_bar, u, p_x, p_y, lambda, tau, theta);
+		// Nabla(gradient_x, gradient_y, u_bar, p_x, p_y, sigma);
+		// ProxRstar(p_x, p_y, gradient_x, gradient_y);
+		// NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
+		// ProxD(u, gradient_transpose, f, tau, lambda);
+		// Extrapolation(u_bar, u, u_n, theta);
+		if (k%10 == 0) {
 			aType energy_tmp = Energy(u, f, p_x, p_y, lambda);
 			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
-		// }
+		}
 	}
 	cout << "Iterations: " << k << endl;
 	cout << "Estimated PrimalEnergy: " << PrimalEnergy(u, f, lambda) << endl;

@@ -85,11 +85,15 @@ void RealTimeMinimizer<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_
 	aType factor = (2 * alpha) / (sigma + 2 * alpha);
 	aType bound = sqrt((lambda / alpha) * sigma * (sigma + 2 * alpha));
 	VectorOfInnerProduct(vector_norm_squared, p_tilde_x, p_tilde_y);
+	// aType norm = 0.f;
 	for (int k = 0; k < channel; k++) {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				int ix = j + i * width + k * height * width;
 				int X = j + i * width;
+				// norm = sqrt(p_tilde_x[ix]*p_tilde_x[ix] + p_tilde_y[ix]*p_tilde_y[ix]);
+				// p_x[ix] = norm <= bound ? factor * p_tilde_x[ix] : 0;
+				// p_y[ix] = norm <= bound ? factor * p_tilde_y[ix] : 0;
 				p_x[ix] = vector_norm_squared[X] <= bound ? factor * p_tilde_x[ix] : 0;
 				p_y[ix] = vector_norm_squared[X] <= bound ? factor * p_tilde_y[ix] : 0;
 			}
@@ -125,20 +129,28 @@ void RealTimeMinimizer<aType>::ProxD(aType* u, aType* u_tilde, aType* f, aType t
 
 template<typename aType>
 void RealTimeMinimizer<aType>::ProxDgamma(aType* u, aType* u_tilde, aType* u_n, aType* f, aType gamma, aType tau) {
-	aType q = 2.f;
-	aType taubar;
-	aType t;
-	aType u0;
-	aType uprev;
+	// aType q = 2.f;
+	// aType taubar;
+	// aType t;
+	// aType u0;
+	// aType uprev;
 	for (int i = 0; i < size; i++)
 	{
-		u0 = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
-		uprev = u_n[i];
-		taubar = ((gamma*tau)/(1 + 2*tau)) * pow(fabs(u0 - uprev), q - 2);
+		// if (q == 1) {
+			// aType fac = u_tilde[i] + 2.f*tau*f[i] - u_n[i]*(1 + 2*tau);
+			// if (fac > gamma*tau)		u[i] = (u_tilde[i] + 2.f*tau*f[i] + 2*tau*gamma) / (1.f + 2*tau);
+			// if (fac < -tau*gamma) 		u[i] = (u_tilde[i] + 2.f*tau*f[i] - 2*tau*gamma) / (1.f + 2*tau);
+			// if (fabs(fac) <= tau*gamma) u[i] = u_n[i];
+		// }
+		u[i] = (u_tilde[i] + 2.f*tau*f[i] + 2*tau*gamma*u_n[i]) / (1.f + 2*tau + 2*tau*gamma);
+		// if (q == 2) u[i] = (u_tilde[i] + 2.f*tau*f[i] + 2*tau*gamma*u_n[i]) / (1.f + 2*tau + 2*tau*gamma);
+		// u0 = (u_tilde[i] + 2.0 * tau * f[i]) / (1.0 + 2.0 * tau);
+		// uprev = u_n[i];
+		// taubar = ((gamma*tau)/(1 + 2*tau)) * pow(fabs(u0 - uprev), q - 2);
 		// t = (aType)1 / pow((3*taubar)/(aType)4 + sqrt(1 + pow((3*taubar)/(aType)4, 2)), 2);
-		t = (aType) 1 / (1 + 2 * taubar);
-		// t = max(0.f, 1 - taubar);
-		u[i] = (1 - t)*uprev + t*u0;
+		// t = (aType) 1 / (1 + 2 * taubar);
+		// t = fmax(0.f, 1 - taubar);
+		// u[i] = (1 - t)*uprev + t*u0;
 	}
 }
 
@@ -192,10 +204,12 @@ void RealTimeMinimizer<aType>::EdgeHighlighting(aType* u, aType alpha, aType lam
 				int X = j + i * width + k * height * width;
 				aType dx = i + 1 < height ? u[j + (i+1) * width + k * height * width] - u[X] : 0;
 				aType dy = j + 1 < width ? u[j + 1 + i * width + k * height * width] - u[X] : 0;
-				aType norm = abs(dx*dx + dy*dy);
-				if (norm >= sqrt(lambda/alpha)) {
-					aType c = (aType)1 / log(sqrt(2)/sqrt(lambda/alpha));
-					u[i] = (1 - c * log(norm / sqrt(lambda/alpha))) * u[i];
+				aType norm = sqrt(dx*dx + dy*dy);
+				aType factor = 0.03;
+				// aType factor = sqrt(lambda/alpha);
+				if (norm >= factor) {
+					aType c = (aType)1 / log(2.f/factor);
+					u[X] = (1 - c * log(norm / factor)) * u[X];
 				}
 			}
 		}
@@ -215,24 +229,23 @@ void RealTimeMinimizer<aType>::RTMinimizer(Image<aType>& src, Image<aType>& dst,
 		Nabla(gradient_x, gradient_y, u_bar, p_x, p_y, sigma);
 		ProxRstar(p_x, p_y, gradient_x, gradient_y, alpha, lambda, sigma);
 		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
-		if (gamma > 0) {
-			ProxDgamma(u, gradient_transpose, u_n, f, gamma, tau);
-		} else {
-			ProxD(u, gradient_transpose, f, tau);
-		}
+		ProxD(u, gradient_transpose, f, tau);
+		// if (gamma > 0) {
+		// 	ProxD(u, gradient_transpose, f, tau);
+		// 	// ProxDgamma(u, gradient_transpose, u_n, f, gamma, tau);
+		// } else {
+		// 	ProxD(u, gradient_transpose, f, tau);
+		// }
 		theta = (aType)1 / sqrt(1 + 4 * tau);
 		tau *= theta;
 		sigma /= theta;
-		if (k > 250 && k%10 == 0) {
+		if (k%10 == 0) {
 			stop = h * StopCriterion(u, u_n);
 			if (stop < 5 * 1E-5) {
 				break;
 			}
 		}
 		Extrapolation(u_bar, u, u_n, theta);
-		if (k > 10000) {
-			break;
-		}
 	}
 	if (gamma > 0) {
 		EdgeHighlighting(u, alpha, lambda);

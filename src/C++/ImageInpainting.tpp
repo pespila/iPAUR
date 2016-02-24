@@ -126,7 +126,7 @@ void ImageInpainting<aType>::Extrapolation(aType* u_bar, aType* u, aType* u_n, a
 }
 
 template<typename aType>
-aType ImageInpainting<aType>::PrimalEnergy(aType* u, aType* g, aType lambda) {
+aType ImageInpainting<aType>::PrimalEnergy(aType* u, aType* g, int* hash_table, aType lambda) {
 	aType energy = 0;
 	aType dx = 0;
 	aType dy = 0;
@@ -137,7 +137,7 @@ aType ImageInpainting<aType>::PrimalEnergy(aType* u, aType* g, aType lambda) {
 				dx = i + 1 < height ? u[j + (i+1) * width + k * height * width] - u[X] : 0;
 				dy = j + 1 < width ? u[j + 1 + i * width + k * height * width] - u[X] : 0;
 				energy += sqrt(dx*dx + dy*dy);
-				energy += (lambda/2 * pow(u[X] - g[X], 2));
+				energy += hash_table[i] ? (lambda/2 * pow(u[X] - g[X], 2)) : 0.f;
 			}
 		}
 	}
@@ -149,7 +149,7 @@ void ImageInpainting<aType>::Inpaint(Image<aType>& src, Image<aType>& dst, aType
 	int k;
 	aType theta = 1;
 	aType sigma = (aType)1 / (aType)(tau * 8);
-	aType energy = PrimalEnergy(u, f, lambda);
+	aType energy = PrimalEnergy(u, f, hash_table, lambda);
 	dst.Reset(height, width, channel, src.Type());
 	Initialize(src);
 	for (k = 1; k < steps; k++)
@@ -159,19 +159,16 @@ void ImageInpainting<aType>::Inpaint(Image<aType>& src, Image<aType>& dst, aType
 		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
 		ProxD(u, gradient_transpose, f, hash_table, tau, lambda);
 		Extrapolation(u_bar, u, u_n, theta);
-		if (k > 500) {
-			aType energy_tmp = PrimalEnergy(u, f, lambda);
-			if (abs(energy - energy_tmp) < 1E-9) {
+		if (k%10 == 0) {
+			aType energy_tmp = PrimalEnergy(u, f, hash_table, lambda);
+			if (abs(energy - energy_tmp) < 1E-6) {
 				break;
 			} else {
 				energy = energy_tmp;
 			}
 		}
-		if (k > 10000) {
-			break;
-		}
 	}
 	cout << "Iterations: " << k << endl;
-	cout << "Estimated Primal Energy: " << PrimalEnergy(u, f, lambda) << endl;
+	cout << "Estimated Primal Energy: " << PrimalEnergy(u, f, hash_table, lambda) << endl;
 	SetSolution(dst);
 }

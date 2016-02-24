@@ -26,6 +26,8 @@ private:
 	aType* p_x;
 	aType* p_y;
 	
+	void DualAscent(aType*, aType*, aType*, aType);
+	void PrimalDescent(aType*, aType*, aType*, aType*, aType, aType, aType);
 	void Initialize(Image<aType>&);
 	void SetSolution(Image<aType>&);
 	void Nabla(aType*, aType*, aType*, aType*, aType*, aType);
