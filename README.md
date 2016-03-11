@@ -5,9 +5,13 @@ The code is implemented for my master thesis found in the **src/LaTex** folder.
 
 ## Main Publications
 
+A list of the main publications I follow in my thesis and coding:
 > *Chambolle Antonin and Pock Thomas.* **A first-order primal-dual algorithm for convex problems with applications to imaging.** ”Journal of Mathematical Imaging and Vision”, 40(1):120–145, 2011.
+
 > *A. Chambolle, V. Caselles, D. Cremers, M. Novaga, and T. Pock.* **An introduction to total variation for image analysis.** In ”Theoretical Foundations and Numerical Methods for Sparse Recovery”. De Gruyter, 2010.
+
 > *T. Pock, D. Cremers, H. Bischof, and A. Chambolle.* **An algorithm for minimizing the piecewise smooth mumford-shah functional.** In ”IEEE International Conference on Computer Vision (ICCV)”, Kyoto, Japan, 2009.
+
 > *E. Strekalovskiy and D. Cremers.* **Real-time minimization of the piecewise smooth mumford-shah functional.** In ”European Conference on Computer Vision (ECCV)”, pages 127–141, 2014. https://github.com/tum-vision/fastms.
 
 ## Image References
@@ -43,7 +47,7 @@ The code is implemented for my master thesis found in the **src/LaTex** folder.
 
 ## Requirements
 
-### CUDA:
+### CUDA
 
 For the use of the GPU implementation, [CUDA](https://developer.nvidia.com/cuda-downloads) is needed.
 
