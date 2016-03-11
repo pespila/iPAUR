@@ -1,8 +1,11 @@
 template<typename aType>
 void TypeConversion<aType>::RGB2Gray(Image<aType>& src, Image<aType>& dst) {
     dst.Reset(src.Height(), src.Width(), 1, CV_8UC1);
-    for (int i = 0; i < src.Height()*src.Width(); i++)
-        dst.Set(0, i, 0, src.Get(0, i, 2) * 0.299 + src.Get(0, i, 1) * 0.587 + src.Get(0, i, 0) * 0.114);
+    for (int i = 0; i < src.Height(); i++) {
+        for (int j = 0; j < src.Width(); j++) {
+            dst.Set(i, j, 0, src.Get(i, j, 2) * 0.299 + src.Get(i, j, 1) * 0.587 + src.Get(i, j, 0) * 0.114);
+        }
+    }
 }
 
 template<typename aType>

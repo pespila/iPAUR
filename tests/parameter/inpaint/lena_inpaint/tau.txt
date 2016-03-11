@@ -1,0 +1,2300 @@
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.01.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.01
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 848
+Estimated MSE: 40.1135
+Estimated PSNR: 32.0979 db
+Estimated Run-Time: 8.98704
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.02.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.02
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 659
+Estimated MSE: 87.0792
+Estimated PSNR: 28.7317 db
+Estimated Run-Time: 6.58468
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.03.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.03
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 531
+Estimated MSE: 123.384
+Estimated PSNR: 27.2182 db
+Estimated Run-Time: 5.28814
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.04.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.04
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 6241
+Estimated MSE: 6904.13
+Estimated PSNR: 9.73971 db
+Estimated Run-Time: 65.681
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.05.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.05
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 6532
+Estimated MSE: 8318.25
+Estimated PSNR: 8.93048 db
+Estimated Run-Time: 68.0494
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.06.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.06
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5727
+Estimated MSE: 8568.63
+Estimated PSNR: 8.80169 db
+Estimated Run-Time: 57.1199
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.07.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.07
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 6627
+Estimated MSE: 9937.34
+Estimated PSNR: 8.1581 db
+Estimated Run-Time: 66.5986
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.08.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.08
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 6073
+Estimated MSE: 10110
+Estimated PSNR: 8.08327 db
+Estimated Run-Time: 58.6047
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.09.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.09
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5971
+Estimated MSE: 10446.8
+Estimated PSNR: 7.94098 db
+Estimated Run-Time: 57.7923
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.1.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.1
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5899
+Estimated MSE: 10708.2
+Estimated PSNR: 7.83362 db
+Estimated Run-Time: 57.2704
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.11.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.11
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5468
+Estimated MSE: 10755
+Estimated PSNR: 7.8147 db
+Estimated Run-Time: 53.5234
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.12.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.12
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5176
+Estimated MSE: 10829.2
+Estimated PSNR: 7.78482 db
+Estimated Run-Time: 51.7265
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.13.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.13
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 5135
+Estimated MSE: 10978.7
+Estimated PSNR: 7.72529 db
+Estimated Run-Time: 50.3569
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.14.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.14
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4811
+Estimated MSE: 10995.6
+Estimated PSNR: 7.71862 db
+Estimated Run-Time: 48.3681
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.15.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.15
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4569
+Estimated MSE: 11026.2
+Estimated PSNR: 7.70655 db
+Estimated Run-Time: 44.6296
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.16.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.16
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4750
+Estimated MSE: 11176.7
+Estimated PSNR: 7.64766 db
+Estimated Run-Time: 46.8483
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.17.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.17
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4511
+Estimated MSE: 11186.7
+Estimated PSNR: 7.64377 db
+Estimated Run-Time: 44.6289
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.18.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.18
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4313
+Estimated MSE: 11198.9
+Estimated PSNR: 7.63907 db
+Estimated Run-Time: 43.5386
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.19.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.19
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 4116
+Estimated MSE: 11206.7
+Estimated PSNR: 7.63603 db
+Estimated Run-Time: 40.8061
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.2.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.2
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3924
+Estimated MSE: 11210.6
+Estimated PSNR: 7.63451 db
+Estimated Run-Time: 38.6226
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.21.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.21
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3758
+Estimated MSE: 11215.4
+Estimated PSNR: 7.63264 db
+Estimated Run-Time: 36.9053
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.22.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.22
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3602
+Estimated MSE: 11219.9
+Estimated PSNR: 7.63092 db
+Estimated Run-Time: 36.657
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.23.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.23
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3487
+Estimated MSE: 11230.4
+Estimated PSNR: 7.62684 db
+Estimated Run-Time: 34.6279
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.24.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.24
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3376
+Estimated MSE: 11240.1
+Estimated PSNR: 7.6231 db
+Estimated Run-Time: 33.4283
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.25.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.25
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3258
+Estimated MSE: 11244.6
+Estimated PSNR: 7.62135 db
+Estimated Run-Time: 32.8205
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.26.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.26
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3242
+Estimated MSE: 11273.3
+Estimated PSNR: 7.61029 db
+Estimated Run-Time: 33.7591
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.27.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.27
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3258
+Estimated MSE: 11304.5
+Estimated PSNR: 7.5983 db
+Estimated Run-Time: 32.5269
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.28.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.28
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3162
+Estimated MSE: 11308.8
+Estimated PSNR: 7.59664 db
+Estimated Run-Time: 30.4285
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.29.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.29
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3095
+Estimated MSE: 11317.2
+Estimated PSNR: 7.59342 db
+Estimated Run-Time: 30.0509
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.3.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.3
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3102
+Estimated MSE: 11336.8
+Estimated PSNR: 7.5859 db
+Estimated Run-Time: 30.3428
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.31.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.31
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 3009
+Estimated MSE: 11338
+Estimated PSNR: 7.58544 db
+Estimated Run-Time: 29.1688
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.32.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.32
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2922
+Estimated MSE: 11339.1
+Estimated PSNR: 7.58501 db
+Estimated Run-Time: 27.8751
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.33.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.33
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2839
+Estimated MSE: 11339.9
+Estimated PSNR: 7.5847 db
+Estimated Run-Time: 27.0737
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.34.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.34
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2762
+Estimated MSE: 11341.1
+Estimated PSNR: 7.58425 db
+Estimated Run-Time: 26.5145
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.35.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.35
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2707
+Estimated MSE: 11345.1
+Estimated PSNR: 7.58272 db
+Estimated Run-Time: 27.176
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.36.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.36
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2638
+Estimated MSE: 11346.2
+Estimated PSNR: 7.58231 db
+Estimated Run-Time: 25.4896
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.37.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.37
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2570
+Estimated MSE: 11346.7
+Estimated PSNR: 7.5821 db
+Estimated Run-Time: 25.1157
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.38.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.38
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2568
+Estimated MSE: 11357.7
+Estimated PSNR: 7.57789 db
+Estimated Run-Time: 24.7111
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.39.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.39
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2505
+Estimated MSE: 11358
+Estimated PSNR: 7.57779 db
+Estimated Run-Time: 23.813
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.4.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.4
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2449
+Estimated MSE: 11359.2
+Estimated PSNR: 7.57732 db
+Estimated Run-Time: 23.7231
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.41.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.41
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2398
+Estimated MSE: 11360.9
+Estimated PSNR: 7.57669 db
+Estimated Run-Time: 23.394
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.42.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.42
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2357
+Estimated MSE: 11363.4
+Estimated PSNR: 7.57573 db
+Estimated Run-Time: 23.3217
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.43.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.43
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2314
+Estimated MSE: 11365.3
+Estimated PSNR: 7.57499 db
+Estimated Run-Time: 23.553
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.44.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.44
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2267
+Estimated MSE: 11366.4
+Estimated PSNR: 7.57458 db
+Estimated Run-Time: 22.0886
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.45.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.45
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2252
+Estimated MSE: 11372
+Estimated PSNR: 7.57245 db
+Estimated Run-Time: 21.3513
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.46.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.46
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2216
+Estimated MSE: 11374.2
+Estimated PSNR: 7.57161 db
+Estimated Run-Time: 20.9997
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.47.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.47
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2187
+Estimated MSE: 11377.1
+Estimated PSNR: 7.5705 db
+Estimated Run-Time: 20.5058
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.48.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.48
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2148
+Estimated MSE: 11378.1
+Estimated PSNR: 7.57011 db
+Estimated Run-Time: 20.7135
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.49.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.49
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2112
+Estimated MSE: 11379.3
+Estimated PSNR: 7.56963 db
+Estimated Run-Time: 19.8982
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.5.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.5
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2192
+Estimated MSE: 11395.2
+Estimated PSNR: 7.56359 db
+Estimated Run-Time: 20.7512
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.51.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.51
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2152
+Estimated MSE: 11395.5
+Estimated PSNR: 7.56347 db
+Estimated Run-Time: 20.354
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.52.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.52
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2113
+Estimated MSE: 11395.8
+Estimated PSNR: 7.56334 db
+Estimated Run-Time: 20.1204
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.53.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.53
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2079
+Estimated MSE: 11396.6
+Estimated PSNR: 7.56304 db
+Estimated Run-Time: 19.6472
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.54.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.54
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2051
+Estimated MSE: 11398
+Estimated PSNR: 7.56251 db
+Estimated Run-Time: 19.511
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.55.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.55
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 2018
+Estimated MSE: 11398.5
+Estimated PSNR: 7.56231 db
+Estimated Run-Time: 19.2067
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.56.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.56
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1987
+Estimated MSE: 11399.2
+Estimated PSNR: 7.56208 db
+Estimated Run-Time: 18.8598
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.57.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.57
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1961
+Estimated MSE: 11400.1
+Estimated PSNR: 7.56171 db
+Estimated Run-Time: 18.7269
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.58.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.58
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1930
+Estimated MSE: 11400.6
+Estimated PSNR: 7.56154 db
+Estimated Run-Time: 18.3294
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.59.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.59
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1907
+Estimated MSE: 11401.5
+Estimated PSNR: 7.56117 db
+Estimated Run-Time: 17.9648
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.6.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.6
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1880
+Estimated MSE: 11402.1
+Estimated PSNR: 7.56094 db
+Estimated Run-Time: 17.6436
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.61.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.61
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1856
+Estimated MSE: 11403.1
+Estimated PSNR: 7.56058 db
+Estimated Run-Time: 17.5722
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.62.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.62
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1835
+Estimated MSE: 11404
+Estimated PSNR: 7.56023 db
+Estimated Run-Time: 17.4137
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.63.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.63
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1812
+Estimated MSE: 11404.7
+Estimated PSNR: 7.55998 db
+Estimated Run-Time: 17.2488
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.64.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.64
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1823
+Estimated MSE: 11408.8
+Estimated PSNR: 7.55841 db
+Estimated Run-Time: 17.435
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.65.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.65
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1797
+Estimated MSE: 11409
+Estimated PSNR: 7.55834 db
+Estimated Run-Time: 17.1267
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.66.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.66
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1774
+Estimated MSE: 11409.3
+Estimated PSNR: 7.55821 db
+Estimated Run-Time: 17.0625
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.67.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.67
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1751
+Estimated MSE: 11409.7
+Estimated PSNR: 7.55805 db
+Estimated Run-Time: 16.8101
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.68.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.68
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1729
+Estimated MSE: 11410.1
+Estimated PSNR: 7.55789 db
+Estimated Run-Time: 16.492
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.69.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.69
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1710
+Estimated MSE: 11410.8
+Estimated PSNR: 7.55764 db
+Estimated Run-Time: 16.4762
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.7.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.7
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1687
+Estimated MSE: 11411
+Estimated PSNR: 7.55757 db
+Estimated Run-Time: 16.0679
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.71.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.71
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1746
+Estimated MSE: 11417.9
+Estimated PSNR: 7.55494 db
+Estimated Run-Time: 16.7341
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.72.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.72
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1722
+Estimated MSE: 11418
+Estimated PSNR: 7.5549 db
+Estimated Run-Time: 16.3822
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.73.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.73
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1698
+Estimated MSE: 11418
+Estimated PSNR: 7.5549 db
+Estimated Run-Time: 16.0478
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.74.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.74
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1676
+Estimated MSE: 11418.2
+Estimated PSNR: 7.55484 db
+Estimated Run-Time: 16.1816
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.75.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.75
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1653
+Estimated MSE: 11418.1
+Estimated PSNR: 7.55487 db
+Estimated Run-Time: 15.5798
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.76.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.76
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1632
+Estimated MSE: 11418.2
+Estimated PSNR: 7.55482 db
+Estimated Run-Time: 15.4486
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.77.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.77
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1611
+Estimated MSE: 11418.2
+Estimated PSNR: 7.55481 db
+Estimated Run-Time: 15.4934
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.78.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.78
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1590
+Estimated MSE: 11418.2
+Estimated PSNR: 7.55481 db
+Estimated Run-Time: 15.4903
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.79.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.79
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1574
+Estimated MSE: 11418.5
+Estimated PSNR: 7.5547 db
+Estimated Run-Time: 15.1732
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.8.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.8
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1555
+Estimated MSE: 11418.6
+Estimated PSNR: 7.55467 db
+Estimated Run-Time: 14.9154
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.81.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.81
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1540
+Estimated MSE: 11419.2
+Estimated PSNR: 7.55443 db
+Estimated Run-Time: 14.7492
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.82.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.82
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1522
+Estimated MSE: 11419.3
+Estimated PSNR: 7.55441 db
+Estimated Run-Time: 14.6795
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.83.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.83
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1520
+Estimated MSE: 11420.2
+Estimated PSNR: 7.55407 db
+Estimated Run-Time: 14.5833
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.84.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.84
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1503
+Estimated MSE: 11420.3
+Estimated PSNR: 7.55403 db
+Estimated Run-Time: 14.3486
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.85.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.85
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1485
+Estimated MSE: 11420.3
+Estimated PSNR: 7.55404 db
+Estimated Run-Time: 14.3138
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.86.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.86
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1470
+Estimated MSE: 11420.5
+Estimated PSNR: 7.55394 db
+Estimated Run-Time: 14.0435
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.87.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.87
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1455
+Estimated MSE: 11420.7
+Estimated PSNR: 7.55389 db
+Estimated Run-Time: 13.9699
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.88.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.88
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1442
+Estimated MSE: 11421
+Estimated PSNR: 7.55376 db
+Estimated Run-Time: 13.8544
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.89.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.89
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1426
+Estimated MSE: 11421
+Estimated PSNR: 7.55375 db
+Estimated Run-Time: 13.6851
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.9.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.9
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1412
+Estimated MSE: 11421.2
+Estimated PSNR: 7.55368 db
+Estimated Run-Time: 13.3935
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.91.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.91
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1397
+Estimated MSE: 11421.3
+Estimated PSNR: 7.55366 db
+Estimated Run-Time: 13.4035
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.92.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.92
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1383
+Estimated MSE: 11421.5
+Estimated PSNR: 7.55359 db
+Estimated Run-Time: 13.0863
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.93.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.93
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1369
+Estimated MSE: 11421.5
+Estimated PSNR: 7.55357 db
+Estimated Run-Time: 13.1751
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.94.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.94
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1355
+Estimated MSE: 11421.6
+Estimated PSNR: 7.55355 db
+Estimated Run-Time: 13.0504
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.95.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.95
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1341
+Estimated MSE: 11421.6
+Estimated PSNR: 7.55354 db
+Estimated Run-Time: 13.142
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.96.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.96
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1327
+Estimated MSE: 11421.6
+Estimated PSNR: 7.55354 db
+Estimated Run-Time: 12.8448
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.97.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.97
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1314
+Estimated MSE: 11421.6
+Estimated PSNR: 7.55352 db
+Estimated Run-Time: 12.7538
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.98.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.98
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1304
+Estimated MSE: 11421.8
+Estimated PSNR: 7.55345 db
+Estimated Run-Time: 12.7182
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.99.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.99
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1291
+Estimated MSE: 11421.9
+Estimated PSNR: 7.55344 db
+Estimated Run-Time: 12.5372
+
+Image input path: ../../img/lena_inpaint.png
+Image output path: ../../tests/parameter/inpaint/lena_inpaint/lena_inpaint0.99.png
+Image inputC path: 
+Model: inpaint
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.99
+
+Starting Inpainting. Just a few seconds please:
+Iterations: 1291
+Estimated MSE: 11421.9
+Estimated PSNR: 7.55344 db
+Estimated Run-Time: 11.6642
+

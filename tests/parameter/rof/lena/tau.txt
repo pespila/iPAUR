@@ -1,0 +1,2277 @@
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.01.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.01
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1127
+Estimated MSE: 16.2973
+Estimated PSNR: 36.0096 db
+Estimated Run-Time: 6.33862
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.02.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.02
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1079
+Estimated MSE: 21.016
+Estimated PSNR: 34.9053 db
+Estimated Run-Time: 6.04446
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.03.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.03
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 969
+Estimated MSE: 22.3381
+Estimated PSNR: 34.6403 db
+Estimated Run-Time: 5.38747
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.04.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.04
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 868
+Estimated MSE: 22.8337
+Estimated PSNR: 34.545 db
+Estimated Run-Time: 4.98067
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.05.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.05
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 776
+Estimated MSE: 23.0479
+Estimated PSNR: 34.5045 db
+Estimated Run-Time: 4.31044
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.06.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.06
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 708
+Estimated MSE: 23.1775
+Estimated PSNR: 34.4801 db
+Estimated Run-Time: 4.04146
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.07.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.07
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 649
+Estimated MSE: 23.251
+Estimated PSNR: 34.4664 db
+Estimated Run-Time: 3.58659
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.08.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.08
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 601
+Estimated MSE: 23.3007
+Estimated PSNR: 34.4571 db
+Estimated Run-Time: 3.40799
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.09.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.09
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 558
+Estimated MSE: 23.3318
+Estimated PSNR: 34.4513 db
+Estimated Run-Time: 3.11036
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.1.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.1
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 524
+Estimated MSE: 23.3571
+Estimated PSNR: 34.4466 db
+Estimated Run-Time: 3.02034
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.11.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.11
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 494
+Estimated MSE: 23.3753
+Estimated PSNR: 34.4432 db
+Estimated Run-Time: 2.76937
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.12.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.12
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 469
+Estimated MSE: 23.3905
+Estimated PSNR: 34.4404 db
+Estimated Run-Time: 2.60153
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.13.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.13
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 445
+Estimated MSE: 23.4007
+Estimated PSNR: 34.4385 db
+Estimated Run-Time: 2.57986
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.14.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.14
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 426
+Estimated MSE: 23.4106
+Estimated PSNR: 34.4367 db
+Estimated Run-Time: 2.40566
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.15.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.15
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 405
+Estimated MSE: 23.4157
+Estimated PSNR: 34.4357 db
+Estimated Run-Time: 2.29933
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.16.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.16
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 388
+Estimated MSE: 23.4211
+Estimated PSNR: 34.4347 db
+Estimated Run-Time: 2.24982
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.17.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.17
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 374
+Estimated MSE: 23.4266
+Estimated PSNR: 34.4337 db
+Estimated Run-Time: 2.1143
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.18.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.18
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 360
+Estimated MSE: 23.4304
+Estimated PSNR: 34.433 db
+Estimated Run-Time: 2.0679
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.19.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.19
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 347
+Estimated MSE: 23.4336
+Estimated PSNR: 34.4324 db
+Estimated Run-Time: 1.9298
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.2.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.2
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 334
+Estimated MSE: 23.4358
+Estimated PSNR: 34.432 db
+Estimated Run-Time: 1.89312
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.21.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.21
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 323
+Estimated MSE: 23.4381
+Estimated PSNR: 34.4316 db
+Estimated Run-Time: 1.83688
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.22.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.22
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 315
+Estimated MSE: 23.4411
+Estimated PSNR: 34.431 db
+Estimated Run-Time: 1.88855
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.23.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.23
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 305
+Estimated MSE: 23.4426
+Estimated PSNR: 34.4307 db
+Estimated Run-Time: 1.78411
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.24.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.24
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 296
+Estimated MSE: 23.4442
+Estimated PSNR: 34.4305 db
+Estimated Run-Time: 1.64477
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.25.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 288
+Estimated MSE: 23.4457
+Estimated PSNR: 34.4302 db
+Estimated Run-Time: 1.63579
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.26.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.26
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 281
+Estimated MSE: 23.4472
+Estimated PSNR: 34.4299 db
+Estimated Run-Time: 1.56705
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.27.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.27
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 273
+Estimated MSE: 23.448
+Estimated PSNR: 34.4297 db
+Estimated Run-Time: 1.57386
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.28.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.28
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 267
+Estimated MSE: 23.4492
+Estimated PSNR: 34.4295 db
+Estimated Run-Time: 1.51026
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.29.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.29
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 261
+Estimated MSE: 23.4502
+Estimated PSNR: 34.4293 db
+Estimated Run-Time: 1.46544
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.3.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.3
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 255
+Estimated MSE: 23.4509
+Estimated PSNR: 34.4292 db
+Estimated Run-Time: 1.4484
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.31.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.31
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 249
+Estimated MSE: 23.4515
+Estimated PSNR: 34.4291 db
+Estimated Run-Time: 1.42686
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.32.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.32
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 244
+Estimated MSE: 23.4523
+Estimated PSNR: 34.4289 db
+Estimated Run-Time: 1.35862
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.33.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.33
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 239
+Estimated MSE: 23.453
+Estimated PSNR: 34.4288 db
+Estimated Run-Time: 1.33702
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.34.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.34
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 233
+Estimated MSE: 23.4532
+Estimated PSNR: 34.4288 db
+Estimated Run-Time: 1.32808
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.35.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.35
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 230
+Estimated MSE: 23.4541
+Estimated PSNR: 34.4286 db
+Estimated Run-Time: 1.30665
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.36.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.36
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 225
+Estimated MSE: 23.4545
+Estimated PSNR: 34.4286 db
+Estimated Run-Time: 1.28972
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.37.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.37
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 222
+Estimated MSE: 23.4551
+Estimated PSNR: 34.4284 db
+Estimated Run-Time: 1.24165
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.38.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.38
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 220
+Estimated MSE: 23.4559
+Estimated PSNR: 34.4283 db
+Estimated Run-Time: 1.23907
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.39.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.39
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 217
+Estimated MSE: 23.4564
+Estimated PSNR: 34.4282 db
+Estimated Run-Time: 1.20797
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.4.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.4
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 213
+Estimated MSE: 23.4566
+Estimated PSNR: 34.4281 db
+Estimated Run-Time: 1.19539
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.41.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.41
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 209
+Estimated MSE: 23.4568
+Estimated PSNR: 34.4281 db
+Estimated Run-Time: 1.17128
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.42.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.42
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 206
+Estimated MSE: 23.4571
+Estimated PSNR: 34.4281 db
+Estimated Run-Time: 1.14808
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.43.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.43
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 203
+Estimated MSE: 23.4574
+Estimated PSNR: 34.428 db
+Estimated Run-Time: 1.17946
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.44.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.44
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 200
+Estimated MSE: 23.4576
+Estimated PSNR: 34.428 db
+Estimated Run-Time: 1.11453
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.45.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.45
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 199
+Estimated MSE: 23.4581
+Estimated PSNR: 34.4279 db
+Estimated Run-Time: 1.10724
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.46.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.46
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 196
+Estimated MSE: 23.4582
+Estimated PSNR: 34.4278 db
+Estimated Run-Time: 1.0881
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.47.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.47
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 193
+Estimated MSE: 23.4584
+Estimated PSNR: 34.4278 db
+Estimated Run-Time: 1.09568
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.48.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.48
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 191
+Estimated MSE: 23.4586
+Estimated PSNR: 34.4278 db
+Estimated Run-Time: 1.09258
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.49.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.49
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 189
+Estimated MSE: 23.4587
+Estimated PSNR: 34.4278 db
+Estimated Run-Time: 1.08125
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.5.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.5
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 186
+Estimated MSE: 23.4588
+Estimated PSNR: 34.4277 db
+Estimated Run-Time: 1.03739
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.51.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.51
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 186
+Estimated MSE: 23.4592
+Estimated PSNR: 34.4277 db
+Estimated Run-Time: 1.04515
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.52.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.52
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 183
+Estimated MSE: 23.4593
+Estimated PSNR: 34.4277 db
+Estimated Run-Time: 1.01713
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.53.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.53
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 181
+Estimated MSE: 23.4595
+Estimated PSNR: 34.4276 db
+Estimated Run-Time: 1.02736
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.54.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.54
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 179
+Estimated MSE: 23.4596
+Estimated PSNR: 34.4276 db
+Estimated Run-Time: 0.992537
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.55.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.55
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 178
+Estimated MSE: 23.4597
+Estimated PSNR: 34.4276 db
+Estimated Run-Time: 0.988711
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.56.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.56
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4599
+Estimated PSNR: 34.4275 db
+Estimated Run-Time: 0.990136
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.57.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.57
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4601
+Estimated PSNR: 34.4275 db
+Estimated Run-Time: 1.00527
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.58.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.58
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 175
+Estimated MSE: 23.4601
+Estimated PSNR: 34.4275 db
+Estimated Run-Time: 0.993537
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.59.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.59
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4603
+Estimated PSNR: 34.4275 db
+Estimated Run-Time: 0.99355
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.6.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.6
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4604
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.965345
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.61.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.61
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4605
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.968642
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.62.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.62
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 23.4605
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.971365
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.63.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.63
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 23.4606
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 1.06342
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.64.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.64
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 23.4607
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 1.0871
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.65.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.65
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.4608
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.992815
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.66.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.66
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.4609
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.97033
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.67.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.67
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 23.4609
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 0.969505
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.68.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.68
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.947872
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.69.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.69
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.949628
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.7.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.7
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.05845
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.71.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.71
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.960999
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.72.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.72
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.976142
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.73.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.73
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.970935
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.74.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.74
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.959314
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.75.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.75
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.956188
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.76.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.76
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 171
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.954834
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.77.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.77
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.994815
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.78.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.78
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.97509
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.79.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.79
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.967448
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.8.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.8
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.965198
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.81.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.81
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 175
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.99507
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.82.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.82
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.978138
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.83.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.83
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.04479
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.84.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.84
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.993677
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.85.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.85
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 23.4612
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.985952
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.86.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.86
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.98044
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.87.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.87
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 23.4612
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.972644
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.88.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.88
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.973597
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.89.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.89
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 0.988994
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.9.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.9
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.0447
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.91.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.91
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 177
+Estimated MSE: 23.4612
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.15157
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.92.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.92
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 180
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.18494
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.93.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.93
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 179
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.18722
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.94.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.94
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 180
+Estimated MSE: 23.4611
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.16142
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.95.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.95
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 182
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.1768
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.96.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.96
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 184
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.18245
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.97.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.97
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 185
+Estimated MSE: 23.461
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.10875
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.98.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.98
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 184
+Estimated MSE: 23.4609
+Estimated PSNR: 34.4273 db
+Estimated Run-Time: 1.08101
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/rof/lena/lena0.99.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.99
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 187
+Estimated MSE: 23.4609
+Estimated PSNR: 34.4274 db
+Estimated Run-Time: 1.10621
+

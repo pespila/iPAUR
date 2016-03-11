@@ -1,0 +1,230 @@
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.1keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 211.069
+Estimated PSNR: 24.8866 db
+Estimated Run-Time: 8.75556
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.2keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 313.169
+Estimated PSNR: 23.173 db
+Estimated Run-Time: 8.82557
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.3keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 404.509
+Estimated PSNR: 22.0615 db
+Estimated Run-Time: 8.38121
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.4keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 485.854
+Estimated PSNR: 21.2657 db
+Estimated Run-Time: 8.27913
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.5keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 537.888
+Estimated PSNR: 20.8239 db
+Estimated Run-Time: 8.3028
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.6keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 584.138
+Estimated PSNR: 20.4657 db
+Estimated Run-Time: 8.16567
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.7keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 609.8
+Estimated PSNR: 20.2789 db
+Estimated Run-Time: 8.62492
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.8keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 636.984
+Estimated PSNR: 20.0895 db
+Estimated Run-Time: 8.48719
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/0.9keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 671.954
+Estimated PSNR: 19.8574 db
+Estimated Run-Time: 8.25446
+
+Image input path: ../../img/keating.jpg
+Image output path: ../../tests/parameter/segmentation/keating/1.0keating.jpg
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 716.071
+Estimated PSNR: 19.5812 db
+Estimated Run-Time: 8.26394
+

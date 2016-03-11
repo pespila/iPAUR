@@ -1,0 +1,345 @@
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1113
+Estimated MSE: 475.113
+Estimated PSNR: 21.3628 db
+Estimated Run-Time: 30.6062
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1022
+Estimated MSE: 323.398
+Estimated PSNR: 23.0334 db
+Estimated Run-Time: 31.0396
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 807
+Estimated MSE: 221.363
+Estimated PSNR: 24.6798 db
+Estimated Run-Time: 24.1746
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 710
+Estimated MSE: 163.787
+Estimated PSNR: 25.988 db
+Estimated Run-Time: 22.4352
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 638
+Estimated MSE: 124.787
+Estimated PSNR: 27.1691 db
+Estimated Run-Time: 20.48
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.6.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.6
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 577
+Estimated MSE: 96.21
+Estimated PSNR: 28.2986 db
+Estimated Run-Time: 19.0416
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.7.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 541
+Estimated MSE: 75.5984
+Estimated PSNR: 29.3457 db
+Estimated Run-Time: 17.5075
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.8.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.8
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 442
+Estimated MSE: 55.1797
+Estimated PSNR: 30.713 db
+Estimated Run-Time: 14.1609
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn0.9.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.9
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 415
+Estimated MSE: 43.1382
+Estimated PSNR: 31.7822 db
+Estimated Run-Time: 13.1994
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.0.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 383
+Estimated MSE: 33.4429
+Estimated PSNR: 32.8878 db
+Estimated Run-Time: 12.2794
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 330
+Estimated MSE: 25.0666
+Estimated PSNR: 34.1399 db
+Estimated Run-Time: 10.4241
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 299
+Estimated MSE: 19.3957
+Estimated PSNR: 35.2538 db
+Estimated Run-Time: 8.90708
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 295
+Estimated MSE: 15.7145
+Estimated PSNR: 36.1678 db
+Estimated Run-Time: 8.99099
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 271
+Estimated MSE: 12.2834
+Estimated PSNR: 37.2376 db
+Estimated Run-Time: 7.78978
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/tvl1/hepburn/hepburn1.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 255
+Estimated MSE: 9.6716
+Estimated PSNR: 38.2758 db
+Estimated Run-Time: 7.65833
+

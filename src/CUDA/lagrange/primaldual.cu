@@ -57,6 +57,13 @@ void parameterToConsole(string filename,int repeats,bool gray,int level,float ta
     printf( "iterations: %d\n", iter);
 }
 
+float energy(float* u, float* un, int size) {
+    float nrj = 0.f;
+    for (int i = 0; i < size; i++)
+        nrj += fabs(u[i] - un[i]);
+    return nrj;
+}
+
 __device__ float bound(float x1, float x2, float lambda, float k, float l, float f)
 {
     return 0.25f * (x1*x1 + x2*x2) - lambda * pow(k / l - f, 2);
@@ -199,7 +206,7 @@ __global__ void l2projection(float* s1,float* s2,float* mubar1,float* mubar2,flo
     }
 }
 
-__global__ void clipping(float* u,float* un,float* p1,float* p2,float* p3,float tau,int w,int h,int l,int nc)
+__global__ void clipping(float* u,float* ubar,float* p1,float* p2,float* p3,float tau,int w,int h,int l,int nc)
 {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
@@ -214,7 +221,6 @@ __global__ void clipping(float* u,float* un,float* p1,float* p2,float* p3,float 
         {
             I = x+y*w+z*h*w+c*h*w*l;
             cur = u[I];
-            un[I] = cur;
             d1 = (y+1<h ? p1[I] : 0.f) - (y>0 ? p1[x+(y-1)*w+z*h*w+c*h*w*l] : 0.f);
             d2 = (x+1<w ? p2[I] : 0.f) - (x>0 ? p2[(x-1)+y*w+z*h*w+c*h*w*l] : 0.f);
             d3 = (z+1<l ? p3[I] : 0.f) - (z>0 ? p3[x+y*w+(z-1)*h*w+c*h*w*l] : 0.f);
@@ -226,18 +232,19 @@ __global__ void clipping(float* u,float* un,float* p1,float* p2,float* p3,float 
             } else {
                 u[I]=fmin(1.f, fmax(0.f, D));
             }
+            ubar[I] = 2.f * u[I] - cur;
         }
     }
 }
 
-__global__ void mu(float* mu1,float* mu2,float* mun1,float* mun2,float* s1,float* s2,float* p1,float* p2,int w,int h,int l,int proj,int nc)
+__global__ void mu(float* mu1,float* mu2,float* mubar1,float* mubar2,float* s1,float* s2,float* p1,float* p2,int w,int h,int l,int proj,int nc)
 {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
     
     if (x < w && y < h)
     {
-        float tau = 1.f / (2.f + (float)(proj/2.f));
+        float tau = 1.f / (2.f + (float)(proj/4.f));
         float t1, t2, c1, c2;
         int I, J, K;
         for (int c = 0; c < nc; c++)
@@ -258,34 +265,10 @@ __global__ void mu(float* mu1,float* mu2,float* mun1,float* mun2,float* s1,float
                     }
                     mu1[I] = c1+tau*(s1[I]-t1);
                     mu2[I] = c2+tau*(s2[I]-t2);
-                    mun1[I] = c1;
-                    mun2[I] = c2;
+                    mubar1[I] = 2.f * mu1[I] - c1;
+                    mubar2[I] = 2.f * mu2[I] - c2;
                     K++;
                 }
-            }
-        }
-    }
-}
-
-__global__ void extrapolate(float* ubar,float* mubar1,float* mubar2,float* un,float* mun1,float* mun2,float* u,float* mu1,float* mu2,int w,int h,int l,int proj,int nc)
-{
-    int x = threadIdx.x + blockDim.x * blockIdx.x;
-    int y = threadIdx.y + blockDim.y * blockIdx.y;
-    
-    if (x < w && y < h)
-    {
-        int I,J;
-        for (int c = 0; c < nc; c++)
-        {
-            for (int k = 0; k < proj; k++)
-            {
-                I = x+y*w+k*h*w+c*h*w*l; // index for u, ubar, un
-                J = x+y*w+k*h*w+c*h*w*proj; // index for mu1, mu2, mubar1, mubar2, mun1, mun2
-                if (k<l) {
-                    ubar[I] = 2.f*u[I]-un[I];
-                }
-                mubar1[J] = 2.f*mu1[J]-mun1[J];
-                mubar2[J] = 2.f*mu2[J]-mun2[J];
             }
         }
     }
@@ -370,7 +353,7 @@ int main(int argc, char **argv)
     // convert range of each channel to [0,1] (opencv default is [0,255])
     mIn /= 255.f;
     // time-steps
-    float nrj = 0.f;
+    float nrj;
     float tauu = 1.f / 6.f;
     float sigmap = 1.f / (3.f + level);
     float sigmas = 1.f;
@@ -396,16 +379,16 @@ int main(int argc, char **argv)
     cv::Mat mOut(h,w,mIn.type());  // mOut will have the same number of channels as the input image, nc layers
 
     // allocate raw input image array
-    float* h_u = new float[size];
-    float* h_un = new float[size];
-    float* h_imgIn  = new float[(size_t)dim];
-    float* h_imgOut = new float[(size_t)dim];
+    // float* h_u = new float[size];
+    // float* h_un = new float[size];
+    float* h_img  = new float[(size_t)dim];
+    float* h_u  = new float[(size_t)size];
+    float* h_un  = new float[(size_t)size];
 
     // allocate raw input image for GPU
     float* d_f; cudaMalloc(&d_f, nbyted); CUDA_CHECK;
 
     float* d_u; cudaMalloc(&d_u, nbytes); CUDA_CHECK;
-    float* d_un; cudaMalloc(&d_un, nbytes); CUDA_CHECK;
     float* d_ubar; cudaMalloc(&d_ubar, nbytes); CUDA_CHECK;
 
     float* d_p1; cudaMalloc(&d_p1, nbytes); CUDA_CHECK;
@@ -417,8 +400,6 @@ int main(int argc, char **argv)
 
     float* d_mu1; cudaMalloc(&d_mu1, nbytep); CUDA_CHECK;
     float* d_mu2; cudaMalloc(&d_mu2, nbytep); CUDA_CHECK;
-    float* d_mun1; cudaMalloc(&d_mun1, nbytep); CUDA_CHECK;
-    float* d_mun2; cudaMalloc(&d_mun2, nbytep); CUDA_CHECK;
     float* d_mubar1; cudaMalloc(&d_mubar1, nbytep); CUDA_CHECK;
     float* d_mubar2; cudaMalloc(&d_mubar2, nbytep); CUDA_CHECK;
 
@@ -426,9 +407,9 @@ int main(int argc, char **argv)
     cudaMemGetInfo(&available, &total);
 
     // Init raw input image array
-    convert_mat_to_layered (h_imgIn, mIn);
+    convert_mat_to_layered (h_img, mIn);
     // copy host memory
-    cudaMemcpy(d_f,h_imgIn,nbyted,cudaMemcpyHostToDevice); CUDA_CHECK;
+    cudaMemcpy(d_f,h_img,nbyted,cudaMemcpyHostToDevice); CUDA_CHECK;
 
     // launch kernel
     dim3 block = dim3(32, 8, 4);
@@ -443,23 +424,20 @@ int main(int argc, char **argv)
     {
         parabola <<<grid, block>>> (d_p1,d_p2,d_p3,d_mu1,d_mu2,d_ubar,d_f,sigmap,lambda,w,h,level,proj,nc);
         l2projection <<<grid_iso, block_iso>>> (d_s1,d_s2,d_mubar1,d_mubar2,sigmas,nu,w,h,level,proj,nc);
-        clipping <<<grid, block>>> (d_u,d_un,d_p1,d_p2,d_p3,tauu,w,h,level,nc);
-        cudaMemcpy(h_u, d_u, nbytes, cudaMemcpyDeviceToHost); CUDA_CHECK;
-        cudaMemcpy(h_un, d_un, nbytes, cudaMemcpyDeviceToHost); CUDA_CHECK;
-        nrj = 0.f;
-        for (int i = 0; i < size; i++)
-        {
-            nrj += fabs(h_u[i] - h_un[i]);
+        mu <<<grid_iso, block_iso>>> (d_mu1,d_mu2,d_mubar1,d_mubar2,d_s1,d_s2,d_p1,d_p2,w,h,level,proj,nc);
+        if (iter%10 == 0) cudaMemcpy(h_un, d_u, nbytes, cudaMemcpyDeviceToHost); CUDA_CHECK;
+        clipping <<<grid, block>>> (d_u,d_ubar,d_p1,d_p2,d_p3,tauu,w,h,level,nc);
+        if (iter%10 == 0) {
+            cudaMemcpy(h_u, d_u, nbytes, cudaMemcpyDeviceToHost); CUDA_CHECK;
+            nrj = energy(h_u, h_un, size);
+            if (nrj/(w*h*level) <= 5*1E-5) break;
         }
-        if (nrj/(w*h*level) <= 5*1E-5) break;
-        mu <<<grid_iso, block_iso>>> (d_mu1,d_mu2,d_mun1,d_mun2,d_s1,d_s2,d_p1,d_p2,w,h,level,proj,nc);
-        extrapolate <<<grid_iso, block_iso>>> (d_ubar,d_mubar1,d_mubar2,d_un,d_mun1,d_mun2,d_u,d_mu1,d_mu2,w,h,level,proj,nc);
     }
     isosurface <<<grid_iso, block_iso>>> (d_f,d_u,w,h,level,nc);
 
     timer.end();  float t = timer.get();  // elapsed time in seconds
 
-    cudaMemcpy(h_imgOut,d_f,nbyted,cudaMemcpyDeviceToHost); CUDA_CHECK;
+    cudaMemcpy(h_img,d_f,nbyted,cudaMemcpyDeviceToHost); CUDA_CHECK;
 
     if (!ret2) {
         parameterToConsole(parm,repeats,gray,level,tauu,1.f,sigmap,sigmas,lambda,nu,w,h,nc,available,total,t,iter);
@@ -468,7 +446,9 @@ int main(int argc, char **argv)
     }
 
     // show output image: first convert to interleaved opencv format from the layered raw array
-    convert_layered_to_mat(mOut,h_imgOut);
+    // showImage("Input", mIn, 100, 100);  // show at position (x_from_left=100,y_from_above=100)
+    convert_layered_to_mat(mOut,h_img);
+    // showImage("Output", mOut, 100+w+40, 100);
 
     // save input and result
     cv::imwrite(output,mOut*255.f);
@@ -477,7 +457,6 @@ int main(int argc, char **argv)
     cudaFree(d_f); CUDA_CHECK;
     
     cudaFree(d_u); CUDA_CHECK;
-    cudaFree(d_un); CUDA_CHECK;
     cudaFree(d_ubar); CUDA_CHECK;
 
     cudaFree(d_p1); CUDA_CHECK;
@@ -489,15 +468,12 @@ int main(int argc, char **argv)
 
     cudaFree(d_mu1); CUDA_CHECK;
     cudaFree(d_mu2); CUDA_CHECK;
-    cudaFree(d_mun1); CUDA_CHECK;
-    cudaFree(d_mun2); CUDA_CHECK;
     cudaFree(d_mubar1); CUDA_CHECK;
     cudaFree(d_mubar2); CUDA_CHECK;
 
     // free allocated arrays
     delete[] h_u;
     delete[] h_un;
-    delete[] h_imgIn;
-    delete[] h_imgOut;
+    delete[] h_img;
     return 0;
 }

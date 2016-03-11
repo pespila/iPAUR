@@ -1,0 +1,246 @@
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.1blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.1blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 160.738
+Estimated PSNR: 26.0696 db
+Estimated Run-Time: 3.6779
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.2blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 239.929
+Estimated PSNR: 24.33 db
+Estimated Run-Time: 3.8964
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.3blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 288.767
+Estimated PSNR: 23.5253 db
+Estimated Run-Time: 3.77002
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.4blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 329.633
+Estimated PSNR: 22.9505 db
+Estimated Run-Time: 3.69354
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.5blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 356.947
+Estimated PSNR: 22.6048 db
+Estimated Run-Time: 3.73139
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.6blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 376.041
+Estimated PSNR: 22.3785 db
+Estimated Run-Time: 3.53816
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.7blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 417.438
+Estimated PSNR: 21.9249 db
+Estimated Run-Time: 3.52432
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.8blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 446.751
+Estimated PSNR: 21.6301 db
+Estimated Run-Time: 3.53146
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/0.9blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 469.867
+Estimated PSNR: 21.4111 db
+Estimated Run-Time: 3.65731
+
+Image input path: ../../img/blue.png
+Image output path: ../../tests/parameter/segmentation/blue/1.0blue.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 488.011
+Estimated PSNR: 21.2465 db
+Estimated Run-Time: 3.84853
+

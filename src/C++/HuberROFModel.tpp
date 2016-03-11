@@ -7,11 +7,7 @@ HuberROFModel<aType>::HuberROFModel(Image<aType>& src, int steps) {
 	this->size = height * width * channel;
 	this->f = (aType*)malloc(size*sizeof(aType));
 	this->u = (aType*)malloc(size*sizeof(aType));
-	this->u_n = (aType*)malloc(size*sizeof(aType));
 	this->u_bar = (aType*)malloc(size*sizeof(aType));
-	this->gradient_x = (aType*)malloc(size*sizeof(aType));
-	this->gradient_y = (aType*)malloc(size*sizeof(aType));
-	this->gradient_transpose = (aType*)malloc(size*sizeof(aType));
 	this->p_x = (aType*)malloc(size*sizeof(aType));
 	this->p_y = (aType*)malloc(size*sizeof(aType));
 }
@@ -20,11 +16,7 @@ template<typename aType>
 HuberROFModel<aType>::~HuberROFModel() {
 	free(f);
 	free(u);
-	free(u_n);
 	free(u_bar);
-	free(gradient_x);
-	free(gradient_y);
-	free(gradient_transpose);
 	free(p_x);
 	free(p_y);
 }
@@ -37,12 +29,52 @@ void HuberROFModel<aType>::Initialize(Image<aType>& src) {
 				f[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				u_bar[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
-				u_n[j + i * width + k * height * width] = (aType)src.Get(i, j, k);
 				p_x[j + i * width + k * height * width] = 0.0;
 				p_y[j + i * width + k * height * width] = 0.0;
 			}
 		}
 	}
+}
+
+template<typename aType>
+void HuberROFModel<aType>::DualAscent(aType* p_x, aType* p_y, aType* u_bar, aType alpha, aType sigma) {
+	int I;
+	aType u1, u2, norm;
+	aType fac = 1.f + sigma * alpha;
+	for (int k = 0; k < channel; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				I = j + i * width + k * height * width;
+				u1 = i+1 < height ? (u_bar[j + (i+1) * width + k * height * width] - u_bar[I]) : 0.0;
+				u2 = j+1 < width ? (u_bar[(j+1) + i * width + k * height * width] - u_bar[I]) : 0.0;
+				u1 = p_x[I] + sigma * u1;
+				u2 = p_y[I] + sigma * u2;
+				norm = sqrt(u1*u1+u2*u2);
+				p_x[I] = (u1/fac)/fmax(1.f, (norm/fac));
+				p_y[I] = (u2/fac)/fmax(1.f, (norm/fac));
+			}
+		}
+	}
+}
+
+template<typename aType>
+aType HuberROFModel<aType>::PrimalDescent(aType* u_bar, aType* u, aType* p_x, aType* p_y, aType lambda, aType tau, aType theta) {
+	int I;
+	aType u1, u2, un, norm = 0.f;
+	for (int k = 0; k < channel; k++) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				I = j + i * width + k * height * width;
+				u1 = (i+1 < height ? p_x[I] : 0.0) - (i>0 ? p_x[j + (i-1) * width + k * height * width] : 0.0);
+				u2 = (j+1 < width ? p_y[I] : 0.0) - (j>0 ? p_y[(j-1) + i * width + k * height * width] : 0.0);
+				un = u[I];
+				u[I] = ((un + tau * (u1+u2)) + tau * lambda * f[I]) / (1.0 + tau * lambda);
+				u_bar[I] = u[I] + theta * (u[I] - un);
+				norm += fabs(u[I] - un);
+			}
+		}
+	}
+	return (norm/(height*width));
 }
 
 template<typename aType>
@@ -54,81 +86,18 @@ void HuberROFModel<aType>::SetSolution(Image<aType>& dst) {
 }
 
 template<typename aType>
-void HuberROFModel<aType>::Nabla(aType* gradient_x, aType* gradient_y, aType* u_bar, aType* p_x, aType* p_y, aType sigma) {
-	for (int k = 0; k < channel; k++) {
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				gradient_x[j + i * width + k * height * width] = i + 1 < height ? u_bar[j + (i+1) * width + k * height * width] - u_bar[j + i * width + k * height * width] : 0.0;
-				gradient_y[j + i * width + k * height * width] = j + 1 < width ? u_bar[j + 1 + i * width + k * height * width] - u_bar[j + i * width + k * height * width] : 0.0;
-				gradient_x[j + i * width + k * height * width] = sigma * gradient_x[j + i * width + k * height * width] + p_x[j + i * width + k * height * width];
-				gradient_y[j + i * width + k * height * width] = sigma * gradient_y[j + i * width + k * height * width] + p_y[j + i * width + k * height * width];
-			}
-		}
-	}
-}
-
-template<typename aType>
-void HuberROFModel<aType>::ProxRstar(aType* p_x, aType* p_y, aType* p_tilde_x, aType* p_tilde_y, aType alpha, aType sigma) {
-	aType vector_norm = 0.0;
-	aType factor = 1.0 + sigma * alpha;
-	for (int k = 0; k < channel; k++) {
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				vector_norm = sqrt(pow(p_tilde_x[j + i * width + k * height * width], 2) + pow(p_tilde_y[j + i * width + k * height * width], 2));
-				p_x[j + i * width + k * height * width] = (p_tilde_x[j + i * width + k * height * width] / factor) / fmax(1.0, vector_norm / factor);
-				p_y[j + i * width + k * height * width] = (p_tilde_y[j + i * width + k * height * width] / factor) / fmax(1.0, vector_norm / factor);
-			}
-		}
-	}
-}
-
-template<typename aType>
-void HuberROFModel<aType>::NablaTranspose(aType* gradient_transpose, aType* p_x, aType* p_y, aType* u_n, aType tau) {
-	aType x = 0.0;
-	aType x_minus_one = 0.0;
-	for (int k = 0; k < channel; k++) {
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				x = i + 1 < height ? p_x[j + i * width + k * height * width] : 0.0;
-				x_minus_one = i > 0 ? p_x[j + (i-1) * width + k * height * width] : 0.0;
-				gradient_transpose[j + i * width + k * height * width] = x_minus_one - x;
-				x = j + 1 < width ? p_y[j + i * width + k * height * width] : 0.0;
-				x_minus_one = j > 0 ? p_y[j - 1 + i * width + k * height * width] : 0.0;
-				gradient_transpose[j + i * width + k * height * width] += x_minus_one - x;
-				gradient_transpose[j + i * width + k * height * width] = u_n[j + i * width + k * height * width] - tau * gradient_transpose[j + i * width + k * height * width];
-			}
-		}
-	}
-}
-
-template<typename aType>
-void HuberROFModel<aType>::ProxD(aType* u, aType* u_tilde, aType* f, aType tau, aType lambda) {
-	for (int i = 0; i < size; i++)
-		u[i] = (u_tilde[i] + tau * lambda * f[i]) / (1.0 + tau * lambda);
-}
-
-template<typename aType>
-void HuberROFModel<aType>::Extrapolation(aType* u_bar, aType* u, aType* u_n, aType theta) {
-	for (int i = 0; i < size; i++)
-	{
-		u_bar[i] = u[i] + theta * (u[i] - u_n[i]);
-		u_n[i] = u[i];
-	}
-}
-
-template<typename aType>
-void HuberROFModel<aType>::HuberROF(Image<aType>& src, Image<aType>& dst, aType alpha, aType lambda, aType tau) {
+void HuberROFModel<aType>::HuberROF(Image<aType>& src, Image<aType>& dst, aType lambda, aType alpha, aType tau) {
 	int k;
+	aType nrj, nrjn = 0.f;
 	aType sigma = (aType)1 / (aType)(tau * 8);
-	aType theta = 1;
 	dst.Reset(height, width, channel, src.Type());
 	Initialize(src);
 	for (k = 1; k < steps; k++) {
-		Nabla(gradient_x, gradient_y, u_bar, p_x, p_y, sigma);
-		ProxRstar(p_x, p_y, gradient_x, gradient_y, alpha, sigma);
-		NablaTranspose(gradient_transpose, p_x, p_y, u_n, tau);
-		ProxD(u, gradient_transpose, f, tau, lambda);
-		Extrapolation(u_bar, u, u_n, theta);
+		DualAscent(p_x, p_y, u_bar, alpha, sigma);
+		nrj = PrimalDescent(u_bar, u, p_x, p_y, lambda, tau, 1.f);
+		if (fabs(nrj - nrjn) <= 1e-6) break;
+		else nrjn = nrj;
 	}
+	cout << "Iterations: " << k << endl;
 	SetSolution(dst);
 }

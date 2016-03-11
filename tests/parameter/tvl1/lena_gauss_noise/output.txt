@@ -1,0 +1,345 @@
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1048
+Estimated MSE: 919.139
+Estimated PSNR: 18.497 db
+Estimated Run-Time: 39.2882
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1118
+Estimated MSE: 848.066
+Estimated PSNR: 18.8465 db
+Estimated Run-Time: 41.0715
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1028
+Estimated MSE: 785.259
+Estimated PSNR: 19.1807 db
+Estimated Run-Time: 38.2621
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 914
+Estimated MSE: 740.884
+Estimated PSNR: 19.4333 db
+Estimated Run-Time: 35.148
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 788
+Estimated MSE: 706.943
+Estimated PSNR: 19.637 db
+Estimated Run-Time: 30.9031
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.6.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.6
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 830
+Estimated MSE: 684.352
+Estimated PSNR: 19.778 db
+Estimated Run-Time: 31.2682
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.7.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 755
+Estimated MSE: 660.307
+Estimated PSNR: 19.9333 db
+Estimated Run-Time: 29.8874
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.8.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.8
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 745
+Estimated MSE: 639.898
+Estimated PSNR: 20.0697 db
+Estimated Run-Time: 29.0166
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise0.9.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.9
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 713
+Estimated MSE: 620.154
+Estimated PSNR: 20.2058 db
+Estimated Run-Time: 27.6984
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.0.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 702
+Estimated MSE: 601.235
+Estimated PSNR: 20.3404 db
+Estimated Run-Time: 27.4395
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 703
+Estimated MSE: 581.289
+Estimated PSNR: 20.4869 db
+Estimated Run-Time: 28.032
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 693
+Estimated MSE: 559.257
+Estimated PSNR: 20.6547 db
+Estimated Run-Time: 27.7072
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 692
+Estimated MSE: 535.422
+Estimated PSNR: 20.8438 db
+Estimated Run-Time: 27.6947
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 698
+Estimated MSE: 509.174
+Estimated PSNR: 21.0621 db
+Estimated Run-Time: 27.5738
+
+Image input path: ../../img/lena_gauss_noise.png
+Image output path: ../../tests/parameter/tvl1/lena_gauss_noise/lena_gauss_noise1.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 709
+Estimated MSE: 481.677
+Estimated PSNR: 21.3032 db
+Estimated Run-Time: 28.6476
+

@@ -1,0 +1,230 @@
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.1peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 878.656
+Estimated PSNR: 18.6926 db
+Estimated Run-Time: 13.2571
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.2peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1257.17
+Estimated PSNR: 17.1369 db
+Estimated Run-Time: 13.4798
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.3peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1365.52
+Estimated PSNR: 16.7778 db
+Estimated Run-Time: 12.5281
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.4peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1411.15
+Estimated PSNR: 16.6351 db
+Estimated Run-Time: 12.0377
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.5peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1454.97
+Estimated PSNR: 16.5023 db
+Estimated Run-Time: 11.8632
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.6peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1488.25
+Estimated PSNR: 16.404 db
+Estimated Run-Time: 11.928
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.7peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1514.27
+Estimated PSNR: 16.3288 db
+Estimated Run-Time: 11.7155
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.8peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1522.88
+Estimated PSNR: 16.3042 db
+Estimated Run-Time: 11.7632
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/0.9peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1534.54
+Estimated PSNR: 16.271 db
+Estimated Run-Time: 13.156
+
+Image input path: ../../img/peacock-feather.png
+Image output path: ../../tests/parameter/segmentation/peacock-feather/1.0peacock-feather.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 1552.38
+Estimated PSNR: 16.2208 db
+Estimated Run-Time: 13.0357
+

@@ -1,0 +1,1311 @@
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise2.png: 11.4961
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010393
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise2.png: 11.5298
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011891
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise2.png: 11.5944
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010099
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise2.png: 11.6458
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011209
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise2.png: 11.7268
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011973
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise2.png: 11.8093
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010436
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise2.png: 11.9356
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011197
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise2.png: 12.0743
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011056
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise2.png: 12.2227
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011507
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise2.png: 12.3682
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010962
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise2.png: 15.3812
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.012925
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise2.png: 20.7389
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011227
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise2.png: 21.7631
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009921
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise2.png: 21.7765
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011411
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise2.png: 21.7724
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.014685
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise2.png: 21.7728
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009698
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise2.png: 21.7729
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011088
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise2.png: 21.7729
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009476
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise2.png: 21.7729
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01045
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise20.png: 11.5195
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010399
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise20.png: 11.5121
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011333
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise20.png: 11.5404
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010366
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise20.png: 11.5749
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.015946
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise20.png: 11.6287
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010243
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise20.png: 11.7036
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01181
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise20.png: 11.795
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010317
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise20.png: 11.8961
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010348
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise20.png: 12.0223
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01541
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise20.png: 12.1427
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010387
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise20.png: 14.2481
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011271
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise20.png: 19.2995
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01469
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise20.png: 21.9873
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010441
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise20.png: 22.0621
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011791
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise20.png: 22.003
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009475
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise20.png: 21.9637
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009731
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise20.png: 21.9439
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009874
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise20.png: 21.9317
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01131
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise20.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise20.png: 21.9288
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009405
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.01lena_sp_noise500.png: 11.5187
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011116
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.02lena_sp_noise500.png: 11.5095
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010501
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.03lena_sp_noise500.png: 11.5375
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011011
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.04lena_sp_noise500.png: 11.5689
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01581
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.05lena_sp_noise500.png: 11.619
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010568
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.06lena_sp_noise500.png: 11.6876
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011695
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.07lena_sp_noise500.png: 11.7737
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011503
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.08lena_sp_noise500.png: 11.8758
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.012783
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.09lena_sp_noise500.png: 11.9806
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.013302
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.1lena_sp_noise500.png: 12.1018
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.01073
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.2lena_sp_noise500.png: 13.9975
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011592
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.3lena_sp_noise500.png: 18.6686
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009471
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.4lena_sp_noise500.png: 21.2806
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009654
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.5lena_sp_noise500.png: 21.3474
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010148
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.6lena_sp_noise500.png: 21.2082
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009473
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.7lena_sp_noise500.png: 21.1451
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009142
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.8lena_sp_noise500.png: 21.0556
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011428
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/0.9lena_sp_noise500.png: 20.9091
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009542
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise500.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/realtime/lena_sp_noise/psnr/1.0lena_sp_noise500.png: 20.9358
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011176
+

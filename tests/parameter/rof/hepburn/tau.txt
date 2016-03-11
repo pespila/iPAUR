@@ -1,0 +1,2277 @@
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.01.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.01
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1911
+Estimated MSE: 17.4861
+Estimated PSNR: 35.7039 db
+Estimated Run-Time: 26.8285
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.02.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.02
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1569
+Estimated MSE: 19.7838
+Estimated PSNR: 35.1677 db
+Estimated Run-Time: 22.3113
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.03.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.03
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1296
+Estimated MSE: 20.266
+Estimated PSNR: 35.0631 db
+Estimated Run-Time: 18.6414
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.04.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.04
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1119
+Estimated MSE: 20.4532
+Estimated PSNR: 35.0232 db
+Estimated Run-Time: 16.1404
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.05.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.05
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 979
+Estimated MSE: 20.5322
+Estimated PSNR: 35.0065 db
+Estimated Run-Time: 13.8081
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.06.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.06
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 878
+Estimated MSE: 20.5782
+Estimated PSNR: 34.9967 db
+Estimated Run-Time: 12.6541
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.07.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.07
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 797
+Estimated MSE: 20.6051
+Estimated PSNR: 34.9911 db
+Estimated Run-Time: 11.4488
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.08.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.08
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 730
+Estimated MSE: 20.6222
+Estimated PSNR: 34.9874 db
+Estimated Run-Time: 10.4538
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.09.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.09
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 677
+Estimated MSE: 20.6347
+Estimated PSNR: 34.9848 db
+Estimated Run-Time: 9.53957
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.1.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.1
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 633
+Estimated MSE: 20.6438
+Estimated PSNR: 34.9829 db
+Estimated Run-Time: 9.13518
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.11.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.11
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 591
+Estimated MSE: 20.6493
+Estimated PSNR: 34.9818 db
+Estimated Run-Time: 8.5778
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.12.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.12
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 553
+Estimated MSE: 20.653
+Estimated PSNR: 34.981 db
+Estimated Run-Time: 7.77247
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.13.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.13
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 533
+Estimated MSE: 20.6596
+Estimated PSNR: 34.9796 db
+Estimated Run-Time: 7.67887
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.14.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.14
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 506
+Estimated MSE: 20.6624
+Estimated PSNR: 34.979 db
+Estimated Run-Time: 7.13241
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.15.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.15
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 477
+Estimated MSE: 20.6635
+Estimated PSNR: 34.9788 db
+Estimated Run-Time: 6.93972
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.16.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.16
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 458
+Estimated MSE: 20.6659
+Estimated PSNR: 34.9783 db
+Estimated Run-Time: 6.56596
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.17.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.17
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 441
+Estimated MSE: 20.6679
+Estimated PSNR: 34.9778 db
+Estimated Run-Time: 6.18445
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.18.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.18
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 426
+Estimated MSE: 20.6697
+Estimated PSNR: 34.9775 db
+Estimated Run-Time: 6.05188
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.19.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.19
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 412
+Estimated MSE: 20.6711
+Estimated PSNR: 34.9772 db
+Estimated Run-Time: 5.81255
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.2.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.2
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 399
+Estimated MSE: 20.6723
+Estimated PSNR: 34.9769 db
+Estimated Run-Time: 5.86969
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.21.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.21
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 382
+Estimated MSE: 20.6725
+Estimated PSNR: 34.9769 db
+Estimated Run-Time: 5.48238
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.22.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.22
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 370
+Estimated MSE: 20.6732
+Estimated PSNR: 34.9767 db
+Estimated Run-Time: 5.44016
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.23.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.23
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 360
+Estimated MSE: 20.674
+Estimated PSNR: 34.9766 db
+Estimated Run-Time: 5.50939
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.24.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.24
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 350
+Estimated MSE: 20.6746
+Estimated PSNR: 34.9764 db
+Estimated Run-Time: 4.91683
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.25.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 340
+Estimated MSE: 20.6751
+Estimated PSNR: 34.9763 db
+Estimated Run-Time: 5.58023
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.26.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.26
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 333
+Estimated MSE: 20.6757
+Estimated PSNR: 34.9762 db
+Estimated Run-Time: 4.74846
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.27.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.27
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 326
+Estimated MSE: 20.6762
+Estimated PSNR: 34.9761 db
+Estimated Run-Time: 4.56136
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.28.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.28
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 319
+Estimated MSE: 20.6765
+Estimated PSNR: 34.976 db
+Estimated Run-Time: 4.47025
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.29.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.29
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 313
+Estimated MSE: 20.6769
+Estimated PSNR: 34.9759 db
+Estimated Run-Time: 4.45883
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.3.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.3
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 308
+Estimated MSE: 20.6773
+Estimated PSNR: 34.9759 db
+Estimated Run-Time: 4.37535
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.31.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.31
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 303
+Estimated MSE: 20.6777
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.26365
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.32.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.32
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 299
+Estimated MSE: 20.6781
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 4.19521
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.33.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.33
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 295
+Estimated MSE: 20.6784
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 4.1386
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.34.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.34
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 290
+Estimated MSE: 20.6785
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 4.46281
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.35.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.35
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 286
+Estimated MSE: 20.6787
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 4.16434
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.36.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.36
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 283
+Estimated MSE: 20.6789
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 4.10112
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.37.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.37
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 279
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.91898
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.38.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.38
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 276
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.89254
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.39.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.39
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 273
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.84894
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.4.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.4
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 271
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.82201
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.41.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.41
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 266
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.74417
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.42.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.42
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 263
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.67111
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.43.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.43
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 260
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.73565
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.44.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.44
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 260
+Estimated MSE: 20.6791
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.64149
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.45.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.45
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 255
+Estimated MSE: 20.6791
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.63463
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.46.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.46
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 255
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.57789
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.47.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.47
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 257
+Estimated MSE: 20.6791
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.71309
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.48.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.48
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 254
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.67356
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.49.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.49
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 252
+Estimated MSE: 20.6791
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.61934
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.5.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.5
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 254
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.5902
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.51.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.51
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 256
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.60995
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.52.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.52
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 252
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.54722
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.53.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.53
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 251
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.56837
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.54.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.54
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 252
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.52969
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.55.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.55
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 247
+Estimated MSE: 20.6793
+Estimated PSNR: 34.9754 db
+Estimated Run-Time: 3.50879
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.56.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.56
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 247
+Estimated MSE: 20.6793
+Estimated PSNR: 34.9754 db
+Estimated Run-Time: 3.49985
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.57.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.57
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 251
+Estimated MSE: 20.6793
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.62158
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.58.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.58
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 255
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.62351
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.59.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.59
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 254
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.58157
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.6.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.6
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 257
+Estimated MSE: 20.6792
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.62065
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.61.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.61
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 256
+Estimated MSE: 20.6791
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.61355
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.62.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.62
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 257
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.68901
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.63.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.63
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 260
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.78527
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.64.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.64
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 261
+Estimated MSE: 20.679
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.84656
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.65.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.65
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 264
+Estimated MSE: 20.6789
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.87939
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.66.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.66
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 265
+Estimated MSE: 20.6789
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.95397
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.67.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.67
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 263
+Estimated MSE: 20.6789
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.7075
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.68.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.68
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 268
+Estimated MSE: 20.6788
+Estimated PSNR: 34.9755 db
+Estimated Run-Time: 3.80778
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.69.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.69
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 261
+Estimated MSE: 20.6788
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.67554
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.7.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.7
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 264
+Estimated MSE: 20.6787
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.82405
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.71.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.71
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 266
+Estimated MSE: 20.6787
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.87479
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.72.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.72
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 270
+Estimated MSE: 20.6787
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.87049
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.73.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.73
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 257
+Estimated MSE: 20.6785
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.5977
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.74.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.74
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 262
+Estimated MSE: 20.6785
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.69358
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.75.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.75
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 263
+Estimated MSE: 20.6784
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.76372
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.76.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.76
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 267
+Estimated MSE: 20.6784
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.75682
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.77.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.77
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 269
+Estimated MSE: 20.6784
+Estimated PSNR: 34.9756 db
+Estimated Run-Time: 3.77186
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.78.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.78
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 270
+Estimated MSE: 20.6783
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.80728
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.79.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.79
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 273
+Estimated MSE: 20.6783
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.81411
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.8.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.8
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 272
+Estimated MSE: 20.6782
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.82611
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.81.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.81
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 270
+Estimated MSE: 20.6782
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.97274
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.82.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.82
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 266
+Estimated MSE: 20.6781
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.78132
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.83.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.83
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 269
+Estimated MSE: 20.6781
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.83179
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.84.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.84
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 272
+Estimated MSE: 20.6781
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.8963
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.85.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.85
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 265
+Estimated MSE: 20.678
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.78774
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.86.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.86
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 268
+Estimated MSE: 20.678
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.79916
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.87.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.87
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 271
+Estimated MSE: 20.678
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.86754
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.88.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.88
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 274
+Estimated MSE: 20.678
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.89751
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.89.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.89
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 267
+Estimated MSE: 20.6779
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.78597
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.9.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.9
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 270
+Estimated MSE: 20.6779
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 3.90266
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.91.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.91
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 272
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9757 db
+Estimated Run-Time: 4.78482
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.92.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.92
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 272
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.65797
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.93.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.93
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 278
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.75045
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.94.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.94
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 278
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 5.19571
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.95.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.95
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 279
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.57156
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.96.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.96
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 282
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.23727
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.97.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.97
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 273
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.05006
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.98.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.98
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 276
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.15281
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/rof/hepburn/hepburn0.99.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.99
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 281
+Estimated MSE: 20.6778
+Estimated PSNR: 34.9758 db
+Estimated Run-Time: 4.16048
+

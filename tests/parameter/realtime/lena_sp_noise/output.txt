@@ -1,0 +1,1311 @@
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 11
+Estimated MSE: 10.7927
+Estimated PSNR: 37.7995 db
+Estimated Run-Time: 0.078396
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 11
+Estimated MSE: 35.3916
+Estimated PSNR: 32.6418 db
+Estimated Run-Time: 0.08791
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 13
+Estimated MSE: 62.0074
+Estimated PSNR: 30.2064 db
+Estimated Run-Time: 0.089856
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 13
+Estimated MSE: 90.3411
+Estimated PSNR: 28.5719 db
+Estimated Run-Time: 0.090376
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 13
+Estimated MSE: 134.146
+Estimated PSNR: 26.855 db
+Estimated Run-Time: 0.091228
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 197.182
+Estimated PSNR: 25.1821 db
+Estimated Run-Time: 0.102263
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 269.843
+Estimated PSNR: 23.8197 db
+Estimated Run-Time: 0.100628
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 345.215
+Estimated PSNR: 22.7499 db
+Estimated Run-Time: 0.104934
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 421.136
+Estimated PSNR: 21.8866 db
+Estimated Run-Time: 0.098413
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 494.572
+Estimated PSNR: 21.1885 db
+Estimated Run-Time: 0.103053
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 1814
+Estimated PSNR: 15.5444 db
+Estimated Run-Time: 0.115465
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 19
+Estimated MSE: 3105.2
+Estimated PSNR: 13.2099 db
+Estimated Run-Time: 0.09751
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 18
+Estimated MSE: 3268.15
+Estimated PSNR: 12.9878 db
+Estimated Run-Time: 0.08592
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 18
+Estimated MSE: 3270.76
+Estimated PSNR: 12.9843 db
+Estimated Run-Time: 0.084989
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 3270.01
+Estimated PSNR: 12.9853 db
+Estimated Run-Time: 0.080051
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 3270.07
+Estimated PSNR: 12.9852 db
+Estimated Run-Time: 0.079959
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 3270.09
+Estimated PSNR: 12.9852 db
+Estimated Run-Time: 0.080014
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 3270.09
+Estimated PSNR: 12.9852 db
+Estimated Run-Time: 0.081642
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 3270.09
+Estimated PSNR: 12.9852 db
+Estimated Run-Time: 0.080164
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 12
+Estimated MSE: 14.0877
+Estimated PSNR: 36.6424 db
+Estimated Run-Time: 0.091184
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 41.427
+Estimated PSNR: 31.958 db
+Estimated Run-Time: 0.103847
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 19
+Estimated MSE: 76.9993
+Estimated PSNR: 29.2659 db
+Estimated Run-Time: 0.14138
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 110.432
+Estimated PSNR: 27.6998 db
+Estimated Run-Time: 0.14237
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 152.915
+Estimated PSNR: 26.2863 db
+Estimated Run-Time: 0.158447
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 215.989
+Estimated PSNR: 24.7865 db
+Estimated Run-Time: 0.155481
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 25
+Estimated MSE: 294.553
+Estimated PSNR: 23.4392 db
+Estimated Run-Time: 0.180199
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 27
+Estimated MSE: 381.4
+Estimated PSNR: 22.317 db
+Estimated Run-Time: 0.185436
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 29
+Estimated MSE: 474.742
+Estimated PSNR: 21.3662 db
+Estimated Run-Time: 0.195502
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 29
+Estimated MSE: 564.28
+Estimated PSNR: 20.6159 db
+Estimated Run-Time: 0.200513
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 36
+Estimated MSE: 1940.05
+Estimated PSNR: 15.2527 db
+Estimated Run-Time: 0.207288
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 34
+Estimated MSE: 3813.94
+Estimated PSNR: 12.3171 db
+Estimated Run-Time: 0.172914
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 31
+Estimated MSE: 4323.06
+Estimated PSNR: 11.7729 db
+Estimated Run-Time: 0.156706
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 29
+Estimated MSE: 4361.63
+Estimated PSNR: 11.7343 db
+Estimated Run-Time: 0.134069
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4368.14
+Estimated PSNR: 11.7278 db
+Estimated Run-Time: 0.128724
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4370.84
+Estimated PSNR: 11.7252 db
+Estimated Run-Time: 0.129352
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4372.67
+Estimated PSNR: 11.7233 db
+Estimated Run-Time: 0.129905
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4373.63
+Estimated PSNR: 11.7224 db
+Estimated Run-Time: 0.150513
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4373.94
+Estimated PSNR: 11.7221 db
+Estimated Run-Time: 0.157744
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 12
+Estimated MSE: 14.707
+Estimated PSNR: 36.4556 db
+Estimated Run-Time: 0.085138
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 15
+Estimated MSE: 42.1782
+Estimated PSNR: 31.8799 db
+Estimated Run-Time: 0.119183
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 17
+Estimated MSE: 77.23
+Estimated PSNR: 29.2529 db
+Estimated Run-Time: 0.129077
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 111.89
+Estimated PSNR: 27.6429 db
+Estimated Run-Time: 0.150479
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 155.304
+Estimated PSNR: 26.219 db
+Estimated Run-Time: 0.144222
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 218.285
+Estimated PSNR: 24.7406 db
+Estimated Run-Time: 0.162453
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 25
+Estimated MSE: 296.724
+Estimated PSNR: 23.4073 db
+Estimated Run-Time: 0.168123
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 25
+Estimated MSE: 380.726
+Estimated PSNR: 22.3247 db
+Estimated Run-Time: 0.168485
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 27
+Estimated MSE: 475.544
+Estimated PSNR: 21.3589 db
+Estimated Run-Time: 0.179653
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 29
+Estimated MSE: 568.969
+Estimated PSNR: 20.5799 db
+Estimated Run-Time: 0.195521
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 41
+Estimated MSE: 1955.14
+Estimated PSNR: 15.219 db
+Estimated Run-Time: 0.244462
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 40
+Estimated MSE: 3950.28
+Estimated PSNR: 12.1645 db
+Estimated Run-Time: 0.204875
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 32
+Estimated MSE: 4520.55
+Estimated PSNR: 11.5789 db
+Estimated Run-Time: 0.152586
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 29
+Estimated MSE: 4587.17
+Estimated PSNR: 11.5154 db
+Estimated Run-Time: 0.141428
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4604.79
+Estimated PSNR: 11.4987 db
+Estimated Run-Time: 0.136993
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 27
+Estimated MSE: 4614.32
+Estimated PSNR: 11.4897 db
+Estimated Run-Time: 0.130394
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 27
+Estimated MSE: 4624.61
+Estimated PSNR: 11.48 db
+Estimated Run-Time: 0.130378
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 28
+Estimated MSE: 4638.27
+Estimated PSNR: 11.4672 db
+Estimated Run-Time: 0.130399
+
+Image input path: ../../img/lena_sp_noise.png
+Image output path: ../../tests/parameter/realtime/lena_sp_noise/lena_sp_noise500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 27
+Estimated MSE: 4638.02
+Estimated PSNR: 11.4675 db
+Estimated Run-Time: 0.125256
+

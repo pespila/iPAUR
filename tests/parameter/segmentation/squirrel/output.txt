@@ -1,0 +1,230 @@
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.1squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 321.165
+Estimated PSNR: 23.0635 db
+Estimated Run-Time: 4.50744
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.2squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 471.276
+Estimated PSNR: 21.3981 db
+Estimated Run-Time: 4.19243
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.3squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 573.596
+Estimated PSNR: 20.5447 db
+Estimated Run-Time: 3.95957
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.4squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 650.278
+Estimated PSNR: 19.9998 db
+Estimated Run-Time: 3.8918
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.5squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 684.541
+Estimated PSNR: 19.7768 db
+Estimated Run-Time: 3.92756
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.6squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 735.005
+Estimated PSNR: 19.4679 db
+Estimated Run-Time: 3.84693
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.7squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 765.232
+Estimated PSNR: 19.2929 db
+Estimated Run-Time: 3.89815
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.8squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 797.868
+Estimated PSNR: 19.1115 db
+Estimated Run-Time: 3.89357
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/0.9squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 809.884
+Estimated PSNR: 19.0466 db
+Estimated Run-Time: 4.42252
+
+Image input path: ../../img/squirrel.png
+Image output path: ../../tests/parameter/segmentation/squirrel/1.0squirrel.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 1000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 1000
+Estimated MSE: 817.803
+Estimated PSNR: 19.0043 db
+Estimated Run-Time: 4.14042
+

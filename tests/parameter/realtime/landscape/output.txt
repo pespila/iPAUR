@@ -1,0 +1,1311 @@
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 61.2526
+Estimated PSNR: 30.2596 db
+Estimated Run-Time: 0.110824
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 104.845
+Estimated PSNR: 27.9253 db
+Estimated Run-Time: 0.113429
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 130.182
+Estimated PSNR: 26.9853 db
+Estimated Run-Time: 0.104511
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 146.182
+Estimated PSNR: 26.4819 db
+Estimated Run-Time: 0.107437
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 157.394
+Estimated PSNR: 26.1609 db
+Estimated Run-Time: 0.10143
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 23
+Estimated MSE: 165.675
+Estimated PSNR: 25.9382 db
+Estimated Run-Time: 0.101471
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 170.927
+Estimated PSNR: 25.8027 db
+Estimated Run-Time: 0.093349
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 175.343
+Estimated PSNR: 25.6919 db
+Estimated Run-Time: 0.094917
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 179.285
+Estimated PSNR: 25.5954 db
+Estimated Run-Time: 0.129083
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 181.531
+Estimated PSNR: 25.5413 db
+Estimated Run-Time: 0.099154
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 193.506
+Estimated PSNR: 25.2639 db
+Estimated Run-Time: 0.092055
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 196.815
+Estimated PSNR: 25.1902 db
+Estimated Run-Time: 0.09149
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.559
+Estimated PSNR: 25.1959 db
+Estimated Run-Time: 0.087269
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.088247
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.088007
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.087369
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.087154
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.092861
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 196.561
+Estimated PSNR: 25.1958 db
+Estimated Run-Time: 0.087118
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 78.2
+Estimated PSNR: 29.1987 db
+Estimated Run-Time: 0.218282
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 41
+Estimated MSE: 142.096
+Estimated PSNR: 26.605 db
+Estimated Run-Time: 0.196649
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 44
+Estimated MSE: 188.963
+Estimated PSNR: 25.367 db
+Estimated Run-Time: 0.211116
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 220.941
+Estimated PSNR: 24.688 db
+Estimated Run-Time: 0.194507
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 248.857
+Estimated PSNR: 24.1713 db
+Estimated Run-Time: 0.196299
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 271.278
+Estimated PSNR: 23.7967 db
+Estimated Run-Time: 0.194278
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 291.353
+Estimated PSNR: 23.4866 db
+Estimated Run-Time: 0.190247
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 307.926
+Estimated PSNR: 23.2463 db
+Estimated Run-Time: 0.194892
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 322.688
+Estimated PSNR: 23.043 db
+Estimated Run-Time: 0.187587
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 41
+Estimated MSE: 333.539
+Estimated PSNR: 22.8993 db
+Estimated Run-Time: 0.179882
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 41
+Estimated MSE: 398.992
+Estimated PSNR: 22.1212 db
+Estimated Run-Time: 0.184436
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 424.664
+Estimated PSNR: 21.8503 db
+Estimated Run-Time: 0.167864
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 38
+Estimated MSE: 435.722
+Estimated PSNR: 21.7387 db
+Estimated Run-Time: 0.163731
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 442.329
+Estimated PSNR: 21.6733 db
+Estimated Run-Time: 0.175425
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 446.985
+Estimated PSNR: 21.6279 db
+Estimated Run-Time: 0.167435
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 451.373
+Estimated PSNR: 21.5854 db
+Estimated Run-Time: 0.181436
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 39
+Estimated MSE: 455.155
+Estimated PSNR: 21.5492 db
+Estimated Run-Time: 0.166957
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 38
+Estimated MSE: 455.273
+Estimated PSNR: 21.5481 db
+Estimated Run-Time: 0.184836
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 38
+Estimated MSE: 455.273
+Estimated PSNR: 21.5481 db
+Estimated Run-Time: 0.185273
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 47
+Estimated MSE: 80.5253
+Estimated PSNR: 29.0715 db
+Estimated Run-Time: 0.250288
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 54
+Estimated MSE: 149.894
+Estimated PSNR: 26.373 db
+Estimated Run-Time: 0.272945
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 60
+Estimated MSE: 203.408
+Estimated PSNR: 25.0471 db
+Estimated Run-Time: 0.290155
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 60
+Estimated MSE: 242.73
+Estimated PSNR: 24.2796 db
+Estimated Run-Time: 0.283782
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 53
+Estimated MSE: 273.36
+Estimated PSNR: 23.7635 db
+Estimated Run-Time: 0.28194
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 68
+Estimated MSE: 310.249
+Estimated PSNR: 23.2137 db
+Estimated Run-Time: 0.315942
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 56
+Estimated MSE: 330.033
+Estimated PSNR: 22.9452 db
+Estimated Run-Time: 0.261787
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 60
+Estimated MSE: 358.228
+Estimated PSNR: 22.5892 db
+Estimated Run-Time: 0.273105
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 59
+Estimated MSE: 378.385
+Estimated PSNR: 22.3515 db
+Estimated Run-Time: 0.261727
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 54
+Estimated MSE: 393.183
+Estimated PSNR: 22.1849 db
+Estimated Run-Time: 0.249653
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 55
+Estimated MSE: 520.323
+Estimated PSNR: 20.9681 db
+Estimated Run-Time: 0.24285
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 36
+Estimated MSE: 542.717
+Estimated PSNR: 20.7851 db
+Estimated Run-Time: 0.157184
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 48
+Estimated MSE: 626.478
+Estimated PSNR: 20.1617 db
+Estimated Run-Time: 0.216612
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 42
+Estimated MSE: 637.862
+Estimated PSNR: 20.0835 db
+Estimated Run-Time: 0.183208
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 48
+Estimated MSE: 685.745
+Estimated PSNR: 19.7692 db
+Estimated Run-Time: 0.210072
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 62
+Estimated MSE: 745.543
+Estimated PSNR: 19.4061 db
+Estimated Run-Time: 0.264319
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 46
+Estimated MSE: 709.827
+Estimated PSNR: 19.6193 db
+Estimated Run-Time: 0.197118
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 54
+Estimated MSE: 751.549
+Estimated PSNR: 19.3712 db
+Estimated Run-Time: 0.244865
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/realtime/landscape/landscape500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 53
+Estimated MSE: 758.327
+Estimated PSNR: 19.3322 db
+Estimated Run-Time: 0.236012
+

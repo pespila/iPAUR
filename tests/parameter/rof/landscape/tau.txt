@@ -1,0 +1,2277 @@
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.01.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.01
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 2636
+Estimated MSE: 81.7632
+Estimated PSNR: 29.0052 db
+Estimated Run-Time: 13.8145
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.02.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.02
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1967
+Estimated MSE: 86.3818
+Estimated PSNR: 28.7666 db
+Estimated Run-Time: 10.3298
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.03.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.03
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1570
+Estimated MSE: 87.2636
+Estimated PSNR: 28.7225 db
+Estimated Run-Time: 8.21518
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.04.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.04
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1318
+Estimated MSE: 87.5784
+Estimated PSNR: 28.7068 db
+Estimated Run-Time: 6.87757
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.05.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.05
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1136
+Estimated MSE: 87.7155
+Estimated PSNR: 28.7 db
+Estimated Run-Time: 5.98759
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.06.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.06
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 1009
+Estimated MSE: 87.8002
+Estimated PSNR: 28.6958 db
+Estimated Run-Time: 5.39634
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.07.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.07
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 912
+Estimated MSE: 87.8507
+Estimated PSNR: 28.6934 db
+Estimated Run-Time: 4.79189
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.08.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.08
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 832
+Estimated MSE: 87.8827
+Estimated PSNR: 28.6918 db
+Estimated Run-Time: 4.34843
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.09.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.09
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 765
+Estimated MSE: 87.9028
+Estimated PSNR: 28.6908 db
+Estimated Run-Time: 3.99539
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.1.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.1
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 711
+Estimated MSE: 87.9195
+Estimated PSNR: 28.69 db
+Estimated Run-Time: 3.69976
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.11.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.11
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 665
+Estimated MSE: 87.9307
+Estimated PSNR: 28.6894 db
+Estimated Run-Time: 3.74051
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.12.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.12
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 625
+Estimated MSE: 87.9392
+Estimated PSNR: 28.689 db
+Estimated Run-Time: 3.37017
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.13.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.13
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 587
+Estimated MSE: 87.9444
+Estimated PSNR: 28.6887 db
+Estimated Run-Time: 3.08189
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.14.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.14
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 557
+Estimated MSE: 87.9499
+Estimated PSNR: 28.6884 db
+Estimated Run-Time: 2.98819
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.15.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.15
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 530
+Estimated MSE: 87.9544
+Estimated PSNR: 28.6882 db
+Estimated Run-Time: 3.06079
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.16.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.16
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 505
+Estimated MSE: 87.9576
+Estimated PSNR: 28.6881 db
+Estimated Run-Time: 2.66222
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.17.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.17
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 484
+Estimated MSE: 87.9611
+Estimated PSNR: 28.6879 db
+Estimated Run-Time: 2.55551
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.18.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.18
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 462
+Estimated MSE: 87.9627
+Estimated PSNR: 28.6878 db
+Estimated Run-Time: 2.46451
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.19.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.19
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 443
+Estimated MSE: 87.9647
+Estimated PSNR: 28.6877 db
+Estimated Run-Time: 2.34487
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.2.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.2
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 428
+Estimated MSE: 87.9669
+Estimated PSNR: 28.6876 db
+Estimated Run-Time: 2.28928
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.21.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.21
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 413
+Estimated MSE: 87.9683
+Estimated PSNR: 28.6875 db
+Estimated Run-Time: 2.18776
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.22.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.22
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 399
+Estimated MSE: 87.9696
+Estimated PSNR: 28.6875 db
+Estimated Run-Time: 2.1142
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.23.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.23
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 385
+Estimated MSE: 87.9705
+Estimated PSNR: 28.6874 db
+Estimated Run-Time: 2.19555
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.24.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.24
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 371
+Estimated MSE: 87.9712
+Estimated PSNR: 28.6874 db
+Estimated Run-Time: 1.96392
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.25.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 362
+Estimated MSE: 87.9726
+Estimated PSNR: 28.6873 db
+Estimated Run-Time: 2.5169
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.26.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.26
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 349
+Estimated MSE: 87.9727
+Estimated PSNR: 28.6873 db
+Estimated Run-Time: 1.87417
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.27.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.27
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 342
+Estimated MSE: 87.9739
+Estimated PSNR: 28.6873 db
+Estimated Run-Time: 1.8171
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.28.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.28
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 331
+Estimated MSE: 87.9742
+Estimated PSNR: 28.6873 db
+Estimated Run-Time: 1.73888
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.29.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.29
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 323
+Estimated MSE: 87.9748
+Estimated PSNR: 28.6872 db
+Estimated Run-Time: 1.74673
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.3.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.3
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 314
+Estimated MSE: 87.9751
+Estimated PSNR: 28.6872 db
+Estimated Run-Time: 1.65183
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.31.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.31
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 306
+Estimated MSE: 87.9755
+Estimated PSNR: 28.6872 db
+Estimated Run-Time: 1.59965
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.32.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.32
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 300
+Estimated MSE: 87.9762
+Estimated PSNR: 28.6872 db
+Estimated Run-Time: 1.56072
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.33.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.33
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 294
+Estimated MSE: 87.9767
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.53339
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.34.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.34
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 288
+Estimated MSE: 87.9771
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.65253
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.35.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.35
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 279
+Estimated MSE: 87.9769
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.46977
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.36.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.36
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 274
+Estimated MSE: 87.9773
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.5172
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.37.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.37
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 267
+Estimated MSE: 87.9774
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.40156
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.38.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.38
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 263
+Estimated MSE: 87.9778
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.40371
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.39.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.39
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 259
+Estimated MSE: 87.9781
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.36969
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.4.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.4
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 253
+Estimated MSE: 87.9781
+Estimated PSNR: 28.6871 db
+Estimated Run-Time: 1.32461
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.41.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.41
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 249
+Estimated MSE: 87.9784
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.34148
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.42.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.42
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 244
+Estimated MSE: 87.9785
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.29008
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.43.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.43
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 240
+Estimated MSE: 87.9788
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.25346
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.44.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.44
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 236
+Estimated MSE: 87.9789
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.24076
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.45.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.45
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 232
+Estimated MSE: 87.9791
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.2154
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.46.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.46
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 227
+Estimated MSE: 87.979
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.19499
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.47.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.47
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 225
+Estimated MSE: 87.9793
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.26549
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.48.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.48
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 222
+Estimated MSE: 87.9794
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.20296
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.49.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.49
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 218
+Estimated MSE: 87.9795
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.14725
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.5.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.5
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 215
+Estimated MSE: 87.9797
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.15457
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.51.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.51
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 212
+Estimated MSE: 87.9798
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.11917
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.52.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.52
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 209
+Estimated MSE: 87.9799
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.12283
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.53.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.53
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 208
+Estimated MSE: 87.98
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.09888
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.54.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.54
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 204
+Estimated MSE: 87.98
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.06122
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.55.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.55
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 202
+Estimated MSE: 87.9801
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.05505
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.56.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.56
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 198
+Estimated MSE: 87.9801
+Estimated PSNR: 28.687 db
+Estimated Run-Time: 1.05665
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.57.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.57
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 198
+Estimated MSE: 87.9804
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.08951
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.58.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.58
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 194
+Estimated MSE: 87.9803
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.05177
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.59.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.59
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 194
+Estimated MSE: 87.9805
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.01481
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.6.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.6
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 189
+Estimated MSE: 87.9804
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.982201
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.61.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.61
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 187
+Estimated MSE: 87.9804
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.01466
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.62.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.62
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 185
+Estimated MSE: 87.9805
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.981859
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.63.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.63
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 186
+Estimated MSE: 87.9807
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.982037
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.64.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.64
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 183
+Estimated MSE: 87.9808
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.04617
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.65.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.65
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 182
+Estimated MSE: 87.9808
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.00238
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.66.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.66
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 181
+Estimated MSE: 87.9809
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.985663
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.67.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.67
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 178
+Estimated MSE: 87.9809
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.931199
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.68.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.68
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 178
+Estimated MSE: 87.981
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.957863
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.69.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.69
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 178
+Estimated MSE: 87.981
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.937958
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.7.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.7
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.917909
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.71.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.71
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.95904
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.72.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.72
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.953875
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.73.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.73
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.903616
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.74.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.74
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.906421
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.75.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.75
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.911102
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.76.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.76
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 169
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.8805
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.77.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.77
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 168
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.887774
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.78.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.78
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 169
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.896266
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.79.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.79
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 167
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.881013
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.8.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.8
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 167
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.881285
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.81.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.81
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 167
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.889079
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.82.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.82
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 167
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.878834
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.83.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.83
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 164
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.855516
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.84.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.84
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 164
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.884285
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.85.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.85
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 166
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.879634
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.86.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.86
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 168
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.891421
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.87.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.87
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 168
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.886897
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.88.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.88
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 169
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.893975
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.89.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.89
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 167
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.890305
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.9.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.9
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.9051
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.91.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.91
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.18575
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.92.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.92
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.994914
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.93.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.93
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 169
+Estimated MSE: 87.9812
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.25489
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.94.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.94
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 172
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.15536
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.95.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.95
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.45459
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.96.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.96
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 174
+Estimated MSE: 87.981
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.00918
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.97.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.97
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 1.21669
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.98.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.98
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 176
+Estimated MSE: 87.981
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.960394
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/rof/landscape/landscape0.99.png
+Image inputC path: 
+Model: rof
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.99
+
+Starting ROF Model. Just a few seconds please:
+Iterations: 173
+Estimated MSE: 87.9811
+Estimated PSNR: 28.6869 db
+Estimated Run-Time: 0.930335
+

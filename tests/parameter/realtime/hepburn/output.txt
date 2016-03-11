@@ -1,0 +1,1311 @@
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 20
+Estimated MSE: 18.4531
+Estimated PSNR: 35.4701 db
+Estimated Run-Time: 0.259044
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 2
+Estimated MSE: 4.85841
+Estimated PSNR: 41.2659 db
+Estimated Run-Time: 0.035782
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 38.447
+Estimated PSNR: 32.2822 db
+Estimated Run-Time: 0.26949
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 45.9999
+Estimated PSNR: 31.5032 db
+Estimated Run-Time: 0.275386
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 52.9024
+Estimated PSNR: 30.8961 db
+Estimated Run-Time: 0.266855
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 58.936
+Estimated PSNR: 30.427 db
+Estimated Run-Time: 0.263604
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 64.2171
+Estimated PSNR: 30.0543 db
+Estimated Run-Time: 0.271529
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 69.1469
+Estimated PSNR: 29.7331 db
+Estimated Run-Time: 0.265419
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 73.6143
+Estimated PSNR: 29.4612 db
+Estimated Run-Time: 0.275295
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 77.7636
+Estimated PSNR: 29.223 db
+Estimated Run-Time: 0.272003
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 22
+Estimated MSE: 107.561
+Estimated PSNR: 27.8143 db
+Estimated Run-Time: 0.257513
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 121.767
+Estimated PSNR: 27.2755 db
+Estimated Run-Time: 0.251875
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 127.533
+Estimated PSNR: 27.0746 db
+Estimated Run-Time: 0.24428
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.252
+Estimated PSNR: 27.0502 db
+Estimated Run-Time: 0.245739
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.253
+Estimated PSNR: 27.0501 db
+Estimated Run-Time: 0.244151
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.253
+Estimated PSNR: 27.0501 db
+Estimated Run-Time: 0.244547
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.253
+Estimated PSNR: 27.0501 db
+Estimated Run-Time: 0.246481
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.253
+Estimated PSNR: 27.0501 db
+Estimated Run-Time: 0.255657
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn2.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 2
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 21
+Estimated MSE: 128.253
+Estimated PSNR: 27.0501 db
+Estimated Run-Time: 0.251026
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 34
+Estimated MSE: 30.9078
+Estimated PSNR: 33.2301 db
+Estimated Run-Time: 0.460546
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 38
+Estimated MSE: 52.1132
+Estimated PSNR: 30.9613 db
+Estimated Run-Time: 0.499515
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 40
+Estimated MSE: 70.2634
+Estimated PSNR: 29.6635 db
+Estimated Run-Time: 0.498357
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 40
+Estimated MSE: 85.8274
+Estimated PSNR: 28.7945 db
+Estimated Run-Time: 0.504396
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 3
+Estimated MSE: 18.7306
+Estimated PSNR: 35.4053 db
+Estimated Run-Time: 0.048443
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 42
+Estimated MSE: 113.981
+Estimated PSNR: 27.5625 db
+Estimated Run-Time: 0.523356
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 126.504
+Estimated PSNR: 27.1097 db
+Estimated Run-Time: 0.603943
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 42
+Estimated MSE: 137.031
+Estimated PSNR: 26.7626 db
+Estimated Run-Time: 0.518913
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 44
+Estimated MSE: 149.151
+Estimated PSNR: 26.3946 db
+Estimated Run-Time: 0.534395
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 42
+Estimated MSE: 157.761
+Estimated PSNR: 26.1508 db
+Estimated Run-Time: 0.534301
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 44
+Estimated MSE: 239.436
+Estimated PSNR: 24.3389 db
+Estimated Run-Time: 0.528528
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 45
+Estimated MSE: 300.404
+Estimated PSNR: 23.3537 db
+Estimated Run-Time: 0.541429
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 45
+Estimated MSE: 344.004
+Estimated PSNR: 22.7652 db
+Estimated Run-Time: 0.532148
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 45
+Estimated MSE: 376.435
+Estimated PSNR: 22.3739 db
+Estimated Run-Time: 0.525007
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 45
+Estimated MSE: 403.22
+Estimated PSNR: 22.0754 db
+Estimated Run-Time: 0.533589
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 43
+Estimated MSE: 425.969
+Estimated PSNR: 21.837 db
+Estimated Run-Time: 0.504241
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 44
+Estimated MSE: 449.272
+Estimated PSNR: 21.6057 db
+Estimated Run-Time: 0.513883
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 45
+Estimated MSE: 471.603
+Estimated PSNR: 21.395 db
+Estimated Run-Time: 0.57939
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn20.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 20
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 44
+Estimated MSE: 488.763
+Estimated PSNR: 21.2398 db
+Estimated Run-Time: 0.541862
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.01
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 3
+Estimated MSE: 7.3451
+Estimated PSNR: 39.4708 db
+Estimated Run-Time: 0.048485
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.02
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 3
+Estimated MSE: 11.2043
+Estimated PSNR: 37.6369 db
+Estimated Run-Time: 0.047843
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.03
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 3
+Estimated MSE: 14.242
+Estimated PSNR: 36.5951 db
+Estimated Run-Time: 0.047125
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.04
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 3
+Estimated MSE: 16.8549
+Estimated PSNR: 35.8636 db
+Estimated Run-Time: 0.047067
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.05
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 58
+Estimated MSE: 122.405
+Estimated PSNR: 27.2528 db
+Estimated Run-Time: 0.77201
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.06
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 62
+Estimated MSE: 142.515
+Estimated PSNR: 26.5922 db
+Estimated Run-Time: 0.791764
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.07
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 64
+Estimated MSE: 159.236
+Estimated PSNR: 26.1104 db
+Estimated Run-Time: 0.809321
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.08
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 72
+Estimated MSE: 180.143
+Estimated PSNR: 25.5746 db
+Estimated Run-Time: 0.921834
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.09
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 56
+Estimated MSE: 185.221
+Estimated PSNR: 25.4539 db
+Estimated Run-Time: 0.704005
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 66
+Estimated MSE: 205.933
+Estimated PSNR: 24.9936 db
+Estimated Run-Time: 0.849053
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.2
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 69
+Estimated MSE: 324.36
+Estimated PSNR: 23.0205 db
+Estimated Run-Time: 0.848104
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.3
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 74
+Estimated MSE: 422.549
+Estimated PSNR: 21.872 db
+Estimated Run-Time: 0.905223
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.4
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 71
+Estimated MSE: 496.596
+Estimated PSNR: 21.1708 db
+Estimated Run-Time: 0.883951
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.5
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 79
+Estimated MSE: 563.895
+Estimated PSNR: 20.6188 db
+Estimated Run-Time: 0.947607
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.6
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 87
+Estimated MSE: 633.668
+Estimated PSNR: 20.1122 db
+Estimated Run-Time: 1.02257
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.7
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 60
+Estimated MSE: 634.572
+Estimated PSNR: 20.106 db
+Estimated Run-Time: 0.732254
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.8
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 88
+Estimated MSE: 728.529
+Estimated PSNR: 19.5063 db
+Estimated Run-Time: 1.03067
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 0.9
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 84
+Estimated MSE: 763.806
+Estimated PSNR: 19.301 db
+Estimated Run-Time: 0.985376
+
+Image input path: ../../img/hepburn.png
+Image output path: ../../tests/parameter/realtime/hepburn/hepburn500.png
+Image inputC path: 
+Model: realtime
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 500
+nu = 1
+tau = 0.25
+
+Starting Real-Time Minimizer. Just a few seconds please:
+Iterations: 12
+Estimated MSE: 347.789
+Estimated PSNR: 22.7176 db
+Estimated Run-Time: 0.158334
+

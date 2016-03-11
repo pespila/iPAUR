@@ -1,0 +1,322 @@
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.01.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.01.png: 21.2196
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009985
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.02.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.02.png: 23.5261
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009195
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.03.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.03.png: 24.5897
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010951
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.04.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.04.png: 25.2706
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.009481
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.05.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.05.png: 25.778
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010067
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.06.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.06.png: 26.1233
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.0134
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.07.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.07.png: 26.4161
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010893
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.08.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.08.png: 26.6414
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.012082
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.09.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.09.png: 26.7393
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.0093
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.1.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.1.png: 26.8819
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010132
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.2.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.2.png: 27.3755
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010182
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.3.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.3.png: 27.5008
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.010935
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.4.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.4.png: 27.5879
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.012791
+
+Image input path: ../../img/lena.png
+Image output path: ../../test.png
+Image inputC path: ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.5.png
+Model: psnr
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting PSNR. Just a few seconds please:
+Estimated PSNR for file at path ../../img/lena.png and file at path ../../tests/parameter/inpaint/lena_inpaint/psnr/lena_inpaint0.5.png: 27.5959
+Estimated MSE: 0
+Estimated PSNR: inf db
+Estimated Run-Time: 0.011329
+

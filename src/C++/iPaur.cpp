@@ -1,3 +1,5 @@
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -12,11 +14,9 @@
 #include "RealTimeMinimizer.h"
 #include "TVL1Model.h"
 #include "ROFModel.h"
-#include "MumfordShah.h"
-#include "URModel.h"
-#include "iPaurModel.h"
 
 using namespace std;
+using namespace cv;
 
 // parameter processing
 template<typename T>
@@ -25,15 +25,34 @@ bool getParam(string param, T &var, int argc, const char* argv[]) {
         if (argv[i][0] != '-') continue;
         if (param.compare(argv[i]+1) == 0) {
             if (!(i+1 < argc)) continue;
-            stringstream ss;
-            ss << argv[i+1];
-            ss >> var;
-            return (bool)ss;
+            stringstream value;
+            value << argv[i+1];
+            value >> var;
+            return (bool)value;
         }
     }
     return false;
 }
 
+// parameter processing for bool
+bool getBool(string param, bool &var, int argc, const char* argv[]) {
+    for(int i = (argc-1); i >= 1; i--) {
+        if (argv[i][0]!='-') continue;
+        if (param.compare(argv[i]+1) == 0) {
+            if (!(i+1<argc) || argv[i+1][0] == '-') {
+                var = true;
+                return var;
+            }
+            stringstream value;
+            value << argv[i+1];
+            value >> var;
+            return (bool)value;
+        }
+    }
+    return false;
+}
+
+// Computation of MSE value
 template<typename aType>
 aType MSE(Image<aType>& src, Image<aType>& dst) {
     aType h = (aType)1 / (aType)(src.Height()*src.Width()*src.Channels());
@@ -49,12 +68,62 @@ aType MSE(Image<aType>& src, Image<aType>& dst) {
 }
 
 template<typename aType>
+void showImage(Image<aType>& src, Image<aType>& dst, int i, int j) {
+    Mat in, out;
+    in = src.ToMat();
+    out = dst.ToMat();
+    namedWindow("Input Image", CV_WINDOW_AUTOSIZE);
+    namedWindow("Output Image", CV_WINDOW_AUTOSIZE);
+    cvMoveWindow("Input Image", i, j);
+    cvMoveWindow("Output Image", i+src.Width()+50, j);
+    imshow("Input Image", in);
+    imshow("Output Image", out);
+    waitKey(0);
+}
+
+// Computation of PSNR value
+template<typename aType>
 aType PSNR(Image<aType>& src, Image<aType>& dst) {
     return 10*log10((255*255) / MSE(src, dst));
 }
 
+// void parameterToFile(string filename,int repeats,bool gray,int level,float tau,float sigma,float lambda,float nu,int w,int h,int nc,size_t available,size_t total,float t,int iter) {
+//     FILE *file;
+//     file = fopen(filename.c_str(), "w");
+//     if(file == NULL)
+//         printf("ERROR: Could not open file!");
+//     else {
+//         fprintf(file, "image: %d x %d x %d\n", w, h, nc);
+//         fprintf(file,"repeats: %d\n", repeats);
+//         fprintf(file,"gray: %d\n", gray);
+//         fprintf(file,"level: %d\n", level);
+//         fprintf(file,"tau: %f\n", tau);
+//         fprintf(file,"sigma: %f\n", sigma);
+//         fprintf(file,"lambda: %f\n", lambda);
+//         fprintf(file,"nu: %f\n", nu);
+//         fprintf(file, "GPU Memory: %zd - %zd = %f GB\n", total, available, (total-available)/pow(10,9));
+//         fprintf(file, "time: %f s\n", t);
+//         fprintf(file, "iterations: %d\n", iter);
+//     }
+//     fclose (file);
+// }
+
+// void parameterToConsole(string filename,int repeats,bool gray,int level,float tau,float sigma,float lambda,float nu,int w,int h,int nc,size_t available,size_t total,float t,int iter) {
+//     printf( "image: %d x %d x %d\n", w, h, nc);
+//     printf("repeats: %d\n", repeats);
+//     printf("gray: %d\n", gray);
+//     printf("level: %d\n", level);
+//     printf("tau: %f\n", tau);
+//     printf("sigma: %f\n", sigma);
+//     printf("lambda: %f\n", lambda);
+//     printf("nu: %f\n", nu);
+//     printf( "GPU Memory: %zd - %zd = %f GB\n", total, available, (total-available)/pow(10,9));
+//     printf( "time: %f s\n", t);
+//     printf( "iterations: %d\n", iter);
+// }
+
 int main(int argc, const char* argv[]) {
-    string err_msg = "Usage: ./iPaur -i <image_in> -o <image_out> [-model <model>] [-iter <iterations>] [-tl <lower_threshold>] [-tu <upper_threshold>] [-radius <radius>] [-alpha <alpha>] [-beta <beta>] [-lambda <lambda>] [-tau <tau>] [-gray <gray>]";
+    string err_msg = "Usage: ./iPaur -i <image_in> -o <image_out> [-model <model>] [-iter <iterations>] [-tl <lower_threshold>] [-tu <upper_threshold>] [-radius <radius>] [-alpha <alpha>] [-beta <beta>] [-lambda <lambda>] [-nu <nu>] [-tau <tau>] [-gray <gray>] [-eh <eh>]";
     if (argc <= 1) {
         cout << err_msg << endl;
         return 1;
@@ -127,10 +196,16 @@ int main(int argc, const char* argv[]) {
     cout << "tau = " << tau << endl;
 
     bool gray = false;
-    getParam("gray", gray, argc, argv);
+    getBool("gray", gray, argc, argv);
     if (gray) {
         cout << "Output image will be written as gray-scaled image." << endl;
     }
+
+    bool eh = false;
+    getBool("eh", eh, argc, argv);
+
+    bool show = false;
+    getBool("show", show, argc, argv);
 
     Image<float> in(input, gray);
     Image<float> out;
@@ -141,26 +216,18 @@ int main(int argc, const char* argv[]) {
         printf("\nStarting ROF Model. Just a few seconds please:\n");
         ROFModel<float> rof(in, iter);
         rof.ROF(in, out, lambda, tau);
+    } else if (model.compare("huber") == 0) {
+        printf("\nStarting Huber-ROF Model. Just a few seconds please:\n");
+        HuberROFModel<float> hrof(in, iter);
+        hrof.HuberROF(in, out, lambda, alpha, tau);
     } else if (model.compare("tvl1") == 0) {
         printf("\nStarting TVL1 Model. Just a few seconds please:\n");
         TVL1Model<float> tvl1(in, iter);
         tvl1.TVL1(in, out, lambda, tau);
-    } else if (model.compare("minimizer") == 0) {
-        printf("\nStarting Mumford-Shah Model. Just a few seconds please:\n");
-        MumfordShah<float> ms(in, iter, level);
-        ms.Minimizer(in, out, lambda, nu);
     } else if (model.compare("realtime") == 0) {
         printf("\nStarting Real-Time Minimizer. Just a few seconds please:\n");
         RealTimeMinimizer<float> rt(in, iter);
-        rt.RTMinimizer(in, out, alpha, lambda, gamma, tau);
-    } else if (model.compare("ur") == 0) {
-        printf("\nStarting UR Model. Just a few seconds please:\n");
-        URModel<float> ur(in, iter);
-        ur.UR(in, out, alpha, beta, tau);
-    } else if (model.compare("ipaur") == 0) {
-        printf("\nStarting iPaur Model. Just a few seconds please:\n");
-        iPaurModel<float> ipaur(in, iter);
-        ipaur.iPaur(in, out, alpha, beta, gamma, lambda, tau);
+        rt.RTMinimizer(in, out, lambda, nu, eh);
     } else if (model.compare("inpaint") == 0) {
         printf("\nStarting Inpainting. Just a few seconds please:\n");
         ImageInpainting<float> ii(in, iter);
@@ -256,9 +323,15 @@ int main(int argc, const char* argv[]) {
     }
     
     float stop_watch = clock();
-    cout << "Estimated MSE: " << MSE(in, out) << endl;
-    cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
+    if (in.Channels() == out.Channels()) {
+        cout << "Estimated MSE: " << MSE(in, out) << endl;
+        cout << "Estimated PSNR: " << PSNR(in, out) << " db" << endl;
+    }
     cout << "Estimated Run-Time: " << (stop_watch - start_watch)/CLOCKS_PER_SEC << endl << endl;
+
+    if (show) {
+        showImage(in, out, 100, 100);
+    }
     
     out.Write(output);
     

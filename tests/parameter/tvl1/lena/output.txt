@@ -1,0 +1,345 @@
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 561
+Estimated MSE: 181.443
+Estimated PSNR: 25.5434 db
+Estimated Run-Time: 6.45906
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 463
+Estimated MSE: 125.728
+Estimated PSNR: 27.1365 db
+Estimated Run-Time: 5.85715
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 434
+Estimated MSE: 98.5396
+Estimated PSNR: 28.1947 db
+Estimated Run-Time: 5.24559
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 381
+Estimated MSE: 76.4661
+Estimated PSNR: 29.2961 db
+Estimated Run-Time: 4.92114
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 341
+Estimated MSE: 60.6735
+Estimated PSNR: 30.3008 db
+Estimated Run-Time: 4.33821
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.6.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.6
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 320
+Estimated MSE: 49.4299
+Estimated PSNR: 31.1909 db
+Estimated Run-Time: 4.28808
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.7.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 281
+Estimated MSE: 39.4746
+Estimated PSNR: 32.1676 db
+Estimated Run-Time: 3.7128
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.8.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.8
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 251
+Estimated MSE: 31.8017
+Estimated PSNR: 33.1063 db
+Estimated Run-Time: 3.26707
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena0.9.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.9
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 246
+Estimated MSE: 26.612
+Estimated PSNR: 33.88 db
+Estimated Run-Time: 3.1134
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.0.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 217
+Estimated MSE: 21.621
+Estimated PSNR: 34.782 db
+Estimated Run-Time: 2.94298
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 208
+Estimated MSE: 18.239
+Estimated PSNR: 35.5208 db
+Estimated Run-Time: 2.76656
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 198
+Estimated MSE: 15.4965
+Estimated PSNR: 36.2285 db
+Estimated Run-Time: 2.59483
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 190
+Estimated MSE: 13.2099
+Estimated PSNR: 36.9218 db
+Estimated Run-Time: 2.53373
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 179
+Estimated MSE: 11.1889
+Estimated PSNR: 37.6429 db
+Estimated Run-Time: 2.31612
+
+Image input path: ../../img/lena.png
+Image output path: ../../tests/parameter/tvl1/lena/lena1.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 170
+Estimated MSE: 9.49708
+Estimated PSNR: 38.3549 db
+Estimated Run-Time: 2.25856
+

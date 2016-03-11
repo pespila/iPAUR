@@ -24,6 +24,7 @@ public:
 
 	void Read(const string, bool);
 	void Write(const string);
+	Mat ToMat();
 	void Reset(int, int, int, char);
 
 protected:

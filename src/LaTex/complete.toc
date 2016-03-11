@@ -1,0 +1,56 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {chapter}{\numberline {2}Basic Concepts}{4}
+\contentsline {section}{\numberline {2.1}Images in Mathematics}{4}
+\contentsline {section}{\numberline {2.2}Convex Optimization and Convex Analysis}{5}
+\contentsline {section}{\numberline {2.3}Total Variation}{17}
+\contentsline {chapter}{\numberline {3}The ROF, TVL1 and Mumford-Shah Functional}{20}
+\contentsline {section}{\numberline {3.1}The General Saddle-Point Problem}{20}
+\contentsline {section}{\numberline {3.2}A First-Order Primal-Dual Algorithm}{21}
+\contentsline {section}{\numberline {3.3}Discrete Setting}{23}
+\contentsline {section}{\numberline {3.4}The ROF Model}{25}
+\contentsline {subsection}{\numberline {3.4.1}ROF Model as Saddle-Point Problem}{26}
+\contentsline {subsection}{\numberline {3.4.2}The Proximity Operators of the ROF Model}{27}
+\contentsline {subsection}{\numberline {3.4.3}Stopping Criterion}{29}
+\contentsline {section}{\numberline {3.5}The TVL1 Model}{29}
+\contentsline {subsection}{\numberline {3.5.1}TVL1 as Saddle-Point Problem}{30}
+\contentsline {subsubsection}{\nonumberline The Proximity Operators of the TVL1 Model}{31}
+\contentsline {section}{\numberline {3.6}The Mumford-Shah Model}{32}
+\contentsline {subsection}{\numberline {3.6.1}Mumford-Shah as Saddle-Point Problem}{34}
+\contentsline {subsection}{\numberline {3.6.2}The Proximity Operators of the Mumford-Shah Model}{35}
+\contentsline {chapter}{\numberline {4}Minimizing the Mumford-Shah Functional}{40}
+\contentsline {section}{\numberline {4.1}Convex Relaxation}{40}
+\contentsline {section}{\numberline {4.2}Discrete Setting}{42}
+\contentsline {section}{\numberline {4.3}Projection onto the sets $C$ and $K$}{44}
+\contentsline {subsection}{\numberline {4.3.1}Projection onto $C$}{45}
+\contentsline {subsection}{\numberline {4.3.2}The projection onto $K$}{46}
+\contentsline {subsection}{\numberline {4.3.3}Decomposition of $K$}{47}
+\contentsline {subsection}{\numberline {4.3.4}Projection onto $K_{p}$}{47}
+\contentsline {subsection}{\numberline {4.3.5}Projection onto $K_{nl}$}{51}
+\contentsline {section}{\numberline {4.4}An Alternative Approach using Lagrange Multiplier}{55}
+\contentsline {section}{\numberline {4.5}Computing the 0.5-Isosurface}{59}
+\contentsline {section}{\numberline {4.6}Convergence Criterion}{60}
+\contentsline {chapter}{\numberline {5}Applications to Imaging}{61}
+\contentsline {section}{\numberline {5.1}General Setting}{61}
+\contentsline {section}{\numberline {5.2}Linearized Storage of Images}{63}
+\contentsline {section}{\numberline {5.3}Image Approximation using the ROF Model}{64}
+\contentsline {subsection}{\numberline {5.3.1}Implementation Issues}{64}
+\contentsline {subsubsection}{\nonumberline Computing $p^{n+1} = (\textnormal {Id} + \sigma \tmspace +\thinmuskip {.1667em}\partial \tmspace +\thinmuskip {.1667em}F^{\ast })^{-1}(p^{n} + \sigma \tmspace +\thinmuskip {.1667em}\nabla \mathaccentV {bar}016{u}^{n})$}{65}
+\contentsline {subsubsection}{\nonumberline Computing $u^{n+1} = (\textnormal {Id} - \tau \tmspace +\thinmuskip {.1667em}\partial \tmspace +\thinmuskip {.1667em}G)^{-1}(u^{n} + \tau \tmspace +\thinmuskip {.1667em}\nabla ^{T}p^{n+1})$}{66}
+\contentsline {subsection}{\numberline {5.3.2}Estimation of $\boldsymbol {\lambda }$}{68}
+\contentsline {subsection}{\numberline {5.3.3}Estimation of $\boldsymbol {\tau }$}{69}
+\contentsline {section}{\numberline {5.4}Image Approximation using the TVL1 Model}{70}
+\contentsline {subsection}{\numberline {5.4.1}Estimation of $\boldsymbol {\lambda }$}{71}
+\contentsline {subsection}{\numberline {5.4.2}Estimation of $\boldsymbol {\tau }$}{72}
+\contentsline {section}{\numberline {5.5}Image Approximation using the Real-Time Minimizer}{73}
+\contentsline {subsection}{\numberline {5.5.1}Estimation of $\boldsymbol {\lambda }$ and $\boldsymbol {\nu }$}{75}
+\contentsline {section}{\numberline {5.6}Image Cartooning}{77}
+\contentsline {subsection}{\numberline {5.6.1}Edge Highlighting}{77}
+\contentsline {section}{\numberline {5.7}Image Denoising}{79}
+\contentsline {section}{\numberline {5.8}Image Inpainting}{81}
+\contentsline {section}{\numberline {5.9}Minimizing the Mumford-Shah Functional}{85}
+\contentsline {subsection}{\numberline {5.9.1}Best $\lambda $ and $\nu $ estimation}{85}
+\contentsline {subsection}{\numberline {5.9.2}Denoising with the Mumford-Shah Functional}{87}
+\contentsline {subsection}{\numberline {5.9.3}Denoising Comparison}{88}
+\contentsline {subsection}{\numberline {5.9.4}Image Segmentation}{89}
+\contentsline {chapter}{\numberline {6}Conclusion}{94}

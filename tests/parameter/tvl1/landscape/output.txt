@@ -1,0 +1,345 @@
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1339
+Estimated MSE: 691.936
+Estimated PSNR: 19.7301 db
+Estimated Run-Time: 14.1442
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1173
+Estimated MSE: 533.899
+Estimated PSNR: 20.8562 db
+Estimated Run-Time: 12.2707
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 1029
+Estimated MSE: 428.18
+Estimated PSNR: 21.8145 db
+Estimated Run-Time: 11.7009
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 897
+Estimated MSE: 356.714
+Estimated PSNR: 22.6076 db
+Estimated Run-Time: 10.1545
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 784
+Estimated MSE: 304.192
+Estimated PSNR: 23.2993 db
+Estimated Run-Time: 8.83101
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.6.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.6
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 710
+Estimated MSE: 265.252
+Estimated PSNR: 23.8942 db
+Estimated Run-Time: 7.76999
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.7.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.7
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 653
+Estimated MSE: 233.744
+Estimated PSNR: 24.4434 db
+Estimated Run-Time: 7.27743
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.8.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.8
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 659
+Estimated MSE: 209.908
+Estimated PSNR: 24.9105 db
+Estimated Run-Time: 7.55154
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape0.9.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 0.9
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 621
+Estimated MSE: 187.009
+Estimated PSNR: 25.4122 db
+Estimated Run-Time: 7.17454
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.0.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 554
+Estimated MSE: 166.536
+Estimated PSNR: 25.9157 db
+Estimated Run-Time: 6.24758
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.1.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.1
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 527
+Estimated MSE: 151.223
+Estimated PSNR: 26.3346 db
+Estimated Run-Time: 6.47137
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.2.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.2
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 514
+Estimated MSE: 138.509
+Estimated PSNR: 26.716 db
+Estimated Run-Time: 6.02306
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.3.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.3
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 504
+Estimated MSE: 127.109
+Estimated PSNR: 27.0891 db
+Estimated Run-Time: 6.14487
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.4.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.4
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 497
+Estimated MSE: 116.553
+Estimated PSNR: 27.4656 db
+Estimated Run-Time: 5.99897
+
+Image input path: ../../img/landscape.png
+Image output path: ../../tests/parameter/tvl1/landscape/landscape1.5.png
+Image inputC path: 
+Model: tvl1
+Number of iterations: 10000
+Lower Threshold: 50
+Upper Threshold: 150
+Radius: 1
+level: 16
+sigma = 2.4
+alpha = 0.03
+beta = 0.7
+gamma = 0
+lambda = 1.5
+nu = 0.01
+tau = 0.25
+
+Starting TVL1 Model. Just a few seconds please:
+Iterations: 504
+Estimated MSE: 106.934
+Estimated PSNR: 27.8396 db
+Estimated Run-Time: 6.18651
+

@@ -14,14 +14,14 @@ Image<aType>::Image(const string filename, bool gray) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                this->image[j + i * this->width] = img.at<uchar>(i, j)/255.f;
+                this->image[j + i * this->width] = img.at<uchar>(i, j);
             }
         }
     } else if (this->channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k]/255.f;
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k];
                 }
             }
         }
@@ -29,7 +29,7 @@ Image<aType>::Image(const string filename, bool gray) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k]/255.f;
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k];
                 }
             }
         }
@@ -47,14 +47,14 @@ void Image<aType>::Read(const string filename, bool gray) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                this->image[j + i * this->width] = img.at<uchar>(i, j)/255.f;
+                this->image[j + i * this->width] = img.at<uchar>(i, j);
             }
         }
     } else if (this->channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k]/255.f;
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec3b>(i, j)[k];
                 }
             }
         }
@@ -62,7 +62,7 @@ void Image<aType>::Read(const string filename, bool gray) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k]/255.f;
+                    this->image[j + i * this->width + k * this->height * this->width] = img.at<Vec4b>(i, j)[k];
                 }
             }
         }
@@ -75,14 +75,14 @@ void Image<aType>::Write(const string filename) {
     if (this->channels == 1) {
         for (int i = 0; i < this->height; i++) {
             for (int j = 0; j < this->width; j++) {
-                img.at<uchar>(i, j) = this->image[j + i * this->width]*255.f;
+                img.at<uchar>(i, j) = this->image[j + i * this->width];
             }
         }
     } else if (this-> channels == 3) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    img.at<Vec3b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width]*255.f;
+                    img.at<Vec3b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
                 }
             }
         }
@@ -90,12 +90,41 @@ void Image<aType>::Write(const string filename) {
         for (int k = 0; k < this->channels; k++) {
             for (int i = 0; i < this->height; i++) {
                 for (int j = 0; j < this->width; j++) {
-                    img.at<Vec4b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width]*255.f;
+                    img.at<Vec4b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
                 }
             }
         }
     }
     imwrite(filename, img);
+}
+
+template<typename aType>
+Mat Image<aType>::ToMat() {
+    Mat img(this->height, this->width, this->type);
+    if (this->channels == 1) {
+        for (int i = 0; i < this->height; i++) {
+            for (int j = 0; j < this->width; j++) {
+                img.at<uchar>(i, j) = this->image[j + i * this->width];
+            }
+        }
+    } else if (this-> channels == 3) {
+        for (int k = 0; k < this->channels; k++) {
+            for (int i = 0; i < this->height; i++) {
+                for (int j = 0; j < this->width; j++) {
+                    img.at<Vec3b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
+                }
+            }
+        }
+    } else if (this-> channels == 4) {
+        for (int k = 0; k < this->channels; k++) {
+            for (int i = 0; i < this->height; i++) {
+                for (int j = 0; j < this->width; j++) {
+                    img.at<Vec4b>(i, j)[k] = this->image[j + i * this->width + k * this->height * this->width];
+                }
+            }
+        }
+    }
+    return img;
 }
 
 template<typename aType>
@@ -106,5 +135,5 @@ void Image<aType>::Reset(int height, int width, int channels, char type) {
     this->height = height;
     this->width = width;
     this->type = type;
-    this->image = (aType*)malloc(height * width * this->channels*sizeof(aType));
+    this->image = (aType*)malloc(height*width*channels*sizeof(aType));
 }
