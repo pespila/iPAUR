@@ -12,7 +12,6 @@
 \usepackage{framed}
 \usepackage{url}
 \usepackage{setspace}
-% \usepackage{hyperref}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[automark,headsepline]{scrlayer-scrpage}
@@ -120,11 +119,11 @@
 
 \renewcommand\abstractname{Acknowledgements}
 \begin{abstract}
-    The last step to obtain the title Master of Science in Computational Science, was this thesis. I could never have done it without the support of several people. Now, I get the chance to thank everybody who contributed directly or indirectly and gave me assistance, whenever I needed it.\\
+    This thesis is the last part of my degree course Computational Science which I could never have done without the support of several people. Now, I get the chance to thank everybody who contributed directly or indirectly and gave me assistance, whenever I needed it.\\
     
-    For being patient, supportive, motivating and always positive I have to thank you so much Sylvia Wallner. Also lot of thanks to my mother for your patience. For fruitful discussions, listening to all my presentations at least once and correcting silly mistakes I want to thank Leonie Jennert and Bernhard Zimmermann. Thank you Michael Huttner for the great discussions about programming and your help.\\
+    For being patient, supportive, motivating and always positive I have to thank you so much Sylvia Wallner. Also lot of thanks to my mother for your patience and support. For fruitful discussions, listening to all my presentations at least once and correcting silly mistakes I want to thank Leonie Jennert and Bernhard Zimmermann. Thank you Michael Huttner for the great discussions about programming and your help.\\
     
-    The basis of this thesis are the works published by Prof. Dr. Daniel Cremers (TUM). Thanks to you and your group, especially Thomas Moellenhoff, for the chance to join the CUDA course and for your external contribution to this work.\\
+    The basis of this thesis are works published by Prof. Dr. Daniel Cremers (TUM). Thanks to you and your group, especially Thomas Moellenhoff, for the chance to join the CUDA course and for your external contribution to this work.\\
     
     The thesis itself was written at the chair of Prof. Dr. Harald Garcke, who also supervised me. So, last but not least I want to thank you so much for your input, your support and your constructive criticism. Our discussions always brought me one step further and let me see each problem from another point of view.\\
 \end{abstract}
@@ -136,11 +135,15 @@
 \renewcommand\abstractname{Abstract}
 
 \begin{abstract}
-    In this thesis we consider three different functionals in image processing. Our goal is to minimze the energy of each functional to approximate an input image optimally. By solving these optimization problems we derive applications to imaging like image cartooning, denoising and inpainting.\\
-    The algorithm, which computes the minimal energy of each functional is a primal-dual algorithm. This framework solves saddle-point problems and is highly parallelizable. In order to be able to apply the algorithm we turn all our minimization into saddle-point problems. For minimizing the convex ROF and TVL1 functional we derive saddle-point formulations by applying convex analysis. Whereas the ROF functional is able to remove Gaussian noise efficiently, the TVL1 model additionally is able to remove salt and pepper noise. We also show how a modified version of the ROF model can be used for image inpainting.\\
-    Even though, the third functional, namely the Mumford-Shah functional, is non-convex we use convex analysis to turn the minimization of the functional into a saddle-point problem. Even if this strategy does not lead to a provable minimal value of the Mumford-Shah functional we get high-quality approximations of images. We further show that this model is able to remove Gaussian noise, can be used for image cartooning with edge highlighting and unsupervised image segmentation.\\
-    Further, we consider a second approach to minimize the non-convex Mumford-Shah functional. We make use of convex relaxation techniques to turn this problem into a convex saddle-point problem. We apply again the primal-dual algorithm to solve this optimization problem. However, the algorithm itself has a bad run-time in the case of this framework. This is related to Dykstra's projection algorithm, which is used in each iteration step of the primal-dual algorithm. To resolve the run-time issue, we present a method for solving the convex relaxed Mumford-Shah model using Lagrange multiplier method. We show that it creates at least a factor 450 run-time performance increase.\\
-    Finally, we compare both approaches to solve the convex relaxed Mumford-Shah saddle-point problem and show that our approach using Lagrange multiplier method is the better one. We also demonstrate a comparison for image denoising with all proposed models, where the Mumford-Shah model is the most edge preserving functional. At last we show that this convex relaxed model can also be used for image segmentation.
+    In this thesis we consider three different functionals in image processing. Our goal is to minimze the energy of each functional to approximate an input image optimally. By solving these optimization problems we derive applications to imaging like image cartooning, denoising, inpainting and segmentation.\\
+    
+    The algorithm which computes the minimal energy of each functional is a primal-dual algorithm. This framework solves saddle-point problems and is highly parallelizable. In order to be able to apply the algorithm we turn all our minimization into saddle-point problems. One convex functional we consider is the so called ROF functional, first proposed by Rudin, Osher and Fatemi, hence the name. It is based on a least squares and a total variation term. Using the total variation together with a term based on the L1 norm we derive the convex TVL1 functional which we also consider in this work.\\
+    
+    Even though, the third functional, namely the Mumford-Shah functional, is non-convex we use convex analysis to turn the minimization of the functional into a saddle-point problem. This strategy does not lead to a provable minimal value of the Mumford-Shah functional, but we get high-quality approximations of images. Additionally, we consider a second approach to minimize the non-convex Mumford-Shah functional. We make use of convex relaxation techniques to turn the minimization into a convex saddle-point problem. Then, we apply again the primal-dual algorithm to solve this optimization problem.\\
+
+    In terms of the convex relaxed functional the primal-dual algorithm has a bad performance. This is related to Dykstra's projection algorithm which is used in each iteration step of the primal-dual algorithm. To resolve the run-time issue we present a method for solving the convex relaxed Mumford-Shah model using Lagrange multipliers. We show that this approach creates a tremendous performance increase. In the case of the other three frameworks, namely minimizing the ROF, TVL1 and non-convex Mumford-Shah functional, we demonstrate that the primal-dual algorithm has real-time applicability.\\
+    
+    Finally, we present image cartooning and a comparison for image denoising with the proposed models. A modified version of the ROF functional is taken into account when we present image inpainting and at last we show that the Mumford-Shah functional fits perfectly for image segmentation.
 \end{abstract}
 
 % Content, Tables, Figures
@@ -153,16 +156,28 @@
 
 \chapter{Introduction} % (fold)
 \label{cha:introduction}
-    In the second decade of the twenty-first century autonomous driving seems to be the most important thing for the car, computer and software industry. The expectation is nothing less than having fewer, or even no, accidents. With these cars, industry is trying to change the world for a better. As this may comfort many people, it poses a lot of technical and computational issues, for instance a stable hardware or even more important viable software. One field of research - of many others - is called Machine Learning, where the computer is trained to make the right decisions in the right situations. The car should be able to accommodate to all possible circumstances, which could appear during a drive. To make it even more complicated, the onboard computer needs to decide in real-time. As one can imagine, it is extremely difficult to develop fast, stable and tractable computer programs.\\
-    To learn from a certain situation the computer needs data from the environment. This can be the shape of another car, traffic lights, differences in the lighting conditions or the distance to other objects. What all these information have in common: they can be collected via images. Small cameras are tracking the traffic and surrounding and providing the necessary data for the software.\\
-    But it is not only the autonomously driving car, which makes use of images. Doctors use X-ray view or MRI scans in patient treatment, semiconductor companies use pictures of wafers looking for damages on it, for example scratches or dark spots and unfortunately, images are also used in modern warfare. For this reason, image processing has become more important during the last decades. Researchers dealt with many problems like edge detection, deblurring, denoising, inpainting or image segmentation. In the field of edge detection the probably most famous researcher is John F. Canny. He provided a tractable and stable edge detection algorithm, presented in 1986 (cf. \cite{Canny}).\\
-    Only three years after Canny published his work, two researchers, namely David Mumford and Jayant Shah, published a paper (\cite{Mumford-et-al-cpam}), whose impact is still present. To date their publication was cited over 4.664 times, as of February 14th 2016. They suggested to minimize the energy of the so called Mumford-Shah functional, in order to approximate an input image optimally. Solving this optimization problem leads to applications like image denoising, inpainting and segmentation. Unfortunately, this functional is by definition non-convex. For this reason finding the minimal energy of it is a hard task.\\
-    In our work we consider two approaches how the minimization of the Mumford-Shah functional can be established. One technique is to apply convex relaxation methods to the functional and rewrite the minimization problem into a convex saddle-point problem. Solving this particular framework leads to a run-time, which is by far not real-time applicable. In order to overcome this lack of rum-time we introduce another saddle-point formulation. This reformulation creates at least a factor 450 run-time performance increase. However, the new formulation has also no real-time applicability.\\
-    The second approach to the Mumford-Shah functional is to apply convex analysis techniques to turn the non-convex minimization problem into a saddle-point problem. The strategy, assuming a term of the functional being convex even if it is non-convex, does not lead to a provable minimal value of the optimization problem. But, we show that we derive high-quality image approximations with this approach and provide a framework which runs in real-time.\\
-    Another approach to image processing was proposed in 1992 (\cite{ROF}). The researchers Rudin, Osher and Fatemi focused on total variation based imaging. They suggested to minimize the energy of the convex ROF functional, which is a sum of a least squares data term and the total variation. We introduce the total variation in this thesis together with some basic properties of convex analysis. Convex analysis is then used to rewrite the minimization of the ROF functional into a saddle-point problem which we can solve efficiently. Applications, which arise from the ROF model are for instance removing Gaussian noise or image inpainting.\\
-    By replacing the norm of the least squares data term in the ROF functional with the $L1$ norm we derive the TVL1 (Total Variation plus $L1$ norm) model. It is also a convex functional and we use the same strategy as in the ROF model to compute the minimizer of it. We will show that this is by far the best model to remove salt and pepper noise, but furthermore it is also accurate in removing Gaussian noise.\\
-    In this work, we present these models, compare them against each other and estimate applicable parameters used in the models itself. For this we show how one can rewrite a minimization into a saddle-point problem. In order to solve saddle-point problems we further introduce a primal-dual algorithm. This algorithm first found in the work of Pock, Cremers, Bischof and Chambolle is a solver for saddle-point problems and highly parallelizable. Additionally, we present applications in image processing for all presented models. Whereas cartooning and denoising are impressive applications, image inpainting and image segmentation are really imposing.
+    In the second decade of the twenty-first century autonomous driving seems to be an important thing for the car, computer and software industry. The expectation is nothing less than having fewer, or even no, accidents. With these cars, industry is trying to change the world for a better. As this may comfort many people, it poses a lot of technical and computational issues, for instance a stable hardware or even more important viable software. One field of research - of many others - is called Machine Learning, where the computer is trained to make the right decisions in the right situations. The car should be able to accommodate to all possible circumstances which could appear during a drive. To make it even more complicated, the onboard computer needs to decide in real-time. As one can imagine, it is extremely difficult to develop fast, stable and tractable computer programs.\\
+    In order to learn from a certain situation the computer needs data from the environment. This can be the shape of another car, traffic lights, differences in the lighting conditions or the distance to other objects. What all these information have in common: They can be collected via images. Small cameras are tracking the traffic and surrounding and providing the necessary data for the software. But it is not only the autonomously driving car which makes use of images. Doctors use X-ray view or MRI scans in patient treatment and semiconductor companies use pictures of wafers looking for damages on it, for example scratches or dark spots. For this reason, image processing has become more important during the last decades. Researchers dealt with many problems like edge detection, deblurring, denoising, inpainting or image segmentation. In the field of edge detection the probably most famous researcher is John F. Canny. He provided a tractable and stable edge detection algorithm, presented in 1986 (cf. \cite{Canny}).\\
+    Only three years after Canny published his work, two researchers, namely David Mumford and Jayant Shah, published a paper (\cite{Mumford-et-al-cpam}), whose impact is still present. According to Google Scholar their publication was cited over 4.703 times, as of March 12th 2016. They suggested to minimize the energy of the so called Mumford-Shah functional, in order to approximate an input image optimally. Solving this optimization problem leads to applications like image denoising, inpainting and segmentation. Unfortunately, this functional is by definition non-convex. For this reason finding the minimal energy of it is a hard task.\\
+    One approach for minimizing the Mumford-Shah functional was published in 2009 by Pock, Cremers, Bischof and Chambolle in \cite{Pock-et-al-iccv09}. We consider this approach in this thesis and present an alternative approach to their proposed method using Lagrange multipliers formalism. This will lead us to a tremendous performance increase compared to their original work. Pock et al. also proposed a novel primal-dual algorithm in order to compute the minimizer of the functional. The algorithm itself is a solver for saddle-point problems and highly parallelizable. In 2011 Pock and Chambolle published a work (\cite{Chambolle10afirst-order}), cited 1.234 times (Google Scholar), as of March 12th 2016, in which they generalized the primal-dual algorithm and show applications to imaging with it. So, this framework has grown to a powerful tool in the last years to solve saddle-point problems efficiently.\\
+    One functional Pock and Chambolle consider in their work of 2011 is the ROF functional. It was proposed in 1992 (\cite{ROF}) by the researchers Rudin, Osher and Fatemi. They suggested to minimize the energy of this convex functional. It involves a least squares data term and uses the total variation as regularizer term. By replacing the norm of the least squares data term in the ROF functional with the L1 norm one derives the convex TVL1 functional. Minimizing these two convex functionals can efficiently be done by using techniques of convex analysis. By applying convex analysis we turn the minimization of the functionals into saddle-point problems for which we can use the primal-dual algorithm as a solver. Further, we discuss an approach to the Mumford-Shah functional which proceeds in the same fashion as for minimizing the ROF and TVL1 functional. In 2014 Strekalovskiy and Cremers used convex analysis in order to minimize the non-convex Mumford-Shah functional. Even though, this strategy does not lead to a provable minimal value of the optimization problem we show that we derive high-quality image approximations with this formulation.\\
+    In this work we introduce the three functionals, namely ROF, TVL1 and Mumford-Shah, the total variation and concepts of convex analysis. After we provided the framework for minimizing the functionals we estimate applicable parameters used in the models itself and present applications to imaging. Whereas cartooning and denoising are impressive applications, image inpainting and image segmentation are really imposing.
 % chapter introduction (end)
+
+% \chapter{Introduction} % (fold)
+% \label{cha:introduction}
+%     In the second decade of the twenty-first century autonomous driving seems to be the an important thing for the car, computer and software industry. The expectation is nothing less than having fewer, or even no, accidents. With these cars, industry is trying to change the world for a better. As this may comfort many people, it poses a lot of technical and computational issues, for instance a stable hardware or even more important viable software. One field of research - of many others - is called Machine Learning, where the computer is trained to make the right decisions in the right situations. The car should be able to accommodate to all possible circumstances, which could appear during a drive. To make it even more complicated, the onboard computer needs to decide in real-time. As one can imagine, it is extremely difficult to develop fast, stable and tractable computer programs.\\
+%     In order to learn from a certain situation the computer needs data from the environment. This can be the shape of another car, traffic lights, differences in the lighting conditions or the distance to other objects. What all these information have in common: they can be collected via images. Small cameras are tracking the traffic and surrounding and providing the necessary data for the software.\\
+%     But it is not only the autonomously driving car, which makes use of images. Doctors use X-ray view or MRI scans in patient treatment and semiconductor companies use pictures of wafers looking for damages on it, for example scratches or dark spots. For this reason, image processing has become more important during the last decades. Researchers dealt with many problems like edge detection, deblurring, denoising, inpainting or image segmentation. In the field of edge detection the probably most famous researcher is John F. Canny. He provided a tractable and stable edge detection algorithm, presented in 1986 (cf. \cite{Canny}).\\
+%     Only three years after Canny published his work, two researchers, namely David Mumford and Jayant Shah, published a paper (\cite{Mumford-et-al-cpam}), whose impact is still present. To date their publication was cited over 4.664 times, as of February 14th 2016. They suggested to minimize the energy of the so called Mumford-Shah functional, in order to approximate an input image optimally. Solving this optimization problem leads to applications like image denoising, inpainting and segmentation. Unfortunately, this functional is by definition non-convex. For this reason finding the minimal energy of it is a hard task.\\
+%     In our work we consider two approaches how the minimization of the Mumford-Shah functional can be established. One technique is to apply convex relaxation methods to the functional and rewrite the minimization problem into a convex saddle-point problem.
+%     % Solving this particular framework leads to a run-time, which is by far not real-time applicable. In order to overcome this lack of rum-time we introduce another saddle-point formulation. This reformulation creates at least a factor 450 run-time performance increase. However, the new formulation has also no real-time applicability.\\
+
+%     The second approach to the Mumford-Shah functional is to apply convex analysis techniques to turn the non-convex minimization problem into a saddle-point problem. The strategy, assuming a term of the functional being convex even if it is non-convex, does not lead to a provable minimal value of the optimization problem. But, we show that we derive high-quality image approximations with this approach and provide a framework which runs in real-time.\\    
+%     Another approach to image processing was proposed in 1992 (\cite{ROF}). The researchers Rudin, Osher and Fatemi focused on total variation based imaging. They suggested to minimize the energy of the convex ROF functional. We introduce the total variation in this thesis together with some basic properties of convex analysis. Convex analysis is then used to rewrite the minimization of the ROF functional into a saddle-point problem which we can solve efficiently. Applications, which arise from the ROF model are for instance removing Gaussian noise or image inpainting.\\
+%     By replacing the norm of the least squares data term in the ROF functional with the $L1$ norm we derive the TVL1 functional. It is also a convex functional and we use the same strategy as in the ROF model to compute the minimizer of it. We will show that this model is able to remove salt and pepper noise. Furthermore, it is also accurate in removing Gaussian noise.\\
+%     In this work, we present these models, compare them against each other and estimate applicable parameters used in the models itself. For this we show how one can rewrite a minimization into a saddle-point problem. In order to solve saddle-point problems we further introduce a primal-dual algorithm. This algorithm first found in the work of Pock, Cremers, Bischof and Chambolle is a solver for saddle-point problems and highly parallelizable. Additionally, we present applications in image processing for all presented models. Whereas cartooning and denoising are impressive applications, image inpainting and image segmentation are really imposing.
+% % chapter introduction (end)
 
 \chapter{Basic Concepts} % (fold)
 \label{cha:basic_concepts}
@@ -3338,7 +3353,7 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
                 \label{tab:run_time_compare_lagrange_vs_dykstra}
             \end{table}
 
-            Note that we do not need to estimate the parameters $\tau_{u}, \tau_{\mu}, \sigma_{p}$ and $\sigma_{s}$ in the algorithm using Lagrange multiplier, because they are set at initialization. We could estimate a $\tau$ best suited, when using the primal-dual algorithm combined with Dykstra's projection algorithm. In practice, we suggest to use the approach with the Lagrange multiplier method, only. Because of this, we do not seek for a best suited parameter $\tau$. Instead, we want to show that despite the lack of run-time, the Mumford-Shah model is the one, which preserves edges not only in approximation but also in denoising best, compared to ROF, TVL1 and the real-time approach to the Mumford-Shah functional.
+            Note that we do not need to estimate the parameters $\tau_{u}, \tau_{\mu}, \sigma_{p}$ and $\sigma_{s}$ in the algorithm using Lagrange multiplier, because they are set at initialization. We could estimate a $\tau$ best suited, when using the primal-dual algorithm combined with Dykstra's projection algorithm. In practice, we suggest to use the approach with the Lagrange multiplier method, only. Because of this, we do not seek for a best suited parameter $\tau$. Instead, we want to show that despite the lack of performance, the Mumford-Shah model is the one, which preserves edges not only in approximation but also in denoising best, compared to ROF, TVL1 and the real-time approach to the Mumford-Shah functional.
 
         % subsection best_lambda_and_nu_estimation (end)
 
@@ -3398,34 +3413,33 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
 
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth_gauss_noise.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rof.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_tvl1.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_ms.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rt.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
                 \caption[Removing Gaussian noise: comparison of several models.]{These pictures give an overview of denoised images using different models.}
             \label{fig:synth_gauss_compare}
             \end{figure}
-
             \begin{table}[!ht]
                 \parbox{.9\linewidth}{
                 \centering
@@ -3441,32 +3455,29 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
                 \caption[Removing Gaussian noise using the ROF, TVL1 and Mumford-Shah functional.]{Even though, the convex relaxed Mumford-Shah model provides the best approximation, the other methods outperform the algorithm.}
                 \label{tab:compare_denoising_case}
             \end{table}
-
-            The real-time approach to the Mumford-Shah model handles this image quite well. But still, the results of this framework are not comparable to those of the convex relaxed formulation. The difference of the minimization of the Mumford-Shah functional to the minimization of the ROF and TVL1 functional is indeed that it is much more edge preserving. The edges are sharper and do not vanish. If we zoom into the images, see Figure \ref{fig:synth_gauss_compare_zoomed}, there is a clear partitioning of the regions. But if we take a look at the run-times, for this particular image of size $128 \times 128$, we see huge differences. Especially, when taking into account that the Lagrange multiplier approach to the Mumford-Shah functional is parallelized on a GPU and the other run-times are all achieved on a CPU, see Table \ref{tab:compare_denoising_case}.
-
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/synth_zoomed.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_tvl1_zoomed.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rof_zoomed.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_original_zoomed.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_ms_zoomed.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
+                \begin{subfigure}[b]{0.29\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rt_zoomed.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
@@ -3474,196 +3485,189 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             \label{fig:synth_gauss_compare_zoomed}
             \end{figure}
 
-            Overall, we conclude that the choice of the model depends on the underlying problem. If one looks for fast, possibly real-time, solutions then the convex relaxed Mumford-Shah model is not the best choice. On the other hand, if structures and contours are of importance for a given statement of the problem and run-time is not an issue, then the only choice can be the Mumford-Shah model. We want to show in the last subsection that the minimization Mumford-Shah functional is also a great model for image segmentation. We compare the real-time framework and the convex relaxed model using Lagrange multiplier method against each other. We show that both method yield good segmentations of a given input image.
+            The real-time approach to the Mumford-Shah model handles this image quite well. But still, the results of this framework are not comparable to those of the convex relaxed formulation. The difference of the minimization of the Mumford-Shah functional to the minimization of the ROF and TVL1 functional is indeed that it is much more edge preserving. The edges are sharper and do not vanish. If we zoom into the images, see Figure \ref{fig:synth_gauss_compare_zoomed}, there is a clear partitioning of the regions. But if we take a look at the run-times, for this particular image of size $128 \times 128$, we see huge differences. Especially, when taking into account that the Lagrange multiplier approach to the Mumford-Shah functional is parallelized on a GPU and the other run-times are all achieved on a CPU, see Table \ref{tab:compare_denoising_case}. Overall, we conclude that the choice of the model depends on the underlying problem. If one looks for fast, possibly real-time, solutions then the convex relaxed Mumford-Shah model is not the best choice. On the other hand, if structures and contours are of importance for a given statement of the problem and run-time is not an issue, then the only choice can be the Mumford-Shah model. We want to show in the last subsection that the minimization Mumford-Shah functional is also a great model for image segmentation. We compare the real-time framework and the convex relaxed model using Lagrange multiplier method against each other. We show that both method yield good segmentations of a given input image.
         % subsection denoising_comparison (end)
         \subsection{Image Segmentation} % (fold)
         \label{sub:image_segmentation}
-            
-            The last thing we want to show in this thesis is image segmentation. Since we use other images as in the above sections let us briefly introduce these images and give some references. Figure \ref{fig:example_images_segmentation} (a) to (c) are three test images which are taken from the Github repository online found at \cite{FastMS} and they belong to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}. The image seen in (d) is a special medical image provided by Steven Keating (online at \cite{Keating}). Steven Keating is a PhD student at MIT who was diagnosed with cancer in 2014. He had a brain tumor as large as a baseball. In order to find the best treatment for him and to provide useful data for science he made all his medical data available. Lot of researchers worldwide helded him to fight and defet cancer. One part of his data are medical images of his brain tumor. We used one of these images in order to show that image segmentation is a useful application in medicine.\\
 
+            The last thing we want to show in this thesis is image segmentation. Since we use other images as in the above sections let us briefly introduce these images and give some references. Figure \ref{fig:example_images_segmentation} (a) to (c) are three test images which are taken from the Github repository online found at \cite{FastMS} and they belong to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}. The image seen in (d) is a special medical image provided by Steven Keating (online at \cite{Keating}). Steven Keating is a PhD student at MIT who was diagnosed with cancer in 2014. He had a brain tumor as large as a baseball. In order to find the best treatment for him and to provide useful data for science he made all his medical data available. Lot of researchers worldwide helded him to fight and defet cancer. One part of his data are medical images of his brain tumor. We used one of these images in order to show that image segmentation is a useful application in medicine.
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.34\textwidth}
+                \begin{subfigure}[b]{0.245\textwidth}
                     \includegraphics[width=\textwidth]{img/images/blue.png}
                     \caption{Blue image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.31\textwidth}
+                \begin{subfigure}[b]{0.22\textwidth}
                     \includegraphics[width=\textwidth]{img/images/squirrel.png}
                     \caption{Squirrel image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.355\textwidth}
+                \begin{subfigure}[b]{0.245\textwidth}
                     \includegraphics[width=\textwidth]{img/images/peacock-feather.png}
                     \caption{Feather image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.2\textwidth}
+                \begin{subfigure}[b]{0.25\textwidth}
                     \includegraphics[width=\textwidth]{img/images/keating.jpg}
                     \caption{Tumor image.}
                 \end{subfigure}
-                \caption[Example images for segmentation.]{Example images for image segmentation using the Mumford-Shah model.}
+                \caption[Example images for segmentation.]{Example images for image segmentation using the Mumford-Shah model. The sizes of the images are (a) $350 \times 263$, (b) $350 \times 291$, (c) $640 \times 480$ and (d) $400 \times 535$.}
             \label{fig:example_images_segmentation}
             \end{figure}
-
             The Mumford-Shah functional is well suited for image segmentation. Fortunately, both approaches to the Mumford-Shah functional, namely the real-time minimizer and the convex relaxation method together with the Lagrange multiplier formalism, can be used for image segmentation. The key idea is to approximate an input image $g$ piecewise-constant, but also favor strong edges. In the real-time framework this can be derived with a high value for $\lambda$ and a high value for $\nu$, whereas in the Lagrange multiplier approach to the convex relaxed Mumford-Shah model a small $\lambda$ and a small $\nu$ accomplish image segmentation. So, we need to find pairs $(\lambda, \nu)$ which result in segmented approximations.
-
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02blue.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03blue.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04blue.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05blue.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/06blue.png}
                     \caption{$\nu = 0.6$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02squirrel.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03squirrel.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04squirrel.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05squirrel.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/06squirrel.png}
                     \caption{$\nu = 0.6$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02peacock-feather.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03peacock-feather.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04peacock-feather.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05peacock-feather.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
+                \begin{subfigure}[b]{0.16\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/06peacock-feather.png}
                     \caption{$\nu = 0.6$.}
                 \end{subfigure}
                 \caption[Evolution process for image segmentation with real-time Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the real-time approach and $\lambda = 500$.}
             \label{fig:segmentation_evolution_test_images_rt}
             \end{figure}
-
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/02blue.png}
-                    \caption{$\nu = 0.2$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/002blue.png}
+                    \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/03blue.png}
-                    \caption{$\nu = 0.3$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/003blue.png}
+                    \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/04blue.png}
-                    \caption{$\nu = 0.4$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/004blue.png}
+                    \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/05blue.png}
-                    \caption{$\nu = 0.5$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/005blue.png}
+                    \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06blue.png}
-                    \caption{$\nu = 0.6$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/006blue.png}
+                    \caption{$\nu = 0.06$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/02squirrel.png}
-                    \caption{$\nu = 0.2$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/002squirrel.png}
+                    \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/03squirrel.png}
-                    \caption{$\nu = 0.3$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/003squirrel.png}
+                    \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/04squirrel.png}
-                    \caption{$\nu = 0.4$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/004squirrel.png}
+                    \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/05squirrel.png}
-                    \caption{$\nu = 0.5$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/005squirrel.png}
+                    \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06squirrel.png}
-                    \caption{$\nu = 0.6$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/006squirrel.png}
+                    \caption{$\nu = 0.06$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/02peacock-feather.png}
-                    \caption{$\nu = 0.2$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/002peacock-feather.png}
+                    \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/03peacock-feather.png}
-                    \caption{$\nu = 0.3$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/003peacock-feather.png}
+                    \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/04peacock-feather.png}
-                    \caption{$\nu = 0.4$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/004peacock-feather.png}
+                    \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/05peacock-feather.png}
-                    \caption{$\nu = 0.5$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/005peacock-feather.png}
+                    \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.17\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06peacock-feather.png}
-                    \caption{$\nu = 0.6$.}
+                \begin{subfigure}[b]{0.16\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/006peacock-feather.png}
+                    \caption{$\nu = 0.06$.}
                 \end{subfigure}
-                \caption[Evolution process for image segmentation with Lagrange Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the Lagrange framework and $\lambda = 0.001$.}
+                \caption[Evolution process for image segmentation with Lagrange Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the Lagrange framework and $\lambda = 0.02$.}
             \label{fig:segmentation_evolution_test_images_l}
             \end{figure}
-
-            From the previous sections we already know that $\lambda = 500$ in the case of the real-time minimizer and $\lambda = 0.001$ for the Lagrange framework establish piecewise-constant approximations. It is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_rt} we see some evaluations for both approaches, where we set $S = 32$ in the convex relaxed Mumford-Shah model. But to be able to realize $S = 32$ we only considered the grayscaled versions of each image. With these images we suggest to set $\nu = 0.4$ for the real-time framework and ... for the Lagrange framework. With the suggested parameter we want to show that this model has an application in medicine.
-
+            From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_rt} we see some evaluations for both approaches, where we set $S = 32$ in the convex relaxed Mumford-Shah model. But to be able to realize $S = 32$ we only considered the grayscaled versions of each image. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $0.04$ for the Lagrange framework. With the suggested parameter we want to show that this model has an application in medicine.
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.4\textwidth}
+                \begin{subfigure}[b]{0.3\textwidth}
                     \includegraphics[width=\textwidth]{img/images/keating.jpg}
                     \caption{Blue image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.4\textwidth}
+                \begin{subfigure}[b]{0.3\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating.jpg}
                     \caption{Blue image.}
                 \end{subfigure}
-                \caption[Example images for segmentation.]{Example images for image segmentation using the Mumford-Shah model.}
+                \caption[Image segmentation for a brain tumor image.]{Segmentation of the brain tumor image of Steven Keating.}
             \label{fig:segmentation_evolution_keating}
             \end{figure}
         % subsection image_segmentation (end)
     % section comparison_of_dykstra_and_lagrange_multiplier (end)
-
     In this chapter we presented a variety of possible applications to imaging with our proposed models. With the three models we are able to remove two kinds of noise, namely Gaussian and salt and pepper noise, and cartoon images. Further, we can do unsupervised image segmentation and image inpainting.
 % chapter applications_to_imaging (end)
 
 \chapter{Conclusion} % (fold)
 \label{cha:conclusion}
-    We presented three different models in image processing. The framework to minimized the convex functionals is easy to implement and parallelizable. They have a high applicability in image processing and can handle a broad variety of problems. We saw that the ROF model is able to remove Gaussian noise and slightly modified is able to inpaint lost data. Even though this model is not really edge preserving, it yields reasonable results. The other convex model we considered was the TVL1 model. It also has its advantage in its simple structure and removes Gaussian and salt and pepper noise. These two models are highly applicable in image processing and produce impressive results.\\
-    On the other hand, we computed minimizers for the non-convex Mumford-Shah functional. We proposed a framework able to minimize the energy of this functional in real-time. This framework additionally provides a discrete set with which one is able to highlight edges in the approximations. The framework itself is also efficient in removing Gaussian noise and useful for unsupervised image segmentation. Unfortunately, we have no proof that this method yields the minimal value of the Mumford-Shah functional. Despite this fact, the celebrated method is a great approach to this non-convex problem.\\
-    The approach, applying convex relaxation techniques, leads possibly to the best approximations of an input image. But talking about applicability, this framework is not only far away from real-time it has a tremendous lack of run-time, even on a GPU. To find a minimzer of the convex relaxed Mumford-Shah functional the suggested method in the original work of Pock, Cremers, Bischof and Chambolle is to use Dykstra's projection algorithm in each loop of the primal-dual algorithm. As it turns out, run-time of this algorithm lies in minutes for very small images. For that we reformulated the original problem and used Lagrange multipliers to derive a new formulation. With a run-time increase of at least a factor 450, the convex relaxed Mumford-Shah functional can be minimized in a reasonable time. Then, this formulation can for instance be used in medicine for image denoising and segmentation.\\
-    It depends on the underlying problem one considers. In the case of autonomously driving cars the convex relaxed Mumford-Shah functional has no application since it can not be minimized in real-time. So, for the car industry the better choices would be the ROF or TVL1 model together with the real-time framework of the Mumford-Shah functional. But, in other fields where image processing is used, for instance in medicine or scientific researcher, all proposed models can be used and bring a various amount of applications. Especially, in medicine the convex relaxed Mumford-Shah functional, as the best edge preserving formulation, is able to preserve contours, edges and for that does not erase necessary data.
+    We presented three different models in image processing. These models have a high applicability in image processing and can handle a broad variety of problems. We saw that the ROF model is able to remove Gaussian noise and when slightly modified is able to inpaint lost data. Even though this model is not really edge preserving, it yields reasonable results. The other convex model we considered was the TVL1 model. It also has an advantage in its simple structure and removes Gaussian and salt and pepper noise. These two models are highly applicable in image processing and produce impressive results.\\
+    On the other hand, we computed minimizers for the non-convex Mumford-Shah functional. We proposed a framework which is able to minimize the energy of this functional in real-time. It additionally provides a discrete set with which we are able to highlight edges in the approximations. The framework itself is also efficient in removing Gaussian noise and useful for unsupervised image segmentation. Unfortunately, we have no proof that this method yields the minimal value of the Mumford-Shah functional. Despite this fact, the method is a great approach to this non-convex problem.\\
+    The approach, applying convex relaxation techniques, leads possibly to the best approximations of an input image. But talking about applicability, this framework is not only far away from real-time it has a tremendous lack of performance, even on a GPU. To find a minimzer of the convex relaxed Mumford-Shah functional the suggested method in the original work of Pock, Cremers, Bischof and Chambolle, to use Dykstra's projection algorithm in each loop of the primal-dual algorithm, turns out to have a run-time taking minutes for very small images. For this, we reformulated the original problem and used Lagrange multipliers to derive a new formulation. With a run-time increase of at least a factor 450, the convex relaxed Mumford-Shah functional can be minimized in a reasonable time.\\
+    Overall, we conclude that it depends on the underlying problem one considers. In the case of autonomously driving cars the convex relaxed Mumford-Shah functional has no application since it can not be minimized in real-time. So, for the car industry the better choices would be the ROF or TVL1 model together with the real-time framework of the Mumford-Shah functional. But, in other fields where image processing is used, for instance in medicine or scientific research, all proposed models can be used and bring a various amount of applications. Especially, in medicine the convex relaxed Mumford-Shah functional, as possibly the best edge preserving functional, is able to preserve contours, edges and for that does not erase necessary data.
 % chapter conclusion (end)
 
 \bibliographystyle{plain}

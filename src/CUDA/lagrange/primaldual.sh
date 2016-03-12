@@ -22,7 +22,7 @@ make
 for j in "0.01" "0.02" "0.03" "0.04" "0.05" "0.06" "0.07" "0.08" "0.09"
 do
 	echo $j
-	./primaldual -i "../../img/squirrel.png" -o "../../tests/parameter/lagrange/squirrel/squirrel"$j".png" -repeats 10000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/squirrel/output.txt"
-	./primaldual -i "../../img/blue.png" -o "../../tests/parameter/lagrange/blue/blue"$j".png" -repeats 10000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/blue/output.txt"
-	./primaldual -i "../../img/peacock-feather.png" -o "../../tests/parameter/lagrange/peacock-feather/peacock-feather"$j".png" -repeats 10000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/peacock-feather/output.txt"
+	./primaldual -i "../../img/squirrel.png" -o "../../tests/parameter/lagrange/squirrel/squirrel"$j".png" -repeats 1000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/squirrel/output.txt"
+	./primaldual -i "../../img/blue.png" -o "../../tests/parameter/lagrange/blue/blue"$j".png" -repeats 1000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/blue/output.txt"
+	./primaldual -i "../../img/peacock-feather.png" -o "../../tests/parameter/lagrange/peacock-feather/peacock-feather"$j".png" -repeats 1000 -lambda 0.02 -nu $j -level 16 >> "../../tests/parameter/lagrange/peacock-feather/output.txt"
 done
