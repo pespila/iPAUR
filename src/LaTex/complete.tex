@@ -921,7 +921,6 @@
             $$
                 ||K|| = \max \left\{ ||Kx||_{Y} : x \in X \,\, \textnormal{with} \,\, ||x||_{X} \le 1 \right\}.
             $$
-
         Furthermore, we define the map $K^{\ast}: Y \longrightarrow X$ as the adjoint operator of $K$.\\
         Let $u \in X$, $p \in Y$ and define $G: X \longrightarrow [0, +\infty)$ and $F^{\ast}: Y \longrightarrow [0, +\infty)$ where $G, F^{\ast} \in \Gamma_{0}$ and $F^{\ast}$ being the Legendre-Fenchel conjugate of a convex, l.s.c. function $F$. We are trying to find a saddle point $(u, p)$ of the following problem:
             \begin{equation}
@@ -938,15 +937,15 @@
                 \max_{p \in Y} -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)).
                 \label{eq:dual_problem}
             \end{equation}
-        These three different classes of problems are equivalent if $F$ itself is convex. The Legendre-Fenchel conjugate assures, with $F(Ku) = \sup\limits_{p \in Y} \left( \langle p, Ku \rangle - F^{\ast}(p) \right)$ that
+        We can show that these three different classes of problems are equivalent if $F$ itself is convex. Then, the Legendre-Fenchel conjugate assures that $F(Ku) = \sup_{p \in Y} \left( \langle p, Ku \rangle - F^{\ast}(p) \right)$. Further, the so called Von Neumann's minimax theorem must hold, cf. \cite{Zeidler}. It states that the objective function needs to be convex in the primal and concave in the dual variable and the feasible set for $u$ or the feasible set for $p$ must be compact. With this we get
             \begin{eqnarray}
                 \min_{u \in X} \left(F(Ku) + G(u)\right) &=& \min_{u \in X} \max_{p \in Y} \left(\langle p, Ku \rangle - F^{\ast}(p) + G(u) \right) \notag \\
                 &=& \max_{p \in Y} \min_{u \in X} \left(\langle K^{\ast}p, u \rangle + G(u) - F^{\ast}(p) \right) \notag \\
                 &=& \max_{p \in Y} \left( -\max_{u \in X} -\left( \langle K^{\ast}p, u \rangle + G(u) \right) - F^{\ast}(p) \right) \notag \\
                 &=& \max_{p \in Y} \left( \underbrace{-\max_{u \in X} \left( \langle -K^{\ast}p, u \rangle - G(u) \right)}_{= -G^{\ast}(-K^{\ast}p)} - F^{\ast}(p) \right) \notag \\
-                &=& \max_{p \in Y} -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) \notag
+                &=& \max_{p \in Y} -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)). \notag
             \end{eqnarray}
-        Finding the optimal value $\hat{u}$ for the primal problem can for instance be done by a gradient descent in $u$. On the other hand, if $\hat{p}$ is an optimal value, we can find it by a gradient ascent in $p$ of the dual problem. The basic idea of the primal-dual algorithm, presented in the next section, is then to do both, a gradient descent in $u$ and a gradient ascent in $p$, simultaneously, to solve the saddle-point problem.
+        Note, that we will provide the dual probles of the ROF and TVL1 model. In these two particular case all conditions are satisfied. Finding the optimal value $\hat{u}$ for the primal problem can for instance be done by a gradient descent in $u$. On the other hand, if $\hat{p}$ is an optimal value, we can find it by a gradient ascent in $p$ of the dual problem. The basic idea of the primal-dual algorithm, presented in the next section, is then to do both, a gradient descent in $u$ and a gradient ascent in $p$, simultaneously, to solve the saddle-point problem.
     % section the_general_saddle_point_problem (end)
 
     \section{A First-Order Primal-Dual Algorithm} % (fold)
@@ -956,7 +955,7 @@
             $$
                 \left\{ 
                     \begin{array}{l l}
-                        p^{n+1} = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(p^{n} + \sigma\,Ku^{n})
+                        p^{n+1} = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(p^{n} + \sigma\,Ku^{n})\\
                         u^{n+1} = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(u^{n} - \tau\,K^{\ast}p^{n+1})
                   \end{array}
                 \right. .
@@ -2219,9 +2218,10 @@
     \label{sec:an_alternative_approach_using_lagrangre_multipliers}
         
         In this section we present an alternative formulation of the saddle-point problem in Equation (\ref{eq:mumford_shah_saddle_point_problem}). This approach also solves the convex relaxed Mumford-Shah functional and is orders of magnitudes faster as the previously presented approach. In this framework the projections onto $C$ and $K_{p}$ remain unchanged, but the difference is that we get rid of Dykstra's projection algorithm to save computation time. To derive such a representation we decouple $K_{nl}$ and introduce Lagrange multipliers. We will obtain another saddle-point problem, which can then be solved with a modified version of the primal-dual algorithm. In the original problem
-            $$
+            \begin{equation}
                 \min_{u \in C} \max_{p \in K} \langle Au, p \rangle
-            $$
+                \label{eq:original_saddle_point_problem}
+            \end{equation}
         we maximized over the whole set $K$, defined in Equations (\ref{eq:local_constraint}) and (\ref{eq:non_local_constraint}). In order to rewrite this formulation we revisit the non-local constraint set defined in the fashion of Subsection \ref{sub:projection_onto_K_nl}, by
             $$
                 K_{nl} = \left\{ \left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| \le \nu \right\},
@@ -2231,42 +2231,91 @@
                 K_{nl} = \left\{ |s_{k_{1}, k_{2}}| \le \nu \,\,\, \textnormal{subject to} \,\,\, s_{k_{1}, k_{2}} = \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right\},
                 \label{eq:non_local_constraint_reloaded}
             \end{equation}
-        again for all pairs $(i,j)$, all combinations $1 \le k_{1} \le k \le k_{2} \le S$, $s_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ and $s \in \mathbb{R}^{N \times M \times I \times 2}$. Here, $I = \frac{S^{2} + S}{2}$ denotes the number of all non-local constraint sets. This is the number of all non-local constraint sets. We further present an auxiliary variable $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$, which belongs to a $\mu \in \mathbb{R}^{N \times M \times I \times 2}$ and define a Lagrange function
-            $$
-                \mathcal{L}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle,
-            $$
-        in which we added an enforced term to our original problem corresponding to the constraint in $K_{nl}$. Taking into account that the constraint in (\ref{eq:non_local_constraint_reloaded}) is an equality constraint we have that $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ for all $1 \le k_{1} \le k_{2} \le S$. Then we obtain the following equivalence:
+        again for all pairs $(i,j)$, all combinations $1 \le k_{1} \le k \le k_{2} \le S$, $s_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ and $s \in \mathbb{R}^{N \times M \times I \times 2}$. Here, $I = \frac{S^{2} + S}{2}$ denotes the number of all non-local constraint sets. We further present an auxiliary variable $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$, which belongs to a $\mu \in \mathbb{R}^{N \times M \times I \times 2}$ and define a Lagrange function
             \begin{equation}
-                \min_{u \in C} \max_{p \in K} \langle Au, p \rangle \iff \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \mathcal{L}(u, \mu, p, s).
-                \label{eq:mumford_shah_lagrange_multiplier}
+                \mathcal{L}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle,
+                \label{eq:lagrangian}
             \end{equation}
-        We take the constraint $|s_{k_{1},k_{2}}| \le \nu$ into account in the maximization of the objective function $\mathcal{L}$. If we use $A = \nabla$, this saddle-point problem complies to
-            $$
-                \min_{u \in C} \max_{p \in K} \langle \nabla u, p \rangle \iff \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle \nabla u, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = 1}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle.
-            $$
-        Let us proof this equivalence in the general case, where $A$ resembles a continuous linear operator.
-        \begin{proof}
-            Assume, we found an optimal value $u^{\ast}$. Further, assume we have a optimal value $s^{\ast}$, for which $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ for all $i = 1, ..., N$, $j = 1, ..., M$ and all possible combinations $1 \le k_{1} \le k_{2} \le S$. Then, we do a case analysis:
-            \begin{enumerate}
-                \item If equality $\sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = s^{\ast}_{k_{1}, k_{2}}$ holds, the saddle-point problem of (\ref{eq:mumford_shah_lagrange_multiplier}) reduces to
-                    $$
-                        \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle,
-                    $$
-                and with $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| = |s_{k_{1}, k_{2}}| \le \nu$, we obtain the maximization over all $p$ subjecto to $p \in K_{p}$, as in the original formulation. If the equality does not hold, we distinguish between two other cases:
-                \begin{enumerate}
-                    \item Let $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| < |s^{\ast}_{k_{1}, k_{2}}|$. But as $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ we already obtain that $\left|\sum_{k_{1} \le k \le k_{2}} p^{x}_{k}\right| \le \nu$. Since the conditions relating to the set $K_{nl}$ are met, we set $\mu_{k_{1}, k_{2}} = 0$ and get again
-                        $$
-                            \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle.
-                        $$
-                    \item Now, let $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| > |s^{\ast}_{k_{1}, k_{2}}|$.
-                    From our assumption that $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$, the only choice we have is to set $\sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = s^{\ast}_{k_{1}, k_{2}}$. With this we observe again
-                        $$
-                            \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle,
-                        $$
-                    and the $\mu_{k_{1}, k_{2}}$ can be chosen arbitrarily. This shows the equivalence of the two problems.
-                \end{enumerate}
-            \end{enumerate}\qed
-        \end{proof}
+        in which we added an enforced term to our original problem corresponding to the constraint in $K_{nl}$. Taking into account that the constraint in (\ref{eq:non_local_constraint_reloaded}) is an equality constraint we have that $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ for all $1 \le k_{1} \le k_{2} \le S$. Using the Lagrangian in (\ref{eq:lagrangian}) we have the following proposition:
+            \begin{proposition}
+                \label{prop:equivalence_of_two_problems}
+                Let $(u^{\ast}, p^{\ast})$ be the solution of (\ref{eq:original_saddle_point_problem}) and $(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})$ be the solution of
+                    \begin{equation}
+                        \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \mathcal{L}(u, \mu, p, s).
+                        \label{eq:lagrange_saddle_point_problem}
+                    \end{equation}
+                Then, the equality
+                    \begin{equation}
+                        \langle Au^{\ast}, p^{\ast} \rangle = \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})
+                        \label{eq:equality_of_problems}
+                    \end{equation}
+                holds.
+            \end{proposition}
+            \begin{proof}
+                Let $u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast}$ be the optimal values of Equations (\ref{eq:original_saddle_point_problem}) and (\ref{eq:lagrange_saddle_point_problem}).\\
+                We show $\langle Au^{\ast}, p^{\ast} \rangle \ge \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})$. Then we observe the inequality
+                    \begin{eqnarray}
+                        \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast}) &=& \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle \notag \\
+                        &\le& \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \langle Au, p^{\ast} \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} - s^{\ast}_{k_{1}, k_{2}} \rangle \label{eq:before_cases} \\
+                        &=& \begin{dcases*}
+                            \langle Au^{\ast}, p^{\ast} \rangle, & \textnormal{if $\sum\limits_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} = s^{\ast}_{k_{1}, k_{2}}$} \\
+                            -\infty & \textnormal{else}
+                        \end{dcases*} \label{eq:cases} \\
+                        &\le& \langle Au^{\ast}, p^{\ast} \rangle. \notag
+                    \end{eqnarray}
+                In Equality (\ref{eq:cases}) we used that if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} = s^{\ast}_{k_{1}, k_{2}}$ the last term in (\ref{eq:before_cases}) vanishes, but if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} \neq s^{\ast}_{k_{1}, k_{2}}$ the minimum over all $\mu$ assures that the last term in (\ref{eq:before_cases}) tends to $-\infty$.\\
+                Let us now show $\langle Au^{\ast}, p^{\ast} \rangle \le \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})$: If $p^{\ast}$ is the optimal value of Equation (\ref{eq:original_saddle_point_problem}) it also satisfies $p^{\ast} \in K = K_{p} \cap K_{nl}$. But this implies $p^{\ast} \in K_{p}$ and $p^{\ast} \in K_{nl}$ and for that we can set $s^{\ast}_{k_{1}, k_{2}} = \sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k}$ for all possible pairs $(k_{1}, k_{2})$. Then, we compute
+                    \begin{eqnarray}
+                        \langle Au^{\ast}, p^{\ast} \rangle &=& \min_{u \in C} \max_{\substack{p \in K_{p} \\ p \in K_{nl}}} \langle Au, p \rangle \notag \\
+                        &\le& \min_{u \in C} \langle Au, p^{\ast} \rangle \notag \\
+                        &=& \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \langle Au, p^{\ast} \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = 1}^{S} \langle \mu_{k_{1}, k_{2}}, \underbrace{\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} - s^{\ast}_{k_{1}, k_{2}}}_{= 0} \rangle \notag \\
+                        &=& \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast}). \notag
+                    \end{eqnarray}\qed
+                % Then we get the inequality
+                %     \begin{eqnarray}
+                %         \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast}) &=& \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle \notag \\
+                %         &\ge& \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle Au^{\ast}, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu^{\ast}_{k_{1}, k_{2}}, \underbrace{\sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}}}_{\substack{\textnormal{if} \,\, \neq \,\, 0 \\ \implies \mu^{\ast} \,\, \textnormal{not minimum}}} \rangle
+                %     \end{eqnarray}
+                % Assume that $u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast}$ are the optimal values of Equations (\ref{eq:original_saddle_point_problem}) and (\ref{eq:lagrange_saddle_point_problem}) and that $\langle Au^{\ast}, p^{\ast} \rangle > \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})$ holds. Then we obtain
+                %     \begin{eqnarray}
+                %         \langle Au^{\ast}, p^{\ast} \rangle &>& \langle Au^{\ast}, p^{\ast} \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu^{\ast}_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} - s^{\ast}_{k_{1}, k_{2}} \rangle, \notag \\
+                %         \iff 0 &>& \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu^{\ast}_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} - s^{\ast}_{k_{1}, k_{2}} \rangle.
+                %     \end{eqnarray}
+                % If $sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} \neq s^{\ast}_{k_{1}, k_{2}}$ holds, $\mu^{\ast}$ can not be an optimal value. But if equality holds we observe $0 > 0$    
+            \end{proof}
+
+        %   Then we obtain the following equivalence:
+        %     \begin{equation}
+        %         \min_{u \in C} \max_{p \in K} \langle Au, p \rangle \iff \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \mathcal{L}(u, \mu, p, s).
+        %         \label{eq:mumford_shah_lagrange_multiplier}
+        %     \end{equation}
+        % We take the constraint $|s_{k_{1},k_{2}}| \le \nu$ into account in the maximization of the objective function $\mathcal{L}$. If we use $A = \nabla$, this saddle-point problem complies to
+        %     $$
+        %         \min_{u \in C} \max_{p \in K} \langle \nabla u, p \rangle \iff \min_{\substack{u \in C \\ \mu_{k_{1}, k_{2}}}} \max_{\substack{p \in K_{p} \\ |s_{k_{1}, k_{2}}| \le \nu}} \langle \nabla u, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = 1}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle.
+        %     $$
+        % Let us proof this equivalence in the general case, where $A$ resembles a continuous linear operator.
+        % \begin{proof}
+        %     Assume, we found an optimal value $u^{\ast}$. Further, assume we have a optimal value $s^{\ast}$, for which $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ for all $i = 1, ..., N$, $j = 1, ..., M$ and all possible combinations $1 \le k_{1} \le k_{2} \le S$. Then, we do a case analysis:
+        %     \begin{enumerate}
+        %         \item If equality $\sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = s^{\ast}_{k_{1}, k_{2}}$ holds, the saddle-point problem of (\ref{eq:mumford_shah_lagrange_multiplier}) reduces to
+        %             $$
+        %                 \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle,
+        %             $$
+        %         and with $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| = |s_{k_{1}, k_{2}}| \le \nu$, we obtain the maximization over all $p$ subjecto to $p \in K_{p}$, as in the original formulation. If the equality does not hold, we distinguish between two other cases:
+        %         \begin{enumerate}
+        %             \item Let $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| < |s^{\ast}_{k_{1}, k_{2}}|$. But as $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$ we already obtain that $\left|\sum_{k_{1} \le k \le k_{2}} p^{x}_{k}\right| \le \nu$. Since the conditions relating to the set $K_{nl}$ are met, we set $\mu_{k_{1}, k_{2}} = 0$ and get again
+        %                 $$
+        %                     \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle.
+        %                 $$
+        %             \item Now, let $\left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| > |s^{\ast}_{k_{1}, k_{2}}|$.
+        %             From our assumption that $|s^{\ast}_{k_{1}, k_{2}}| \le \nu$, the only choice we have is to set $\sum_{k_{1} \le k \le k_{2}} p^{x}_{k} = s^{\ast}_{k_{1}, k_{2}}$. With this we observe again
+        %                 $$
+        %                     \max_{p \in K_{p}} \langle Au^{\ast}, p \rangle,
+        %                 $$
+        %             and the $\mu_{k_{1}, k_{2}}$ can be chosen arbitrarily. This shows the equivalence of the two problems.
+        %         \end{enumerate}
+        %     \end{enumerate}\qed
+        % \end{proof}
         As discussed in Section \ref{sec:the_general_saddle_point_problem}, doing a gradient descent in the primal and a gradient ascent in the dual variable simultaneously means that we need to estimate the direction of the steepest descent and ascent, respectively. For that we compute $\nabla \mathcal{L}(u, \mu, p, s)$ and use the partial derivatives with respect to $u, \mu, p$ and $s$ in the corresponding update equations. We compute
             \begin{eqnarray}
                 \frac{\partial \mathcal{L}(u, \mu, p, s)}{\partial u} &=& A^{T} p \\
@@ -2295,10 +2344,10 @@
                         0
                     \end{pmatrix}.
             $$
-        Recalling that we computed $I = \frac{S^{2} + S}{2}$ and having these four updates, we observe a new formulation for our primal-dual algorithm:
+        Recalling that we computed $I = \frac{S^{2} + S}{2}$, having these four updates and setting $A = \nabla$ we observe a new formulation for our primal-dual algorithm by:
             \begin{algorithm}
                 \label{alg:mumford_shah_lagrange_multiplier}
-                Choose $(u^{0}, p^{0}, \mu^{0}, s^{0}) \in C \times K_{p} \times \mathbb{R}^{2 \times N \times M \times I} \times \mathbb{R}^{2 \times N \times M \times I}$ and let $\bar{u}^{0} = u^{0}, \bar{\mu}^{0} = \mu^{0}$. We choose $\tau_{u} = \frac{1}{6}, \tau_{\mu} = \frac{1}{150}, \sigma_{p} = \frac{1}{3 + S}, \sigma_{s} = 1$. Then, we let for each $n \ge 0$
+                Choose $(u^{0}, p^{0}, \mu^{0}, s^{0}) \in C \times K_{p} \times \mathbb{R}^{2 \times N \times M \times I} \times \mathbb{R}^{2 \times N \times M \times I}$ and let $\bar{u}^{0} = u^{0}, \bar{\mu}^{0} = \mu^{0}$. Set $\tau_{u} = \frac{1}{6}, \tau_{\mu} = \frac{1}{150}, \sigma_{p} = \frac{1}{3 + S}, \sigma_{s} = 1$. Then, we let for each $n \ge 0$
                     \begin{equation}
                         \left\{ 
                             \begin{array}{l l}
@@ -2312,7 +2361,7 @@
                         \right.
                     \end{equation}
             \end{algorithm}
-        In the following we show how the approximation $u$, computed with the primal-dual algorithm, can be extracted from the three-dimensional space into a two-dimensional object.
+        Once implemented this variant of the primal-dual algorithm derives the same approximation as the ordinary primal-dual algorithm using Dykstra's projection algorithm in each iteration step. The big difference between the two frameworks is run-time. We discuss this in Chapter \ref{cha:applications_to_imaging}. In the following we additionally show how the approximation $u$, computed with the primal-dual algorithm, can be extracted from the three-dimensional space into a two-dimensional object.
 
     \section{Computing the 0.5-Isosurface} % (fold)
     \label{sec:computing_the_0_5_isosurface}
@@ -2697,7 +2746,20 @@ void ROF(T* u, T* g, T lambda, T tau, int M, int N, int B, int iter) {
             \end{table}
             The coupling of $\lambda$ and $\tau$ can be seen, if we set $\tau = 0.73$ and $\lambda = 0.2$ and approximate for instance the Landscape image. We only increase $\lambda$ by a factor of $2$, but the number of iterations for this setting drop to $121$. If we decrease $\lambda$ by a factor of $2$, setting $\lambda = 0.05$, we obtain $288$ iteration steps. We earlier discussed that a higher value for $\lambda$ assures an approximation $u$, which is closer to the input image $g$. Our test show that the algorithm converges faster if the data fidelity term is weighted higher. Overall, we see that finding a $"$perfect$"$ time-step is not possible. We provide a good guess for which the algorithm is likely to converge fast, but does not fit a perfectly.\\
 
-        To this end, we suggest the setting $\theta = 1$, $\lambda = 0.1$ and $\tau = 0.73$ for the primal-dual algorithm, for which we derive the approximation $u$ of $g$ in a reasonable run-time and visibly good results.
+            \begin{table}[!ht]
+                \centering
+                \begin{tabular}{| l || l | l | l |}
+                    \hline
+                    & Iterations & CPU time & GPU time \\ \hline
+                    Lena & 170 & 1.13 s & 0.025 s \\ \hline
+                    Hepburn & 257 & 4.13 s & 0.049 s \\ \hline
+                    Landscape & 174 & 1.03 s & 0.032 s \\ \hline
+                \end{tabular}
+                \caption[Run-times for best parameters in ROF model.]{Setting $\tau = 0.73$ and $\lambda = 0.1$ yields good results and a fast run-time. The parallelized version is up to $84$ times faster than the serial version.}
+                \label{tab:rof_cpu_vs_gpu}
+            \end{table}
+
+        To this end, we suggest the setting $\theta = 1$, $\lambda = 0.1$ and $\tau = 0.73$ for the primal-dual algorithm, for which we derive the approximation $u$ of $g$ in a reasonable run-time, see also Table \ref{tab:rof_cpu_vs_gpu}, and good results.
 
     \section{Image Approximation using the TVL1 Model} % (fold)
     \label{sec:image_approximation_using_the_tvl1_model}
@@ -2782,18 +2844,30 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
         \subsection{Estimation of $\boldsymbol{\tau}$} % (fold)
         \label{sub:estimation_of_tau_tvl1}
             
-            We apply the same procedure to estimate the best time-step parameter $\tau$ as in Subsection \ref{sub:estimation_of_tau_rof}. We use again the images Lena, Audrey Hepburn and Landscape for the evaluation. There are several parameters, which appear under the quickest convergence rates. The one which is most likely to guarantee a fast convergence is $\tau = 0.98$, cf. Table \ref{tab:estimation_of_tau_tvl1}. Even if we used grayscaled and colored images with $\lambda = 0.7$ and $\lambda = 1.2$, respectively, this $\tau$ appears to be a good choice. Since we have a coupling of the image and the parameters $\lambda$ and $\tau$, as in the ROF model, this suggested $\tau$ is likely to obtain a fast convergence but we have no guarantee for that.
+            We apply the same procedure to estimate the best time-step parameter $\tau$ as in Subsection \ref{sub:estimation_of_tau_rof}. We use again the images Lena, Audrey Hepburn and Landscape for the evaluation. There are several parameters, which appear under the quickest convergence rates. The one which is most likely to guarantee a fast convergence is $\tau = 0.98$, cf. Table \ref{tab:tvl1_cpu_vs_gpu}. In the parallel version we observe a tremendous run-time decrease, up to a factor of $150$. Even if we used grayscaled and colored images with $\lambda = 0.7$ and $\lambda = 1.2$, respectively, this $\tau$ appears to be a good choice. Since we have a coupling of the image and the parameters $\lambda$ and $\tau$, as in the ROF model, this suggested $\tau$ is likely to obtain a fast convergence but we have no guarantee for that.
             \begin{table}[!ht]
                 \centering
-                \begin{tabular}{| l | l | l | l | l | l | l | l | l | l |}
+                \begin{tabular}{| l || l | l | l | l |}
                     \hline
-                    & \multicolumn{3}{|c|}{Lena Image} & \multicolumn{3}{|c|}{Hepburn Image} & \multicolumn{3}{|c|}{Landscape Image} \\ \hline\hline
-                    $\tau$ & $\lambda$ & Iter & Run-Time & $\lambda$ & Iter & Run-Time & $\lambda$ & Iter & Run-Time \\ \hline
-                    0.98 & 0.7 & 210 & 2.45 & 1.2 & 254 & 6.89 & 1.2 & 210 & 2.45 \\ \hline
+                    & $\lambda$ & Iterations & CPU time & GPU time \\ \hline
+                    Lena & 0.7 & 210 & 2.97 s & 0.034 s \\ \hline
+                    Hepburn & 1.2 & 254 & 7.85 s & 0.052 s \\ \hline
+                    Landscape & 1.2 & 210 & 3.69 s & 0.040 s \\ \hline
                 \end{tabular}
-                \caption[Best estimate of $\tau$ for the TVL1 model.]{The results for the best estimate $\tau = 0.98$.}
-                \label{tab:estimation_of_tau_tvl1}
+                \caption[Run-times for best parameters in TVL1 model.]{Setting $\tau = 0.98$ results in a fast run-time. Parallelization yields a performance increase up to a factor $150$.}
+                \label{tab:tvl1_cpu_vs_gpu}
             \end{table}
+            % \begin{table}[!ht]
+            %     \centering
+            %     \begin{tabular}{| l | l | l | l | l | l | l | l | l | l |}
+            %         \hline
+            %         & \multicolumn{3}{|c|}{Lena Image} & \multicolumn{3}{|c|}{Hepburn Image} & \multicolumn{3}{|c|}{Landscape Image} \\ \hline\hline
+            %         $\tau$ & $\lambda$ & Iter & Run-Time & $\lambda$ & Iter & Run-Time & $\lambda$ & Iter & Run-Time \\ \hline
+            %         0.98 & 0.7 & 210 & 2.45 & 1.2 & 254 & 6.89 & 1.2 & 210 & 2.45 \\ \hline
+            %     \end{tabular}
+            %     \caption[Best estimate of $\tau$ for the TVL1 model.]{The results for the best estimate $\tau = 0.98$.}
+            %     \label{tab:estimation_of_tau_tvl1}
+            % \end{table}
             In Figure \ref{fig:best_tvl1_landscape} (b) we show the result for our suggested framework by setting $\theta = 1, \lambda = 1.2$ and $\tau = 0.98$ using the Landscape image. Even though, the TVL1 model yields good approximations, we clearly see that it is not able to preserve edges well enough if we choose $\lambda$ too small. For instance in (c) of the same figure we see that some contours vanish and we see over-smoothing in the image if we set $\lambda = 0.7$.\\
             \begin{figure}[!ht]
                 \centering
@@ -2941,8 +3015,26 @@ void RealTimeMinimizer(T* u, T* g, T lambda, T nu, int M, int N, int B, int iter
             \label{fig:estimation_of_lambda_and_nu_rt}
             \end{figure}
             We use again the images of Lena and Audrey Hepburn and the Landscape image and seek for a $PSNR(g, u)$ in the range $[30, 36]$ in the piecewise-smooth case. In the piecewise-constant case, which we consider first, we choose settings with a PSNR in the range $[20, 25]$. It turns out that there appear several settings, which can be chosen in the piecewise-constant model. As possible $\nu$ all outcomes vary around $\nu = 0.1$, which we suggest to use. For the piecewise-smooth model we observe a lot of different outcomes and the PSNR for each image provides different suggestions. Since this procedure is more a guessing than an evaluation, we compare the approximations $u$ in terms of the approximations. We find that $\lambda = 2$ is too weak. These approximations are noisy and sometimes blurred. For this we conclude that a suitable setting for $\lambda$ in the piecewise-smooth case is $\lambda = 20$. If we then choose $\nu = 0.03$, we observe PSNR values $31$ (Lena), $25$ (Landscape) and $30$ (Audrey Hepburn). In terms of the Audrey Hepburn image, Figure \ref{fig:estimation_of_lambda_and_nu_rt} shows the outcomes for our suggested settings. Further, it reveals that $\lambda = 2$ is indeed not a suitable choice. For the whole table of estimated values for this model, we refer to our Github repository \cite{Bauer}.\\
+
+            \begin{table}[!ht]
+                \parbox{.9\linewidth}{
+                \centering
+                    \begin{tabular}{| l || l | l | l | l | l |}
+                        \hline
+                         & $\lambda$ & $\nu$ & Iterations & CPU time & GPU time \\ \hline
+                        Lena        & 20  & 0.03 & 21 & 0.085 s & 0.004 s \\ \hline
+                        Lena        & 500 & 0.1  & 12 & 0.050 s & 0.002 s \\ \hline
+                        Hepburn     & 20  & 0.03 & 40 & 0.360 s & 0.008 s \\ \hline
+                        Hepburn     & 500 & 0.1  & 66 & 0.620 s & 0.013 s \\ \hline
+                        Landscape   & 20  & 0.03 & 44 & 0.150 s & 0.008 s \\ \hline
+                        Landscape   & 500 & 0.1  & 54 & 0.190 s & 0.010 s \\ \hline
+                    \end{tabular}
+                }
+                \caption[Run-Times for best parameters real-time framework.]{Estimated run-times on a CPU and GPU for our three test images. The parallel version is up to $47$ times faster than the CPU version.}
+                \label{tab:realtime_cpu_vs_gpu}
+            \end{table}
             
-        In this model, there is no need to find a good estimate of the time-step $\tau$, because this value is updated in each iteration seperately and is coupled with the parameter $\theta$. As suggested in Algorithm \ref{alg:realtime_primal_dual_algorithm} we pre-compute it with $\tau = \frac{1}{2d}$, where $d = 2$, since the dimension of $\Omega$ is two. Let now us turn our focus on applications to imaging. We start with one application of the real-time minimizer of the Mumford-Shah functional, namely image cartooning.
+        In Table \ref{tab:realtime_cpu_vs_gpu} we find the run-times for our suggested setting. With a performance increase up to a factor of $47$ the parallel version has indeed a real-time applicability. In this model, there is no need to find a good estimate of the time-step $\tau$, because this value is updated in each iteration seperately and is coupled with the parameter $\theta$. As suggested in Algorithm \ref{alg:realtime_primal_dual_algorithm} we pre-compute it with $\tau = \frac{1}{2d}$, where $d = 2$, since the dimension of $\Omega$ is two. Let now us turn our focus on applications to imaging. We start with one application of the real-time minimizer of the Mumford-Shah functional, namely image cartooning.
 
         % subsection estimation_of_lambda_and_nu_rt (end)
 
@@ -2963,28 +3055,27 @@ void RealTimeMinimizer(T* u, T* g, T lambda, T nu, int M, int N, int B, int iter
                     \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \ge 1.
                     \label{eq:first_inequality}
                 \end{equation}
-            Further, we compute $|(\nabla u)_{i,j}| \le \sqrt{4} = 2$. This equation holds with the definition for $\nabla$, cf. Definition \ref{def:discrete_gradient_operator}, since
+            Further, we compute $|(\nabla u)_{i,j}| \le \sqrt{2}$. This equation holds with the definition for $\nabla$, cf. Definition \ref{def:discrete_gradient_operator}, and having $u_{i,j} \in [0, 1]$ for all $i = 1, ..., N$ and $j = 1, ..., M$. Then
                 \begin{eqnarray}
-                    |(\nabla u)_{i,j}| &=& \sqrt{(u_{i+1,j} - u_{i,j})^{2} + (u_{i,j+1} - u_{i,j})^{2}} \notag \\
-                    &=& \sqrt{u_{i+1,j}^{2} - 2u_{i+1,j}u_{i,j} + u_{i,j}^{2} + u_{i,j+1}^{2} - 2u_{i,j+1}u_{i,j} + u_{i,j}^{2}} \notag \\
-                    &=& \sqrt{2u_{i,j}^{2} + u_{i+1,j}^{2} + u_{i,j+1}^{2} - 2u_{i,j}\left(u_{i+1,j} - u_{i,j+1}\right)} \notag \\
-                    &\overbrace{\le}^{u \in [0,1]}& \sqrt{2 + 1 + 1} = \sqrt{4} = 2.
+                    |(\nabla u)_{i,j}| &=& \sqrt{\underbrace{(u_{i+1,j} - u_{i,j})^{2}}_{\le 1} + \underbrace{(u_{i,j+1} - u_{i,j})^{2}}_{\le 1}} \notag \\
+                    &\le& \sqrt{1 + 1} \notag \\
+                    &=& \sqrt{2} \notag
                 \end{eqnarray}
             Together with Equation \ref{eq:first_inequality} it follows
                 $$
-                    1 \le \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \le \frac{2}{\sqrt{\frac{\nu}{\lambda}}}.
+                    1 \le \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \le \frac{\sqrt{2}}{\sqrt{\frac{\nu}{\lambda}}}.
                 $$
             Applying the logarithm function, which is monotonically increasing, to each of the terms we get
                 $$
-                    0 \le \log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right) \le \log \left( \frac{2}{\sqrt{\frac{\nu}{\lambda}}} \right).
+                    0 \le \log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right) \le \log \left( \frac{\sqrt{2}}{\sqrt{\frac{\nu}{\lambda}}} \right).
                 $$
             If we now divide each term by the one on the rightmost, we observe
                 $$
-                    0 \le \frac{\log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right)}{\log \left( \frac{2}{\sqrt{\frac{\nu}{\lambda}}} \right)} \le 1.
+                    0 \le \frac{\log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right)}{\log \left( \frac{\sqrt{2}}{\sqrt{\frac{\nu}{\lambda}}} \right)} \le 1.
                 $$
             With these calculations, we now define a $v \in [0, 1]$ by
                 $$
-                    v := \frac{\log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right)}{\log \left( \frac{2}{\sqrt{\frac{\nu}{\lambda}}} \right)},
+                    v := \frac{\log \left( \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \right)}{\log \left( \frac{\sqrt{2}}{\sqrt{\frac{\nu}{\lambda}}} \right)},
                 $$
             then this parameter $v$ only increases if $|(\nabla u)_{i,j}|$ increases and decreases if $|(\nabla u)_{i,j}|$ decreases, because $\sqrt{\frac{\nu}{\lambda}}$ is a constant factor and the logarithm function is monotonically increasing. The value $v$ serves as an edge indicator. The idea is to multiply each pixel value $u$ by
                 $$
@@ -3091,14 +3182,14 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
             \end{figure}
             \begin{table}[!ht]
                 \centering
-                \begin{tabular}{| l | l | l | l | l | l |}
+                \begin{tabular}{| l | l | l | l | l | l | l | l |}
                     \hline
-                    \multicolumn{3}{|c|}{Gaussian Noise} & \multicolumn{3}{|c|}{Salt \& Pepper Noise} \\ \hline\hline
-                    $\tau$ & Iter & Run-Time & $\tau$ & Iter & Run-Time \\ \hline
-                    0.97 & 435 & 15.00 & 0.98 & 337 & 3.96 \\ \hline
-                    0.96 & 436 & 14.90 & 0.97 & 339 & 3.99 \\ \hline
-                    0.95 & 437 & 14.98 & 0.96 & 341 & 4.00 \\ \hline
-                    0.94 & 438 & 15.05 & 0.95 & 344 & 4.05 \\ \hline
+                    \multicolumn{4}{|c|}{Gaussian Noise} & \multicolumn{4}{|c|}{Salt \& Pepper Noise} \\ \hline\hline
+                    $\tau$ & Iter & CPU time & GPU time & $\tau$ & Iter & CPU time & GPU time \\ \hline
+                    0.97 & 435 & 15.00 s & 0.176 s & 0.98 & 337 & 3.96 s & 0.054 s \\ \hline
+                    0.96 & 436 & 14.90 s & 0.177 s & 0.97 & 339 & 3.99 s & 0.054 s \\ \hline
+                    0.95 & 437 & 14.98 s & 0.177 s & 0.96 & 341 & 4.00 s & 0.054 s \\ \hline
+                    0.94 & 438 & 15.05 s & 0.178 s & 0.95 & 344 & 4.05 s & 0.054 s \\ \hline
                 \end{tabular}
                 \caption[Best estimate of $\tau$ for the TVL1 model for denoising.]{Setting $\tau = 0.97$ leads to fast convergences in both cases.}
                 \label{tab:estimation_of_tau_denoising}
@@ -3244,15 +3335,15 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             \begin{table}[!ht]
                 \parbox{.9\linewidth}{
                 \centering
-                    \begin{tabular}{| l | l | l | l | l | l |}
+                    \begin{tabular}{| l | l | l | l | l | l | l | l |}
                         \hline
-                        \multicolumn{3}{|c|}{$\lambda \in (0, \infty)$} & \multicolumn{3}{|c|}{$\lambda = \infty$} \\ \hline\hline
-                        $\tau$ & Iterations & Run-Time & $\tau$ & Iterations & Run-Time \\ \hline
-                        0.97 & 2114 & 22.60 & 0,89 & 1743 & 17.77 \\ \hline
-                        0.99 & 2245 & 22.25 & 0,88 & 1761 & 17.97 \\ \hline
-                        0.98 & 2254 & 22.58 & 0,86 & 1797 & 18.34 \\ \hline
-                        0.95 & 2275 & 22.77 & 0,98 & 2079 & 21.53 \\ \hline
-                        0.94 & 2350 & 23.70 & 0,79 & 2116 & 19.16 \\ \hline
+                        \multicolumn{4}{|c|}{$\lambda = 0.1$} & \multicolumn{4}{|c|}{$\lambda = \infty$} \\ \hline\hline
+                        $\tau$ & Iterations & CPU time & GPU time & $\tau$ & Iterations & CPU time & GPU time \\ \hline
+                        0.97 & 2114 & 22.60 s & 0.303 s & 0.89 & 1743 & 17.77 s & 0.25 s \\ \hline
+                        0.99 & 2245 & 22.25 s & 0.322 s & 0.88 & 1761 & 17.97 s & 0.252 s \\ \hline
+                        0.98 & 2254 & 22.58 s & 0.322 s & 0.86 & 1797 & 18.34 s & 0.257 s \\ \hline
+                        0.95 & 2275 & 22.77 s & 0.326 s & 0.98 & 2079 & 21.53 s & 0.298 s \\ \hline
+                        0.94 & 2350 & 23.70 s & 0.337 s & 0.79 & 2116 & 19.16 s & 0.303 s \\ \hline
                     \end{tabular}
                 }
                 \caption[Best estimate of $\tau$ for image inpainting.]{This table shows several estimates for reasonable values $\tau$ using the ROF model in image inpainting.}

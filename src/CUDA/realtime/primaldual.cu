@@ -20,7 +20,7 @@
 #include <stdio.h>
 using namespace std;
 
-__global__ void init(float* xbar, float* xcur, float* xn, float* y1, float* y2, float* img, int w, int h, int nc) {
+__global__ void init(float* xbar, float* xn, float* y1, float* y2, float* img, int w, int h, int nc) {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
     
@@ -33,7 +33,6 @@ __global__ void init(float* xbar, float* xcur, float* xn, float* y1, float* y2, 
             val = img[i];
             xbar[i] = val;
             xn[i] = val;
-            xcur[i] = val;
             y1[i] = 0.f;
             y2[i] = 0.f;
         }
@@ -68,7 +67,7 @@ __global__ void primal_descent(float* y1, float* y2, float* xbar, float sigma, f
     }
 }
 
-__global__ void dual_ascent(float* xn, float* xcur, float* y1, float* y2, float* img, float tau, int w, int h, int nc) {
+__global__ void dual_ascent(float* xn, float* xbar, float* y1, float* y2, float* img, float tau, float theta, int w, int h, int nc) {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
     
@@ -81,24 +80,9 @@ __global__ void dual_ascent(float* xn, float* xcur, float* y1, float* y2, float*
 
             d1 = y1[i] - (x>0 ? y1[(x-1) + w * y + w * h * z] : 0.f);
             d2 = y2[i] - (y>0 ? y2[x + w * (y-1) + w * h * z] : 0.f);
-            val = xcur[i] + tau * (d1 + d2);
-            xn[i] = (val + 2.f * tau * img[i]) / (1.f + 2.f * tau);
-        }
-    }
-}
-
-__global__ void extrapolate(float* xbar, float* xcur, float* xn, float theta, int w, int h, int nc) {
-    int x = threadIdx.x + blockDim.x * blockIdx.x;
-    int y = threadIdx.y + blockDim.y * blockIdx.y;
-    
-    if (x < w && y < h) {
-        int i;
-
-        for (int z = 0; z < nc; z++) {
-            i = x + w * y + w * h * z;
-
-            xbar[i] = xn[i] + theta * (xn[i] - xcur[i]);
-            xcur[i] = xn[i];
+            val = xn[i];
+            xn[i] = ((val + tau * (d1 + d2)) + 2.f * tau * img[i]) / (1.f + 2.f * tau);
+            xbar[i] = xn[i] + theta * (xn[i] - val);
         }
     }
 }
@@ -193,7 +177,6 @@ int main(int argc, char **argv)
 
     float* d_x; cudaMalloc(&d_x, nbyted); CUDA_CHECK;
     float* d_xbar; cudaMalloc(&d_xbar, nbyted); CUDA_CHECK;
-    float* d_xcur; cudaMalloc(&d_xcur, nbyted); CUDA_CHECK;
 
     float* d_y1; cudaMalloc(&d_y1, nbyted); CUDA_CHECK;
     float* d_y2; cudaMalloc(&d_y2, nbyted); CUDA_CHECK;
@@ -210,15 +193,14 @@ int main(int argc, char **argv)
 
     Timer timer; timer.start();
 
-    init <<<grid, block>>> (d_xbar, d_xcur, d_x, d_y1, d_y2, d_imgInOut, w, h, nc);
+    init <<<grid, block>>> (d_xbar, d_x, d_y1, d_y2, d_imgInOut, w, h, nc);
     for (int i = 1; i <= repeats; i++)
     {
         primal_descent <<<grid, block>>> (d_y1, d_y2, d_xbar, sigma, nu, lambda, w, h, nc);
-        dual_ascent <<<grid, block>>> (d_x, d_xcur, d_y1, d_y2, d_imgInOut, tau, w, h, nc);
+        dual_ascent <<<grid, block>>> (d_x, d_xbar, d_y1, d_y2, d_imgInOut, tau, theta, w, h, nc);
         theta = 1.f / sqrtf(1.f + 4.f * tau);
         tau *= theta;
         sigma /= theta;
-        extrapolate <<<grid, block>>> (d_xbar, d_xcur, d_x, theta, w, h, nc);
     }
     solution <<<grid, block>>> (d_imgInOut, d_x, w, h, nc);
 
@@ -228,14 +210,14 @@ int main(int argc, char **argv)
     cudaMemcpy(h_img, d_imgInOut, nbyted, cudaMemcpyDeviceToHost); CUDA_CHECK;
 
     // show input image
-    showImage("Input", mIn, 100, 100);  // show at position (x_from_left=100,y_from_above=100)
+    // showImage("Input", mIn, 100, 100);  // show at position (x_from_left=100,y_from_above=100)
 
     // show output image: first convert to interleaved opencv format from the layered raw array
     convert_layered_to_mat(mOut, h_img);
-    showImage("Output", mOut, 100+w+40, 100);
+    // showImage("Output", mOut, 100+w+40, 100);
 
     // wait for key inputs
-    cv::waitKey(0);
+    // cv::waitKey(0);
 
     // save input and result
     cv::imwrite(output, mOut*255.f);
@@ -245,7 +227,6 @@ int main(int argc, char **argv)
     
     cudaFree(d_x); CUDA_CHECK;
     cudaFree(d_xbar); CUDA_CHECK;
-    cudaFree(d_xcur); CUDA_CHECK;
 
     cudaFree(d_y1); CUDA_CHECK;
     cudaFree(d_y2); CUDA_CHECK;
@@ -254,6 +235,6 @@ int main(int argc, char **argv)
     delete[] h_img;
 
     // close all opencv windows
-    cvDestroyAllWindows();
+    // cvDestroyAllWindows();
     return 0;
 }

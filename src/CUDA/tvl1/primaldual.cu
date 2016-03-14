@@ -20,7 +20,7 @@
 #include <stdio.h>
 using namespace std;
 
-__global__ void init(float* xbar, float* xcur, float* xn, float* y1, float* y2, float* img, int w, int h, int nc) {
+__global__ void init(float* xbar, float* xn, float* y1, float* y2, float* img, int w, int h, int nc) {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
     
@@ -33,7 +33,6 @@ __global__ void init(float* xbar, float* xcur, float* xn, float* y1, float* y2, 
             val = img[i];
             xbar[i] = val;
             xn[i] = val;
-            xcur[i] = val;
             y1[i] = 0.f;
             y2[i] = 0.f;
         }
@@ -66,13 +65,13 @@ __global__ void primal_descent(float* y1, float* y2, float* xbar, float sigma, i
     }
 }
 
-__global__ void dual_ascent(float* xn, float* xcur, float* y1, float* y2, float* img, float tau, float lambda, int w, int h, int nc) {
+__global__ void dual_ascent(float* xn, float* xbar, float* y1, float* y2, float* img, float tau, float lambda, float theta, int w, int h, int nc) {
     int x = threadIdx.x + blockDim.x * blockIdx.x;
     int y = threadIdx.y + blockDim.y * blockIdx.y;
     
     if (x < w && y < h) {
         int i;
-        float d1, d2, val, value;
+        float d1, d2, val, un, value;
         float factor =  tau * lambda;
         
         for (int z = 0; z < nc; z++) {
@@ -80,28 +79,14 @@ __global__ void dual_ascent(float* xn, float* xcur, float* y1, float* y2, float*
             
             d1 = (x+1 < w ? y1[i] : 0.f) - (x>0 ? y1[(x-1) + w * y + w * h * z] : 0.f);
             d2 = (y+1 < h ? y2[i] : 0.f) - (y>0 ? y2[x + w * (y-1) + w * h * z] : 0.f);
-            val = xcur[i] + tau * (d1 + d2);
+            un = xn[i];
+            val = un + tau * (d1 + d2);
 
             value = val - img[i];
             if (value > factor) xn[i] = val - factor;
             if (value < -factor) xn[i] = val + factor;
             if (fabs(value) <= factor) xn[i] = img[i];
-        }
-    }
-}
-
-__global__ void extrapolate(float* xbar, float* xcur, float* xn, float theta, int w, int h, int nc) {
-    int x = threadIdx.x + blockDim.x * blockIdx.x;
-    int y = threadIdx.y + blockDim.y * blockIdx.y;
-    
-    if (x < w && y < h) {
-        int i;
-        
-        for (int z = 0; z < nc; z++)
-        {
-            i = x + w * y + w * h * z;
-            xbar[i] = xn[i] + theta * (xn[i] - xcur[i]);
-            xcur[i] = xn[i];
+            xbar[i] = xn[i] + theta * (xn[i] - un);
         }
     }
 }
@@ -173,7 +158,7 @@ int main(int argc, char **argv)
     // convert to float representation (opencv loads image values as single bytes by default)
     mIn.convertTo(mIn,CV_32F);
     // convert range of each channel to [0,1] (opencv default is [0,255])
-    mIn /= 255.f;
+    // mIn /= 255.f;
 
     // get image dimensions
     int w = mIn.cols;         // width
@@ -192,7 +177,6 @@ int main(int argc, char **argv)
 
     float* d_x; cudaMalloc(&d_x, nbyted); CUDA_CHECK;
     float* d_xbar; cudaMalloc(&d_xbar, nbyted); CUDA_CHECK;
-    float* d_xcur; cudaMalloc(&d_xcur, nbyted); CUDA_CHECK;
 
     float* d_y1; cudaMalloc(&d_y1, nbyted); CUDA_CHECK;
     float* d_y2; cudaMalloc(&d_y2, nbyted); CUDA_CHECK;
@@ -209,12 +193,11 @@ int main(int argc, char **argv)
 
     Timer timer; timer.start();
 
-    init <<<grid, block>>> (d_xbar, d_xcur, d_x, d_y1, d_y2, d_imgInOut, w, h, nc);
+    init <<<grid, block>>> (d_xbar, d_x, d_y1, d_y2, d_imgInOut, w, h, nc);
     for (int i = 1; i <= repeats; i++)
     {
         primal_descent <<<grid, block>>> (d_y1, d_y2, d_xbar, sigma, w, h, nc);
-        dual_ascent <<<grid, block>>> (d_x, d_xcur, d_y1, d_y2, d_imgInOut, tau, lambda, w, h, nc);
-        extrapolate <<<grid, block>>> (d_xbar, d_xcur, d_x, theta, w, h, nc);
+        dual_ascent <<<grid, block>>> (d_x, d_xbar, d_y1, d_y2, d_imgInOut, tau, lambda, theta, w, h, nc);
     }
     solution <<<grid, block>>> (d_imgInOut, d_x, w, h, nc);
 
@@ -224,26 +207,26 @@ int main(int argc, char **argv)
     cudaMemcpy(h_img, d_imgInOut, nbyted, cudaMemcpyDeviceToHost); CUDA_CHECK;
 
     // show input image
-    showImage("Input", mIn, 100, 100);  // show at position (x_from_left=100,y_from_above=100)
+    // showImage("Input", mIn, 100, 100);  // show at position (x_from_left=100,y_from_above=100)
 
     // show output image: first convert to interleaved opencv format from the layered raw array
     convert_layered_to_mat(mOut, h_img);
-    showImage("Output", mOut, 100+w+40, 100);
+    // showImage("Output", mOut, 100+w+40, 100);
 
     // ### Display your own output images here as needed
     // wait for key inputs
-    cv::waitKey(0);
+    // cv::waitKey(0);
 
     // save input and result
     // cv::imwrite("image_input.png",mIn*255.f);  // "imwrite" assumes channel range [0,255]
-    cv::imwrite(output, mOut*255.f);
+    cv::imwrite(output, mOut);
+    // cv::imwrite(output, mOut*255.f);
 
     // free GPU memory
     cudaFree(d_imgInOut); CUDA_CHECK;
     
     cudaFree(d_x); CUDA_CHECK;
     cudaFree(d_xbar); CUDA_CHECK;
-    cudaFree(d_xcur); CUDA_CHECK;
 
     cudaFree(d_y1); CUDA_CHECK;
     cudaFree(d_y2); CUDA_CHECK;
@@ -252,6 +235,6 @@ int main(int argc, char **argv)
     delete[] h_img;
 
     // close all opencv windows
-    cvDestroyAllWindows();
+    // cvDestroyAllWindows();
     return 0;
 }
