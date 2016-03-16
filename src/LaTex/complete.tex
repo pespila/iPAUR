@@ -139,9 +139,9 @@
     
     The algorithm which computes the minimal energy of each functional is a primal-dual algorithm. This framework solves saddle-point problems and is highly parallelizable. In order to be able to apply the algorithm we turn all our minimization into saddle-point problems. One convex functional we consider is the so called ROF functional, first proposed by Rudin, Osher and Fatemi, hence the name. It is based on a least squares and a total variation term. Using the total variation together with a term based on the L1 norm we derive the convex TVL1 functional which we also consider in this work.\\
     
-    Even though, the third functional, namely the Mumford-Shah functional, is non-convex we use convex analysis to turn the minimization of the functional into a saddle-point problem. This strategy does not lead to a provable minimal value of the Mumford-Shah functional, but we get high-quality approximations of images. Additionally, we consider a second approach to minimize the non-convex Mumford-Shah functional. We make use of convex relaxation techniques to turn the minimization into a convex saddle-point problem. Then, we apply again the primal-dual algorithm to solve this optimization problem.\\
+    Even though, the third functional, namely the Mumford-Shah functional, is non-convex we use convex analysis to turn the minimization of the functional into a saddle-point problem. This strategy does not lead to a provable minimal value of the Mumford-Shah functional, but we get high-quality approximations of images. Additionally, we consider a second approach for minimizing the non-convex Mumford-Shah functional. We make use of convex relaxation techniques to turn the minimization into a convex saddle-point problem. Then, we apply again the primal-dual algorithm to solve this optimization problem.\\
 
-    In terms of the convex relaxed functional the primal-dual algorithm has a bad performance. This is related to Dykstra's projection algorithm which is used in each iteration step of the primal-dual algorithm. To resolve the run-time issue we present a method for solving the convex relaxed Mumford-Shah model using Lagrange multipliers. We show that this approach creates a tremendous performance increase. In the case of the other three frameworks, namely minimizing the ROF, TVL1 and non-convex Mumford-Shah functional, we demonstrate that the primal-dual algorithm has real-time applicability.\\
+    In terms of the convex relaxed functional the primal-dual algorithm has a bad performance. This is related to Dykstra's projection algorithm which is used in each iteration step of the primal-dual algorithm. To resolve the run-time issue we present a method for solving the convex relaxed Mumford-Shah model using Lagrange multipliers. We show that this approach creates a tremendous performance increase. In the case of the other three frameworks we demonstrate that the primal-dual algorithm has real-time applicability.\\
     
     Finally, we present image cartooning and a comparison for image denoising with the proposed models. A modified version of the ROF functional is taken into account when we present image inpainting and at last we show that the Mumford-Shah functional fits perfectly for image segmentation.
 \end{abstract}
@@ -159,9 +159,9 @@
     In the second decade of the twenty-first century autonomous driving seems to be an important thing for the car, computer and software industry. The expectation is nothing less than having fewer, or even no, accidents. With these cars, industry is trying to change the world for a better. As this may comfort many people, it poses a lot of technical and computational issues, for instance a stable hardware or even more important viable software. One field of research - of many others - is called Machine Learning, where the computer is trained to make the right decisions in the right situations. The car should be able to accommodate to all possible circumstances which could appear during a drive. To make it even more complicated, the onboard computer needs to decide in real-time. As one can imagine, it is extremely difficult to develop fast, stable and tractable computer programs.\\
     In order to learn from a certain situation the computer needs data from the environment. This can be the shape of another car, traffic lights, differences in the lighting conditions or the distance to other objects. What all these information have in common: They can be collected via images. Small cameras are tracking the traffic and surrounding and providing the necessary data for the software. But it is not only the autonomously driving car which makes use of images. Doctors use X-ray view or MRI scans in patient treatment and semiconductor companies use pictures of wafers looking for damages on it, for example scratches or dark spots. For this reason, image processing has become more important during the last decades. Researchers dealt with many problems like edge detection, deblurring, denoising, inpainting or image segmentation. In the field of edge detection the probably most famous researcher is John F. Canny. He presented a stable edge detection algorithm in 1986 (cf. \cite{Canny}), also known as Canny-Edge-Detector.\\
     Only three years after Canny published his work, two researchers, namely David Mumford and Jayant Shah, published a paper (\cite{Mumford-et-al-cpam}), whose impact is still present. According to Google Scholar their publication was cited over 4.703 times, as of March 12th 2016. They suggested to minimize the energy of the so called Mumford-Shah functional in order to approximate an input image optimally. Solving this optimization problem leads to applications like image denoising, inpainting and segmentation. Unfortunately, this functional is by definition non-convex. For this reason finding the minimal energy of it is a hard task.\\
-    One approach for minimizing the Mumford-Shah functional was published in 2009 by Pock, Cremers, Bischof and Chambolle in \cite{Pock-et-al-iccv09}. We consider this approach in this thesis and present an alternative approach to their proposed method using a Lagrange multipliers formalism. This will lead us to a tremendous performance increase compared to their original work. Pock et al. also proposed a novel primal-dual algorithm in order to compute the minimizer of the functional. The algorithm itself is a solver for saddle-point problems and highly parallelizable. In 2011 Pock and Chambolle published a work (\cite{Chambolle10afirst-order}), cited 1.234 times (Google Scholar), as of March 12th 2016, in which they generalized the primal-dual algorithm and showed applications to imaging with it. So, this framework has grown to a powerful tool in the last years to solve saddle-point problems efficiently.\\
-    One functional Pock and Chambolle consider in their work of 2011 is the ROF functional. It was proposed in 1992 (\cite{ROF}) by the researchers Rudin, Osher and Fatemi. They suggested to minimize the energy of this convex functional. It involves a least squares data term and uses the total variation as regularizer term. By replacing the norm of the least squares data term in the ROF functional with the L1 norm one derives the convex TVL1 functional. Minimizing these two convex functionals can efficiently be done by using techniques of convex analysis. By applying convex analysis we turn the minimization of the functionals into saddle-point problems for which we can use the primal-dual algorithm as a solver. Further, we discuss an approach to the Mumford-Shah functional which proceeds in the same fashion as for minimizing the ROF and TVL1 functional. In 2014 Strekalovskiy and Cremers used convex analysis in order to minimize the non-convex Mumford-Shah functional. Even though, this strategy does not lead to a provable minimal value of the optimization problem we show that we derive high-quality image approximations with this formulation.\\
-    In this work we introduce the three functionals, namely ROF, TVL1 and Mumford-Shah, the total variation and concepts of convex analysis. After we provided the framework for minimizing the functionals we estimate applicable parameters used in the models itself and present applications to imaging. Whereas cartooning and denoising are impressive applications, image inpainting and image segmentation are really imposing.
+    One approach for minimizing the Mumford-Shah functional was published in 2009 by Pock, Cremers, Bischof and Chambolle in \cite{Pock-et-al-iccv09}. We consider this approach in this thesis and present an alternative approach to their proposed method using a Lagrange multiplier formalism. This will lead us to a tremendous performance increase compared to the original suggested framework. Pock et al. also proposed a novel primal-dual algorithm in \cite{Pock-et-al-iccv09} in order to compute the minimizer of the functional. The algorithm itself is a solver for saddle-point problems and highly parallelizable. In 2011 Pock and Chambolle published a work (\cite{Chambolle10afirst-order}), cited 1.234 times (Google Scholar) as of March 12th 2016, in which they generalized the primal-dual algorithm and showed applications to imaging with it. So, this framework has grown to a powerful tool in the last years to solve saddle-point problems efficiently.\\
+    One functional Pock and Chambolle consider in their work of 2011 is the ROF functional. It was proposed in 1992 by the researchers Rudin, Osher and Fatemi (\cite{ROF}). They suggested to minimize the energy of this convex functional. The functional itself involves a least squares data term and uses the total variation as regularizer term. By replacing the norm of the least squares data term in the ROF functional with the L1 norm one derives the convex TVL1 functional. Minimizing these two convex functionals can efficiently be done by using techniques of convex analysis. By applying convex analysis we turn the minimization of the functionals into saddle-point problems, for which we can use the primal-dual algorithm as a solver. Further, we discuss an approach to the Mumford-Shah functional which proceeds in the same fashion as for minimizing the ROF and TVL1 functional. In 2014 Strekalovskiy and Cremers used convex analysis in order to minimize the non-convex Mumford-Shah functional. Even though, this strategy does not lead to a provable minimal value of the optimization problem, we show that we derive high-quality image approximations with this formulation.\\
+    In this work we introduce the three functionals, namely ROF, TVL1 and Mumford-Shah, the total variation and concepts of convex analysis. After providing the frameworks for minimizing the functionals we estimate applicable parameters used in the models and present applications to imaging. Whereas cartooning and denoising are impressive applications, image inpainting and image segmentation are really imposing.
 % chapter introduction (end)
 
 \chapter{Basic Concepts} % (fold)
@@ -293,7 +293,7 @@
                 \includegraphics[width=\textwidth]{img/non_convex_set.png}
                 \caption{Star: a non-convex set.}
             \end{subfigure}
-            \caption[Examples of convex sets.]{Three different sets, where (a) and (b) are convex, but (c) is not. (a) refers to the unit sphere of the $l1$ norm, where (b) refers to the unit sphere of the $l2$ norm. In (c) we see that the line segment of $[u_{2}, u_{3}]$ does not lie in the set itself.}
+            \caption[Examples of convex sets.]{Three different sets, where (a) and (b) are convex and (c) is non-convex. (a) is the unit sphere of the $l1$ norm, where (b) is the unit sphere of the $l2$ norm. In (c) we see that the line segment of $[u_{2}, u_{3}]$ does not fully lie in the set.}
             \label{fig:convex_and_non_convex_sets}
         \end{figure}
         \begin{definition}[Indicator Function, Support Function] % (fold)
@@ -347,7 +347,6 @@
         which is a lower-semicontinuous function. The following theorem can for instance be found in \cite{Rockafellar}.
         \begin{theorem} % (fold)
             If $F, G$ are proper convex functions on $\mathbb{R}^{n}$, then $F + G$ is convex.
-            Let $F, G: X \longrightarrow \mathbb{R}_{\infty}$ be two convex functions. Then $F + G$ is also convex.
         \end{theorem}
         % theorem (end)
         \begin{proof} % (fold)
@@ -394,7 +393,7 @@
         \label{def:domain_epigraph}
             For any function $F: X \longrightarrow \mathbb{R}_{\infty}$, we define the domain
                 $$
-                    \textnormal{dom}(F) = \{ u \in X : F(u) < +\infty \},
+                    \textnormal{dom}(F) = \{ u \in X : F(u) < +\infty \}
                 $$
             and the epigraph
                 $$
@@ -436,11 +435,9 @@
         % definition convex_function_else (end)
         \begin{example}
             \label{ex:convex_function_reloaded}
-            The indicator function $\delta_{C}: X \to \mathbb{R}_{\infty}$ of a set $C$ is convex if and only if $C$ is a convex set. The proof follows from:
-                \begin{itemize}
-                    \item[] $"\Longrightarrow"$: If $\delta_{C}(u)$ is a convex function, we know that the domain of $\delta_{C}(u)$ is convex by Definition \ref{def:convex_function_else}. But then $\textnormal{dom}(\delta_{C}(u)) = C$ is a convex set.
-                    \item[] $"\Longleftarrow"$: Reversely, if $C = \textnormal{dom}(\delta_{C}(u))$ is a convex set, $\delta_{C}(u)$ is a convex function.
-                \end{itemize}
+            The indicator function $\delta_{C}: X \to \mathbb{R}_{\infty}$ of a set $C$ is convex if and only if $C$ is a convex set. This can be seen by:\\
+            $"\Longrightarrow"$: If $\delta_{C}(u)$ is a convex function, we know that the domain of $\delta_{C}(u)$ is convex by Definition \ref{def:convex_function_else}. So, $C = \textnormal{dom}(\delta_{C}(u))$ is a convex set.\\
+            $"\Longleftarrow"$: Reversely, if $C$ is a convex set the domain of $\delta_{C}(u)$ denoted by $\textnormal{dom}(\delta_{C}(u)) = C$ is convex. Then $\delta_{C}(u)$ is a convex function.
         \end{example}
         \begin{figure}[!ht]
             \centering
@@ -458,13 +455,11 @@
         Now that we are set up with convexity, we want to introduce an important concept which is used in this thesis.
         \begin{definition}[Legendre-Fenchel conjugate] % (fold)
         \label{def:legendre_fenchel_conjugate}
-
             Let $F: X \longrightarrow \mathbb{R}$. We define the Legendre-Fenchel conjugate $F^{\ast}$ of $F$ for any $p \in Y$ by
                 \begin{equation}
                     F^{\ast}(p) = \sup_{u \in X} \left( \langle p, u \rangle - F(u) \right).
                     \label{eq:legendre_fenchel_conjugate}
                 \end{equation}
-
         \end{definition}
         % definition legendre_fenchel_conjugate (end)
         \begin{remark} % (fold)
@@ -509,26 +504,23 @@
                             \end{dcases*}
                         = \delta_{||p||_{\ast} \le 1}(p),
                     $$
-                i.e. the convex conjugate of a norm is the indicator function of the unit ball of its dual norm.
-                \begin{proof}
-                    We compute
-                        $$
-                            F^{\ast}(p) = \sup_{u \in X} \left( \langle p, u \rangle - ||u|| \right).
-                        $$
-                    First assume that $||p||_{\ast} > 1$. By definition of the dual norm $||p||_{\ast} = \sup\limits_{||x|| \le 1} |\langle p, x \rangle|$ there is a $x \in \mathbb{R}^{n}$ for which we observe that $\langle p, x \rangle > 1$. We set $u = tx$ and let $t \longrightarrow \infty$, then we get
-                        $$
-                            \langle p, u \rangle - ||u|| = t(\langle p, x \rangle - ||x||) \longrightarrow \infty.
-                        $$
-                    This shows $F^{\ast}(p) = \infty$. On the other hand if we assume that $||p||_{\ast} \le 1$, Cauchy-Schwarz-inequality assures
-                        $$
-                            \langle p, u \rangle \le ||u|| \, ||p||_{\ast}
-                        $$
-                    for all $u \in X$. This implies
-                        $$
-                            \langle p, u \rangle - ||u|| \le ||u|| \, ||p||_{\ast} - ||u|| = ||u|| \, (||p||_{\ast} - 1) \le 0.
-                        $$
-                    Since $||p||_{\ast} \le 1$ holds, we need to choose $u = 0$ to attain the supremum in $F^{\ast}(p)$. This shows that $F^{\ast} = \sup\limits_{u \in X} \left( \langle p, 0 \rangle - ||0|| \right) = 0$.\qed
-                \end{proof}
+                i.e. the convex conjugate of a norm is the indicator function of the unit ball of its dual norm. We compute
+                    $$
+                        F^{\ast}(p) = \sup_{u \in X} \left( \langle p, u \rangle - ||u|| \right).
+                    $$
+                First assume that $||p||_{\ast} > 1$. By definition of the dual norm $||p||_{\ast} = \sup\limits_{||x|| \le 1} |\langle p, x \rangle|$ there is a $x \in \mathbb{R}^{n}$ for which we observe that $\langle p, x \rangle > 1$. We set $u = tx$ and let $t \longrightarrow \infty$, then we get
+                    $$
+                        \langle p, u \rangle - ||u|| = t(\langle p, x \rangle - ||x||) \longrightarrow \infty.
+                    $$
+                This shows $F^{\ast}(p) = \infty$. On the other hand if we assume that $||p||_{\ast} \le 1$, Cauchy-Schwarz-inequality assures
+                    $$
+                        \langle p, u \rangle \le ||u|| \, ||p||_{\ast}
+                    $$
+                for all $u \in X$. This implies
+                    $$
+                        \langle p, u \rangle - ||u|| \le ||u|| \, ||p||_{\ast} - ||u|| = ||u|| \, (||p||_{\ast} - 1) \le 0.
+                    $$
+                Since $||p||_{\ast} \le 1$ holds, we need to choose $u = 0$ to attain the supremum in $F^{\ast}(p)$. This shows that $F^{\ast} = \sup\limits_{u \in X} \left( \langle p, 0 \rangle - ||0|| \right) = 0$.
                 \item As a last example we show that for a function $F(u) = \frac{1}{2} ||u||^{2}$ its convex conjugate is given by $F^{\ast}(p) = \frac{1}{2} ||p||_{\ast}^{2}$. With Cauchy-Schwarz-inequality we have
                     $$
                         \langle p, u \rangle - \frac{||u||^{2}}{2} \le ||p||_{\ast}\,||u|| - \frac{||u||^{2}}{2},
@@ -545,7 +537,7 @@
                     $$
                         \frac{||p|_{\ast}^{2}}{2} = \langle p, u \rangle - \frac{||u||^{2}}{2} \le \sup\limits_{u \in X} \left( \langle p, u \rangle - \frac{||u||^{2}}{2} \right) = F^{\ast}(p).
                     $$
-                From these two inequalities it follows that $F^{\ast}(p) = \frac{||p||_{\ast}^{2}}{2}$.\qed
+                From these two inequalities it follows that $F^{\ast}(p) = \frac{||p||_{\ast}^{2}}{2}$.
             \end{enumerate}
         \end{example}
         Another important property of functions is differentiability. Unfortunately, in some cases a function $F$ is not differentiable everywhere. As shown in Example \ref{ex:subgradient_subdifferential} the absolute value function is not differentiable in $0$. If a non-differentiable function is convex, we have a generalization of the derivative, called subderivative or subdifferential. For this, we want to define the subdifferential and corresponding to it, the subgradient.
@@ -737,7 +729,7 @@
                         \end{array}
                         \notag
                     \end{equation}
-                According to \cite{Jitkomut} the $l2$ and the $l\infty$ projection are given by
+                According to \cite{Jitkomut} the $l2$ and the $l^{\infty}$ projection are given by
                     \begin{enumerate}
                         \item $\Pi_{||\cdot||_{2} \le 1}(\tilde{u}) = \frac{\tilde{u}}{\max(1, |\tilde{u}|)}$, or equivalently
                             \begin{equation}
@@ -857,7 +849,7 @@
 \chapter{The ROF, TVL1 and Mumford-Shah Functional} % (fold)
 \label{cha:the_rof_tvl1_and_mumford_shah_functional}
 
-    In this chapter, we consider convex optimization problems, namely minimization of the ROF and TVL1 functional. Furthermore, we seek for a minimizer of the non-convex Mumford-Shah functional. We apply techniques of convex analysis to turn these minimization into saddle-point problems. In the case of the Mumford-Shah functional we also use these techniques, even if the functional itself is non-convex. There is no proof that this strategy yields the minimal value of the Mumford-Shah functional. Nonetheless, this approach leads to high-quality image approximations.
+    In this chapter we consider convex optimization problems, namely minimization of the ROF and TVL1 functional. Furthermore, we seek for a minimizer of the non-convex Mumford-Shah functional. We apply techniques of convex analysis to turn these minimization into saddle-point problems. In the case of the Mumford-Shah functional we also use these techniques, even if the functional itself is non-convex. There is no proof that this strategy yields the minimal value of the Mumford-Shah functional. Nonetheless, this approach leads to high-quality image approximations.
 
     Our goal is to approximate an input image $g$ by a function $u$. The underlying functionals are modeled with two terms and we try to minimize the energy of each functional, to find a good approximation. We consider problems of the form
         $$
@@ -880,7 +872,7 @@
             \end{equation}
         We also call this saddle-point problem the primal-dual problem, where $u$ is the primal and $p$ the dual variable. We define the corresponding primal problem by
             \begin{equation}
-                \min_{u \in X} \left( G(u) + F(Ku) \right),
+                \min_{u \in X} \left( G(u) + F(Ku) \right)
                 \label{eq:primal_problem}
             \end{equation}
         and the dual problem by
@@ -911,7 +903,7 @@
                   \end{array}
                 \right. .
             $$
-        The scheme was first proposed in a paper of Zhu and Chan in \cite{Zhu-Chan}. Unfortunately, there is no proof of convergence for it. But in 2009 Pock, Cremers, Bischof and Chambolle published a paper (\cite{Pock-et-al-iccv09}) that we also consider in Chapter \ref{cha:minimizing_the_mumford_shah_functional}, whose contribution was an extension of the above scheme for which convergence can be guaranteed under certain conditions. The idea here was to attach an additional extrapolation step to the algorithm, as seen in line three of the Primal-Dual Algorithm \ref{alg:primal_dual_algorithm}. In \cite{Chambolle10afirst-order}, Pock and Chambolle generalized this algorithm. They also proposed some variations of the algorithm itself. Depending on the properties of the corresponding functions $F^{\ast}$ and $G$ one can derive, for instance, a better convergence rate. We will not show details of this and only make use of the first algorithm proposed in \cite{Chambolle10afirst-order}. Additionally, we consider a variant of this algorithm, proposed in \cite{Strekalovskiy-Cremers-eccv14}. Furthermore, we will not provide a proof of convergence for these algorithms. For details, we refer to \cite{Chambolle10afirst-order}. The general primal-dual algorithm can be written as follows:
+        The scheme was first proposed in a paper of Zhu and Chan in \cite{Zhu-Chan}. Unfortunately, there is no proof of convergence for it. But in 2009 Pock, Cremers, Bischof and Chambolle published a paper (\cite{Pock-et-al-iccv09}) that we also consider in Chapter \ref{cha:minimizing_the_mumford_shah_functional}, whose contribution was an extension of the above scheme for which convergence can be guaranteed under certain conditions. The idea is to attach an additional extrapolation step to the algorithm, as seen in line three of the Primal-Dual Algorithm \ref{alg:primal_dual_algorithm}. In \cite{Chambolle10afirst-order}, Pock and Chambolle generalized this algorithm. They also proposed some variations of the algorithm itself. Depending on the properties of the corresponding functions $F^{\ast}$ and $G$ one can derive, for instance, a better convergence rate. We will not show details of this and only make use of the first algorithm proposed in \cite{Chambolle10afirst-order}. Additionally, we consider a variant of this algorithm, proposed in \cite{Strekalovskiy-Cremers-eccv14}. Furthermore, we will not provide a proof of convergence for these algorithms. For details, we refer again to \cite{Chambolle10afirst-order}. The general primal-dual algorithm can be written as follows:
         \begin{algorithm}[Primal-Dual Algorithm]
         \label{alg:primal_dual_algorithm}
             Choose $(u^{0}, p^{0}) \in X \times Y$ and let $\bar{u}^{0} = u^{0}$. Further let $\tau, \sigma > 0$ and $\theta \in [0, 1]$. Then, we let for each $n \ge 0$
@@ -963,7 +955,7 @@
             \end{equation}
         where the indices $(i, j)$ denote the discrete locations in the pixel grid. We define an image $u \in X: \mathcal{G} \longrightarrow \mathbb{R}$ where $X \in \mathbb{R}^{N \times M}$ is a finite dimensional vector space equipped with the standard inner product
             \begin{equation}
-                \langle u, v \rangle_{X} = u^{T}v = \sum_{i = 1}^{N} \sum_{j = 1}^{M} u_{i, j} v_{i, j}, \,\,\, u, v \in X,
+                \langle u, v \rangle_{X} = u^{T}v = \sum_{i = 1}^{N} \sum_{j = 1}^{M} u_{i, j} v_{i, j}, \,\,\, u, v \in X
                 \label{eq:inner_product}
             \end{equation}
         and the standard euclidean norm
@@ -977,7 +969,7 @@
             \end{equation}
         with $p_{i, j} = \left(p^{1}_{i, j}, p^{2}_{i, j}\right)^{T}, q_{i, j} = \left(q^{1}_{i, j}, q^{2}_{i, j}\right)^{T} \in Y$, also equipped with the euclidean norm. Additionally, we define two important norms. The discrete isotropic total variation norm is given by
             $$
-                ||\nabla \, u||_{1} = \sum_{i = 1}^{N} \sum_{j = 1}^{M} |(\nabla \, u)_{i, j}|, \,\,\, \textnormal{where} \,\,\, |(\nabla \, u)_{i, j}| = \sqrt{((\nabla \, u)^{1}_{i, j})^{2} + ((\nabla \, u)^{2}_{i, j})^{2}},
+                ||\nabla \, u||_{1} = \sum_{i = 1}^{N} \sum_{j = 1}^{M} |(\nabla \, u)_{i, j}|, \,\,\, \textnormal{where} \,\,\, |(\nabla \, u)_{i, j}| = \sqrt{((\nabla \, u)^{1}_{i, j})^{2} + ((\nabla \, u)^{2}_{i, j})^{2}}
             $$
         and the discrete maximum norm by
             $$
@@ -1088,12 +1080,12 @@
     \section{The ROF Model} % (fold)
     \label{sec:the_rof_model}
         
-        Now that everything is defined properly, we consider the minimization of the ROF functional, named after Leonid I. Rudin, Stanley Osher and Emad Fatemi. This functional was first proposed in 1992 in \cite{ROF}. It is the prototype when talking about variational methods in image processing.
+        Now, that everything is defined properly we consider the minimization of the ROF functional, named after Leonid I. Rudin, Stanley Osher and Emad Fatemi. This functional was first proposed in 1992 in \cite{ROF}. It is the prototype when talking about variational methods in image processing.
         \begin{definition}[ROF Functional] % (fold)
         \label{def:the_rof_functional}
             Let $\Omega \in \mathbb{R}^{n}$ be the $n$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ an input image. Then the ROF functional is defined as
                 \begin{equation}
-                    E_{ROF}(u) = \textnormal{TV}(u) + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx = \int_{\Omega} |\nabla \, u| \, dx + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx,
+                    E_{ROF}(u) = \textnormal{TV}(u) + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx = \int_{\Omega} |\nabla \, u| \, dx + \frac{\lambda}{2} \int_{\Omega} |u - g|^{2} \, dx
                     \label{eq:the_rof_model}
                 \end{equation}
             and we seek to compute the minimizer over all $u$.
@@ -1101,7 +1093,7 @@
         % definition the_rof_model (end)
         The appearing parameter $\lambda$ is used to handle the tradeoff between the regularizer, the total variation, and the data fidelity term which is a least squares term. Using a larger value for $\lambda$ we get an approximation $u$ which is closer to the input image $g$. If we choose $\lambda$ to be small the weighting of the regularizer is higher. For that, the approximation $u$ is smoother, because the gradient in the total variation penalizes jumps in the approximation $u$. Reformulation of Equation (\ref{eq:the_rof_model}) into a discrete minimization problem gives us:
             \begin{equation}
-                \min_{u \in X} E_{ROF}(u) = \min_{u \in X} ||\nabla \, u||_{1} + \frac{\lambda}{2} ||u - g||_{2}^{2}
+                \min_{u \in X} E_{ROF}(u) = \min_{u \in X} ||\nabla \, u||_{1} + \frac{\lambda}{2} ||u - g||_{2}^{2},
             \label{eq:discrete_rof_model}
             \end{equation}
         with $u \in X$ being the unknown approximation and $g \in X$ the given data. This minimization problem is convex because the cost function as a sum of norms is convex. Let us now rewrite the model, the minimization of the ROF functional, into a saddle-point formulation.
@@ -1109,7 +1101,7 @@
         \subsection{ROF Model as Saddle-Point Problem} % (fold)
         \label{sub:rof_model_as_saddle_point_problem}
 
-            In order to obtain a saddle-point formulation of Equation (\ref{eq:discrete_rof_model}), we identify $F(\nabla u) = ||\nabla \, u||_{1}$ and $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$. Hence, we face
+            In order to obtain a saddle-point formulation of Equation (\ref{eq:discrete_rof_model}), we identify the functions $F(\nabla u) = ||\nabla \, u||_{1}$ and $G(u) = \frac{\lambda}{2} ||u - g||_{2}^{2}$, respectively. Hence, we face
                 \begin{equation}
                     \min_{u \in X}\,\, F(\nabla u) + G(u) = \min_{u \in X}\,\, ||\nabla \, u||_{1} + \frac{\lambda}{2} ||u - g||_{2}^{2}.
                 \label{eq:primal_rof_problem}
@@ -1122,7 +1114,7 @@
                 $$
                     \min_{u \in X}\, \max_{p \in Y}\,\, \langle p, \nabla \, u \rangle - F^{\ast}(p) + G(u).
                 $$
-            It remains to show how $F^{\ast}(p)$ is represented. From Example \ref{ex:legendre_fenchel_conjugate_example} 2. and the fact that the conjugate norm of the $l1$ norm is the $l_{\infty}$ norm, we have
+            It remains to show how $F^{\ast}(p)$ is represented. From Example \ref{ex:legendre_fenchel_conjugate_example} 2. and the fact that the conjugate norm of the $l1$ norm is the $l^{\infty}$ norm, we have
                 $$
                     F^{\ast}(p) =
                         \begin{dcases*}
@@ -1152,10 +1144,8 @@
                     \max_{p \in Y}\,\, -(G^{\ast}(-K^{\ast}p) + F^{\ast}(p)) &=& \max_{p \in Y} - \left( \frac{1}{2\lambda} ||-\nabla^{T}p||^{2}_{2} + \langle g, -\nabla^{T}p \rangle_{X} + \delta_{P}(p) \right) \notag \\
                     &=& \max_{p \in Y} - \left( \frac{1}{2\lambda} ||\textnormal{div}\,(p)||^{2}_{2} + \langle g, \textnormal{div}\,(p) \rangle_{X} + \delta_{P}(p). \right) \notag
                 \end{eqnarray}
-            Let us now compute the corresponding proximity operators of Problem (\ref{eq:primal_dual_rof_problem}), to be able to solve this saddle-point problem.
-
+            Let us now compute the corresponding proximity operators of Problem (\ref{eq:primal_dual_rof_problem}), to be able to solve this saddle-point problem using the primal-dual algorithm.
             % subsection rof_model_as_saddle_point_problem (end)
-
         \subsection{The Proximity Operators of the ROF Model} % (fold)
         \label{sub:the_proximity_operators_for_the_rof_model}
 
@@ -1167,7 +1157,7 @@
                 $$
                     (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \arg \min_{p \in Y} \frac{||p - \tilde{p}||_{2}^{2}}{2} + \sigma\,\delta_{P}(p) = \arg \min_{p \in P} \frac{||p - \tilde{p}||_{2}^{2}}{2}.
                 $$
-            This is nothing but the euclidean projection of a vector $\tilde{p} \notin P$ onto the convex set $P$. As we follow Pock and Chambolle in \cite{Chambolle10afirst-order}, we note that $P$ is the cross product of pointwise $L2$ balls, see also Figure \ref{fig:pointwise_l2_projections}. So, we compute pointwise euclidean ($l2$) projections. We get with Example \ref{ex:projection_operator} 1.
+            This is nothing but the euclidean projection of a vector $\tilde{p} \notin P$ onto the convex set $P$. As we follow Pock and Chambolle in \cite{Chambolle10afirst-order}, we note that $P$ is the cross product of pointwise $L2$ balls, see also Figure \ref{fig:pointwise_l2_projections}. So, we compute pointwise euclidean (l2) projections. We get with Example \ref{ex:projection_operator} 1.
                 $$
                     p = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(\tilde{p}) = \Pi_{P}(\tilde{p}) \iff p_{i,j} = \frac{\tilde{p}_{i, j}}{\max(1, |\tilde{p}_{i, j}|)},
                 $$
@@ -1175,9 +1165,10 @@
             \begin{figure}[!ht]
                 \centering
                 \includegraphics[width=0.5\textwidth]{img/pointwise_projection.png}
-                \caption[Pointwise $l2$ projections.]{The point $P \in \mathbb{R}^{2}$ needs two pointwise projections. First in the direction of $x$ and afterwards in $y$ direction. The point $Q \in \mathbb{R}^{2}$ only needs one pointwise projection in the direction of $z$.}
+                \caption[Pointwise $l2$ projections.]{The point $P \in \mathbb{R}^{2}$ needs two pointwise projections. First in the direction of $x$ and afterwards in $y$ direction. The point $Q \in \mathbb{R}^{2}$ only needs one pointwise projection in the direction of $y$.}
                 \label{fig:pointwise_l2_projections}
             \end{figure}
+
             It remains to compute the proximity operator for the function $G$. Here, we have
                 $$
                     (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) = \arg \min_{u \in X} \frac{||u - \tilde{u}||_{2}^{2}}{2} + \frac{\tau\lambda}{2} ||u - g||_{2}^{2} = \arg \min_{u \in X} \mathcal{L}(u).
@@ -1192,7 +1183,6 @@
                 \label{eq:proximity_operator_g_rof}
                 \end{equation}
             holds pointwise for all $i = 1, ..., N$ and $j = 1, ..., M$. As a last step we show an appropriate stopping criterion to determine convergence of the primal-dual algorithm.
-
         % subsection the_proximity_operators_for_the_rof_model (end)
 
         \subsection{Stopping Criterion} % (fold)
@@ -1206,11 +1196,11 @@
                 $$
                     ||u^{n+1} - u^{n}|| \le \varepsilon,
                 $$
-            with $\varepsilon = 5 \cdot 10^{-6}$. Furthermore, the underlying norm is defined by
+            with $\varepsilon = \cdot 10^{-6}$. Furthermore, the underlying norm is defined by
                 $$
-                    ||\tilde{u}|| = \frac{1}{N \cdot M} \sum_{k = 1}^{K} \sum_{i = 1}^{N} \sum_{j = 1}^{M} |\tilde{u}_{i,j}|.
+                    ||\tilde{u}|| = \frac{1}{N \cdot M} \sum_{k = 1}^{B} \sum_{i = 1}^{N} \sum_{j = 1}^{M} |\tilde{u}_{i,j}|.
                 $$
-            Here, $K$ is the number of color channels. We set $K = 1$ for grayscaled and $K = 3$ for colored images, like RGB valued images. This computation is not as costly as the calculation of the whole energy function and as Chapter \ref{cha:applications_to_imaging} shows, a good criterion to determine convergence.
+            Here, $B$ is the number of color channels. We set $B = 1$ for grayscaled and $B = 3$ for colored images, like RGB valued images. This computation is not as costly as the calculation of the whole energy function and as Chapter \ref{cha:applications_to_imaging} shows, a good criterion to determine convergence.
 
         % subsection stopping_criterion_rof (end)
 
@@ -1225,7 +1215,7 @@
 
             Let $\Omega \in \mathbb{R}^{n}$ be the $n$-dimensional image domain, $u \in W_{1}^{1}(\Omega)$ and $g \in L^{1}(\Omega)$ an input image. Then the TVL1 functional is defined as
                 \begin{equation}
-                    E_{TVL1}(u) = \textnormal{TV}(u) + \lambda \int_{\Omega} |u - g| \, dx = \int_{\Omega} |\nabla \, u| \, dx + \lambda \int_{\Omega} |u - g| \, dx,
+                    E_{TVL1}(u) = \textnormal{TV}(u) + \lambda \int_{\Omega} |u - g| \, dx = \int_{\Omega} |\nabla \, u| \, dx + \lambda \int_{\Omega} |u - g| \, dx
                 \end{equation}
             and we seek to compute the minimizer of this functional over all $u$.
 
@@ -1267,7 +1257,7 @@
                     &=& \sup_{z \in X} \left( \langle p, z + g \rangle - \lambda ||z||_{1} \right) \notag \\
                     &=& \sup_{z \in X} \left( \langle \frac{1}{\lambda} p, z \rangle - ||z||_{1} \right) + \langle p, g \rangle. \notag
                 \end{eqnarray}
-            Using Example \ref{ex:legendre_fenchel_conjugate_example} 2. and the fact that the conjugate norm of the $l1$ norm is the $l_{\infty}$ norm, leads us to
+            Using Example \ref{ex:legendre_fenchel_conjugate_example} 2. and the fact that the conjugate norm of the $l1$ norm is the $l^{\infty}$ norm, leads us to
                 $$
                     G^{\ast}(p) =
                         \begin{dcases*}
@@ -1309,7 +1299,7 @@
                     0 \in \partial_{i,j} \mathcal{L}(\hat{u}) &\iff& 0 \in \hat{u}_{i,j} - \tilde{u}_{i,j} + \tau\lambda \partial_{i,j}(||\hat{u} - g||_{1}) \notag \\
                     &\iff& 0 \in \hat{u}_{i,j} - \tilde{u}_{i,j} + \tau\lambda \partial_{i,j} (|\hat{u}_{i,j} - g_{i,j}|). \notag
                 \end{eqnarray}
-            This means we need to compute the subgradient of the absolute value function for all partial subderivatives $i = 1, ..., N$, $j = 1, ..., M$. In Example \ref{ex:subgradient_subdifferential} 1. we saw how the subgradient for the absolute-value function is computed. We have
+            This means we need to compute the subgradient of the absolute value function for all partial subderivatives $(i,j)$ with $i = 1, ..., N$, $j = 1, ..., M$. In Example \ref{ex:subgradient_subdifferential} 1. we saw how the subgradient for the absolute-value function is computed. We have
                 $$
                     y_{i,j} =
                         \left\{
@@ -1357,14 +1347,14 @@
                         \end{dcases*}.
                 \label{eq:prox_g_tvl1}
                 \end{equation}
-            As we computed all operators which are necessary for the primal-dual algorithm, we need an appropriate criterion for convergence. We completely adapt the idea of Subsection \ref{sub:stopping_criterion_rof}. As shown in Chapter \ref{cha:applications_to_imaging}, it is also a well-suited criterion to determine convergence for minimizing the TVL1 functional.
+            As we computed all operators, which are necessary for the primal-dual algorithm, we need an appropriate criterion for convergence. We completely adapt the idea of Subsection \ref{sub:stopping_criterion_rof}. As shown in Chapter \ref{cha:applications_to_imaging}, it is also a well-suited criterion to determine convergence for minimizing the TVL1 functional.
         % subsubsection the_proximity_operators_of_the_tvl1_model (end)
     % section the_tvl1_model (end)
 
     \section{The Mumford-Shah Model} % (fold)
     \label{sec:the_mumford_shah_model}
         
-        In the previous sections we showed that we can rewrite convex minimization into saddle-point problems. Further, we computed the proximity operators for the underlying functions in these models. With this, we were able to apply the primal-dual algorithm to solve each saddle-point problem. In this section we introduce a non-convex functional, namely the Mumford-Shah functional, we seek to minimize. The idea is, despite the non-convexity, to apply convex analysis to the minimization problem and use Moreau's identity to compute one of the proximity operators. Let us start by defining the Mumford-Shah functional.
+        In the previous sections we showed that we can rewrite convex minimization into saddle-point problems. Further, we computed the proximity operators for the underlying functions in these models. With these, we were able to apply the primal-dual algorithm to solve each saddle-point problem. In this section we introduce a non-convex functional, namely the Mumford-Shah functional, we seek to minimize. The idea is, despite the non-convexity, to apply convex analysis to the minimization problem and use Moreau's identity to compute one of the proximity operators. Let us start by defining the Mumford-Shah functional.
         \begin{definition}[The Mumford-Shah Functional] % (fold)
         \label{def:the_mumford_shah_functional}
             Let $\Omega \subseteq \mathbb{R}^{2}$ be a rectangular image domain. In order to approximate an input image $g: \Omega \longrightarrow \mathbb{R}^{k}$ in terms of a piecewise smooth function $u: \Omega \longrightarrow \mathbb{R}^{k}$, the Mumford-Shah Functional is given by
@@ -1380,7 +1370,7 @@
         \begin{remark}
             In this section we follow the representation of the Mumford-Shah functional of \cite{Strekalovskiy-Cremers-eccv14}.
         \end{remark}
-        This functional differs from the ones in the previous sections. The first term, the data fidelity term, remains the same as in the ROF model, except a scaling factor $\frac{1}{2}$ and the parameter $\lambda$ now controls the first term of the regularizer.This regularizer consists of two terms in this functional. The first term of the Mumford-Shah regularizer uses again the gradient, but not in the set $\Omega$ itself. Instead it states that the approximation $u$ should be smooth in sets of $\Omega$ separated by curves $K$, namely in $\Omega \setminus K$. We call $K$ the discontinuity set (or jump set). The length of the discontinuity set $K$ is also measured and taken into account in the energy $E_{MS}(u)$. We find two weighting parameters $\nu$ and $\lambda$ in this model. Where $\lambda$ handles the tradeoff between the first term of the regularizer and the data fidelity term, $\nu$ controls the length of the discontinuity set $K$. A smaller $\nu$ yields a smoother image, where a higher $\nu$ leads to sharper edges in the approximation. Yet, the parameter $\lambda$ plays another important role. If we choose $\lambda$ small enough then the model is also called piecewise-smooth Mumford-Shah model. On the other hand, in the limiting case $\lambda \to \infty$, we can only attain a minimum if we set $\nabla u = 0$ in $\Omega \setminus K$. Then the model is known as the piecewise-constant Mumford-Shah model. In \cite{Strekalovskiy-Cremers-eccv14} Strekalovskiy and Cremers suggested to rewrite the regularizer in the discrete setting by using the following function:
+        This functional differs from the ones in the previous sections. The first term, the data fidelity term, remains the same as in the ROF model, except a scaling factor $\frac{1}{2}$ and the parameter $\lambda$ now controls the first term of the regularizer. This regularizer consists of two terms in this functional. The first term of the Mumford-Shah regularizer uses again the gradient, but not in the set $\Omega$ itself. Instead it states that the approximation $u$ should be smooth in sets of $\Omega$ separated by curves $K$, namely in $\Omega \setminus K$. We call $K$ the discontinuity set (or jump set). The length of the discontinuity set $K$ is also measured and taken into account in the energy $E_{MS}(u)$. We find two weighting parameters $\nu$ and $\lambda$ in this model. Where $\lambda$ handles the tradeoff between the first term of the regularizer and the data fidelity term, $\nu$ controls the length of the discontinuity set $K$. A smaller $\nu$ yields a smoother image, where a higher $\nu$ leads to sharper edges in the approximation. Yet, the parameter $\lambda$ plays another important role. If we choose $\lambda$ small enough then the model is also called piecewise-smooth Mumford-Shah model. On the other hand, in the limiting case $\lambda \to \infty$, we can only attain a minimum if we set $\nabla u = 0$ in $\Omega \setminus K$. Then the model is known as the piecewise-constant Mumford-Shah model. In \cite{Strekalovskiy-Cremers-eccv14} Strekalovskiy and Cremers suggested to rewrite the regularizer in the discrete setting by using the following function:
             \begin{equation}
                 R_{MS}(f) = \min(\lambda |f|^{2},\nu).
             \label{eq:ms_regularizer}
@@ -1443,7 +1433,7 @@
             
             Let us first evaluate the proximity operator for the function $G = ||u - g||_{2}^{2}$. We can partially adapt it from Equation (\ref{eq:proximity_operator_g_rof}), because the underlying data fidelity term is the same as in the ROF model, excluding the factor $\frac{\lambda}{2}$. Define
                 $$
-                    \mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \frac{||u - g||_{2}^{2}}{2}
+                    \mathcal{L}(u) = \frac{||u - \tilde{u}||_{2}^{2}}{2} + \tau \frac{||u - g||_{2}^{2}}{2},
                 $$
             which is a convex function. We observe for the proximity operator
                 $$
@@ -1490,11 +1480,11 @@
                             &=& \frac{(1 + 2\gamma\lambda)\gamma\lambda}{(1 + 2\gamma\lambda)^{2}} |\tilde{x}_{i,j}|^{2} \notag \\
                             &=& \frac{\gamma\lambda}{1 + 2\gamma\lambda} |\tilde{x}_{i,j}|^{2}. \label{eq:bound_on_p}
                         \end{eqnarray}
-                    \item In the last case, where $\lambda |x_{i,j}|^{2} = \nu$, we need to decide which of the previously computed minima is the global minimal value. In Figure \ref{fig:objective_function} we see in the two-dimensional case that the objective function can attain several minima. As we consider the boundary of two convex functions, namely $\frac{|x_{i,j} - \tilde{x}_{i,j}|^{2}}{2} + \gamma \lambda |x_{i,j}|^{2}$ and $\frac{|x_{i,j} - \tilde{x}_{i,j}|^{2}}{2} + \gamma \nu$, we know that one of the previously computed minimal values is the global minimum and that the minimum can not be attained on the bound. By comparing both minima we need to check
+                    \item In the last case, where $\lambda |x_{i,j}|^{2} = \nu$, we need to decide which of the previously computed minima is the global minimal value. In Figure \ref{fig:objective_function} we see that the objective function can attain several minima. As we consider the boundary of two convex functions, namely $\frac{|x_{i,j} - \tilde{x}_{i,j}|^{2}}{2} + \gamma \lambda |x_{i,j}|^{2}$ and $\frac{|x_{i,j} - \tilde{x}_{i,j}|^{2}}{2} + \gamma \nu$, we know that one of the previously computed minimal values is the global minimum and that the minimum can not be attained on the bound where $\lambda |x_{i,j}|^{2} = \nu$. By comparing both minima we need to check
                         \begin{eqnarray}
                             \frac{\gamma\lambda}{1 + 2\gamma\lambda} |\tilde{x}_{i,j}|^{2} \le \gamma \nu &\iff& \frac{\lambda}{1 + 2\gamma\lambda} |\tilde{x}_{i,j}|^{2} \le \nu \label{eq:minimal_energy} \\
                             &\iff& |\tilde{x}_{i,j}|^{2} \le \frac{\nu}{\lambda}(1 + 2\gamma\lambda) \notag \\
-                            &\iff& |\tilde{x}_{i,j}| \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)} \notag
+                            &\iff& |\tilde{x}_{i,j}| \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}. \notag
                         \end{eqnarray}
                     As long as this inequality holds, we can choose $x_{i,j} = \frac{\tilde{x}_{i,j}}{1 + 2 \gamma \lambda}$.
                 \end{enumerate}
@@ -1507,7 +1497,7 @@
                     \end{dcases*},
                     \label{eq:proximity_operator_R}
                 \end{equation}
-            for all $i = 1, ..., N$ and $j = 1, ..., M$. To derive the representation of the proximity operator for $R_{MS}^{\ast}$ we insert the operator of Equation (\ref{eq:proximity_operator_R}) into Moreau's identity formula of Equation (\ref{eq:moreau_mumford_shah_regularizer}). We need to do a case by case study to take the constraints in \ref{eq:proximity_operator_R} into account:
+            for all $i = 1, ..., N$ and $j = 1, ..., M$. To derive the representation of the proximity operator for $R_{MS}^{\ast}$ we insert the operator of Equation (\ref{eq:proximity_operator_R}) into Moreau's identity formula of Equation (\ref{eq:moreau_mumford_shah_regularizer}). We need to do a case by case study to take the constraints in (\ref{eq:proximity_operator_R}) into account:
             \begin{enumerate}
                 \item Assume that $|\tilde{p}_{i,j}| > \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$ at a position $(i,j)$. Then the proximity operator, due to Moreau's identity, is given by
                     \begin{eqnarray}
@@ -1570,11 +1560,11 @@
                 \caption[Plot of a objective function within a minimum function.]{In (a) and (d) the objective function of the minimization problem only attains one minimum. In (c) we have two minima, but the global minimum is attained for the condition $|\tilde{x}_{i,j}| \le \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$. In (b) the global minimum is attained in the region in which $|\tilde{x}_{i,j}| > \sqrt{\frac{\nu}{\lambda}(1 + 2\gamma\lambda)}$.}
                 \label{fig:objective_function}
             \end{figure}
-            According to Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}, there is no proof of convergence for this framework. Despite that fact, they show the boundedness of $u^{n}$ in the piecewise smooth case. This is summarized in the following proposition.
+            According to Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}, there is no proof of convergence to the minimal value of the Mumford-Shah functional for this framework. Despite that fact, they show the boundedness of $u^{n}$ in the piecewise smooth case. This is summarized in the following proposition.
             \begin{proposition}
                 The sequence $(u^{n}, p^{n})$ generated by Algorithm \ref{alg:realtime_primal_dual_algorithm} is bounded and thus compact for $\lambda < \infty$, for instance it has a convergent subsequence.
             \end{proposition}
-            The proof can be found in the supplementary material of \cite{Strekalovskiy-Cremers-eccv14}. To determine convergence we also partially follow \cite{Strekalovskiy-Cremers-eccv14} as described in Subsection \ref{sub:stopping_criterion_rof}, but set $\varepsilon = 5 \cdot 10^{-5}$. \\\\
+            The proof can be found in the supplementary material of \cite{Strekalovskiy-Cremers-eccv14}. To determine convergence we also partially follow \cite{Strekalovskiy-Cremers-eccv14} as described in Subsection \ref{sub:stopping_criterion_rof}, but set $\varepsilon = 5 \cdot 10^{-5}$. The difference in our framework is that we evaluate the norm in each iteration step. In \cite{Strekalovskiy-Cremers-eccv14} they compute this norm every ten iteration steps. \\\\
         % subsubsection the_proximity_operators_of_the_tvl1_model (end)
     % section the_mumford_shah_functional (end)
     In this chapter we have provided a framework to solve variational problems, as well as a possibility to minimize the Mumford-Shah functional. In the next chapter we present a second approach to minimize the Mumford-Shah functional.
@@ -1597,7 +1587,7 @@
         where $\lambda, \nu > 0$ are weighting parameters, $S_{u} = S^{1}_{u} \cup ... \cup S^{N}_{u}$ and $\mathcal{H}^{1}(S_{u})$ denotes the one-dimensional Hausdorff-measure of the curves in $S_{u}$. And we seek to minimize $E_{MS}(u)$ over all $u$.
     \end{definition}
     % definition the_mumford_shah_functional (end)
-    The difference to Chapter \ref{cha:the_rof_tvl1_and_mumford_shah_functional} is that we interchanged the set $K$ with $S_{u} = S^{1}_{u} \cup ... \cup S^{N}_{u}$ and instead of computing $|K|$, we use the more general notation of measure theory, namely $\mathcal{H}^{1}(S_{u})$. In the case, where $u \in \Omega \subseteq \mathbb{R}^{2}$ the one-dimensional Hausdorff-measure of $S_{u}$ is nothing but $|S_{u}|$. Another difference to Definition \ref{def:the_mumford_shah_functional} is the parameter $\lambda$, which handles the tradeoff between the data fidelity term and the first term in the regularizer. It is swapped and controls the term where the image $f$ enters the functional in this framework. This swapping of the parameter also rescales $\nu$ in this functional. The rescaling does not change the energy, but we need other pairs $(\lambda, \nu)$ for a good image approximation as in the real-time minimzer framework of Subsection \ref{sec:the_mumford_shah_model}.\\
+    The difference to Chapter \ref{cha:the_rof_tvl1_and_mumford_shah_functional} is that we interchanged the set $K$ with $S_{u} = S^{1}_{u} \cup ... \cup S^{N}_{u}$ and instead of computing $|K|$, we use the more general notation of measure theory, namely $\mathcal{H}^{1}(S_{u})$. In the case, where $u \in \Omega \subseteq \mathbb{R}^{2}$ the one-dimensional Hausdorff-measure of $S_{u}$ is nothing but $|S_{u}|$. Another difference to Definition \ref{def:the_mumford_shah_functional} is the parameter $\lambda$, which handles the tradeoff between the data fidelity term and the first term in the regularizer. It is swapped and controls the term where the image $f$ enters the functional. This swapping of the parameter also rescales $\nu$ in this formulation. The rescaling does not change the energy, but we need other pairs $(\lambda, \nu)$ for a good image approximation as in the real-time minimzer framework of Subsection \ref{sec:the_mumford_shah_model}. We discuss this issue in Chapter \ref{cha:applications_to_imaging}.\\
 
     As mentioned in the previous chapter this functional is non-convex. The idea to derive a convex saddle-point representation of the Mumford-Shah functional is to make use of some results presented by Alberti, Bouchitte and Dal Maso.
     \section{Convex Relaxation} % (fold)
@@ -1645,16 +1635,16 @@
             \begin{itemize}
                 \item We used in the theorem that we regard the function $\varphi$ as the representation $\varphi(x, t) = \left( \varphi^{x}(x,t), \varphi^{t}(x,t) \right)^{T}$ where $\varphi(x,t) \in \mathbb{R}^{3}$, $\varphi^{x}(x,t) \in \mathbb{R}^{2}$ and $\varphi^{t}(x,t) \in \mathbb{R}$.
                 \item The idea to approximate the Mumford-Shah functional is to maximize the flux of a vector field $\varphi$ through the interface $\Gamma_{u}$. The advantage of this technique is to get a convex representation of the Mumford-Shah functional and for this we derive in the following a convex saddle-point formulation. Then we can - again - make use of the primal-dual algorithm to solve the optimization problem.
-                \item Note that $\varphi \in C^{0}(\Omega \times \mathbb{R}, \mathbb{R}^{3})$. In \cite{Pock-et-al-iccv09} Pock et al. propose $\varphi \in C^{0}(\Omega \times \mathbb{R}, \mathbb{R}^{2})$, which is a typo.
+                \item Note that $\varphi \in C^{0}(\Omega \times \mathbb{R}, \mathbb{R}^{3})$. In \cite{Pock-et-al-iccv09}, Pock et al. propose $\varphi \in C^{0}(\Omega \times \mathbb{R}, \mathbb{R}^{2})$ which is a typo.
             \end{itemize}
         \end{remark}
         Our goal is to minimize (\ref{eq:convex_relaxed_ms}). We seek to solve
             $$
                 \min_{u} E(u) = \min_{u} \left( \sup_{\varphi \in K} \int_{\Omega \times \mathbb{R}} \varphi D\mathds{1}_{u} \right).
             $$
-        Following Pock et al. in \cite{Pock-et-al-iccv09} we additionally substitute $\mathds{1}_{u}$ by a function
+        Following \cite{Pock-et-al-iccv09} we additionally substitute $\mathds{1}_{u}$ by a function
             \begin{equation}
-                v(x, t): \Omega \times \mathbb{R} \longrightarrow [0, 1] \,\, \textnormal{and} \,\, \lim_{t \rightarrow -\infty} v(x, t) = 1, \, \, \, \lim_{t \rightarrow +\infty} v(x, t) = 0,
+                v(x, t): \Omega \times \mathbb{R} \longrightarrow [0, 1] \,\, \textnormal{and} \,\, \lim_{t \rightarrow -\infty} v(x, t) = 1, \, \, \, \lim_{t \rightarrow +\infty} v(x, t) = 0
             \label{eq:generic_functions}
             \end{equation}
         to compute the minimal energy of the Mumford-Shah functional. Overall, we are going to face the following convex optimization problem:
@@ -1680,7 +1670,7 @@
             \begin{equation}
                 C = \{ u \in X: u(i,j,k) \in [0,1], u(i, j, 1) = 1, u(i, j, S) = 0 \}.
             \end{equation}
-        To take the limits of the function $v$ into account in its discrete version $u$, we set the values in the first label space to $1$ and those in the S-th label space to $0$. According to \cite{Pock-et-al-iccv09} the discrete version of the set $K$ from Equation (\ref{eq:set_k_continuous}) has the following representation:
+        In order to take the limits of the function $v$ into account in its discrete version $u$, we set the values in the first label space to $1$ and those in the S-th label space to $0$. According to \cite{Pock-et-al-iccv09} the discrete version of the convex set $K$ from Equation (\ref{eq:set_k_continuous}) has the following representation:
             \begin{eqnarray}
                 K = \{ p = (p^{x}, p^{t})^{T} \in Y &:& p^{t}(i,j,k) \ge \frac{||p^{x}(i,j,k)||_{2}^{2}}{4} - \lambda(\frac{k}{S} - f(i,j))^{2}, \label{eq:local_constraint} \\
                 &&\left| \sum_{k_{1} \le k \le k_{2}} p^{x}(i,j,k) \right| \le \nu \}, \label{eq:non_local_constraint}
@@ -1757,7 +1747,7 @@
         \end{proposition}
         % proposition bound_on_the_norm (end)
         \begin{proof}
-        	The proof remains the same as for Proposition \ref{prop:bound_on_the_norm} by adding the additional discretization variable $p^{3}_{i,j,k}$ and applying Young's inequality three times with $p = q = 2$.\qed
+        	The proof remains the same as for Proposition \ref{prop:bound_on_the_norm} by adding the additional discretization variable $p^{3}_{i,j,k}$ and applying Young's inequality thrice with $p = q = 2$.\qed
         \end{proof}
 
     % section discrete_setting_ms (end)
@@ -2024,7 +2014,7 @@
             \begin{proof}
             For fixed pairs $(i,j)$ and $(k_{1}, k_{2})$ let $\tilde{p} \in \mathbb{R}^{S \times 2}$ and let $\tilde{s}_{k_{1}, k_{2}}, s_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ be as in Algorithm \ref{alg:softshrinkage}. If $\tilde{p}$ already satisfies the inequality constraint in \ref{eq:inequalityConstraint}, which means that $\tilde{p} \in K_{nl}$, we set $p^{\ast} = \tilde{p}$ as the solution of System (\ref{eq:optimization_problem}). With this choice the quadratic function in (\ref{eq:equalityConstraint}) is zero and for that minimal.
 
-            For the rest of the proof we assume that $\tilde{p} \notin K_{nl}$ and for this also $\tilde{s} \neq 0$. We know from Example \ref{ex:convex_function} 1. that a quadratic function, e.g. (\ref{eq:equalityConstraint}), is strictly convex. This implies that if we find a local solution of System (\ref{eq:optimization_problem}), it is already a global solution.
+            For the rest of the proof we assume that $\tilde{p} \notin K_{nl}$ and for this also $\tilde{s} \neq 0$, since $\nu > 0$. We know from Example \ref{ex:convex_function} 1. that a quadratic function, e.g. (\ref{eq:equalityConstraint}), is strictly convex. This implies that if we find a local solution of System (\ref{eq:optimization_problem}), it is already a global solution.
 
             Relating to the inequality constraint in (\ref{eq:inequalityConstraint}) we define a function $c: \mathbb{R}^{S \times 2} \to \mathbb{R}$ by
                 $$
@@ -2127,7 +2117,7 @@
                     $$
                         p^{\ast}_{i} - \tilde{p}_{i} + \lambda^{\ast} \cdot 0 = 0 \iff  p^{\ast}_{i} = \tilde{p}_{i}.
                     $$
-                In order to compute $\lambda^{\ast}$ we need to consider the i-th row of $\nabla \mathcal{L}(p^{\ast}, \lambda^{\ast})$ for which $k_{1} \le i \le k_{2}$. We observe
+                In order to compute $\lambda^{\ast}$ we need to consider the i-th row of $\nabla \mathcal{L}(p^{\ast}, \lambda^{\ast})$ for which $i$ satisfies $k_{1} \le i \le k_{2}$. We observe
                     \begin{eqnarray}
                         &&p^{\ast}_{i} - \tilde{p}_{i} + \lambda^{\ast} s = 0 \notag \\
                         &\iff& \left(\tilde{p}_{i} + \frac{s_{k_{1}, k_{2}} - \tilde{s}_{k_{1}, k_{2}}}{k_{2} - k_{1} + 1}\right) - \tilde{p}_{i} + \lambda^{\ast}  = 0 \notag \\
@@ -2150,10 +2140,10 @@
         
         In this section we present an alternative formulation of the saddle-point problem in Equation (\ref{eq:mumford_shah_saddle_point_problem}). This approach also solves the convex relaxed Mumford-Shah functional and is orders of magnitudes faster as the previously presented approach. In this framework the projections onto $C$ and $K_{p}$ remain unchanged, but the difference is that we get rid of Dykstra's projection algorithm to save computation time. In order to derive such a representation we decouple $K_{nl}$ and introduce Lagrange multipliers. We will obtain another saddle-point problem which can then be solved with a modified version of the primal-dual algorithm. In the original problem
             \begin{equation}
-                \min_{u \in C} \max_{p \in K} \langle Au, p \rangle
+                \min_{u \in C} \max_{p \in K} \langle Au, p \rangle,
                 \label{eq:original_saddle_point_problem}
             \end{equation}
-        we maximized over the whole set $K$, defined in Equations (\ref{eq:local_constraint}) and (\ref{eq:non_local_constraint}). In order to rewrite this formulation we revisit the non-local constraint set defined in the fashion of Subsection \ref{sub:projection_onto_K_nl}, by
+        we maximized over the whole set $K$ defined in Equations (\ref{eq:local_constraint}) and (\ref{eq:non_local_constraint}). In order to rewrite this formulation we revisit the non-local constraint set defined in the fashion of Subsection \ref{sub:projection_onto_K_nl}, by
             $$
                 K_{nl} = \left\{ \left| \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} \right| \le \nu \right\},
             $$
@@ -2164,7 +2154,7 @@
             \end{equation}
         again for all pairs $(i,j)$, all combinations $1 \le k_{1} \le k \le k_{2} \le S$, $s_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ and $s \in \mathbb{R}^{N \times M \times I \times 2}$. Here, $I = \frac{S^{2} + S}{2}$ denotes the number of all non-local constraint sets. We further present an auxiliary variable $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$, which belongs to a $\mu \in \mathbb{R}^{N \times M \times I \times 2}$ and define a Lagrange function
             \begin{equation}
-                \mathcal{L}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle
+                \mathcal{L}(u, \mu, p, s) = \langle Au, p \rangle + \sum_{k_{1} = 1}^{S} \sum_{k_{2} = k_{1}}^{S} \langle \mu_{k_{1}, k_{2}}, \sum_{k_{1} \le k \le k_{2}} p^{x}_{k} - s_{k_{1}, k_{2}} \rangle,
                 \label{eq:lagrangian}
             \end{equation}
         in which we added an enforced term to our original problem corresponding to the constraint in $K_{nl}$. Taking into account that the constraint in (\ref{eq:non_local_constraint_reloaded}) is an equality constraint we have that $\mu_{k_{1}, k_{2}} \in \mathbb{R}^{2}$ for all $1 \le k_{1} \le k_{2} \le S$. Using the Lagrangian in (\ref{eq:lagrangian}) we have the following proposition:
@@ -2194,7 +2184,7 @@
                         \end{dcases*} \label{eq:cases} \\
                         &\le& \langle Au^{\ast}, p^{\ast} \rangle. \notag
                     \end{eqnarray}
-                In Equality (\ref{eq:cases}) we used that if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} = s^{\ast}_{k_{1}, k_{2}}$ the last term in (\ref{eq:before_cases}) vanishes, but if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} \neq s^{\ast}_{k_{1}, k_{2}}$ the minimum over all $\mu$ assures that the last term in (\ref{eq:before_cases}) tends to $-\infty$.\\
+                In Equality (\ref{eq:cases}) we used that if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} = s^{\ast}_{k_{1}, k_{2}}$, the last term in (\ref{eq:before_cases}) vanishes. But, if $\sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k} \neq s^{\ast}_{k_{1}, k_{2}}$ the minimum over all $\mu$ assures that the last term in (\ref{eq:before_cases}) tends to $-\infty$.\\
                 Let us now show $\langle Au^{\ast}, p^{\ast} \rangle \le \mathcal{L}(u^{\ast}, \mu^{\ast}, p^{\ast}, s^{\ast})$: If $p^{\ast}$ is the optimal value of Equation (\ref{eq:original_saddle_point_problem}) it also satisfies $p^{\ast} \in K = K_{p} \cap K_{nl}$. But this implies $p^{\ast} \in K_{p}$ and $p^{\ast} \in K_{nl}$ and for that we can set $s^{\ast}_{k_{1}, k_{2}} = \sum_{k_{1} \le k \le k_{2}} p^{\ast^{x}}_{k}$ for all possible pairs $(k_{1}, k_{2})$. Then, we compute
                     \begin{eqnarray}
                         \langle Au^{\ast}, p^{\ast} \rangle &=& \min_{u \in C} \max_{\substack{p \in K_{p} \\ p \in K_{nl}}} \langle Au, p \rangle \notag \\
@@ -2231,7 +2221,7 @@
                         0
                     \end{pmatrix}.
             $$
-        Recalling that we computed $I = \frac{S^{2} + S}{2}$, having these four updates and setting $A = \nabla$ we observe a new formulation for our primal-dual algorithm by:
+        Recalling that we computed $I = \frac{S^{2} + S}{2}$, having these four updates and setting $A = \nabla$, we observe a new formulation for our primal-dual algorithm by:\newpage
             \begin{algorithm}
                 \label{alg:mumford_shah_lagrange_multiplier}
                 Choose $(u^{0}, p^{0}, \mu^{0}, s^{0}) \in C \times K_{p} \times \mathbb{R}^{2 \times N \times M \times I} \times \mathbb{R}^{2 \times N \times M \times I}$ and let $\bar{u}^{0} = u^{0}, \bar{\mu}^{0} = \mu^{0} = 0, p^{0} = 0$. Set $\tau_{u} = \frac{1}{6}, \tau_{\mu} = \frac{1}{150}, \sigma_{p} = \frac{1}{3 + S}, \sigma_{s} = 1$. Then, we let for each $n \ge 0$
@@ -2248,18 +2238,18 @@
                         \right.
                     \end{equation}
             \end{algorithm}
-        Once implemented this variant of the primal-dual algorithm derives the same approximation as the ordinary primal-dual algorithm using Dykstra's projection algorithm in each iteration step. The big difference between the two frameworks is the performance. We discuss this in Chapter \ref{cha:applications_to_imaging}. In the following we additionally show how the approximation $u$, computed with the primal-dual algorithm, can be extracted from the three-dimensional space into a two-dimensional object.
+        Once implemented this variant of the primal-dual algorithm derives the same approximation as the ordinary primal-dual algorithm using Dykstra's projection algorithm in each iteration step. The big difference between the two frameworks is the performance. We discuss this in Chapter \ref{cha:applications_to_imaging}. In the following we additionally show how the approximation $u$ can be extracted from the three-dimensional space into a two-dimensional object.
     \section{Computing the 0.5-Isosurface} % (fold)
     \label{sec:computing_the_0_5_isosurface}
 
-        By using convex relaxation methods to minimize the Mumford-Shah function, we compute the approximation $u$ in a three-dimensional space. So, we need a framework to extract the two-dimensional approximation $\hat{u}$. Therefore, we compute the 0.5-isosurface. The idea is to interpolate the corresponding channel at each pixel position $(i,j)$ for $k = 1, ..., S$ by thresholding at $0.5$. Before we propose the whole procedure, let us first explain how the interpolation with a threshold at $0.5$ can be derived.
+        By using convex relaxation methods for minimizing the Mumford-Shah functional, we compute the approximation $u$ in a three-dimensional space. So, we need a framework to extract the two-dimensional approximation $\hat{u}$. Therefore, we compute the 0.5-isosurface. The idea is to interpolate the corresponding channel at each pixel position $(i,j)$ for $k = 1, ..., S$ by thresholding at $0.5$. Before we propose the whole procedure, let us first explain how the interpolation with a threshold at $0.5$ can be derived.
         \begin{remark}[Linear Newton Interpolation]
             Recalling the linear Newton interpolation scheme, we can compute a function $u(x)$ by a convex combination of two pairs $(x_{0}, u(x_{0}))$ and $(x_{1}, u(x_{1}))$. The formula is given by
                 $$
                     u(x) = u(x_{0}) + \frac{u(x_{1} - u(x_{0}))}{x_{1} - x_{0}}\left( x - x_{0} \right).
                 $$
         \end{remark}
-        The idea is to iterate for all $k = 1, ..., S$ at a fixed pair $(i,j)$, until we find a value at the position $x_{0} = \frac{k}{S}$ which fulfills the strict inequality $u(x_{0}) > 0.5$. And additionally, find a value $x_{1} = \frac{k+1}{S}$ together with $u(x_{1}) \le 0.5$. Then we can compute the function $u$ at $0.5$, namely $u(0.5)$, using Newton's linear interpolation formula by
+        The idea is to iterate for all $k = 1, ..., S$ at a fixed pair $(i,j)$, until we find a value at the position $x_{0} = \frac{k}{S}$ which fulfills the strict inequality $u(x_{0}) > 0.5$ and additionally find a value $x_{1} = \frac{k+1}{S}$ together with $u(x_{1}) \le 0.5$. Then, we can compute the function $u$ at $0.5$, namely $u(0.5)$, using Newton's linear interpolation formula by
             \begin{eqnarray}
                 u(0.5) &=& \frac{k}{S} + \frac{\frac{k+1}{S} - \frac{k}{S}}{x_{1} - x_{0}} \left( 0.5 - x_{0} \right) \notag \\
                 &=& \frac{k}{S} + \frac{1}{S} \frac{0.5 - x_{0}}{x_{1} - x_{0}} \notag \\
@@ -2268,7 +2258,7 @@
         Overall, we propose the following algorithm for computing the 0.5-isosurface:
         \begin{algorithm}[0.5-isosurface]
             \label{alg:0.5_isosurface}
-            Let $(i,j)$ be a fixed pair of all $i = 1, ..., N$ and $j = 1,..., M$. Iterate from $1, ..., S-1$ and evaluate $u(i,j,k)$ and $u(i,j,k+1)$, until
+            Let $(i,j)$ be a fixed pair of all locations $i = 1, ..., N$ and $j = 1,..., M$. Iterate from $1, ..., S-1$ and evaluate $u(i,j,k)$ and $u(i,j,k+1)$, until
                 $$
                     u(i,j,k) > 0.5 \,\,\, \textnormal{and} \,\,\, u(i,j,k+1) \le 0.5,
                 $$
@@ -2310,9 +2300,10 @@
     \section{General Setting} % (fold)
     \label{sec:general_setting}
         
-        We present several results in this chapter for image approximation, denoising and inpainting. We run all our tests on two different computers. The serial code is implemented on a CPU (Central Processing Unit) using the programming language C++. We execute the code on a MacBook Air (13-inch, Early 2014) with a 1,4 GHz Intel Core i5 Processor and a 4 GB 1600 MHz DDR3 internal memory. The two approaches for minimizing the convex relaxed Mumford-Shah functional needed parallelization to be applicable. In order to the implementation of both approaches we additionally parallelized our serial code on a GPU (Graphical Processor Unit) using the Nvidia CUDA framework. For more information on CUDA we refer to \cite{CUDA}. The code is executed at the University of Regensburg on the RZ411 computer containing a Nvidia Quadro K4000 GPU running 64-bit Rex-Linux. We additionally made use of the OpenCV library to read and write images in all our implementations. We refer to \cite{OpenCV} for more information on OpenCV.\\
-        In the following sections we also present code examples for the primal-dual algorithm in C++. These examples are not the actual functions we used in our program. They are just a possible implementation we wrote for this thesis. Further, we will not provide CUDA examples in this thesis, because it would go beyond the scope. For our complete coding, including the CUDA implementation, we refer to our computer program iPaur (image Processing At University of Regensburg) found on Github (\cite{Bauer}).
-            \begin{figure}[!ht]
+        We present several results in this chapter for image approximation, denoising, inpainting and image segmentation. We run all our tests on two different computers. The serial code is implemented on a CPU (Central Processing Unit) using the programming language C++. We execute the code on a MacBook Air (13-inch, Early 2014) with a 1,4 GHz Intel Core i5 Processor and a 4 GB 1600 MHz DDR3 internal memory. The two approaches for minimizing the convex relaxed Mumford-Shah functional needed parallelization to be applicable. In order to the implementation of both approaches we additionally parallelized our serial code on a GPU (Graphical Processor Unit) using the Nvidia CUDA framework. For more information on CUDA we refer to \cite{CUDA}. The code is executed at the University of Regensburg on the RZ411 computer containing a Nvidia Quadro K4000 GPU running 64-bit Rex-Linux. We additionally made use of the OpenCV library to read and write images in all our implementations. We refer to \cite{OpenCV} for more information on OpenCV.\\
+        In the following sections we also present code examples for the primal-dual algorithm in C++. These examples are not the actual functions we use in our program. They are just a possible implementation we propose in this thesis. Further, we will not provide CUDA examples in this thesis, because it would go beyond the scope. For our complete coding, including the CUDA implementation, we refer to our computer program iPaur (image Processing At University of Regensburg) found on Github (\cite{Bauer}).\\
+        In Figure \ref{fig:images_used} we show the used images in our tests. The images (a) to (d) are images of Lena (or Lenna) Soderberg. We degraded the original Lena image in (a) with five percent Gaussain noise and twenty-five percent salt and pepper noise, respectively, in (b) and (c). And we removed seventy percent of the data in image (d). The images (g) to (i) are taken from the publication of Pock et al. in \cite{Pock-et-al-iccv09}. Let us mentioned that the Ladama image is originally called La Dama con l'ermellino and a painting by Leonardo da Vinci. The Synthetic Test image of (h) is further degraded with five percent Gaussian noise, seen in (i). The other two color valued images in (e) and (f) are taken from the Github repository online at \cite{FastMS}. This repository belongs to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}.\\
+        \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/images/lena.png}
@@ -2353,8 +2344,8 @@
                 \caption[Images used in Chapter 5]{(a) - (d) are grayscaled images with a size of $512 \times 512$. (g) - (i) are also grayscaled images with a size of $128 \times 128$. (e) is an RGB image of size $560 \times 398$ and (f) an RGB image of size $350 \times 234$.}
             \label{fig:images_used}
             \end{figure}
-        In Figure \ref{fig:images_used} we show the used images in our tests. The images (a) to (d) are images of Lena (or Lenna) Soderberg. We degraded images (b) to (c) with five percent Gaussain noise and twenty-five percent salt and pepper noise, respectively, and removed seventy percent of the data in image (d). Image (a) is the original image and is a digitized Playboy centerfold, from November 1972. Over the last decades it was used extensively in the image processing community and a common test image. The images (g) to (i) are taken from the publication of Pock et al. in \cite{Pock-et-al-iccv09}. Let us mentioned that the Ladama image is originally called La Dama con l'ermellino and a painting by Leonardo da Vinci. The Synthetic Test image of (h) is further degraded with five percent Gaussian noise, seen in (i). The other two color valued images in (e) and (f) are taken from the Github repository in \cite{FastMS}. This repository belongs to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}.\\
-        We additionally introduce two important formulae used in the following sections. They can also be found in the book of Kristian Bredies and Dirk Lorenz in \cite{Bredies}.
+        
+        We additionally introduce two important formulae used in the following sections. They can also be found in the book of Kristian Bredies and Dirk Lorenz in \cite{Bredies}.\newpage
         \begin{definition}[MSE and PSNR]
             Let $u, v \in \mathbb{R}^{N \times M}$ be two discrete images. Then the MSE is given by
                 \begin{equation}
@@ -2411,7 +2402,7 @@
         \subsection{Implementation Issues} % (fold)
         \label{sub:implementation_issues}
             
-            In our framework we implemented the ROF model in C++ on a CPU and GPU. Since the serial code is quite fast we consider the serial version in this section, but also provide run-times of the parallelized version. We set $K = \nabla$ with the proposed discretization stated in Section \ref{sec:discrete_setting}. Further, we consider each vector, e.g. $u$ or $\bar{u}$, being accessed with $u_{i,j,k}$. For the approximation of color images we have that $k = 1, .., B$, in the case of grayscaled images $k = B = 1$. Further, we allocate the vectors $u, \bar{u}, g \in [0,255]^{C}$ and $p_{x}, p_{y} \in \mathbb{R}$. And we suggest to initialize $\bar{u} = u = g$ and $p_{x} = p_{y} = 0$ in the primal-dual algorithm.
+            In our framework we implemented the ROF model in C++ on a CPU and GPU. Since the serial code is quite fast we consider the serial version in this section, but also provide run-times of the parallelized version. We set $K = \nabla$ with the proposed discretization stated in Section \ref{sec:discrete_setting}. Further, we consider each vector, e.g. $u$ or $\bar{u}$, being accessed with $u_{i,j,k}$. For the approximation of color images we have that $k = 1, .., B$, in the case of grayscaled images $k = B = 1$. Further, we allocate the vectors $u, \bar{u}, g \in [0,255]^{B}$ and $p_{x}, p_{y} \in \mathbb{R}$. And we suggest to initialize $\bar{u} = u = g$ and $p_{x} = p_{y} = 0$ in the primal-dual algorithm.
 
             \subsubsection{Computing $p^{n+1} = (\textnormal{Id} + \sigma\,\partial\,F^{\ast})^{-1}(p^{n} + \sigma\,\nabla\bar{u}^{n})$}
             \label{sub:computing_p}
@@ -2516,6 +2507,11 @@ void extrapolation(T* u_bar, T* u, T* u_prev, T theta, int M, int N, int B)
                     $$
                         energy = energy + abs(u[i] - u\_prev[i]).
                     $$
+                As suggested in the first remark in the work of Pock and Chambolle (\cite{Chambolle10afirst-order}) we compute $\sigma$ by
+                    $$
+                        \sigma = \frac{1}{\tau * L^{2}} = \frac{1}{\tau * 8}.
+                    $$
+                This means we need to pre-set the parameter $\tau$ and $\lambda$ before we can run the algorithm. Further, we set $\theta = 1$.
                 With this, we observe the following C++ function:
                 \begin{lstlisting}
 template<typename T>
@@ -2527,7 +2523,7 @@ T Stop(T* u, T* u_prev, int M, int N, int B) {
   return (energy/(M*N));
 }
                 \end{lstlisting}
-                Using all the presented functions, we observe our primal-dual algorithm for the ROF model in the following C++ function:
+                Using all the presented functions, we observe our primal-dual algorithm for the ROF model in the following C++ function:\newpage
                 \begin{lstlisting}
 template<typename T>
 void ROF(T* u, T* g, T lambda, T tau, int M, int N, int B, int iter) {
@@ -2554,11 +2550,7 @@ void ROF(T* u, T* g, T lambda, T tau, int M, int N, int B, int iter) {
   delete [] p_y;
 }
                 \end{lstlisting}
-                As suggested in the first remark in the work of Pock and Chambolle (\cite{Chambolle10afirst-order}) we compute $\sigma$ by
-                    $$
-                        \sigma = \frac{1}{\tau * L^{2}} = \frac{1}{\tau * 8}.
-                    $$
-                This means we need to pre-set the parameter $\tau$ and $\lambda$ before we can run the algorithm. Further, we set $\theta = 1$. Now, that we know how the implementation of the ROF model can efficiently be realized, we want to estimate good choices for $\lambda$ and $\tau$. We do two separate parameter estimations: At first we look for a good fit for $\lambda$. Afterwards, we estimate the $\tau$, for which the algorithm converges quickly with respect to the suggested $\lambda$.
+                Now, that we know how the implementation of the ROF model can efficiently be realized, we want to estimate good choices for $\lambda$ and $\tau$. We do two separate parameter estimations: At first we look for a good fit for $\lambda$. Afterwards, we estimate the $\tau$, for which the algorithm converges quickly with respect to the suggested $\lambda$.
 
         \subsection{Estimation of $\boldsymbol{\lambda}$}
         \label{sub:estimation_of_lambda_rof}
@@ -2627,7 +2619,7 @@ void ROF(T* u, T* g, T lambda, T tau, int M, int N, int B, int iter) {
                 \caption[Best estimate of $\tau$ for the ROF model.]{Setting $\tau = 0.73$ provides a good guess for fast convergence.}
                 \label{tab:estimation_of_tau_rof}
             \end{table}
-            The coupling of $\lambda$ and $\tau$ can be seen, if we set $\tau = 0.73$ and $\lambda = 0.2$ and approximate for instance the Landscape image. We only increase $\lambda$ by a factor of $2$, but the number of iterations for this setting drop to $121$. If we decrease $\lambda$ by a factor of $2$, setting $\lambda = 0.05$, we obtain $288$ iteration steps. We earlier discussed that a higher value for $\lambda$ leads to an approximation $u$ which is closer to the input image $g$. Our test shows that the algorithm converges faster if the data fidelity term is weighted higher. Overall, we see that finding a $"$perfect$"$ time-step is not possible. We provide a good guess for which the algorithm is likely to converge fast, but does not fit perfectly.\\
+            The coupling of $\lambda$ and $\tau$ can be seen, if we set $\tau = 0.73$ and $\lambda = 0.2$ and approximate for instance the Landscape image. We only increase $\lambda$ by a factor of $2$, but the number of iterations for this setting drop to $121$. If we decrease $\lambda$ by a factor of $2$, setting $\lambda = 0.05$, we obtain $288$ iteration steps. We earlier discussed that a higher value for $\lambda$ leads to an approximation $u$ which is closer to the input image $g$. Our test shows that the algorithm converges faster if the data fidelity term is weighted higher. Overall, we see that finding a $"$perfect$"$ time-step is not possible. So, we provide a good guess for which the algorithm is likely to converge fast.\\
             \begin{table}[!ht]
                 \centering
                 \begin{tabular}{| l || l | l | l |}
@@ -2646,20 +2638,7 @@ void ROF(T* u, T* g, T lambda, T tau, int M, int N, int B, int iter) {
     \section{Image Approximation using the TVL1 Model} % (fold)
     \label{sec:image_approximation_using_the_tvl1_model}
 
-        We now turn our focus on the TVL1 model. As we did for the ROF model we provide the examples and parameter estimations depending on our serial C++ code in this section. We additionally provide the run-times on the GPU. Fortunately, we can adapt a lot of operations from the previous section. The gradient operators and computation of the proximity operator for $F^{\ast}(p) = \delta_{P}(p)$ remain completely the same. The primal-dual algorithm with the extrapolation step is consistent and can be adapted. The only difference to the ROF model is the computation of $(\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u})$. In Equation (\ref{eq:prox_g_tvl1}) we showed that this proximity operator is of the form
-            $$
-                u = (\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u}) \iff u_{i, j} = 
-                    \begin{dcases*}
-                        \tilde{u}_{i,j} - \tau\lambda & \textnormal{if\, $\tilde{u}_{i,j} - g_{i,j} > \tau\lambda$} \\
-                        \tilde{u}_{i,j} + \tau\lambda & \textnormal{if\, $\tilde{u}_{i,j} - g_{i,j} < - \tau\lambda$} \\
-                        g_{i, j} & \textnormal{if\, $|\tilde{u}_{i,j} - g_{i,j}| \le \tau\lambda$}
-                    \end{dcases*}.
-            $$
-        If we apply this computation to each color channel $k = 1, ..., B$ we add the index $k$ to our notation. This means that our update on the variable $u$, or more precisely $u^{n+1}_{i,j,k}$, depends on the current estimate $\tilde{u}$ and the input image $g$. To save run-time, we pre-compute
-            $$
-                fac = \tau * \lambda \,\,\,\,\,\, \textnormal{and} \,\,\,\,\,\, est = u^{n}_{i,j,k} - g_{i,j,k}.
-            $$
-        Since these values need to be computed in each if-statement, we calculate it once - before the if-statements occur - and make use of the values:
+        We now turn our focus on the TVL1 model. As we did for the ROF model we provide the examples and parameter estimations depending on our serial C++ code in this section. We additionally provide the run-times on the GPU. Fortunately, we can adapt a lot of operations from the previous section. The gradient operators and computation of the proximity operator for $F^{\ast}(p) = \delta_{P}(p)$ remain completely the same. The primal-dual algorithm with the extrapolation step is consistent and can be adapted. The only difference to the ROF model is the computation of $(\textnormal{Id} + \tau\,\partial\,G)^{-1}(\tilde{u})$. In Equation (\ref{eq:prox_g_tvl1}) we showed how proximity operator is computed. If we apply this computation to each color channel $k = 1, ..., B$ we add the index $k$ to our notation. This means that our update on the variable $u$, or more precisely $u^{n+1}_{i,j,k}$, depends on the current estimate $\tilde{u}$ and the input image $g$. To save run-time, we pre-compute $fac = \tau * \lambda \,\,\,\,\,\, \textnormal{and} \,\,\,\,\,\, est = u^{n}_{i,j,k} - g_{i,j,k}$. Since these values need to be computed in each if-statement, we calculate it once - before the if-statements occur - and make use of the values:
             $$
                 u^{n+1}_{i,j,k} = 
                     \begin{dcases*}
@@ -2722,7 +2701,7 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
         \subsection{Estimation of $\boldsymbol{\tau}$} % (fold)
         \label{sub:estimation_of_tau_tvl1}
             
-            We apply the same procedure to estimate the best time-step parameter $\tau$ as in Subsection \ref{sub:estimation_of_tau_rof}. We use again the images Lena, Audrey Hepburn and Landscape for the evaluation. There are several parameters which appear under the quickest run-times. The one which is most likely to guarantee a fast convergence is $\tau = 0.98$, cf. Table \ref{tab:tvl1_cpu_vs_gpu}. In the parallel version we observe a tremendous run-time decrease, up to a factor of $150$. Even if we used grayscaled and colored images with $\lambda = 0.7$ and $\lambda = 1.2$, respectively, this $\tau$ appears to be a good choice. Since we have a coupling of the image and the parameters $\lambda$ and $\tau$, as in the ROF model, this suggested $\tau$ is likely to obtain a fast convergence.
+            We apply the same procedure to estimate the best time-step parameter $\tau$ as in Subsection \ref{sub:estimation_of_tau_rof}. We use again the images Lena, Audrey Hepburn and Landscape for the evaluation. There are several parameters which appear under the quickest run-times. The one which is most likely to guarantee a fast convergence is $\tau = 0.98$, cf. Table \ref{tab:tvl1_cpu_vs_gpu}. In the parallel version we observe a tremendous run-time decrease up to a factor of $150$. Even if we used grayscaled and colored images with $\lambda = 0.7$ and $\lambda = 1.2$, respectively, this $\tau$ appears to be a good choice. Since we have a coupling of the image and the parameters $\lambda$ and $\tau$, as in the ROF model, this suggested $\tau$ is likely to obtain a fast convergence.
             \begin{table}[!ht]
                 \centering
                 \begin{tabular}{| l || l | l | l | l |}
@@ -2914,6 +2893,35 @@ void RealTimeMinimizer(T* u, T* g, T lambda, T nu, int M, int N, int B, int iter
         \subsection{Edge Highlighting} % (fold)
         \label{sub:edge_highlighting}
             
+            \begin{figure}[!ht]
+                \centering
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/images/hepburn.png}
+                    \caption{Original image.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_hepburn.png}
+                    \caption{Without edge highlighting.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_hepburn_eh.png}
+                    \caption{With edge highlighting.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/images/landscape.png}
+                    \caption{Original image.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_landscape.png}
+                    \caption{Without edge highlighting.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.32\textwidth}
+                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_landscape_eh.png}
+                    \caption{With edge highlighting.}
+                \end{subfigure}
+                \caption[Cartooning example of Audrey Hepburn and Landscape image.]{Cartooning of the Audrey Hepburn and Landscape image with $\lambda = 500$ and $\nu = 0.1$.}
+            \label{fig:cartooning_hepburn_and_landscaperealtime}
+            \end{figure}
             The idea, proposed by Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}, is to use the edge set $K_{MS}$ in order to highlight edges in the approximation $u$. For that assume $(i,j) \in K_{MS}$, then we have $|(\nabla u)_{i,j}| \ge \sqrt{\frac{\nu}{\lambda}}$ by definition of $K_{MS}$. This notation is equivalent to
                 \begin{equation}
                     \frac{|(\nabla u)_{i,j}|}{\sqrt{\frac{\nu}{\lambda}}} \ge 1.
@@ -2945,38 +2953,10 @@ void RealTimeMinimizer(T* u, T* g, T lambda, T nu, int M, int N, int B, int iter
                 $$
                     1 - v \in [0, 1],
                 $$
-            if $(i, j) \in K_{MS}$. On the other hand, if $(i, j) \notin K_{MS}$ the value $u$ is supposed to remain unchanged. Then points in the image domain $\Omega$ with strong edges are painted darker. We implement this technique of edge highlighting in our framework and test it against the pure piecewise-constant approximation. Using the proposed values $\lambda = 500$ and $\nu = 0.1$, as suggested in Section \ref{sub:estimation_of_lambda_and_nu_rt}, we compare an approximation with and without edge highlighting.
-            \begin{figure}[!ht]
-                \centering
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/images/hepburn.png}
-                    \caption{Original image.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_hepburn.png}
-                    \caption{Without edge highlighting.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_hepburn_eh.png}
-                    \caption{With edge highlighting.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/images/landscape.png}
-                    \caption{Original image.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_landscape.png}
-                    \caption{Without edge highlighting.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.32\textwidth}
-                    \includegraphics[width=\textwidth]{img/cartooning/best_pwc_landscape_eh.png}
-                    \caption{With edge highlighting.}
-                \end{subfigure}
-                \caption[Cartooning example of Audrey Hepburn and Landscape image.]{Cartooning of the Audrey Hepburn and Landscape image with $\lambda = 500$ and $\nu = 0.1$.}
-            \label{fig:cartooning_hepburn_and_landscaperealtime}
-            \end{figure}
-        Figure \ref{fig:cartooning_hepburn_and_landscaperealtime} shows that this technique clearly yields darker edges. Since this highlighting takes place after the primal-dual algorithm, it does not slow down the code significantly. Summarizing this method in a C++-function, we get:
-                \begin{lstlisting}
+            if $(i, j) \in K_{MS}$. On the other hand, if $(i, j) \notin K_{MS}$ the value $u$ is supposed to remain unchanged. Then points in the image domain $\Omega$ with strong edges are painted darker. Using the proposed values $\lambda = 500$ and $\nu = 0.1$, as suggested in Section \ref{sub:estimation_of_lambda_and_nu_rt}, we compare an approximation with and without edge highlighting. Figure \ref{fig:cartooning_hepburn_and_landscaperealtime} shows that this technique clearly yields darker edges. Since this highlighting takes place after the primal-dual algorithm, it does not slow down the code significantly.\\
+
+        We implement this technique of edge highlighting in our framework and test it against the pure piecewise-constant approximation. Summarizing this method in a C++-function, we get:
+            \begin{lstlisting}
 template<typename T>
 void edging(T* u, T lambda, T nu, int M, int N, int B) {
   for (int k = 0; k < B; k++) {
@@ -2995,15 +2975,16 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
     }
   }
 }
-                \end{lstlisting}
+            \end{lstlisting}
         % subsection edge_highlighting (end)
+        
         In this section we showed that the Mumford-Shah real-time minimizer is good in cartooning images and has the advantage of the discrete modeled set $K_{MS}$, which can be used for edge highlighting. However, the real-time framework has another application, namely denoising. We present this case together with the ROF and TVL1 model, respectively, in the next section.
     % section image_cartooning (end)
 
     \section{Image Denoising} % (fold)
     \label{sec:image_denoising}
         
-        The goal in image denoising is to remove noise from an input image $g$ and get a smooth approximation $u$. We find different kinds of noise on images. The two most common are Gaussian and salt and pepper noise. Where Gaussian noise is relatively easy to remove, salt and pepper noise is more robust, since it resembles extrem values, white and black, on images. The ROF model and real-time minimizer for the Mumford-Shah model can handle Gaussian noise quite well, but are not able to remove salt and pepper noise accurately. However, the TVL1 model is able to manage both. We evaluate parameters $\lambda$, $\nu$ and $\tau$ for all models concerning the image denoising process. In this evaluation we follow the same procedure as in the previous sections. In this section we provide the best choices for the parameters. All estimations can be found online at \cite{Bauer}.
+        The goal in image denoising is to remove noise from an input image $g$ and get a smooth approximation $u$. We find different kinds of noise on images. The two most common are Gaussian and salt and pepper noise. Where Gaussian noise is relatively easy to remove, salt and pepper noise is more robust, since it resembles extrem values white and black on images. The ROF model and real-time minimizer for the Mumford-Shah model can handle Gaussian noise quite well, but are not able to remove salt and pepper noise accurately. However, the TVL1 model is able to manage both. We evaluate parameters $\lambda$, $\nu$ and $\tau$ for all models concerning the image denoising process. In this evaluation we follow the same procedure as in the previous sections. In this section we provide the best choices for the parameters. All estimations can be found online at \cite{Bauer}.
         \subsection{Gaussian Noise} % (fold)
         \label{sub:gaussian_noise}
             In the case of the ROF model we find another parameter as in Subsection \ref{sub:estimation_of_lambda_rof}. Setting $\lambda = 0.03$ yields good results and we observe a $PSNR(u, g)$ of $29$, where $u$ is the approximation and $g$ corresponds to the original Lena image. For the real-time Mumford-Shah framework we find a lot of possible pairs $(\lambda, \nu)$. For this reason, we choose the pair which results in the visibly best results. So, we suggest to set $\lambda = 20$ and $\nu = 0.06$. At last we adapt the value $\lambda = 0.7$ for the TVL1 model from Subsection \ref{sub:estimation_of_lambda_tvl1}. We find that this value is a good fit to remove Gaussian noise with the TVL1 model. The approximations produced by the suggested values for $\lambda$ can be seen in Figure \ref{fig:denoising_lena_gauss}. All three models remove Gaussian noise quite accurate. Whereas the real-time model for the Mumford-Shah functional does not need an estimation for $\tau$, because this value is fixed, we further provide a suitable $\tau$ for the ROF and TVL1 model, respectively. In our tests we find that $\tau = 0.99$ with $359$ is the best estimate for removing Gaussian noise with the ROF model. Additionally, we find in Table \ref{tab:estimation_of_tau_denoising} some estimates for $\tau$ for the TVL1 model. If we set $\tau = 0.97$ we have a fast convergence for both: Removing Gaussian and salt and pepper noise. Because of this, we suggest this $\tau$ as our best fit for this model.
@@ -3066,7 +3047,7 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
                 \caption[Best estimate of $\tau$ for the TVL1 model for denoising.]{Setting $\tau = 0.97$ leads to fast convergence in both cases using the TVL1 model.}
                 \label{tab:estimation_of_tau_denoising}
             \end{table}
-            One thing we try to evaluate: finding a parameter $\lambda$ for the ROF model, so that it can remove salt and pepper noise. In fact, we find a value, namely $0.01$, see also Figure \ref{fig:denoising_lena_rof_sap}. Even though, the result is not best suited, the ROF model is able to remove this kind of noise in some sense. If we seek for a $\tau$ in the case of denoising images degraded with salt and pepper noise, we find $\tau = 0.99$ with $724$ iterations as the best fit. So, we suggest setting $\tau = 0.99$ for the ROF model. Furthermore, we are not able to find a pair $(\lambda, \nu)$ for the real-time minimizer of the Mumford-Shah model, which is able to remove salt and pepper noise. However, the TVL1 model handles both: Gaussian and salt and pepper noise. Figure \ref{fig:denoising_lena_tvl1_sap} shows the denoising of salt and pepper noise with $\lambda = 0.7$. If we test for a parameter $\tau$ to obtain fast convergence we find that $\tau = 0.97$ is the best choice, see also Table \ref{tab:estimation_of_tau_denoising}. Here, we see that this value for $\tau$ occurs under the four best estimates.
+            The first thing we try to evaluate: Finding a parameter $\lambda$ for the ROF model, so that it can remove salt and pepper noise. In fact, we find a value, namely $0.01$, see also Figure \ref{fig:denoising_lena_rof_sap}. Even though the result is far away from perfect, the ROF model is able to remove this kind of noise in some sense. If we seek for a $\tau$ in the case of denoising images degraded with salt and pepper noise, we find $\tau = 0.99$ with $724$ iterations as the best fit. So, we suggest setting $\tau = 0.99$ for the ROF model. Furthermore, we are not able to find a pair $(\lambda, \nu)$ for the real-time minimizer of the Mumford-Shah model, which is able to remove salt and pepper noise. However, the TVL1 model, as mentioned, also handles salt and pepper noise. Figure \ref{fig:denoising_lena_tvl1_sap} shows the denoising of salt and pepper noise with $\lambda = 0.7$. If we test for a parameter $\tau$ to obtain fast convergence we find that $\tau = 0.97$ is the best choice, see also Table \ref{tab:estimation_of_tau_denoising}. Here, we see that this value for $\tau$ occurs under the four best estimates.\\
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.31\textwidth}
@@ -3154,11 +3135,7 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
             \end{equation}
         In order to extend this framework for colored images, we apply the primal-dual algorithm channel-wise. This means we add another index $k = 1, ..., B$ to all pairs $(i,j)$ as we did in the other models before. In our implementation we do not need to change the code of the ROF model tremendously. We only need to add an additional if-statement in the primal descent function ($primal\_desc$), in which we check if $(i,j,k) \in \mathcal{I}$. For this, we need to know where the discrete locations of $\mathcal{I}$ appear. We assumed that data loss appears if the color of the input image $g$ at a position $(i,j,k)$ is black. Then, we allocate an integer array $hash \in \mathbb{R}^{N \cdot M}$ and set each value of the array to $1$ if $g_{i,j,k} = 0$ for all $k = 1, ..., B$ and $0$ else. So, a black value appears if all color channels $k$ at a position $(i,j)$ are zero. This implies we compute the proximity operator of the function $G$ by using this array. If $hash_{i,j} = 1$ we set
             $$
-                u_{i,j,k} = \tilde{u}_{i,j,k}
-            $$
-        and
-            $$
-                u_{i,j,k} = \frac{\tilde{u}_{i,j,k} + \tau \lambda g_{i,j,k}}{1 + \tau\lambda}
+                u_{i,j,k} = \tilde{u}_{i,j,k} \,\,\,\,\, \textnormal{and} \,\,\,\,\, u_{i,j,k} = \frac{\tilde{u}_{i,j,k} + \tau \lambda g_{i,j,k}}{1 + \tau\lambda}
             $$
         else. Overall, this procedure can be summarized in a C++ function:
         \begin{lstlisting}
@@ -3181,7 +3158,6 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
   }
 }
         \end{lstlisting}
-        We also did not need to estimate a good fit for $\lambda$, since the fit we found in Section \ref{sec:image_approximation_using_the_rof_model}, namely $\lambda = 0.1$, worked perfectly. This is also illustrated in Figure \ref{fig:inpainting_lena_rof}. We additionally tested the case in which $\lambda = \infty$, see Figure \ref{fig:inpainting_lena_rof_pwc}. Indeed, the inpainting process works fine, but as stated above there was no smoothing in regions without data loss.
         \begin{figure}[!ht]
             \centering
             \begin{subfigure}[b]{0.30\textwidth}
@@ -3199,6 +3175,8 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             \caption[Inpainting with seventy percent data loss without denoising.]{Inpainting of Lena image with a data loss of seventy percent and without denoising, namely $\lambda = \infty$.}
         \label{fig:inpainting_lena_rof_pwc}
         \end{figure}
+        We also did not need to estimate a good fit for $\lambda$, since the fit we found in Section \ref{sec:image_approximation_using_the_rof_model}, namely $\lambda = 0.1$, worked perfectly. This is also illustrated in Figure \ref{fig:inpainting_lena_rof}. We additionally tested the case in which $\lambda = \infty$, see Figure \ref{fig:inpainting_lena_rof_pwc}. Indeed, the inpainting process works fine, but as stated above there was no smoothing in regions without data loss.\\
+
         At last, we want to find the best choices for $\tau$ in both cases: if $\lambda \in (0, \infty)$ and if $\lambda = \infty$. Not surprisingly, the best $\tau$ are - as in the other models - closer to $1$. But, what we also found: if $\tau$ is too small, it turns out that the inpainting process was not successful, see Figure \ref{fig:unsuccessful_inpainting}. We have no reason for this behaviour, but we assume that a small value for $\tau$ has a large influence in the proximity operator for $G$. So, the original data in $\mathcal{D} \setminus \mathcal{I}$ is weighted too less and for this, the algorithm is not able to fill lost data appropriately.
             \begin{table}[!ht]
                 \parbox{.9\linewidth}{
@@ -3247,7 +3225,7 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
         \subsection{Best $\lambda$ and $\nu$ estimation} % (fold)
         \label{sub:best_lambda_and_nu_estimation}
 
-            It turns out that adapting the proposed values for $\lambda$ and $\nu$ from the real-time minimizer of the Mumford-Shah functional does not lead to good approximations. This is because $\lambda$ is swapped in our two definitions of the Mumford-Shah functional, see Equations (\ref{eq:the_mumford_shah_functional}) and (\ref{eq:the_mumford_shah_functional_revisited}). In the real-time framework we set $\lambda = 20$, so we try to shrink $\lambda$ by a factor of ten. Testing $\lambda = 2$ and $\nu = 0.03$ yields to a good approximation. But as we test if shrinking the parameter $\nu$ to $0.01$ has any effect on the approximation, it turns out that shrinking $\nu$ leads to a slightly more detailed approximation. For that we suggest the pair $(\lambda, \nu) = (2, 0.01)$ for a piecewise-smooth approximation of the convex relaxed Mumford-Shah functional. Figure \ref{fig:best_parameter_estimation_cr} demonstrates that this setting yields good approximations $u$ and shows the outcomes of other parameter estimation mentioned in this subsection.
+            It turns out that adapting the proposed values for $\lambda$ and $\nu$ from the real-time minimizer of the Mumford-Shah functional does not lead to good approximations. This is because $\lambda$ is swapped in our two definitions of the Mumford-Shah functional, see Equations (\ref{eq:the_mumford_shah_functional}) and (\ref{eq:the_mumford_shah_functional_revisited}). In the real-time framework we set $\lambda = 20$, so we try to shrink $\lambda$ by a factor of ten. Testing $\lambda = 2$ and $\nu = 0.03$ yields to a good approximation.
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.24\textwidth}
@@ -3269,7 +3247,7 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
                 \caption[Parameter estimation for the convex relaxed Mumford-Shah functional.]{Finding a pair $(\lambda, \nu)$ with the Lena image for which the approximation is acceptable.}
             \label{fig:best_parameter_estimation_cr}
             \end{figure}
-            The first comparison using the Dykstra framework against the Lagrange framework, yields an approximation of the Ladama image. It is smooth and has sharp edges. Especially, in the ROF model - but also in the TVL1 model - it sometimes happens that edges are not as strong and sharp as in the original image. That is one big advantage of the Mumford-Shah functional. Because of its structure, namely using a edge set $S_{u}$, it is edge preserving. In Figure \ref{fig:ladama_ms_compare}, we do not see a difference in the approximations between Dykstra's projection algorithm and the approaches using Lagrange multipliers. But, when looking at Table \ref{tab:run_time_compare_lagrange_vs_dykstra}, the Lagrange multiplier approach is more than 450 times faster and amounts only a fourth of memory usage.
+            But as we test if shrinking the parameter $\nu$ to $0.01$ has any effect on the approximation, it turns out that shrinking $\nu$ leads to a slightly more detailed approximation. For that we suggest the pair $(\lambda, \nu) = (2, 0.01)$ for a piecewise-smooth approximation of the convex relaxed Mumford-Shah functional. Figure \ref{fig:best_parameter_estimation_cr} demonstrates that this setting yields good approximations $u$ and shows the outcomes of other parameter estimation mentioned in this subsection. The first comparison using the Dykstra framework against the Lagrange framework shows an approximation of the Ladama image. It is smooth and has sharp edges. Especially, in the ROF model - but also in the TVL1 model - it sometimes happens that edges are not as strong and sharp as in the original image. That is one big advantage of the Mumford-Shah functional. Because of its structure, namely using a edge set $S_{u}$, it is edge preserving. In Figure \ref{fig:ladama_ms_compare}, we do not see a difference in the approximations between Dykstra's projection algorithm and the approaches using Lagrange multipliers. But, when looking at Table \ref{tab:run_time_compare_lagrange_vs_dykstra}, the Lagrange multiplier approach is more than 450 times faster and amounts only a fourth of memory usage.
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.32\textwidth}
@@ -3351,30 +3329,30 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
 
         \subsection{Denoising Comparison} % (fold)
         \label{sub:denoising_comparison}
-            We present the comparison of the ROF, TVL1, real-time minimizer approach and convex relaxed Mumford-Shah model for denoising images. We show that the most robust model is indeed the Mumford-Shah functional. For this comparison we make use of the Lagrange Multiplier approach to the convex relaxed Mumford-Shah model and therefore set $S = 32$ to observe best suited approximations.
+            We present the comparison of the ROF, TVL1, real-time minimizer approach and convex relaxed Mumford-Shah model for denoising images. We show that the most robust model is indeed the Mumford-Shah functional. For this comparison we make use of the Lagrange Multiplier approach to the convex relaxed Mumford-Shah model and therefore set $S = 32$ to observe good approximations.\\
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth_gauss_noise.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rof.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_tvl1.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_ms.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rt.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
@@ -3383,38 +3361,39 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             \end{figure}
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/synth_zoomed.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_tvl1_zoomed.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rof_zoomed.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_original_zoomed.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_ms_zoomed.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.31\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rt_zoomed.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
                 \caption[Gauss denoising comparison of several models with zooming into images.]{The convex relaxed Mumford-Shah model yields sharp edges in its approximation.}
             \label{fig:synth_gauss_compare_zoomed}
             \end{figure}
-            The real-time approach to the Mumford-Shah model handles this image quite well. But still, the results of this framework are not comparable to those of the convex relaxed formulation. The difference of the minimization of the Mumford-Shah functional to the minimization of the ROF and TVL1 functional is indeed that it is much more edge preserving. The edges are sharper and do not vanish. If we zoom into the images, see Figure \ref{fig:synth_gauss_compare_zoomed}, there is a clear partitioning of the regions. In the last subsection we want to show that the approaches for minimizing the Mumford-Shah functional, namely the real-time and convex relaxation combined with Lagrange multipliers approach, are also good for image segmentation. We show that both methods yield good segmentations of a given input image.
+
+            The real-time approach to the Mumford-Shah model handles this image quite well. But still, the results of this framework are not comparable to those of the convex relaxed formulation. The difference of the minimization of the Mumford-Shah functional to the minimization of the ROF and TVL1 functional is indeed that it is much more edge preserving. The edges are sharper and do not vanish. If we zoom into the images, see Figure \ref{fig:synth_gauss_compare_zoomed}, there is a clear partitioning of the regions. Also note that all noise is cleared out. Even if it is far more difficult to minimize the Mumford-Shah functional, it preserves edges perfectly. In the last subsection we additionally show that minimizing the Mumford-Shah functional is also a good model for image segmentation. We show that both methods, the real-time approach and the Lagrange multiplier approach for the convex relaxed model, yield good segmentations of a given input image.
         % subsection denoising_comparison (end)
         \subsection{Image Segmentation} % (fold)
         \label{sub:image_segmentation}
-            The last thing we want to show in this thesis is image segmentation. Since we use other images as in the above sections let us briefly introduce these images and give some references. Figure \ref{fig:example_images_segmentation} (a) to (c) are three test images which are taken from the Github repository online found at \cite{FastMS} and they belong to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}. The image seen in (d) is a special medical image provided by Steven Keating (online at \cite{Keating}). Steven Keating is a PhD student at MIT who was diagnosed with cancer in 2014. He had a brain tumor as large as a baseball. In order to find the best treatment for him and to provide useful data for science he made all his medical data freely available. A lot of researchers used this data in order to help him to fight and defeat cancer. One part of his data are medical images of his brain tumor. We used one of these images in order to show that image segmentation is a useful application in medicine.
+            The last thing we want to show in this thesis is image segmentation. Since we use other images as in the above sections let us briefly introduce these images and give some references. Figure \ref{fig:example_images_segmentation} (a) to (c) are three test images which are taken from the Github repository online found at \cite{FastMS} and they belong to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}.\\
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.245\textwidth}
@@ -3436,157 +3415,159 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
                 \caption[Example images for segmentation.]{Example images for image segmentation using the Mumford-Shah model. The sizes of the images are (a) $350 \times 263$, (b) $350 \times 291$, (c) $640 \times 480$ and (d) $400 \times 535$.}
             \label{fig:example_images_segmentation}
             \end{figure}
-            The Mumford-Shah functional is well suited for image segmentation. Fortunately, both approaches to the Mumford-Shah functional, namely the real-time minimizer and the convex relaxation method together with the Lagrange multiplier formalism, can be used for image segmentation. The key idea is to approximate an input image $g$ piecewise-constant, but also favor strong edges. In the real-time framework this can be derived with a high value for $\lambda$ and a high value for $\nu$, whereas in the Lagrange multiplier approach to the convex relaxed Mumford-Shah model a small $\lambda$ and a small $\nu$ accomplish image segmentation. So, we need to find pairs $(\lambda, \nu)$ which result in segmented approximations.
+            
+            The image seen in (d) is a special medical image provided by Steven Keating (online at \cite{Keating}). Steven Keating is a PhD student at MIT who was diagnosed with cancer in 2014. He had a brain tumor as large as a baseball. In order to find the best treatment for him and to provide useful data for science, he made all his medical data freely available. A lot of researchers used this data in order to help him to fight and defeat cancer. One part of his data are medical images of his brain tumor. We used one of these images in order to show that image segmentation is a useful application in medicine.\\
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02blue.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03blue.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04blue.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05blue.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06blue.png}
-                    \caption{$\nu = 0.6$.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/rt/06blue.png}
+                %     \caption{$\nu = 0.6$.}
+                % \end{subfigure}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02squirrel.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03squirrel.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04squirrel.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05squirrel.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06squirrel.png}
-                    \caption{$\nu = 0.6$.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/rt/06squirrel.png}
+                %     \caption{$\nu = 0.6$.}
+                % \end{subfigure}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/02peacock-feather.png}
                     \caption{$\nu = 0.2$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/03peacock-feather.png}
                     \caption{$\nu = 0.3$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/04peacock-feather.png}
                     \caption{$\nu = 0.4$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/05peacock-feather.png}
                     \caption{$\nu = 0.5$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/rt/06peacock-feather.png}
-                    \caption{$\nu = 0.6$.}
-                \end{subfigure}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/rt/06peacock-feather.png}
+                %     \caption{$\nu = 0.6$.}
+                % \end{subfigure}
                 \caption[Evolution process for image segmentation with real-time Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the real-time approach and $\lambda = 500$.}
             \label{fig:segmentation_evolution_test_images_rt}
             \end{figure}
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/002blue.png}
                     \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/003blue.png}
                     \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/004blue.png}
                     \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/005blue.png}
                     \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/cr/006blue.png}
-                    \caption{$\nu = 0.06$.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/cr/006blue.png}
+                %     \caption{$\nu = 0.06$.}
+                % \end{subfigure}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/002squirrel.png}
                     \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/003squirrel.png}
                     \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/004squirrel.png}
                     \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/005squirrel.png}
                     \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/cr/006squirrel.png}
-                    \caption{$\nu = 0.06$.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/cr/006squirrel.png}
+                %     \caption{$\nu = 0.06$.}
+                % \end{subfigure}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/002peacock-feather.png}
                     \caption{$\nu = 0.02$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/003peacock-feather.png}
                     \caption{$\nu = 0.03$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/004peacock-feather.png}
                     \caption{$\nu = 0.04$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/005peacock-feather.png}
                     \caption{$\nu = 0.05$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.16\textwidth}
-                    \includegraphics[width=\textwidth]{img/segmentation/cr/006peacock-feather.png}
-                    \caption{$\nu = 0.06$.}
-                \end{subfigure}
+                % \begin{subfigure}[b]{0.24\textwidth}
+                %     \includegraphics[width=\textwidth]{img/segmentation/cr/006peacock-feather.png}
+                %     \caption{$\nu = 0.06$.}
+                % \end{subfigure}
                 \caption[Evolution process for image segmentation with Lagrange Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the Lagrange framework and $\lambda = 0.02$.}
             \label{fig:segmentation_evolution_test_images_cr}
             \end{figure}
-            From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_cr} we see some evaluations for both approaches to the Mumford-Shah functional, where we set $S = 16$ in the convex relaxed Mumford-Shah model. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $\nu = 0.04$ for the Lagrange framework. If we apply both frameworks with the suggested parameters to the medical image of Steven Keating we observe the segmented images in Figure \ref{fig:segmentation_evolution_keating}. For this particular image we can set $S = 32$ in the Lagrange framework to derive the possible best segmentation. We see a clear partitioning of the regions and the tumor - the big white part in the upper right - has sharp edges and is clearly separated from the other regions.\\\\
+
+            Fortunately, both approaches to the Mumford-Shah functional, namely the real-time minimizer and the convex relaxation method together with the Lagrange multiplier formalism, can be used for image segmentation. The key idea is to approximate an input image $g$ piecewise-constant, but also favor strong edges. In the real-time framework this can be derived with a high value for $\lambda$ and a high value for $\nu$, whereas in the Lagrange multiplier approach to the convex relaxed Mumford-Shah model a small $\lambda$ and a small $\nu$ accomplish image segmentation. So, we need to find pairs $(\lambda, \nu)$ which result in segmented approximations. From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_cr} we see some evaluations for both approaches to the Mumford-Shah functional, where we set $S = 16$ in the convex relaxed Mumford-Shah model. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $\nu = 0.04$ for the Lagrange framework. If we apply both frameworks with the suggested parameters to the medical image of Steven Keating we observe the segmented images in Figure \ref{fig:segmentation_evolution_keating}. For this particular image we can set $S = 32$ in the Lagrange framework to derive the possible best segmentation. We see a clear partitioning of the regions and the tumor - the big white part in the upper right - has sharp edges and is clearly separated from the other regions.\newpage
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.37\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/images/keating.jpg}
-                    \caption{Original image.}
+                    \caption{Original image.\newline\newline}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.37\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/keating.jpg}
-                    \caption{Lagrange framework.}
+                    \caption{Lagrange framework.\newline}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.37\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating.jpg}
                     \caption{Real-Time framework without edge highlighting.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.37\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating_eh.png}
                     \caption{Real-Time framework with edge highlighting.}
                 \end{subfigure}
-                \caption[Image segmentation for a brain tumor image.]{Segmentation of the brain tumor image of Steven Keating. In (a) we see the original image. (b) shows the Lagrange approach with $\lambda 0.02$ and $\nu = 0.04$. (c) and (d) are segmentations using the real-time framework with and without edge highlighting. Here, we set $\lambda = 500$ and $\nu = 0.4$.}
+                \caption[Image segmentation for a brain tumor image.]{In (a) we see the original image. (b) shows the Lagrange approach with $\lambda = 0.02$ and $\nu = 0.04$. (c) and (d) are segmentations using the real-time framework with and without edge highlighting. Here, we set $\lambda = 500$ and $\nu = 0.4$.}
             \label{fig:segmentation_evolution_keating}
             \end{figure}
         % subsection image_segmentation (end)

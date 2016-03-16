@@ -636,9 +636,6 @@ INPUT ./img/segmentation/rt/04blue.png
 INPUT img/segmentation/rt/05blue.png
 INPUT ./img/segmentation/rt/05blue.png
 INPUT ./img/segmentation/rt/05blue.png
-INPUT img/segmentation/rt/06blue.png
-INPUT ./img/segmentation/rt/06blue.png
-INPUT ./img/segmentation/rt/06blue.png
 INPUT img/segmentation/rt/02squirrel.png
 INPUT ./img/segmentation/rt/02squirrel.png
 INPUT ./img/segmentation/rt/02squirrel.png
@@ -651,9 +648,6 @@ INPUT ./img/segmentation/rt/04squirrel.png
 INPUT img/segmentation/rt/05squirrel.png
 INPUT ./img/segmentation/rt/05squirrel.png
 INPUT ./img/segmentation/rt/05squirrel.png
-INPUT img/segmentation/rt/06squirrel.png
-INPUT ./img/segmentation/rt/06squirrel.png
-INPUT ./img/segmentation/rt/06squirrel.png
 INPUT img/segmentation/rt/02peacock-feather.png
 INPUT ./img/segmentation/rt/02peacock-feather.png
 INPUT ./img/segmentation/rt/02peacock-feather.png
@@ -666,9 +660,6 @@ INPUT ./img/segmentation/rt/04peacock-feather.png
 INPUT img/segmentation/rt/05peacock-feather.png
 INPUT ./img/segmentation/rt/05peacock-feather.png
 INPUT ./img/segmentation/rt/05peacock-feather.png
-INPUT img/segmentation/rt/06peacock-feather.png
-INPUT ./img/segmentation/rt/06peacock-feather.png
-INPUT ./img/segmentation/rt/06peacock-feather.png
 INPUT img/segmentation/cr/002blue.png
 INPUT ./img/segmentation/cr/002blue.png
 INPUT ./img/segmentation/cr/002blue.png
@@ -681,9 +672,6 @@ INPUT ./img/segmentation/cr/004blue.png
 INPUT img/segmentation/cr/005blue.png
 INPUT ./img/segmentation/cr/005blue.png
 INPUT ./img/segmentation/cr/005blue.png
-INPUT img/segmentation/cr/006blue.png
-INPUT ./img/segmentation/cr/006blue.png
-INPUT ./img/segmentation/cr/006blue.png
 INPUT img/segmentation/cr/002squirrel.png
 INPUT ./img/segmentation/cr/002squirrel.png
 INPUT ./img/segmentation/cr/002squirrel.png
@@ -696,9 +684,6 @@ INPUT ./img/segmentation/cr/004squirrel.png
 INPUT img/segmentation/cr/005squirrel.png
 INPUT ./img/segmentation/cr/005squirrel.png
 INPUT ./img/segmentation/cr/005squirrel.png
-INPUT img/segmentation/cr/006squirrel.png
-INPUT ./img/segmentation/cr/006squirrel.png
-INPUT ./img/segmentation/cr/006squirrel.png
 INPUT img/segmentation/cr/002peacock-feather.png
 INPUT ./img/segmentation/cr/002peacock-feather.png
 INPUT ./img/segmentation/cr/002peacock-feather.png
@@ -711,9 +696,6 @@ INPUT ./img/segmentation/cr/004peacock-feather.png
 INPUT img/segmentation/cr/005peacock-feather.png
 INPUT ./img/segmentation/cr/005peacock-feather.png
 INPUT ./img/segmentation/cr/005peacock-feather.png
-INPUT img/segmentation/cr/006peacock-feather.png
-INPUT ./img/segmentation/cr/006peacock-feather.png
-INPUT ./img/segmentation/cr/006peacock-feather.png
 INPUT img/images/keating.jpg
 INPUT ./img/images/keating.jpg
 INPUT img/segmentation/cr/keating.jpg
