@@ -3006,24 +3006,24 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
         The goal in image denoising is to remove noise from an input image $g$ and get a smooth approximation $u$. We find different kinds of noise on images. The two most common are Gaussian and salt and pepper noise. Where Gaussian noise is relatively easy to remove, salt and pepper noise is more robust, since it resembles extrem values, white and black, on images. The ROF model and real-time minimizer for the Mumford-Shah model can handle Gaussian noise quite well, but are not able to remove salt and pepper noise accurately. However, the TVL1 model is able to manage both. We evaluate parameters $\lambda$, $\nu$ and $\tau$ for all models concerning the image denoising process. In this evaluation we follow the same procedure as in the previous sections. In this section we provide the best choices for the parameters. All estimations can be found online at \cite{Bauer}.
         \subsection{Gaussian Noise} % (fold)
         \label{sub:gaussian_noise}
-            Whereas the real-time model for the Mumford-Shah functional does not need an estimation for $\tau$, because this value is fixed, it is left to provide a suitable $\tau$ for the ROF model. In our tests we find that $\tau = 0.99$ with $359$ and $\tau = 0.97$ with $366$ iterations are the two best estimates for removing Gaussian noise. In addition, Figure \ref{fig:denoising_lena_gauss} shows all three models removing Gaussian noise accurately.\\
+            In the case of the ROF model we find another parameter as in Subsection \ref{sub:estimation_of_lambda_rof}. Setting $\lambda = 0.03$ yields good results and we observe a $PSNR(u, g)$ of $29$, where $u$ is the approximation and $g$ corresponds to the original Lena image. For the real-time Mumford-Shah framework we find a lot of possible pairs $(\lambda, \nu)$. For this reason, we choose the pair which results in the visibly best results. So, we suggest to set $\lambda = 20$ and $\nu = 0.06$. At last we adapt the value $\lambda = 0.7$ for the TVL1 model from Subsection \ref{sub:estimation_of_lambda_tvl1}. We find that this value is a good fit to remove Gaussian noise with the TVL1 model. The approximations produced by the suggested values for $\lambda$ can be seen in Figure \ref{fig:denoising_lena_gauss}. All three models remove Gaussian noise quite accurate. Whereas the real-time model for the Mumford-Shah functional does not need an estimation for $\tau$, because this value is fixed, we further provide a suitable $\tau$ for the ROF and TVL1 model, respectively. In our tests we find that $\tau = 0.99$ with $359$ is the best estimate for removing Gaussian noise with the ROF model. Additionally, we find in Table \ref{tab:estimation_of_tau_denoising} some estimates for $\tau$ for the TVL1 model. If we set $\tau = 0.97$ we have a fast convergence for both: Removing Gaussian and salt and pepper noise. Because of this, we suggest this $\tau$ as our best fit for this model.
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.244\textwidth}
                     \includegraphics[width=\textwidth]{img/images/lena_gauss_noise.png}
-                    \caption{Noisy image}
+                    \caption{Noisy image.\newline}
                 \end{subfigure}
                 \begin{subfigure}[b]{0.244\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/gauss_noise/003lena.png}
-                    \caption{ROF: $\lambda = 0.03$}
+                    \caption{ROF: $\lambda = 0.03$.\newline}
                 \end{subfigure}
                 \begin{subfigure}[b]{0.244\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/gauss_noise/07lena.png}
-                    \caption{TVL1: $\lambda = 0.7$}
+                    \caption{TVL1: $\lambda = 0.7$.\newline}
                 \end{subfigure}
                 \begin{subfigure}[b]{0.244\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/gauss_noise/2006.png}
-                    \caption{MS: $\lambda = 20, \nu = 0.6$}
+                    \caption{MS: $\lambda = 20$\newline$\nu = 0.06$.}
                 \end{subfigure}
                 \caption[Removing Gaussian noise using the ROF, TVL1 and real-time Mumford-Shah framework.]{Removing Gaussian noise from the Lena image with the ROF, TVL1 and real-time Mumford-Shah framework.}
             \label{fig:denoising_lena_gauss}
@@ -3031,38 +3031,6 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
         % subsection gaussian_noise (end)
         \subsection{Salt and Pepper Noise} % (fold)
         \label{sub:salt_and_pepper_noise}
-            One thing we try to evaluate: finding a parameter $\lambda$ for the ROF model, so that it can remove salt and pepper noise. In fact, we find a value, namely $0.01$, see also Figure \ref{fig:denoising_lena_rof_sap}. Even though, the result is not best suited, the ROF model is able to remove this kind of noise in some sense. If we seek for a $\tau$ in the case of denoising images degraded with salt and pepper noise, we find $\tau = 0.99$ with $724$ iterations as the best fit. So, we suggest setting $\tau = 0.99$ for the ROF model. Furthermore, we are not able to find a pair $(\lambda, \nu)$ for the real-time minimizer of the Mumford-Shah model, which is able to remove salt and pepper noise. However, the TVL1 model handles both: Gaussian and salt and pepper noise. Figure \ref{fig:denoising_lena_tvl1_sap} shows the denoising of salt and pepper noise with $\lambda = 0.7$. If we test for a parameter $\tau$ to obtain fast convergence we find that $\tau = 0.97$ is the best choice, see also Table \ref{tab:estimation_of_tau_denoising}. Here, we see that this value for $\tau$ occurs under the four best estimates.\\\\
-            \begin{figure}[!ht]
-                \centering
-                \begin{subfigure}[b]{0.31\textwidth}
-                    \includegraphics[width=\textwidth]{img/images/lena.png}
-                    \caption{Original Image.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.31\textwidth}
-                    \includegraphics[width=\textwidth]{img/images/lena_sp_noise.png}
-                    \caption{25\% Noise.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.31\textwidth}
-                    \includegraphics[width=\textwidth]{img/denoising/salt_and_pepper_noise/07lena.png}
-                    \caption{$\lambda = 0.7$}
-                \end{subfigure}
-                \caption[Salt and pepper denoising example: TVL1.]{Salt and pepper denoising of the Lena image with the TVL1 Model.}
-            \label{fig:denoising_lena_tvl1_sap}
-            \end{figure}
-            \begin{table}[!ht]
-                \centering
-                \begin{tabular}{| l | l | l | l | l | l | l | l |}
-                    \hline
-                    \multicolumn{4}{|c|}{Gaussian Noise} & \multicolumn{4}{|c|}{Salt \& Pepper Noise} \\ \hline\hline
-                    $\tau$ & Iter & CPU time & GPU time & $\tau$ & Iter & CPU time & GPU time \\ \hline
-                    0.97 & 435 & 15.00 s & 0.176 s & 0.98 & 337 & 3.96 s & 0.054 s \\ \hline
-                    0.96 & 436 & 14.90 s & 0.177 s & 0.97 & 339 & 3.99 s & 0.054 s \\ \hline
-                    0.95 & 437 & 14.98 s & 0.177 s & 0.96 & 341 & 4.00 s & 0.054 s \\ \hline
-                    0.94 & 438 & 15.05 s & 0.178 s & 0.95 & 344 & 4.05 s & 0.054 s \\ \hline
-                \end{tabular}
-                \caption[Best estimate of $\tau$ for the TVL1 model for denoising.]{Setting $\tau = 0.97$ leads to fast convergences in both cases.}
-                \label{tab:estimation_of_tau_denoising}
-            \end{table}
             \begin{figure}[!ht]
                 \centering
                 \begin{subfigure}[b]{0.24\textwidth}
@@ -3083,6 +3051,38 @@ void edging(T* u, T lambda, T nu, int M, int N, int B) {
                 \end{subfigure}
                 \caption[Salt and pepper denoising example: ROF.]{Salt and pepper denoising of the Lena image with the ROF Model.}
             \label{fig:denoising_lena_rof_sap}
+            \end{figure}
+            \begin{table}[!ht]
+                \centering
+                \begin{tabular}{| l | l | l | l | l | l | l | l |}
+                    \hline
+                    \multicolumn{4}{|c|}{Gaussian Noise} & \multicolumn{4}{|c|}{Salt \& Pepper Noise} \\ \hline\hline
+                    $\tau$ & Iter & CPU time & GPU time & $\tau$ & Iter & CPU time & GPU time \\ \hline
+                    0.97 & 435 & 15.00 s & 0.176 s & 0.98 & 337 & 3.96 s & 0.054 s \\ \hline
+                    0.96 & 436 & 14.90 s & 0.177 s & 0.97 & 339 & 3.99 s & 0.054 s \\ \hline
+                    0.95 & 437 & 14.98 s & 0.177 s & 0.96 & 341 & 4.00 s & 0.054 s \\ \hline
+                    0.94 & 438 & 15.05 s & 0.178 s & 0.95 & 344 & 4.05 s & 0.054 s \\ \hline
+                \end{tabular}
+                \caption[Best estimate of $\tau$ for the TVL1 model for denoising.]{Setting $\tau = 0.97$ leads to fast convergence in both cases using the TVL1 model.}
+                \label{tab:estimation_of_tau_denoising}
+            \end{table}
+            One thing we try to evaluate: finding a parameter $\lambda$ for the ROF model, so that it can remove salt and pepper noise. In fact, we find a value, namely $0.01$, see also Figure \ref{fig:denoising_lena_rof_sap}. Even though, the result is not best suited, the ROF model is able to remove this kind of noise in some sense. If we seek for a $\tau$ in the case of denoising images degraded with salt and pepper noise, we find $\tau = 0.99$ with $724$ iterations as the best fit. So, we suggest setting $\tau = 0.99$ for the ROF model. Furthermore, we are not able to find a pair $(\lambda, \nu)$ for the real-time minimizer of the Mumford-Shah model, which is able to remove salt and pepper noise. However, the TVL1 model handles both: Gaussian and salt and pepper noise. Figure \ref{fig:denoising_lena_tvl1_sap} shows the denoising of salt and pepper noise with $\lambda = 0.7$. If we test for a parameter $\tau$ to obtain fast convergence we find that $\tau = 0.97$ is the best choice, see also Table \ref{tab:estimation_of_tau_denoising}. Here, we see that this value for $\tau$ occurs under the four best estimates.
+            \begin{figure}[!ht]
+                \centering
+                \begin{subfigure}[b]{0.31\textwidth}
+                    \includegraphics[width=\textwidth]{img/images/lena.png}
+                    \caption{Original Image.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.31\textwidth}
+                    \includegraphics[width=\textwidth]{img/images/lena_sp_noise.png}
+                    \caption{25\% Noise.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.31\textwidth}
+                    \includegraphics[width=\textwidth]{img/denoising/salt_and_pepper_noise/07lena.png}
+                    \caption{$\lambda = 0.7$}
+                \end{subfigure}
+                \caption[Salt and pepper denoising example: TVL1.]{Salt and pepper denoising of the Lena image with the TVL1 Model.}
+            \label{fig:denoising_lena_tvl1_sap}
             \end{figure}
         % subsection salt_and_pepper_noise (end)
 
