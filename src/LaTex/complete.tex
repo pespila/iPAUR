@@ -3351,75 +3351,59 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
 
         \subsection{Denoising Comparison} % (fold)
         \label{sub:denoising_comparison}
-
             We present the comparison of the ROF, TVL1, real-time minimizer approach and convex relaxed Mumford-Shah model for denoising images. We show that the most robust model is indeed the Mumford-Shah functional. For this comparison we make use of the Lagrange Multiplier approach to the convex relaxed Mumford-Shah model and therefore set $S = 32$ to observe best suited approximations.
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/images/synth_gauss_noise.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rof.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_tvl1.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_ms.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/denoising/comparison/gauss_noise_rt.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
                 \caption[Removing Gaussian noise: comparison of several models.]{These pictures give an overview of denoised images using different models.}
             \label{fig:synth_gauss_compare}
             \end{figure}
-            % \begin{table}[!ht]
-            %     \parbox{.9\linewidth}{
-            %     \centering
-            %         \begin{tabular}{| l | l | l | l | l | l |}
-            %             \hline
-            %             Model & $tau$ & $\lambda$ & $\nu$ & Iterations & Run-Time \\ \hline\hline
-            %             ROF & 0.63 & 0.03 & na & 530 & 1.02 s \\ \hline
-            %             TVL1 & 0.98 & 0.7 & na & 180 & 0.36 s \\ \hline
-            %             Realtime MS & 0.25 & 2 & 0.5 & 60 & 1.31 s \\ \hline
-            %             Lagrange MS & na & 0.1 & 0.01 & 2054 & 94 s \\ \hline
-            %         \end{tabular}
-            %     }
-            %     \caption[Removing Gaussian noise using the ROF, TVL1 and Mumford-Shah functional.]{Even though, the convex relaxed Mumford-Shah model provides the best approximation, the other methods outperform the algorithm.}
-            %     \label{tab:compare_denoising_case}
-            % \end{table}
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/synth_zoomed.png}
                     \caption{$g$ noise free.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_tvl1_zoomed.png}
                     \caption{TVL1}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rof_zoomed.png}
                     \caption{ROF}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_original_zoomed.png}
                     \caption{Noisy image $g$.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_ms_zoomed.png}
                     \caption{Lagrange MS}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.29\textwidth}
+                \begin{subfigure}[b]{0.24\textwidth}
                     \includegraphics[width=\textwidth]{img/zoomed/gauss_noise_rt_zoomed.png}
                     \caption{Real-Time MS}
                 \end{subfigure}
@@ -3427,11 +3411,9 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             \label{fig:synth_gauss_compare_zoomed}
             \end{figure}
             The real-time approach to the Mumford-Shah model handles this image quite well. But still, the results of this framework are not comparable to those of the convex relaxed formulation. The difference of the minimization of the Mumford-Shah functional to the minimization of the ROF and TVL1 functional is indeed that it is much more edge preserving. The edges are sharper and do not vanish. If we zoom into the images, see Figure \ref{fig:synth_gauss_compare_zoomed}, there is a clear partitioning of the regions. In the last subsection we want to show that the approaches for minimizing the Mumford-Shah functional, namely the real-time and convex relaxation combined with Lagrange multipliers approach, are also good for image segmentation. We show that both methods yield good segmentations of a given input image.
-            % We compare the real-time framework and the convex relaxed model using Lagrange multiplier method against each other. Overall, we conclude that the choice of the model depends on the underlying problem. If one looks for fast, possibly real-time, solutions then the convex relaxed Mumford-Shah model is not the best choice. On the other hand, if structures and contours are of importance for a given statement of the problem and run-time is not an issue, then the only choice can be the Mumford-Shah model.
         % subsection denoising_comparison (end)
         \subsection{Image Segmentation} % (fold)
         \label{sub:image_segmentation}
-
             The last thing we want to show in this thesis is image segmentation. Since we use other images as in the above sections let us briefly introduce these images and give some references. Figure \ref{fig:example_images_segmentation} (a) to (c) are three test images which are taken from the Github repository online found at \cite{FastMS} and they belong to the publication of Strekalovskiy and Cremers in \cite{Strekalovskiy-Cremers-eccv14}. The image seen in (d) is a special medical image provided by Steven Keating (online at \cite{Keating}). Steven Keating is a PhD student at MIT who was diagnosed with cancer in 2014. He had a brain tumor as large as a baseball. In order to find the best treatment for him and to provide useful data for science he made all his medical data freely available. A lot of researchers used this data in order to help him to fight and defeat cancer. One part of his data are medical images of his brain tumor. We used one of these images in order to show that image segmentation is a useful application in medicine.
             \begin{figure}[!ht]
                 \centering
@@ -3585,18 +3567,26 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
                 \caption[Evolution process for image segmentation with Lagrange Mumford-Shah.]{Evolution process for some estimates of $\nu$ with the Lagrange framework and $\lambda = 0.02$.}
             \label{fig:segmentation_evolution_test_images_cr}
             \end{figure}
-            From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_cr} we see some evaluations for both approaches to the Mumford-Shah functional, where we set $S = 16$ in the convex relaxed Mumford-Shah model. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $0.04$ for the Lagrange framework. If we apply both frameworks with the suggested parameters to the medical image of Steven Keating we observe the segmented images in Figure \ref{fig:segmentation_evolution_keating}. We see a clear partitioning of the regions and the tumor - the big white part in the upper right - has sharp edges and is clearly separated from the other regions.\\\\
+            From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_cr} we see some evaluations for both approaches to the Mumford-Shah functional, where we set $S = 16$ in the convex relaxed Mumford-Shah model. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $\nu = 0.04$ for the Lagrange framework. If we apply both frameworks with the suggested parameters to the medical image of Steven Keating we observe the segmented images in Figure \ref{fig:segmentation_evolution_keating}. For this particular image we can set $S = 32$ in the Lagrange framework to derive the possible best segmentation. We see a clear partitioning of the regions and the tumor - the big white part in the upper right - has sharp edges and is clearly separated from the other regions.\\\\
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.3\textwidth}
+                \begin{subfigure}[b]{0.37\textwidth}
                     \includegraphics[width=\textwidth]{img/images/keating.jpg}
-                    \caption{Blue image.}
+                    \caption{Original image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.3\textwidth}
+                \begin{subfigure}[b]{0.37\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/cr/keating.jpg}
+                    \caption{Lagrange framework.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.37\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating.jpg}
-                    \caption{Blue image.}
+                    \caption{Real-Time framework without edge highlighting.}
                 \end{subfigure}
-                \caption[Image segmentation for a brain tumor image.]{Segmentation of the brain tumor image of Steven Keating.}
+                \begin{subfigure}[b]{0.37\textwidth}
+                    \includegraphics[width=\textwidth]{img/segmentation/rt/keating_eh.png}
+                    \caption{Real-Time framework with edge highlighting.}
+                \end{subfigure}
+                \caption[Image segmentation for a brain tumor image.]{Segmentation of the brain tumor image of Steven Keating. In (a) we see the original image. (b) shows the Lagrange approach with $\lambda 0.02$ and $\nu = 0.04$. (c) and (d) are segmentations using the real-time framework with and without edge highlighting. Here, we set $\lambda = 500$ and $\nu = 0.4$.}
             \label{fig:segmentation_evolution_keating}
             \end{figure}
         % subsection image_segmentation (end)
