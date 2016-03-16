@@ -94,7 +94,7 @@
                 im Studiengang Computational Science\\
                 \vspace{0.5cm}
                 Eingereicht bei Prof. Dr. Harald Garcke\\
-                am 18.03.2016\\
+                am 17.03.2016\\
             }
         \end{large}
         \vspace{1.0cm}
@@ -3551,19 +3551,19 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
             Fortunately, both approaches to the Mumford-Shah functional, namely the real-time minimizer and the convex relaxation method together with the Lagrange multiplier formalism, can be used for image segmentation. The key idea is to approximate an input image $g$ piecewise-constant, but also favor strong edges. In the real-time framework this can be derived with a high value for $\lambda$ and a high value for $\nu$, whereas in the Lagrange multiplier approach to the convex relaxed Mumford-Shah model a small $\lambda$ and a small $\nu$ accomplish image segmentation. So, we need to find pairs $(\lambda, \nu)$ which result in segmented approximations. From the previous sections we already know that we set $\lambda = 500$ for piecewise-constant approximations in the case of the real-time minimizer. In order to establish a piecewise-constant approximation for the Lagrange framework it turns out that we can set $\lambda = 0.02$. Then, it is only left to find suitable settings for $\nu$ to derive a unsupervised segmentation. Comparing the PSNR values would not make a lot of sense in this case, because our approximations will not be close to the input image in any way. They idea is to test a couple of $\nu$ and compare their outcomes by looking at the approximated images. In Figures \ref{fig:segmentation_evolution_test_images_rt} and \ref{fig:segmentation_evolution_test_images_cr} we see some evaluations for both approaches to the Mumford-Shah functional, where we set $S = 16$ in the convex relaxed Mumford-Shah model. With these images we suggest to set $\nu = 0.4$ for the real-time framework and $\nu = 0.04$ for the Lagrange framework. If we apply both frameworks with the suggested parameters to the medical image of Steven Keating we observe the segmented images in Figure \ref{fig:segmentation_evolution_keating}. For this particular image we can set $S = 32$ in the Lagrange framework to derive the possible best segmentation. We see a clear partitioning of the regions and the tumor - the big white part in the upper right - has sharp edges and is clearly separated from the other regions.\newpage
             \begin{figure}[!ht]
                 \centering
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.33\textwidth}
                     \includegraphics[width=\textwidth]{img/images/keating.jpg}
-                    \caption{Original image.\newline\newline}
+                    \caption{Original image.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.33\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/cr/keating.jpg}
-                    \caption{Lagrange framework.\newline}
+                    \caption{Lagrange framework.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.33\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating.jpg}
                     \caption{Real-Time framework without edge highlighting.}
                 \end{subfigure}
-                \begin{subfigure}[b]{0.24\textwidth}
+                \begin{subfigure}[b]{0.33\textwidth}
                     \includegraphics[width=\textwidth]{img/segmentation/rt/keating_eh.png}
                     \caption{Real-Time framework with edge highlighting.}
                 \end{subfigure}
@@ -3573,15 +3573,15 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
         % subsection image_segmentation (end)
     % section comparison_of_dykstra_and_lagrange_multiplier (end)
 
-    In this chapter we presented a variety of possible applications to imaging with our proposed models. With the three models we are able to remove two kinds of noise, namely Gaussian and salt and pepper noise, and cartoon images. Further, we can do unsupervised image segmentation and image inpainting.
+    In this chapter we presented a variety of possible applications to imaging with our proposed models. With the three models we are able to remove two kinds of noise, namely Gaussian and salt and pepper noise. We can turn an input image into a cartooned approximations. Further, we showed that image inpainting is an application to imaging as well as unsupervised image segmentation.
 % chapter applications_to_imaging (end)
 
 \chapter{Conclusion} % (fold)
 \label{cha:conclusion}
     We presented three different models in image processing. These models have a high applicability in image processing and can handle a broad variety of problems. We saw that the ROF model is able to remove Gaussian noise and when slightly modified is able to inpaint lost data. Even though this model is not really edge preserving, it yields reasonable results. The other convex model we considered was the TVL1 model. It also has an advantage in its simple structure and removes Gaussian and salt and pepper noise. These two models are highly applicable in image processing and produce impressive results.\\
-    On the other hand, we computed minimizers for the non-convex Mumford-Shah functional. We proposed a framework which is able to minimize the energy of this functional in real-time. It additionally provides a discrete set with which we are able to highlight edges in the approximations. The framework itself is also efficient in removing Gaussian noise and useful for unsupervised image segmentation. Unfortunately, we have no proof that this method yields the minimal value of the Mumford-Shah functional. Despite this fact, the method is a great approach to this non-convex problem.\\
-    The approach, applying convex relaxation techniques, leads possibly to the best approximations of an input image. But talking about applicability this framework is not only far away from real-time it has a tremendous lack of performance, even on a GPU. To find a minimzer of the convex relaxed Mumford-Shah functional the suggested method in the original work of Pock, Cremers, Bischof and Chambolle to use Dykstra's projection algorithm in each loop of the primal-dual algorithm, turns out to have a run-time of a few minutes for very small images. For this, we reformulated the original problem and used Lagrange multipliers to derive a new formulation. With a run-time increase of at least a factor 450, the convex relaxed Mumford-Shah functional can be minimized in a reasonable time.\\
-    Overall, we conclude that it depends on the underlying problem one considers. In the case of autonomously driving cars the convex relaxed Mumford-Shah functional has no application since it can not be minimized in real-time. So, for the car industry the better choices would be the ROF or TVL1 model together with the real-time framework of the Mumford-Shah functional. But, in other fields where image processing is used, for instance in medicine or scientific research, all proposed models can be used and bring a various amount of applications. Especially, in medicine the convex relaxed Mumford-Shah functional is able to preserve contours, edges and for that does not erase necessary data.
+    On the other hand, we computed minimizers for the non-convex Mumford-Shah functional. We proposed a framework which is able to minimize the energy of this functional in real-time. It additionally provides a discrete set with which we are able to highlight edges in the approximations. The framework itself is efficient in removing Gaussian noise and useful for unsupervised image segmentation. Unfortunately, we have no proof that this method yields the minimal value of the Mumford-Shah functional. Despite this fact, the method is a great approach to this non-convex problem.\\
+    The approach, applying convex relaxation techniques, leads possibly to the best approximations of an input image. But talking about applicability this framework is not only far away from real-time, it also has a tremendous lack of performance, even on a GPU. In order to find a minimzer of the convex relaxed Mumford-Shah functional the suggested method in the original work of Pock, Cremers, Bischof and Chambolle, using Dykstra's projection algorithm in each loop of the primal-dual algorithm, turns out to have a run-time of several minutes for very small images. For this, we reformulated the original problem and used Lagrange multipliers to derive a new formulation. With a performance increase of at least a factor 450, the convex relaxed Mumford-Shah functional can be minimized in a reasonable time.\\
+    Overall, we conclude that it depends on the underlying problem one considers. In the case of autonomously driving cars the convex relaxed Mumford-Shah functional has no application, because it can not be minimized in real-time. So, for the car industry the better choices would be the ROF or TVL1 model together with the real-time framework of the Mumford-Shah functional. But, in other fields where image processing is used, for instance in medicine or scientific research, all proposed models can be used and bring a various amount of applications. Especially, in medicine the convex relaxed Mumford-Shah functional is able to preserve contours and edges and for this does not erase necessary data.
 % chapter conclusion (end)
 
 \bibliographystyle{plain}
@@ -3594,7 +3594,7 @@ void primal_desc(T* p_x, T* p_y, T* u, T* g, T tau, T lambda, int M, int N, int 
     \begin{center}
         \begin{tabular}{lp{8em}l} 
             \hspace{5cm}   && \hspace{5cm} \\\cline{1-1}\cline{3-3} 
-            Ergoldsbach, 18. M\"arz 2016     && Unterschrift 
+            Ergoldsbach, 17. M\"arz 2016     && Unterschrift 
         \end{tabular}
     \end{center}
 
